@@ -43,5 +43,15 @@ The *Arabidopsis thaliana* Col-0 treated with flg22, SynCom33, and SynCom35.
 
 > analysis path `/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22`
 
+## 2. Tasks ##
 
+### 2.1 Alignment ###
+
+* Align reads to 
+
+### 2.2 Quantification ###
+
+* Quantification transcripts.
+
+* Differentially expressed genes.
 

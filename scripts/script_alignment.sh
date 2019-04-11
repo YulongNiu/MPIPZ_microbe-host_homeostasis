@@ -34,15 +34,10 @@ for i in ${fqnames[@]}; do
                     ${CLEAN_PATH}/${i}.fq.gz
 
     ${MOVE_PATH} ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/pseudoalignments.bam \
-                 ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/${i}_pseudoalignments.bam
+                 ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/${i}_${SPECIES}_pseudoalignments.bam
 
-    ${SAMTOOL_PATH}/samtools sort \
-                   -@ ${CORENUM} \
-                   -o ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/${i}_pseudoalignments.bam \
-                   ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/${i}_pseudoalignments.bam
-
-    ${SAMTOOL_PATH}/samtools index \
-                   ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/${i}_pseudoalignments.bam
+    ${MOVE_PATH} ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/pseudoalignments.bam.bai \
+                 ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/${i}_${SPECIES}_pseudoalignments.bam.bai
 
     echo "HISAT2 using ${SPECIES} cDNA for ${i}."
     ${HISAT2_PATH}/hisat2 -p ${CORENUM} \
