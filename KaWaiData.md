@@ -47,11 +47,23 @@ The *Arabidopsis thaliana* Col-0 treated with flg22, SynCom33, and SynCom35.
 
 ### 2.1 Alignment ###
 
-* Align reads to 
+* Align reads to *Arabidopsis thaliana* Col-0 genomes (HISAT2) and cDNAs (Kallisto)
 
 ### 2.2 Quantification ###
 
 * Quantification transcripts.
 
 * Differentially expressed genes.
+
+## 3. Progress ##
+
+### 3.1 Pre-processing ###
+
+* Trim by [fastp](https://github.com/OpenGene/fastp) with stringent parameters that remove the 8-mer in the head and 2-mer in the tail of each read.
+
+### 3.2 Alignment ###
+
+* Use Kallisto and HISAT2 to align reads.
+
+## 4. Results ##
 

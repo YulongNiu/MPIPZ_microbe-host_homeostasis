@@ -1,0 +1,29 @@
+yniu@dell-node-1:/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data$ ls -lh
+total 18G
+-rwxrwx--- 1 yniu grp_rgo 1.5G Apr 11 14:48 4096_A_TCAGACGA_R1.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.5G Apr 11 14:48 4096_B_GGCTTGTA_R1.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.6G Apr 11 14:48 4096_C_GAGTCTCC_R1.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.5G Apr 11 14:48 4096_D_CTAGACCT_R1.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.2G Apr 11 14:47 4096_E_CGCAGTAC_R1.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.6G Apr 11 14:48 4096_F_CATGGACC_R1.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.5G Apr 11 14:48 4096_G_ATTCGTCG_R1.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.5G Apr 11 14:48 4096_H_AGGACTGT_R1.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.6G Apr 11 14:48 4096_I_ACTCAAGT_R1.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.6G Apr 11 14:48 4096_J_TTGCCATA_R1.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.7G Apr 11 14:48 4096_K_TATCCTCG_R1.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.8G Apr 11 14:48 4096_L_GGACTATT_R1.fq.gz
+yniu@dell-node-1:/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data$ ls -lh
+total 18G
+-rwxrwx--- 1 yniu grp_rgo 1.5G Apr 11 14:48 Flg22_1.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.6G Apr 11 14:48 Flg22_2.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.6G Apr 11 14:48 Flg22_3.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.6G Apr 11 14:48 Flg22_SynCom33_1.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.5G Apr 11 14:48 Flg22_SynCom33_2.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.7G Apr 11 14:48 Flg22_SynCom33_3.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.5G Apr 11 14:48 Flg22_SynCom35_1.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.5G Apr 11 14:48 Flg22_SynCom35_2.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.8G Apr 11 14:48 Flg22_SynCom35_3.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.5G Apr 11 14:48 Mock_1.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.2G Apr 11 14:47 Mock_2.fq.gz
+-rwxrwx--- 1 yniu grp_rgo 1.6G Apr 11 14:48 Mock_3.fq.gz
+ 
