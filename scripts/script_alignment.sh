@@ -1,8 +1,7 @@
 date
 
 REF_PATH=/netscratch/dep_psl/grp_rgo/yniu/ref
-# CLEAN_PATH=/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data
-CLEAN_PATH=/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22
+CLEAN_PATH=/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data
 ALIGN_PATH=/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/align_data
 
 KALLISTO_PATH=/home/yniu/Biotools/kallisto_v0.45.1
@@ -11,7 +10,7 @@ SAMTOOL_PATH=/opt/share/software/bin
 RM_PATH=/bin/rm
 MOVE_PATH=/bin/mv
 
-CORENUM=45
+CORENUM=120
 SPECIES='ath'
 
 cd ${REF_PATH}
@@ -39,7 +38,7 @@ for i in ${fqnames[@]}; do
     ${MOVE_PATH} ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/pseudoalignments.bam.bai \
                  ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/${i}_${SPECIES}_pseudoalignments.bam.bai
 
-    echo "HISAT2 using ${SPECIES} cDNA for ${i}."
+    echo "HISAT2 using ${SPECIES} genome for ${i}."
     ${HISAT2_PATH}/hisat2 -p ${CORENUM} \
                   -x ${REF_PATH}/athht2index/genome \
                   -U ${CLEAN_PATH}/${i}.fq.gz \
