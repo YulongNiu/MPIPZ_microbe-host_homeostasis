@@ -6,6 +6,7 @@ require('foreach')
 rawfqPath <- '/biodata/dep_psl/grp_rgo/metatranscriptomics/data/flg22'
 resFolder <- '/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data'
 zcatPath <- '/bin/cat'
+mvPath <- '/bin/mv'
 ncore <- 12
 
 rawfq <- dir(rawfqPath,
@@ -48,5 +49,26 @@ foreach (i = seq_along(fqIdx), .combine = c) %dopar% {
 
 stopImplicitCluster()
 
+## change to sample names
+fqraws <- dir(resFolder)
+fqnews <- c('Mock', 'Flg22', 'Flg22_SynCom33', 'Flg22_SynCom35') %>%
+  rep(3) %>%
+  paste0('_', rep(1:3, each = 4), '.fq.gz')
 
+for (i in seq_along(fqraws)) {
+
+  fqin <- fqraws[i] %>%
+    file.path(resFolder, .)
+
+  fqout <- fqnews[i] %>%
+    file.path(resFolder, .)
+
+  mvC <- paste(mvPath,
+               fqin,
+               fqout)
+
+  print(mvC)
+
+  system(mvC)
+}
 ####################################################################
