@@ -39,78 +39,42 @@ geneTable <- tibble(ID = str_extract(noteAnno, '(?<=ID=gene:).*?(?=;)'),
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-
-
-%>%
-  filter(feature %in% c('lnc_RNA', 'miRNA', 'mRNA', 'rRNA', 'snoRNA', 'snRNA'))
-
-noteAnno <- gffAnno %>%
+##~~~~~~~~~~~~~~~~~~~~~~~~cDNA table~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cDNAanno <- gffAnno %>%
+  filter(feature %in% c('lnc_RNA', 'miRNA', 'mRNA', 'ncRNA',
+                        'rRNA', 'snoRNA', 'snRNA', 'tRNA'))
+## "ID=transcript:ATCG00310.1;Parent=gene:ATCG00310;biotype=tRNA;transcript_id=ATCG00310.1"
+noteAnno <- cDNAanno %>%
   select(attribute) %>%
   unlist %>%
   unname %>%
   str_trim
 
-ids <- noteAnno %>%
-  strsplit(., split = ';', fixed = TRUE) %>%
-  sapply(., '[[', 1) %>%
-  strsplit(., split = ':', fixed = TRUE) %>%
-  sapply(., '[[', 2)
+cDNATable <- tibble(cDNA = str_extract(noteAnno, '(?<=ID=transcript:).*?(?=;)'),
+                    ID = str_extract(noteAnno, '(?<=Parent=gene:).*?(?=;)'))
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-##"ID=gene:AT1G01760;biotype=protein_coding;description=TAD1 [Source:UniProtKB/TrEMBL%3BAcc:A0A178W782];gene_id=AT1G01760;logic_name=araport11"
-ExtractNote <- function(x) {
-  x <- str_extract(x, 'Note=.*')
-  ## check if no "Note=.*"
-  if (is.na(x)) {
-    return(x)
-  } else {}
+## merge cDNA table and gene table
 
-  x <- substring(x, 6)
+athAnno <- inner_join(geneTable, cDNATable, by = 'ID') %>%
+  select(-ID) %>%
+  select(cDNA, everything())
 
-  ## split with ';'
-  xList <- unlist(str_split(x, ';'))
-  eqIdx <- str_detect(xList, '=')
-  if (sum(eqIdx) >= 1) {
-    eq1stNum <- which(eqIdx)[1]
-    x <- paste(xList[1:(eq1stNum-1)], collapse = ';')
-  } else {}
+write_csv(athAnno, '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno.csv')
 
-  return(x)
-}
+##~~~~~~~~~~~~~~~~~~check cDNA in k~~~~~~~~~~~~~~~~~~~~~~~~~~~
+kcDNA <- read_tsv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/bamfiles/Flg22_1_ath_kallisto/abundance.tsv')
 
-ExtractGeneName <- function(x) {
-  x <- str_extract(x, 'Gene=.*?;');
+## kcDNA 48359
+## athAnno 54013
 
-  if (!is.na(x)) {
-    xLen <- nchar(x);
-    x <- substr(x, 6, xLen - 1);
-  } else {}
+## all kcDNA in athAnno
+sum(kcDNA$target_id %in% athAnno$cDNA)
 
-  return(x)
-}
-
-geneNames <- foreach(i = 1:length(noteAnno), .combine = c) %dopar% {
-  x <- URLdecode(noteAnno[i])
-  x <- ExtractGeneName(x)
-
-  if (is.na(x)) {
-    x <- ids[i]
-  } else {}
-
-  return(x)
-}
-
-noteAnno <- foreach(i = 1:length(noteAnno), .combine = c) %dopar% {
-  x <- URLdecode(noteAnno[i])
-  x <- ExtractNote(x)
-  return(x)
-}
-
-gffAnno %<>%
-  select(-attribute) %>%
-  mutate(ids = ids, geneNames = geneNames, noteAnno = noteAnno)
-
-
-kres <- read_tsv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/bamfiles/Flg22_1_ath_kallisto/abundance.tsv')
-
+## lncRNA  miRNA  ncRNA   rRNA snoRNA  snRNA   tRNA
+##   3879    325    377     15    287     82    689
+anti_join(athAnno, kcDNA, by = c('cDNA' = 'target_id')) %>%
+  .$BioType %>%
+  table
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ##############################################################
