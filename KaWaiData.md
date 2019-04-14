@@ -68,6 +68,8 @@ The *Arabidopsis thaliana* Col-0 treated with flg22, SynCom33+flg22, and SynCom3
 
 ### 4.1 Aligned reads ###
 
+* Alignment rates
+
 | sample           | rawfq    | trimfq   | H_ath | K_ath | 
 |------------------|----------|----------|-------|-------| 
 | Mock_1           | 16978228 | 16881903 | 0.977 | 0.962 | 
@@ -85,3 +87,10 @@ The *Arabidopsis thaliana* Col-0 treated with flg22, SynCom33+flg22, and SynCom3
 
 > "K" and "H" is for Kallisto and HISAT2 alignment.
 
+* Kallisto alignment example
+
+![K_alignment](../results/Kallisto_alignment.png)
+
+* HISAT2 alignment example
+
+![H_alignment](../results/HISAT2_alignment.png)
