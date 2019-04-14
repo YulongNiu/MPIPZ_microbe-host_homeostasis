@@ -1,15 +1,9 @@
 ########################deal with gff3########################
 library('stringr')
 library('utils')
-library('foreach')
-library('doParallel')
 library('readr')
 library('dplyr')
 library('magrittr')
-
-ncore <- 12
-
-registerDoParallel(cores = ncore)
 
 gffPath <- '/extDisk1/Biorefs/Arabidopsis_thaliana.TAIR10.42.gff3.gz'
 gffAnno <- read_tsv(gffPath,
