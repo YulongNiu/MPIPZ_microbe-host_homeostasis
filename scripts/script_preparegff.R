@@ -24,13 +24,8 @@ noteAnno <- geneAnno %>%
 
 geneTable <- tibble(ID = str_extract(noteAnno, '(?<=ID=gene:).*?(?=;)'),
                     Gene = str_extract(noteAnno, '(?<=Name=).*?(?=;)') %>% {if_else(is.na(.), '', .)},
-                    Chromosome = geneAnno$chromosome,
-                    Start = geneAnno$start,
-                    End = geneAnno$end,
-                    Strand = geneAnno$strand,
                     BioType = str_extract(noteAnno, '(?<=biotype=).*?(?=;)'),
                     Description = str_extract(noteAnno, '(?<=description=).*?(?=;)') %>% {if_else(is.na(.), '', .)} %>% sapply(URLdecode))
-
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~cDNA table~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -45,14 +40,20 @@ noteAnno <- cDNAanno %>%
   str_trim
 
 cDNATable <- tibble(cDNA = str_extract(noteAnno, '(?<=ID=transcript:).*?(?=;)'),
-                    ID = str_extract(noteAnno, '(?<=Parent=gene:).*?(?=;)'))
+                    ID = str_extract(noteAnno, '(?<=Parent=gene:).*?(?=;)'),
+                    Chromosome = cDNAanno$chromosome,
+                    Start = cDNAanno$start,
+                    End = cDNAanno$end,
+                    Strand = cDNAanno$strand)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ## merge cDNA table and gene table
-
 athAnno <- inner_join(geneTable, cDNATable, by = 'ID') %>%
   select(-ID) %>%
-  select(cDNA, everything())
+  select(cDNA, everything()) %>%
+  rename(ID = cDNA) %>%
+  mutate(Length = abs(End - Start)) %>%
+  select(ID, Gene, Chromosome:Length, BioType, Description)
 
 write_csv(athAnno, '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno.csv')
 

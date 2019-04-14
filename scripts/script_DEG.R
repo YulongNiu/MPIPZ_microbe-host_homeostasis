@@ -1,24 +1,86 @@
 ###########################DEGs##################################
-##~~~~~~~~~~~~~~~~~~~~load k alignments~~~~~~~~~~~~~~~~~~~~~~~~~~
 library('tximport')
 library('rhdf5')
 library('magrittr')
+library('DESeq2')
+library('tibble')
+library('readr')
+library('dplyr')
 
+anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno.csv',
+                 col_types = cols(Chromosome = col_character())) %>%
+  mutate(Gene = Gene %>% {if_else(is.na(.), '', .)}) %>%
+  mutate(Description = Description %>% {if_else(is.na(.), '', .)})
+
+
+##~~~~~~~~~~~~~~~~~~~~load k alignments~~~~~~~~~~~~~~~~~~~~~~~~~~
 wd <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/bamfiles'
 setwd(wd)
 
 
-athlabel <- rep(c('Mock', 'Flg22', 'Flg22_SynCom33', 'Flg22_SynCom35'), each = 3) %>%
+slabel <- rep(c('Mock', 'Flg22', 'Flg22_SynCom33', 'Flg22_SynCom35'), each = 3) %>%
   paste(rep(1:3, 4), sep = '_') %>%
   paste0('_ath_kallisto')
 
-files <- file.path(wd, athlabel, 'abundance.h5')
+files <- file.path(wd, slabel, 'abundance.h5')
 names(files) <- rep(c('Mock', 'Flg22', 'Flg22_SynCom33', 'Flg22_SynCom35'), each = 3) %>%
   paste(rep(1:3, 4), sep = '_')
-athk <- tximport(files, type = 'kallisto', txOut = TRUE)
+kres <- tximport(files, type = 'kallisto', txOut = TRUE)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-##~~~~~~~~~~~~~~~~~~~~~~~~DEG anlaysis~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##~~~~~~~~~~~~~~~~~~~~~~~~DEG analysis~~~~~~~~~~~~~~~~~~~~~~~~~~~
+setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/')
 
+## Mock vs. 3 conditions
+## sampleTable
+sampleTable <- data.frame(condition = factor(rep(c('Mock', 'Flg22', 'Flg22_SynCom33', 'Flg22_SynCom35'), each = 3)))
+sampleTable$condition %<>% relevel(ref = 'Mock')
+rownames(sampleTable) <- colnames(kres$counts)
+
+degres <- DESeqDataSetFromTximport(kres, sampleTable, ~condition)
+
+## DEGs
+degres <- degres[rowSums(counts(degres)) > 1, ]
+degres <- DESeq(degres)
+## resultsNames(dds)
+
+## count transformation
+rld <- rlog(degres)
+vst <- varianceStabilizingTransformation(degres)
+ntd <- normTransform(degres)
+resRaw <- degres %>%
+  results(name = 'condition_Flg22_vs_Mock') %T>%
+  summary %>%
+  as_tibble
+
+res <- cbind.data.frame(as.matrix(mcols(degres)[, 1:10]), assay(ntd), stringsAsFactors = FALSE) %>%
+  rownames_to_column(., var = 'ID') %>%
+  as_tibble %>%
+  bind_cols(select(resRaw, pvalue, padj, log2FoldChange)) %>%
+  inner_join(anno, by = 'ID') %>%
+  select(ID, Gene : Description, Mock_1 : log2FoldChange) %>%
+  arrange(padj)
+
+write_csv(res, 'Flog22_vs_Mock_k.csv')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PCA~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+library('directlabels')
+library('ggplot2')
+
+pca <- prcomp(t(assay(rld)))
+percentVar <- pca$sdev^2/sum(pca$sdev^2)
+percentVar <- round(100 * percentVar)
+pca1 <- pca$x[,1]
+pca2 <- pca$x[,2]
+pcaData <- data.frame(PC1 = pca1, PC2 = pca2, Group = colData(rld)[, 1], ID = rownames(colData(rld)))
+cairo_pdf('PCA.pdf', width = 12)
+ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group)) +
+  geom_point(size = 3) +
+  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
+  ylab(paste0("PC2: ",percentVar[2],"% variance")) +
+  geom_dl(aes(label = ID, color = Group), method = 'smart.grid')
+dev.off()
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ##################################################################
