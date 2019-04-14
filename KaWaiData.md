@@ -12,15 +12,14 @@
     - [3.1 pre-processing](#31-pre-processing)
     - [3.2 Alignment](#21-alignment)
 - [4. Results](#4-results)
-    - [4.1 Contamination](#41-contamination)
-    - [4.2 Aligned reads](#42-aligned-reads)
+    - [4.1 Aligned reads](#41-aligned-reads)
 - [5. Reference](#5-reference)
     
 <!-- content end -->
 
 ## 1. Introduction ##
 
-The *Arabidopsis thaliana* Col-0 treated with flg22, SynCom33, and SynCom35.
+The *Arabidopsis thaliana* Col-0 treated with flg22, SynCom33+flg22, and SynCom35+flg22.
 
 > reference genomes path `/netscratch/dep_psl/grp_rgo/yniu/ref`
 
@@ -66,4 +65,23 @@ The *Arabidopsis thaliana* Col-0 treated with flg22, SynCom33, and SynCom35.
 * Use Kallisto and HISAT2 to align reads.
 
 ## 4. Results ##
+
+### 4.1 Aligned reads ###
+
+| sample           | rawfq    | trimfq   | H_ath | K_ath | 
+|------------------|----------|----------|-------|-------| 
+| Mock_1           | 16978228 | 16881903 | 0.977 | 0.962 | 
+| Mock_2           | 13038601 | 12967294 | 0.98  | 0.967 | 
+| Mock_3           | 18313224 | 18218407 | 0.98  | 0.966 | 
+| Flg22_1          | 17512255 | 17422675 | 0.971 | 0.954 | 
+| Flg22_2          | 18047704 | 17950283 | 0.975 | 0.959 | 
+| Flg22_3          | 17922052 | 17826125 | 0.974 | 0.957 | 
+| Flg22_SynCom33_1 | 17785611 | 17687693 | 0.974 | 0.955 | 
+| Flg22_SynCom33_2 | 16929833 | 16832003 | 0.975 | 0.96  | 
+| Flg22_SynCom33_3 | 20093432 | 19984770 | 0.974 | 0.956 | 
+| Flg22_SynCom35_1 | 17361283 | 17267286 | 0.965 | 0.952 | 
+| Flg22_SynCom35_2 | 16914038 | 16825207 | 0.979 | 0.966 | 
+| Flg22_SynCom35_3 | 21203518 | 21099083 | 0.972 | 0.957 | 
+
+> "K" and "H" is for Kallisto and HISAT2 alignment.
 

@@ -1,0 +1,367 @@
+Sender: LSF System <hpcadmin@hpc002.cluster.local>
+Subject: Job 970881: <bash ./script_alignment.sh> Done
+
+Job <bash ./script_alignment.sh> was submitted from host <hpc001.cluster.local> by user <yniu> in cluster <hpc000>.
+Job was executed on host(s) <20*hpc002.cluster.local>, in queue <multicore20>, as user <yniu> in cluster <hpc000>.
+</home/yniu> was used as the home directory.
+</netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/scripts> was used as the working directory.
+Started at Thu Apr 11 21:07:21 2019
+Results reported at Fri Apr 12 00:31:45 2019
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+bash ./script_alignment.sh
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   : 495507.75 sec.
+    Max Memory :      8433 MB
+    Max Swap   :    100668 MB
+
+    Max Processes  :         9
+    Max Threads    :       130
+
+The output (if any) follows:
+
+Thu Apr 11 21:07:29 CEST 2019
+====================================
+Kallisto using ath cDNA for Flg22_1.
+
+[quant] fragment length distribution is truncated gaussian with mean = 200, sd = 20
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+Warning: 5654 transcripts were defined in GTF file, but not in the index
+[quant] running in single-end mode
+[quant] will process file 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_1.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 17,422,675 reads, 16,628,991 reads pseudoaligned
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,202 rounds
+[  bam] writing pseudoalignments to BAM format .. done
+[  bam] sorting BAM files .. done
+[  bam] indexing BAM file .. done
+
+HISAT2 using ath cDNA for Flg22_1.
+17422675 reads; of these:
+  17422675 (100.00%) were unpaired; of these:
+    499455 (2.87%) aligned 0 times
+    16470235 (94.53%) aligned exactly 1 time
+    452985 (2.60%) aligned >1 times
+97.13% overall alignment rate
+[bam_sort_core] merging from 0 files and 120 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for Flg22_2.
+
+[quant] fragment length distribution is truncated gaussian with mean = 200, sd = 20
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+Warning: 5654 transcripts were defined in GTF file, but not in the index
+[quant] running in single-end mode
+[quant] will process file 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 17,950,283 reads, 17,205,692 reads pseudoaligned
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,160 rounds
+[  bam] writing pseudoalignments to BAM format .. done
+[  bam] sorting BAM files .. done
+[  bam] indexing BAM file .. done
+
+HISAT2 using ath cDNA for Flg22_2.
+17950283 reads; of these:
+  17950283 (100.00%) were unpaired; of these:
+    448411 (2.50%) aligned 0 times
+    17012897 (94.78%) aligned exactly 1 time
+    488975 (2.72%) aligned >1 times
+97.50% overall alignment rate
+[bam_sort_core] merging from 0 files and 120 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for Flg22_3.
+
+[quant] fragment length distribution is truncated gaussian with mean = 200, sd = 20
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+Warning: 5654 transcripts were defined in GTF file, but not in the index
+[quant] running in single-end mode
+[quant] will process file 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_3.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 17,826,125 reads, 17,057,977 reads pseudoaligned
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,308 rounds
+[  bam] writing pseudoalignments to BAM format .. done
+[  bam] sorting BAM files .. done
+[  bam] indexing BAM file .. done
+
+HISAT2 using ath cDNA for Flg22_3.
+17826125 reads; of these:
+  17826125 (100.00%) were unpaired; of these:
+    471438 (2.64%) aligned 0 times
+    16906633 (94.84%) aligned exactly 1 time
+    448054 (2.51%) aligned >1 times
+97.36% overall alignment rate
+[bam_sort_core] merging from 0 files and 120 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for Flg22_SynCom33_1.
+
+[quant] fragment length distribution is truncated gaussian with mean = 200, sd = 20
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+Warning: 5654 transcripts were defined in GTF file, but not in the index
+[quant] running in single-end mode
+[quant] will process file 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_SynCom33_1.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 17,687,693 reads, 16,891,285 reads pseudoaligned
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,045 rounds
+[  bam] writing pseudoalignments to BAM format .. done
+[  bam] sorting BAM files .. done
+[  bam] indexing BAM file .. done
+
+HISAT2 using ath cDNA for Flg22_SynCom33_1.
+17687693 reads; of these:
+  17687693 (100.00%) were unpaired; of these:
+    454273 (2.57%) aligned 0 times
+    16697988 (94.40%) aligned exactly 1 time
+    535432 (3.03%) aligned >1 times
+97.43% overall alignment rate
+[bam_sort_core] merging from 0 files and 120 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for Flg22_SynCom33_2.
+
+[quant] fragment length distribution is truncated gaussian with mean = 200, sd = 20
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+Warning: 5654 transcripts were defined in GTF file, but not in the index
+[quant] running in single-end mode
+[quant] will process file 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_SynCom33_2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 16,832,003 reads, 16,157,281 reads pseudoaligned
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,126 rounds
+[  bam] writing pseudoalignments to BAM format .. done
+[  bam] sorting BAM files .. done
+[  bam] indexing BAM file .. done
+
+HISAT2 using ath cDNA for Flg22_SynCom33_2.
+16832003 reads; of these:
+  16832003 (100.00%) were unpaired; of these:
+    416948 (2.48%) aligned 0 times
+    15854810 (94.19%) aligned exactly 1 time
+    560245 (3.33%) aligned >1 times
+97.52% overall alignment rate
+[bam_sort_core] merging from 0 files and 120 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for Flg22_SynCom33_3.
+
+[quant] fragment length distribution is truncated gaussian with mean = 200, sd = 20
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+Warning: 5654 transcripts were defined in GTF file, but not in the index
+[quant] running in single-end mode
+[quant] will process file 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_SynCom33_3.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 19,984,770 reads, 19,102,790 reads pseudoaligned
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,254 rounds
+[  bam] writing pseudoalignments to BAM format .. done
+[  bam] sorting BAM files .. done
+[  bam] indexing BAM file .. done
+
+HISAT2 using ath cDNA for Flg22_SynCom33_3.
+19984770 reads; of these:
+  19984770 (100.00%) were unpaired; of these:
+    510356 (2.55%) aligned 0 times
+    18787821 (94.01%) aligned exactly 1 time
+    686593 (3.44%) aligned >1 times
+97.45% overall alignment rate
+[bam_sort_core] merging from 0 files and 120 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for Flg22_SynCom35_1.
+
+[quant] fragment length distribution is truncated gaussian with mean = 200, sd = 20
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+Warning: 5654 transcripts were defined in GTF file, but not in the index
+[quant] running in single-end mode
+[quant] will process file 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_SynCom35_1.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 17,267,286 reads, 16,445,979 reads pseudoaligned
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,172 rounds
+[  bam] writing pseudoalignments to BAM format .. done
+[  bam] sorting BAM files .. done
+[  bam] indexing BAM file .. done
+
+HISAT2 using ath cDNA for Flg22_SynCom35_1.
+17267286 reads; of these:
+  17267286 (100.00%) were unpaired; of these:
+    603927 (3.50%) aligned 0 times
+    16193237 (93.78%) aligned exactly 1 time
+    470122 (2.72%) aligned >1 times
+96.50% overall alignment rate
+[bam_sort_core] merging from 0 files and 120 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for Flg22_SynCom35_2.
+
+[quant] fragment length distribution is truncated gaussian with mean = 200, sd = 20
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+Warning: 5654 transcripts were defined in GTF file, but not in the index
+[quant] running in single-end mode
+[quant] will process file 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_SynCom35_2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 16,825,207 reads, 16,260,543 reads pseudoaligned
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,176 rounds
+[  bam] writing pseudoalignments to BAM format .. done
+[  bam] sorting BAM files .. done
+[  bam] indexing BAM file .. done
+
+HISAT2 using ath cDNA for Flg22_SynCom35_2.
+16825207 reads; of these:
+  16825207 (100.00%) were unpaired; of these:
+    360668 (2.14%) aligned 0 times
+    16060611 (95.46%) aligned exactly 1 time
+    403928 (2.40%) aligned >1 times
+97.86% overall alignment rate
+[bam_sort_core] merging from 0 files and 120 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for Flg22_SynCom35_3.
+
+[quant] fragment length distribution is truncated gaussian with mean = 200, sd = 20
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+Warning: 5654 transcripts were defined in GTF file, but not in the index
+[quant] running in single-end mode
+[quant] will process file 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_SynCom35_3.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 21,099,083 reads, 20,183,854 reads pseudoaligned
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,262 rounds
+[  bam] writing pseudoalignments to BAM format .. done
+[  bam] sorting BAM files .. done
+[  bam] indexing BAM file .. done
+
+HISAT2 using ath cDNA for Flg22_SynCom35_3.
+21099083 reads; of these:
+  21099083 (100.00%) were unpaired; of these:
+    580904 (2.75%) aligned 0 times
+    19896924 (94.30%) aligned exactly 1 time
+    621255 (2.94%) aligned >1 times
+97.25% overall alignment rate
+[bam_sort_core] merging from 0 files and 120 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for Mock_1.
+
+[quant] fragment length distribution is truncated gaussian with mean = 200, sd = 20
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+Warning: 5654 transcripts were defined in GTF file, but not in the index
+[quant] running in single-end mode
+[quant] will process file 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Mock_1.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 16,881,903 reads, 16,245,280 reads pseudoaligned
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,115 rounds
+[  bam] writing pseudoalignments to BAM format .. done
+[  bam] sorting BAM files .. done
+[  bam] indexing BAM file .. done
+
+HISAT2 using ath cDNA for Mock_1.
+16881903 reads; of these:
+  16881903 (100.00%) were unpaired; of these:
+    382181 (2.26%) aligned 0 times
+    16046011 (95.05%) aligned exactly 1 time
+    453711 (2.69%) aligned >1 times
+97.74% overall alignment rate
+[bam_sort_core] merging from 0 files and 120 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for Mock_2.
+
+[quant] fragment length distribution is truncated gaussian with mean = 200, sd = 20
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+Warning: 5654 transcripts were defined in GTF file, but not in the index
+[quant] running in single-end mode
+[quant] will process file 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Mock_2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 12,967,294 reads, 12,535,088 reads pseudoaligned
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,313 rounds
+[  bam] writing pseudoalignments to BAM format .. done
+[  bam] sorting BAM files .. done
+[  bam] indexing BAM file .. done
+
+HISAT2 using ath cDNA for Mock_2.
+12967294 reads; of these:
+  12967294 (100.00%) were unpaired; of these:
+    264816 (2.04%) aligned 0 times
+    12397562 (95.61%) aligned exactly 1 time
+    304916 (2.35%) aligned >1 times
+97.96% overall alignment rate
+[bam_sort_core] merging from 0 files and 120 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for Mock_3.
+
+[quant] fragment length distribution is truncated gaussian with mean = 200, sd = 20
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+Warning: 5654 transcripts were defined in GTF file, but not in the index
+[quant] running in single-end mode
+[quant] will process file 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Mock_3.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 18,218,407 reads, 17,602,331 reads pseudoaligned
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,213 rounds
+[  bam] writing pseudoalignments to BAM format .. done
+[  bam] sorting BAM files .. done
+[  bam] indexing BAM file .. done
+
+HISAT2 using ath cDNA for Mock_3.
+18218407 reads; of these:
+  18218407 (100.00%) were unpaired; of these:
+    371248 (2.04%) aligned 0 times
+    17424588 (95.64%) aligned exactly 1 time
+    422571 (2.32%) aligned >1 times
+97.96% overall alignment rate
+[bam_sort_core] merging from 0 files and 120 in-memory blocks...
+=====================================
