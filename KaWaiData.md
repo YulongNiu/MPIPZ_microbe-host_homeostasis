@@ -89,8 +89,8 @@ The *Arabidopsis thaliana* Col-0 treated with flg22, SynCom33+flg22, and SynCom3
 
 * Kallisto alignment example
 
-![K_alignment](../results/Kallisto_alignment.png)
+![K_alignment](results/Kallisto_alignment.png)
 
 * HISAT2 alignment example
 
-![H_alignment](../results/HISAT2_alignment.png)
+![H_alignment](results/HISAT2_alignment.png)
