@@ -6,6 +6,7 @@ library('DESeq2')
 library('tibble')
 library('readr')
 library('dplyr')
+library('stringr')
 
 anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno.csv',
                  col_types = cols(Chromosome = col_character())) %>%
@@ -42,26 +43,39 @@ degres <- DESeqDataSetFromTximport(kres, sampleTable, ~condition)
 ## DEGs
 degres <- degres[rowSums(counts(degres)) > 1, ]
 degres <- DESeq(degres)
-## resultsNames(dds)
+## resultsNames(degres)
 
 ## count transformation
 rld <- rlog(degres)
 vst <- varianceStabilizingTransformation(degres)
 ntd <- normTransform(degres)
-resRaw <- degres %>%
-  results(name = 'condition_Flg22_vs_Mock') %T>%
-  summary %>%
-  as_tibble
+
+cond <- degres %>%
+  resultsNames %>%
+  str_extract('(?<=condition_).*') %>%
+  .[!is.na(.)]
+
+resRaw <- lapply(cond,
+                 function(x) {
+                   degres %>%
+                     results(name = paste0('condition_', x)) %T>%
+                     summary %>%
+                     as_tibble %>%
+                     select(pvalue, padj, log2FoldChange) %>%
+                     rename_all(.funs = funs(paste0(x, '_', .)))
+                 }) %>%
+  bind_cols
+
 
 res <- cbind.data.frame(as.matrix(mcols(degres)[, 1:10]), assay(ntd), stringsAsFactors = FALSE) %>%
   rownames_to_column(., var = 'ID') %>%
   as_tibble %>%
-  bind_cols(select(resRaw, pvalue, padj, log2FoldChange)) %>%
+  bind_cols(resRaw) %>%
   inner_join(anno, by = 'ID') %>%
-  select(ID, Gene : Description, Mock_1 : log2FoldChange) %>%
-  arrange(padj)
+  select(ID, Gene : Description, Mock_1 : Flg22_SynCom35_vs_Mock_log2FoldChange) %>%
+  arrange(Flg22_vs_Mock_padj)
 
-write_csv(res, 'Flog22_vs_Mock_k.csv')
+write_csv(res, 'eachGroup_vs_Mock_k.csv')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
