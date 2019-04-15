@@ -117,6 +117,8 @@ Flg22_SynCom35_1 Flg22_SynCom35
 Flg22_SynCom35_2 Flg22_SynCom35
 Flg22_SynCom35_3 Flg22_SynCom35
 ```
-Formula `~condition` 
+Formula: `~condition` 
+
+Results: [results/eachGroup_vs_Mock_k.csv](results/eachGroup_vs_Mock_k.csv)
 
 
