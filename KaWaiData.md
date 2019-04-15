@@ -13,6 +13,7 @@
     - [3.2 Alignment](#21-alignment)
 - [4. Results](#4-results)
     - [4.1 Aligned reads](#41-aligned-reads)
+    - [4.2 DEGs](#42-DEGs)
 - [5. Reference](#5-reference)
     
 <!-- content end -->
@@ -94,3 +95,28 @@ The *Arabidopsis thaliana* Col-0 treated with flg22, SynCom33+flg22, and SynCom3
 * HISAT2 alignment example
 
 ![H_alignment](results/HISAT2_alignment.png)
+
+### 4.2 DEGs ###
+
+* 3 groups (flg22, flg22_SynCom33, and flg22_SynCom35) *vs.* Mock
+
+Conditions: 
+
+```
+                      condition
+Mock_1                     Mock
+Mock_2                     Mock
+Mock_3                     Mock
+Flg22_1                   Flg22
+Flg22_2                   Flg22
+Flg22_3                   Flg22
+Flg22_SynCom33_1 Flg22_SynCom33
+Flg22_SynCom33_2 Flg22_SynCom33
+Flg22_SynCom33_3 Flg22_SynCom33
+Flg22_SynCom35_1 Flg22_SynCom35
+Flg22_SynCom35_2 Flg22_SynCom35
+Flg22_SynCom35_3 Flg22_SynCom35
+```
+Formula `~condition` 
+
+
