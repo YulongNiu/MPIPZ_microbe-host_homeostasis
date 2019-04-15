@@ -10,7 +10,7 @@ SAMTOOL_PATH=/opt/share/software/bin
 RM_PATH=/bin/rm
 MOVE_PATH=/bin/mv
 
-CORENUM=120
+CORENUM=45
 SPECIES='ath'
 
 cd ${REF_PATH}

@@ -5,7 +5,7 @@ require('foreach')
 
 rawfqPath <- '/biodata/dep_psl/grp_rgo/metatranscriptomics/data/flg22'
 resFolder <- '/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data'
-zcatPath <- '/bin/cat'
+catPath <- '/bin/cat'
 mvPath <- '/bin/mv'
 ncore <- 12
 
@@ -35,7 +35,7 @@ foreach (i = seq_along(fqIdx), .combine = c) %dopar% {
     paste0('.fq.gz') %>%
     file.path(resFolder, .)
 
-  mergeC <- paste(zcatPath,
+  mergeC <- paste(catPath,
                   fqin,
                   '>',
                   fqout)

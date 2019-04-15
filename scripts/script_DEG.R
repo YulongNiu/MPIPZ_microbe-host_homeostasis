@@ -29,10 +29,9 @@ names(files) <- rep(c('Mock', 'Flg22', 'Flg22_SynCom33', 'Flg22_SynCom35'), each
 kres <- tximport(files, type = 'kallisto', txOut = TRUE)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-##~~~~~~~~~~~~~~~~~~~~~~~~DEG analysis~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##~~~~~~~~~~~~~~~~~~~~~~~~DEG Mock vs. 3 conditions~~~~~~~~~~~~~~~~~
 setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/')
 
-## Mock vs. 3 conditions
 ## sampleTable
 sampleTable <- data.frame(condition = factor(rep(c('Mock', 'Flg22', 'Flg22_SynCom33', 'Flg22_SynCom35'), each = 3)))
 sampleTable$condition %<>% relevel(ref = 'Mock')
@@ -78,6 +77,23 @@ res <- cbind.data.frame(as.matrix(mcols(degres)[, 1:10]), assay(ntd), stringsAsF
 write_csv(res, 'eachGroup_vs_Mock_k.csv')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+##~~~~~~~~~~~~~~~~~~~~~~~~DEG flg22_SynCom vs flg22~~~~~~~~~~~~~~~~~
+setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/')
+
+## sampleTable
+sampleTable <- data.frame(condition = factor(rep(c('Mock', 'Flg22', 'Flg22_SynCom33', 'Flg22_SynCom35'), each = 3)), process = factor(rep(c('N', 'Y', 'Y', 'Y'), each = 3)))
+sampleTable$condition %<>% relevel(ref = 'Mock')
+rownames(sampleTable) <- colnames(kres$counts)
+
+degres <- DESeqDataSetFromTximport(kres,
+                                   sampleTable,
+                                   ~condition + process + condition:process)
+
+## DEGs
+degres <- degres[rowSums(counts(degres)) > 1, ]
+degres <- DESeq(degres)
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PCA~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 library('directlabels')

@@ -1,0 +1,669 @@
+Sender: LSF System <hpcadmin@hpc002.cluster.local>
+Subject: Job 970261: <bash script_trim.sh> Done
+
+Job <bash script_trim.sh> was submitted from host <hpc001.cluster.local> by user <yniu> in cluster <hpc000>.
+Job was executed on host(s) <20*hpc002.cluster.local>, in queue <multicore20>, as user <yniu> in cluster <hpc000>.
+</home/yniu> was used as the home directory.
+</netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/scripts> was used as the working directory.
+Started at Thu Apr 11 15:30:09 2019
+Results reported at Thu Apr 11 19:51:08 2019
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+bash script_trim.sh
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   :  22779.30 sec.
+    Max Memory :      2690 MB
+    Max Swap   :     11845 MB
+
+    Max Processes  :         4
+    Max Threads    :        38
+
+The output (if any) follows:
+
+Thu Apr 11 15:31:02 CEST 2019
+FastQC Flg22_1.fq.gz
+Started analysis of Flg22_1.fq.gz
+Approx 5% complete for Flg22_1.fq.gz
+Approx 10% complete for Flg22_1.fq.gz
+Approx 15% complete for Flg22_1.fq.gz
+Approx 20% complete for Flg22_1.fq.gz
+Approx 25% complete for Flg22_1.fq.gz
+Approx 30% complete for Flg22_1.fq.gz
+Approx 35% complete for Flg22_1.fq.gz
+Approx 40% complete for Flg22_1.fq.gz
+Approx 45% complete for Flg22_1.fq.gz
+Approx 50% complete for Flg22_1.fq.gz
+Approx 55% complete for Flg22_1.fq.gz
+Approx 60% complete for Flg22_1.fq.gz
+Approx 65% complete for Flg22_1.fq.gz
+Approx 70% complete for Flg22_1.fq.gz
+Approx 75% complete for Flg22_1.fq.gz
+Approx 80% complete for Flg22_1.fq.gz
+Approx 85% complete for Flg22_1.fq.gz
+Approx 90% complete for Flg22_1.fq.gz
+Approx 95% complete for Flg22_1.fq.gz
+Analysis complete for Flg22_1.fq.gz
+Trimming Flg22_1.fq.gz.
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 17512255
+total bases: 2641943539
+Q20 bases: 2573770914(97.4196%)
+Q30 bases: 2514629661(95.1811%)
+
+Read1 after filtering:
+total reads: 17422675
+total bases: 2454324622
+Q20 bases: 2395312955(97.5956%)
+Q30 bases: 2341996655(95.4233%)
+
+Filtering result:
+reads passed filter: 17422675
+reads failed due to low quality: 85006
+reads failed due to too many N: 3600
+reads failed due to too short: 974
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 47.9654%
+
+JSON report: fastp.json
+HTML report: Flg22_1.html
+
+/home/yniu/Biotools/fastp -w 16 -z 6 -p -U --umi_loc=read1 --umi_len=8 --trim_tail1=2 -h Flg22_1.html -i Flg22_1.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_1.fq.gz 
+fastp v0.19.8, time used: 992 seconds
+FastQC Flg22_2.fq.gz
+Started analysis of Flg22_2.fq.gz
+Approx 5% complete for Flg22_2.fq.gz
+Approx 10% complete for Flg22_2.fq.gz
+Approx 15% complete for Flg22_2.fq.gz
+Approx 20% complete for Flg22_2.fq.gz
+Approx 25% complete for Flg22_2.fq.gz
+Approx 30% complete for Flg22_2.fq.gz
+Approx 35% complete for Flg22_2.fq.gz
+Approx 40% complete for Flg22_2.fq.gz
+Approx 45% complete for Flg22_2.fq.gz
+Approx 50% complete for Flg22_2.fq.gz
+Approx 55% complete for Flg22_2.fq.gz
+Approx 60% complete for Flg22_2.fq.gz
+Approx 65% complete for Flg22_2.fq.gz
+Approx 70% complete for Flg22_2.fq.gz
+Approx 75% complete for Flg22_2.fq.gz
+Approx 80% complete for Flg22_2.fq.gz
+Approx 85% complete for Flg22_2.fq.gz
+Approx 90% complete for Flg22_2.fq.gz
+Approx 95% complete for Flg22_2.fq.gz
+Analysis complete for Flg22_2.fq.gz
+Trimming Flg22_2.fq.gz.
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 18047704
+total bases: 2723499175
+Q20 bases: 2651303760(97.3492%)
+Q30 bases: 2589050379(95.0634%)
+
+Read1 after filtering:
+total reads: 17950283
+total bases: 2529426336
+Q20 bases: 2467108692(97.5363%)
+Q30 bases: 2411067907(95.3207%)
+
+Filtering result:
+reads passed filter: 17950283
+reads failed due to low quality: 92693
+reads failed due to too many N: 3697
+reads failed due to too short: 1031
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 47.6364%
+
+JSON report: fastp.json
+HTML report: Flg22_2.html
+
+/home/yniu/Biotools/fastp -w 16 -z 6 -p -U --umi_loc=read1 --umi_len=8 --trim_tail1=2 -h Flg22_2.html -i Flg22_2.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_2.fq.gz 
+fastp v0.19.8, time used: 1035 seconds
+FastQC Flg22_3.fq.gz
+Started analysis of Flg22_3.fq.gz
+Approx 5% complete for Flg22_3.fq.gz
+Approx 10% complete for Flg22_3.fq.gz
+Approx 15% complete for Flg22_3.fq.gz
+Approx 20% complete for Flg22_3.fq.gz
+Approx 25% complete for Flg22_3.fq.gz
+Approx 30% complete for Flg22_3.fq.gz
+Approx 35% complete for Flg22_3.fq.gz
+Approx 40% complete for Flg22_3.fq.gz
+Approx 45% complete for Flg22_3.fq.gz
+Approx 50% complete for Flg22_3.fq.gz
+Approx 55% complete for Flg22_3.fq.gz
+Approx 60% complete for Flg22_3.fq.gz
+Approx 65% complete for Flg22_3.fq.gz
+Approx 70% complete for Flg22_3.fq.gz
+Approx 75% complete for Flg22_3.fq.gz
+Approx 80% complete for Flg22_3.fq.gz
+Approx 85% complete for Flg22_3.fq.gz
+Approx 90% complete for Flg22_3.fq.gz
+Approx 95% complete for Flg22_3.fq.gz
+Analysis complete for Flg22_3.fq.gz
+Trimming Flg22_3.fq.gz.
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 17922052
+total bases: 2704585165
+Q20 bases: 2636461064(97.4812%)
+Q30 bases: 2578119883(95.324%)
+
+Read1 after filtering:
+total reads: 17826125
+total bases: 2511979887
+Q20 bases: 2453449866(97.67%)
+Q30 bases: 2401010548(95.5824%)
+
+Filtering result:
+reads passed filter: 17826125
+reads failed due to low quality: 91232
+reads failed due to too many N: 3658
+reads failed due to too short: 1037
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 48.9037%
+
+JSON report: fastp.json
+HTML report: Flg22_3.html
+
+/home/yniu/Biotools/fastp -w 16 -z 6 -p -U --umi_loc=read1 --umi_len=8 --trim_tail1=2 -h Flg22_3.html -i Flg22_3.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_3.fq.gz 
+fastp v0.19.8, time used: 994 seconds
+FastQC Flg22_SynCom33_1.fq.gz
+Started analysis of Flg22_SynCom33_1.fq.gz
+Approx 5% complete for Flg22_SynCom33_1.fq.gz
+Approx 10% complete for Flg22_SynCom33_1.fq.gz
+Approx 15% complete for Flg22_SynCom33_1.fq.gz
+Approx 20% complete for Flg22_SynCom33_1.fq.gz
+Approx 25% complete for Flg22_SynCom33_1.fq.gz
+Approx 30% complete for Flg22_SynCom33_1.fq.gz
+Approx 35% complete for Flg22_SynCom33_1.fq.gz
+Approx 40% complete for Flg22_SynCom33_1.fq.gz
+Approx 45% complete for Flg22_SynCom33_1.fq.gz
+Approx 50% complete for Flg22_SynCom33_1.fq.gz
+Approx 55% complete for Flg22_SynCom33_1.fq.gz
+Approx 60% complete for Flg22_SynCom33_1.fq.gz
+Approx 65% complete for Flg22_SynCom33_1.fq.gz
+Approx 70% complete for Flg22_SynCom33_1.fq.gz
+Approx 75% complete for Flg22_SynCom33_1.fq.gz
+Approx 80% complete for Flg22_SynCom33_1.fq.gz
+Approx 85% complete for Flg22_SynCom33_1.fq.gz
+Approx 90% complete for Flg22_SynCom33_1.fq.gz
+Approx 95% complete for Flg22_SynCom33_1.fq.gz
+Analysis complete for Flg22_SynCom33_1.fq.gz
+Trimming Flg22_SynCom33_1.fq.gz.
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 17785611
+total bases: 2683966442
+Q20 bases: 2613061573(97.3582%)
+Q30 bases: 2552230297(95.0917%)
+
+Read1 after filtering:
+total reads: 17687693
+total bases: 2492456942
+Q20 bases: 2431310456(97.5467%)
+Q30 bases: 2376538338(95.3492%)
+
+Filtering result:
+reads passed filter: 17687693
+reads failed due to low quality: 93143
+reads failed due to too many N: 3648
+reads failed due to too short: 1127
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 48.2564%
+
+JSON report: fastp.json
+HTML report: Flg22_SynCom33_1.html
+
+/home/yniu/Biotools/fastp -w 16 -z 6 -p -U --umi_loc=read1 --umi_len=8 --trim_tail1=2 -h Flg22_SynCom33_1.html -i Flg22_SynCom33_1.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_SynCom33_1.fq.gz 
+fastp v0.19.8, time used: 1026 seconds
+FastQC Flg22_SynCom33_2.fq.gz
+Started analysis of Flg22_SynCom33_2.fq.gz
+Approx 5% complete for Flg22_SynCom33_2.fq.gz
+Approx 10% complete for Flg22_SynCom33_2.fq.gz
+Approx 15% complete for Flg22_SynCom33_2.fq.gz
+Approx 20% complete for Flg22_SynCom33_2.fq.gz
+Approx 25% complete for Flg22_SynCom33_2.fq.gz
+Approx 30% complete for Flg22_SynCom33_2.fq.gz
+Approx 35% complete for Flg22_SynCom33_2.fq.gz
+Approx 40% complete for Flg22_SynCom33_2.fq.gz
+Approx 45% complete for Flg22_SynCom33_2.fq.gz
+Approx 50% complete for Flg22_SynCom33_2.fq.gz
+Approx 55% complete for Flg22_SynCom33_2.fq.gz
+Approx 60% complete for Flg22_SynCom33_2.fq.gz
+Approx 65% complete for Flg22_SynCom33_2.fq.gz
+Approx 70% complete for Flg22_SynCom33_2.fq.gz
+Approx 75% complete for Flg22_SynCom33_2.fq.gz
+Approx 80% complete for Flg22_SynCom33_2.fq.gz
+Approx 85% complete for Flg22_SynCom33_2.fq.gz
+Approx 90% complete for Flg22_SynCom33_2.fq.gz
+Approx 95% complete for Flg22_SynCom33_2.fq.gz
+Analysis complete for Flg22_SynCom33_2.fq.gz
+Trimming Flg22_SynCom33_2.fq.gz.
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 16929833
+total bases: 2554881095
+Q20 bases: 2484016874(97.2263%)
+Q30 bases: 2423169702(94.8447%)
+
+Read1 after filtering:
+total reads: 16832003
+total bases: 2371942686
+Q20 bases: 2310817971(97.423%)
+Q30 bases: 2256042115(95.1137%)
+
+Filtering result:
+reads passed filter: 16832003
+reads failed due to low quality: 93148
+reads failed due to too many N: 3543
+reads failed due to too short: 1139
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 46.5339%
+
+JSON report: fastp.json
+HTML report: Flg22_SynCom33_2.html
+
+/home/yniu/Biotools/fastp -w 16 -z 6 -p -U --umi_loc=read1 --umi_len=8 --trim_tail1=2 -h Flg22_SynCom33_2.html -i Flg22_SynCom33_2.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_SynCom33_2.fq.gz 
+fastp v0.19.8, time used: 962 seconds
+FastQC Flg22_SynCom33_3.fq.gz
+Started analysis of Flg22_SynCom33_3.fq.gz
+Approx 5% complete for Flg22_SynCom33_3.fq.gz
+Approx 10% complete for Flg22_SynCom33_3.fq.gz
+Approx 15% complete for Flg22_SynCom33_3.fq.gz
+Approx 20% complete for Flg22_SynCom33_3.fq.gz
+Approx 25% complete for Flg22_SynCom33_3.fq.gz
+Approx 30% complete for Flg22_SynCom33_3.fq.gz
+Approx 35% complete for Flg22_SynCom33_3.fq.gz
+Approx 40% complete for Flg22_SynCom33_3.fq.gz
+Approx 45% complete for Flg22_SynCom33_3.fq.gz
+Approx 50% complete for Flg22_SynCom33_3.fq.gz
+Approx 55% complete for Flg22_SynCom33_3.fq.gz
+Approx 60% complete for Flg22_SynCom33_3.fq.gz
+Approx 65% complete for Flg22_SynCom33_3.fq.gz
+Approx 70% complete for Flg22_SynCom33_3.fq.gz
+Approx 75% complete for Flg22_SynCom33_3.fq.gz
+Approx 80% complete for Flg22_SynCom33_3.fq.gz
+Approx 85% complete for Flg22_SynCom33_3.fq.gz
+Approx 90% complete for Flg22_SynCom33_3.fq.gz
+Approx 95% complete for Flg22_SynCom33_3.fq.gz
+Analysis complete for Flg22_SynCom33_3.fq.gz
+Trimming Flg22_SynCom33_3.fq.gz.
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 20093432
+total bases: 3031919304
+Q20 bases: 2951572321(97.35%)
+Q30 bases: 2882323596(95.066%)
+
+Read1 after filtering:
+total reads: 19984770
+total bases: 2815882775
+Q20 bases: 2746363679(97.5312%)
+Q30 bases: 2683913308(95.3134%)
+
+Filtering result:
+reads passed filter: 19984770
+reads failed due to low quality: 102894
+reads failed due to too many N: 4152
+reads failed due to too short: 1616
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 48.3864%
+
+JSON report: fastp.json
+HTML report: Flg22_SynCom33_3.html
+
+/home/yniu/Biotools/fastp -w 16 -z 6 -p -U --umi_loc=read1 --umi_len=8 --trim_tail1=2 -h Flg22_SynCom33_3.html -i Flg22_SynCom33_3.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_SynCom33_3.fq.gz 
+fastp v0.19.8, time used: 1175 seconds
+FastQC Flg22_SynCom35_1.fq.gz
+Started analysis of Flg22_SynCom35_1.fq.gz
+Approx 5% complete for Flg22_SynCom35_1.fq.gz
+Approx 10% complete for Flg22_SynCom35_1.fq.gz
+Approx 15% complete for Flg22_SynCom35_1.fq.gz
+Approx 20% complete for Flg22_SynCom35_1.fq.gz
+Approx 25% complete for Flg22_SynCom35_1.fq.gz
+Approx 30% complete for Flg22_SynCom35_1.fq.gz
+Approx 35% complete for Flg22_SynCom35_1.fq.gz
+Approx 40% complete for Flg22_SynCom35_1.fq.gz
+Approx 45% complete for Flg22_SynCom35_1.fq.gz
+Approx 50% complete for Flg22_SynCom35_1.fq.gz
+Approx 55% complete for Flg22_SynCom35_1.fq.gz
+Approx 60% complete for Flg22_SynCom35_1.fq.gz
+Approx 65% complete for Flg22_SynCom35_1.fq.gz
+Approx 70% complete for Flg22_SynCom35_1.fq.gz
+Approx 75% complete for Flg22_SynCom35_1.fq.gz
+Approx 80% complete for Flg22_SynCom35_1.fq.gz
+Approx 85% complete for Flg22_SynCom35_1.fq.gz
+Approx 90% complete for Flg22_SynCom35_1.fq.gz
+Approx 95% complete for Flg22_SynCom35_1.fq.gz
+Analysis complete for Flg22_SynCom35_1.fq.gz
+Trimming Flg22_SynCom35_1.fq.gz.
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 17361283
+total bases: 2620128858
+Q20 bases: 2550967034(97.3604%)
+Q30 bases: 2491904995(95.1062%)
+
+Read1 after filtering:
+total reads: 17267286
+total bases: 2433434107
+Q20 bases: 2373880795(97.5527%)
+Q30 bases: 2320699291(95.3673%)
+
+Filtering result:
+reads passed filter: 17267286
+reads failed due to low quality: 89144
+reads failed due to too many N: 3588
+reads failed due to too short: 1265
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 47.9547%
+
+JSON report: fastp.json
+HTML report: Flg22_SynCom35_1.html
+
+/home/yniu/Biotools/fastp -w 16 -z 6 -p -U --umi_loc=read1 --umi_len=8 --trim_tail1=2 -h Flg22_SynCom35_1.html -i Flg22_SynCom35_1.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_SynCom35_1.fq.gz 
+fastp v0.19.8, time used: 987 seconds
+FastQC Flg22_SynCom35_2.fq.gz
+Started analysis of Flg22_SynCom35_2.fq.gz
+Approx 5% complete for Flg22_SynCom35_2.fq.gz
+Approx 10% complete for Flg22_SynCom35_2.fq.gz
+Approx 15% complete for Flg22_SynCom35_2.fq.gz
+Approx 20% complete for Flg22_SynCom35_2.fq.gz
+Approx 25% complete for Flg22_SynCom35_2.fq.gz
+Approx 30% complete for Flg22_SynCom35_2.fq.gz
+Approx 35% complete for Flg22_SynCom35_2.fq.gz
+Approx 40% complete for Flg22_SynCom35_2.fq.gz
+Approx 45% complete for Flg22_SynCom35_2.fq.gz
+Approx 50% complete for Flg22_SynCom35_2.fq.gz
+Approx 55% complete for Flg22_SynCom35_2.fq.gz
+Approx 60% complete for Flg22_SynCom35_2.fq.gz
+Approx 65% complete for Flg22_SynCom35_2.fq.gz
+Approx 70% complete for Flg22_SynCom35_2.fq.gz
+Approx 75% complete for Flg22_SynCom35_2.fq.gz
+Approx 80% complete for Flg22_SynCom35_2.fq.gz
+Approx 85% complete for Flg22_SynCom35_2.fq.gz
+Approx 90% complete for Flg22_SynCom35_2.fq.gz
+Approx 95% complete for Flg22_SynCom35_2.fq.gz
+Analysis complete for Flg22_SynCom35_2.fq.gz
+Trimming Flg22_SynCom35_2.fq.gz.
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 16914038
+total bases: 2552772889
+Q20 bases: 2488288901(97.474%)
+Q30 bases: 2432793167(95.3%)
+
+Read1 after filtering:
+total reads: 16825207
+total bases: 2371221264
+Q20 bases: 2315655602(97.6567%)
+Q30 bases: 2265669331(95.5486%)
+
+Filtering result:
+reads passed filter: 16825207
+reads failed due to low quality: 84576
+reads failed due to too many N: 3422
+reads failed due to too short: 833
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 47.4595%
+
+JSON report: fastp.json
+HTML report: Flg22_SynCom35_2.html
+
+/home/yniu/Biotools/fastp -w 16 -z 6 -p -U --umi_loc=read1 --umi_len=8 --trim_tail1=2 -h Flg22_SynCom35_2.html -i Flg22_SynCom35_2.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_SynCom35_2.fq.gz 
+fastp v0.19.8, time used: 947 seconds
+FastQC Flg22_SynCom35_3.fq.gz
+Started analysis of Flg22_SynCom35_3.fq.gz
+Approx 5% complete for Flg22_SynCom35_3.fq.gz
+Approx 10% complete for Flg22_SynCom35_3.fq.gz
+Approx 15% complete for Flg22_SynCom35_3.fq.gz
+Approx 20% complete for Flg22_SynCom35_3.fq.gz
+Approx 25% complete for Flg22_SynCom35_3.fq.gz
+Approx 30% complete for Flg22_SynCom35_3.fq.gz
+Approx 35% complete for Flg22_SynCom35_3.fq.gz
+Approx 40% complete for Flg22_SynCom35_3.fq.gz
+Approx 45% complete for Flg22_SynCom35_3.fq.gz
+Approx 50% complete for Flg22_SynCom35_3.fq.gz
+Approx 55% complete for Flg22_SynCom35_3.fq.gz
+Approx 60% complete for Flg22_SynCom35_3.fq.gz
+Approx 65% complete for Flg22_SynCom35_3.fq.gz
+Approx 70% complete for Flg22_SynCom35_3.fq.gz
+Approx 75% complete for Flg22_SynCom35_3.fq.gz
+Approx 80% complete for Flg22_SynCom35_3.fq.gz
+Approx 85% complete for Flg22_SynCom35_3.fq.gz
+Approx 90% complete for Flg22_SynCom35_3.fq.gz
+Approx 95% complete for Flg22_SynCom35_3.fq.gz
+Analysis complete for Flg22_SynCom35_3.fq.gz
+Trimming Flg22_SynCom35_3.fq.gz.
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 21203518
+total bases: 3199859418
+Q20 bases: 3119580458(97.4912%)
+Q30 bases: 3050140608(95.3211%)
+
+Read1 after filtering:
+total reads: 21099083
+total bases: 2973281324
+Q20 bases: 2903716197(97.6603%)
+Q30 bases: 2841068744(95.5533%)
+
+Filtering result:
+reads passed filter: 21099083
+reads failed due to low quality: 98726
+reads failed due to too many N: 4365
+reads failed due to too short: 1344
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 50.0012%
+
+JSON report: fastp.json
+HTML report: Flg22_SynCom35_3.html
+
+/home/yniu/Biotools/fastp -w 16 -z 6 -p -U --umi_loc=read1 --umi_len=8 --trim_tail1=2 -h Flg22_SynCom35_3.html -i Flg22_SynCom35_3.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Flg22_SynCom35_3.fq.gz 
+fastp v0.19.8, time used: 1171 seconds
+FastQC Mock_1.fq.gz
+Started analysis of Mock_1.fq.gz
+Approx 5% complete for Mock_1.fq.gz
+Approx 10% complete for Mock_1.fq.gz
+Approx 15% complete for Mock_1.fq.gz
+Approx 20% complete for Mock_1.fq.gz
+Approx 25% complete for Mock_1.fq.gz
+Approx 30% complete for Mock_1.fq.gz
+Approx 35% complete for Mock_1.fq.gz
+Approx 40% complete for Mock_1.fq.gz
+Approx 45% complete for Mock_1.fq.gz
+Approx 50% complete for Mock_1.fq.gz
+Approx 55% complete for Mock_1.fq.gz
+Approx 60% complete for Mock_1.fq.gz
+Approx 65% complete for Mock_1.fq.gz
+Approx 70% complete for Mock_1.fq.gz
+Approx 75% complete for Mock_1.fq.gz
+Approx 80% complete for Mock_1.fq.gz
+Approx 85% complete for Mock_1.fq.gz
+Approx 90% complete for Mock_1.fq.gz
+Approx 95% complete for Mock_1.fq.gz
+Analysis complete for Mock_1.fq.gz
+Trimming Mock_1.fq.gz.
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 16978228
+total bases: 2562591691
+Q20 bases: 2492967031(97.283%)
+Q30 bases: 2433634030(94.9677%)
+
+Read1 after filtering:
+total reads: 16881903
+total bases: 2379355744
+Q20 bases: 2319500208(97.4844%)
+Q30 bases: 2266172718(95.2431%)
+
+Filtering result:
+reads passed filter: 16881903
+reads failed due to low quality: 91917
+reads failed due to too many N: 3459
+reads failed due to too short: 949
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 48.4885%
+
+JSON report: fastp.json
+HTML report: Mock_1.html
+
+/home/yniu/Biotools/fastp -w 16 -z 6 -p -U --umi_loc=read1 --umi_len=8 --trim_tail1=2 -h Mock_1.html -i Mock_1.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Mock_1.fq.gz 
+fastp v0.19.8, time used: 952 seconds
+FastQC Mock_2.fq.gz
+Started analysis of Mock_2.fq.gz
+
+Approx 5% complete for Mock_2.fq.gz
+Approx 10% complete for Mock_2.fq.gz
+Approx 15% complete for Mock_2.fq.gz
+Approx 20% complete for Mock_2.fq.gz
+Approx 25% complete for Mock_2.fq.gz
+Approx 30% complete for Mock_2.fq.gz
+Approx 35% complete for Mock_2.fq.gz
+Approx 40% complete for Mock_2.fq.gz
+Approx 45% complete for Mock_2.fq.gz
+Approx 50% complete for Mock_2.fq.gz
+Approx 55% complete for Mock_2.fq.gz
+Approx 60% complete for Mock_2.fq.gz
+Approx 65% complete for Mock_2.fq.gz
+Approx 70% complete for Mock_2.fq.gz
+Approx 75% complete for Mock_2.fq.gz
+Approx 80% complete for Mock_2.fq.gz
+Approx 85% complete for Mock_2.fq.gz
+Approx 90% complete for Mock_2.fq.gz
+Approx 95% complete for Mock_2.fq.gz
+Analysis complete for Mock_2.fq.gz
+Trimming Mock_2.fq.gz.
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 18851317
+total bases: 2845048503
+Q20 bases: 2748612403(96.6104%)
+Q30 bases: 2668841471(93.8065%)
+
+Read1 after filtering:
+total reads: 18723047
+total bases: 2638625349
+Q20 bases: 2555389219(96.8455%)
+Q30 bases: 2483834962(94.1337%)
+
+Filtering result:
+reads passed filter: 18723047
+reads failed due to low quality: 124212
+reads failed due to too many N: 2763
+reads failed due to too short: 1295
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 49.0221%
+
+JSON report: fastp.json
+HTML report: Mock_2.html
+
+/home/yniu/Biotools/fastp -w 16 -z 6 -p -U --umi_loc=read1 --umi_len=8 --trim_tail1=2 -h Mock_2.html -i Mock_2.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Mock_2.fq.gz 
+fastp v0.19.8, time used: 1339 seconds
+FastQC Mock_3.fq.gz
+Started analysis of Mock_3.fq.gz
+Approx 5% complete for Mock_3.fq.gz
+Approx 10% complete for Mock_3.fq.gz
+Approx 15% complete for Mock_3.fq.gz
+Approx 20% complete for Mock_3.fq.gz
+Approx 25% complete for Mock_3.fq.gz
+Approx 30% complete for Mock_3.fq.gz
+Approx 35% complete for Mock_3.fq.gz
+Approx 40% complete for Mock_3.fq.gz
+Approx 45% complete for Mock_3.fq.gz
+Approx 50% complete for Mock_3.fq.gz
+Approx 55% complete for Mock_3.fq.gz
+Approx 60% complete for Mock_3.fq.gz
+Approx 65% complete for Mock_3.fq.gz
+Approx 70% complete for Mock_3.fq.gz
+Approx 75% complete for Mock_3.fq.gz
+Approx 80% complete for Mock_3.fq.gz
+Approx 85% complete for Mock_3.fq.gz
+Approx 90% complete for Mock_3.fq.gz
+Approx 95% complete for Mock_3.fq.gz
+Analysis complete for Mock_3.fq.gz
+Trimming Mock_3.fq.gz.
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 18313224
+total bases: 2763230659
+Q20 bases: 2694339053(97.5068%)
+Q30 bases: 2635239062(95.368%)
+
+Read1 after filtering:
+total reads: 18218407
+total bases: 2566937776
+Q20 bases: 2507543102(97.6862%)
+Q30 bases: 2454320954(95.6128%)
+
+Filtering result:
+reads passed filter: 18218407
+reads failed due to low quality: 89531
+reads failed due to too many N: 3753
+reads failed due to too short: 1533
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 50.5074%
+
+JSON report: fastp.json
+HTML report: Mock_3.html
+
+/home/yniu/Biotools/fastp -w 16 -z 6 -p -U --umi_loc=read1 --umi_len=8 --trim_tail1=2 -h Mock_3.html -i Mock_3.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Mock_3.fq.gz 
+fastp v0.19.8, time used: 1012 seconds
+Thu Apr 11 19:51:08 CEST 2019

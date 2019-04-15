@@ -25,7 +25,9 @@ links=(https://websafe.mpipz.mpg.de/d/TlcortL5BV/4096_A_run582_TCAGACGA_S1_L001_
        https://websafe.mpipz.mpg.de/d/VTdhEFjLg6/4096_I_run582_ACTCAAGT_S9_L002_R1_001.fastq.gz
        https://websafe.mpipz.mpg.de/d/czYusmyYJe/4096_J_run582_TTGCCATA_S10_L002_R1_001.fastq.gz
        https://websafe.mpipz.mpg.de/d/oUg40ym2FA/4096_K_run582_TATCCTCG_S11_L002_R1_001.fastq.gz
-       https://websafe.mpipz.mpg.de/d/AxxXWr2Bxf/4096_L_run582_GGACTATT_S12_L002_R1_001.fastq.gz)
+       https://websafe.mpipz.mpg.de/d/AxxXWr2Bxf/4096_L_run582_GGACTATT_S12_L002_R1_001.fastq.gz
+       https://websafe.mpipz.mpg.de/d/DImGvgdYxN/4096_E_run584_CGCAGTAC_S1_L001_R1_001.fastq.gz
+       https://websafe.mpipz.mpg.de/d/wT3tcfU7d2/4096_E_run584_CGCAGTAC_S1_L002_R1_001.fastq.gz)
 
 cd ${RAW_PATH}
 

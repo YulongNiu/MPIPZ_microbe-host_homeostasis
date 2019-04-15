@@ -74,7 +74,7 @@ The *Arabidopsis thaliana* Col-0 treated with flg22, SynCom33+flg22, and SynCom3
 | sample           | rawfq    | trimfq   | H_ath | K_ath | 
 |------------------|----------|----------|-------|-------| 
 | Mock_1           | 16978228 | 16881903 | 0.977 | 0.962 | 
-| Mock_2           | 13038601 | 12967294 | 0.98  | 0.967 | 
+| Mock_2           | 18851317 | 18723047 | 0.979 | 0.966 | 
 | Mock_3           | 18313224 | 18218407 | 0.98  | 0.966 | 
 | Flg22_1          | 17512255 | 17422675 | 0.971 | 0.954 | 
 | Flg22_2          | 18047704 | 17950283 | 0.975 | 0.959 | 
@@ -120,5 +120,14 @@ Flg22_SynCom35_3 Flg22_SynCom35
 Formula: `~condition` 
 
 Results: [results/eachGroup_vs_Mock_k.csv](results/eachGroup_vs_Mock_k.csv)
+
+* 2 groups (flg22_SynCom33 and flg22_SynCom35) *vs* flg22
+
+Base level: Mock
+
+Conditions:
+
+
+
 
 

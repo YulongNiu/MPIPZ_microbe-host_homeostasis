@@ -321,21 +321,21 @@ Warning: 5654 transcripts were defined in GTF file, but not in the index
 [quant] running in single-end mode
 [quant] will process file 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Mock_2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 12,967,294 reads, 12,535,088 reads pseudoaligned
+[quant] processed 18,723,047 reads, 18,089,733 reads pseudoaligned
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,313 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,357 rounds
 [  bam] writing pseudoalignments to BAM format .. done
 [  bam] sorting BAM files .. done
 [  bam] indexing BAM file .. done
 
-HISAT2 using ath cDNA for Mock_2.
-12967294 reads; of these:
-  12967294 (100.00%) were unpaired; of these:
-    264816 (2.04%) aligned 0 times
-    12397562 (95.61%) aligned exactly 1 time
-    304916 (2.35%) aligned >1 times
-97.96% overall alignment rate
-[bam_sort_core] merging from 0 files and 120 in-memory blocks...
+HISAT2 using ath genome for Mock_2.
+18723047 reads; of these:
+  18723047 (100.00%) were unpaired; of these:
+    390859 (2.09%) aligned 0 times
+    17876074 (95.48%) aligned exactly 1 time
+    456114 (2.44%) aligned >1 times
+97.91% overall alignment rate
+[bam_sort_core] merging from 0 files and 45 in-memory blocks...
 =====================================
 ====================================
 Kallisto using ath cDNA for Mock_3.
