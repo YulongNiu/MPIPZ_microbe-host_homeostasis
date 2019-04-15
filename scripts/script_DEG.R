@@ -61,7 +61,7 @@ resRaw <- lapply(cond,
                      summary %>%
                      as_tibble %>%
                      select(pvalue, padj, log2FoldChange) %>%
-                     rename_all(.funs = funs(paste0(x, '_', .)))
+                     rename_all(.funs = list(~paste0(x, '_', .)))
                  }) %>%
   bind_cols
 
