@@ -114,7 +114,11 @@ degres <- DESeqDataSetFromTximport(kres,
                                    ~condition)
 
 ## DEGs role out two zeros in one group
-degres <- degres[rowSums(counts(degres)) > 1, ]
+## degres <- degres[rowSums(counts(degres)) > 1, ]
+degres %<>%
+  counts %>%
+  apply(1, checkFlg22, 1) %>%
+  degres[., ]
 degres <- DESeq(degres)
 
 ## count transformation

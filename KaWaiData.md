@@ -98,10 +98,6 @@ The *Arabidopsis thaliana* Col-0 treated with flg22, SynCom33+flg22, and SynCom3
 
 ### 4.2 DEGs ###
 
-* 3 groups (flg22, flg22_SynCom33, and flg22_SynCom35) *vs.* Mock
-
-Conditions: 
-
 ```
                       condition
 Mock_1                     Mock
@@ -117,9 +113,12 @@ Flg22_SynCom35_1 Flg22_SynCom35
 Flg22_SynCom35_2 Flg22_SynCom35
 Flg22_SynCom35_3 Flg22_SynCom35
 ```
-Formula: `~condition` 
 
-Results: [results/eachGroup_vs_Mock_k.csv](results/eachGroup_vs_Mock_k.csv)
+* 3 groups (flg22, flg22_SynCom33, and flg22_SynCom35) *vs.* Mock
+
+Conditions: 
+
+Results: [results/eachGroup_vs_Mock_k_full.csv](results/eachGroup_vs_Mock_k_full.csv) (remove genes with zero count) and [results/eachGroup_vs_Mock_k.csv](results/eachGroup_vs_Mock_k.csv) (remove gene with at least two zero count in one condition).
 
 * 2 groups (flg22_SynCom33 and flg22_SynCom35) *vs* flg22
 
