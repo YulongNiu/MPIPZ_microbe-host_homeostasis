@@ -23,7 +23,7 @@ noteAnno <- geneAnno %>%
   str_trim
 
 geneTable <- tibble(ID = str_extract(noteAnno, '(?<=ID=gene:).*?(?=;)'),
-                    Gene = str_extract(noteAnno, '(?<=Name=).*?(?=;)') %>% {if_else(is.na(.), '', .)},
+                    Gene = str_extract(noteAnno, '(?<=Name=).*?(?=;)') %>% {if_else(is.na(.), '', .)} %>% sapply(URLdecode),
                     BioType = str_extract(noteAnno, '(?<=biotype=).*?(?=;)'),
                     Description = str_extract(noteAnno, '(?<=description=).*?(?=;)') %>% {if_else(is.na(.), '', .)} %>% sapply(URLdecode))
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

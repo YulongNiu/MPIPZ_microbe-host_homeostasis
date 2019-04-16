@@ -1,4 +1,24 @@
 ###########################DEGs##################################
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~useful funcs~~~~~~~~~~~~~~~~~~~~~~~~
+checkZeros <- function(v, threshold) {
+  res <- ifelse(sum(v == 0) > threshold, FALSE, TRUE)
+  return(res)
+}
+
+checkFlg22 <- function(v, threshold) {
+
+  require('magrittr')
+
+  res <- v %>%
+    split(rep(1 : 4, each = 3)) %>%
+    sapply(checkZeros, threshold) %>%
+    all
+
+  return(res)
+}
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 library('tximport')
 library('rhdf5')
 library('magrittr')
@@ -17,7 +37,6 @@ anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno
 ##~~~~~~~~~~~~~~~~~~~~load k alignments~~~~~~~~~~~~~~~~~~~~~~~~~~
 wd <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/bamfiles'
 setwd(wd)
-
 
 slabel <- rep(c('Mock', 'Flg22', 'Flg22_SynCom33', 'Flg22_SynCom35'), each = 3) %>%
   paste(rep(1:3, 4), sep = '_') %>%
@@ -40,7 +59,11 @@ rownames(sampleTable) <- colnames(kres$counts)
 degres <- DESeqDataSetFromTximport(kres, sampleTable, ~condition)
 
 ## DEGs
-degres <- degres[rowSums(counts(degres)) > 1, ]
+degres %<>%
+  counts %>%
+  apply(1, checkFlg22, 1) %>%
+  degres[., ]
+# degres <- degres[rowSums(counts(degres)) > 1, ]
 degres <- DESeq(degres)
 ## resultsNames(degres)
 
@@ -83,16 +106,48 @@ setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/')
 
 ## sampleTable
 sampleTable <- data.frame(condition = factor(rep(c('Mock', 'Flg22', 'Flg22_SynCom33', 'Flg22_SynCom35'), each = 3)), process = factor(rep(c('N', 'Y', 'Y', 'Y'), each = 3)))
-sampleTable$condition %<>% relevel(ref = 'Mock')
+sampleTable$condition %<>% relevel(ref = 'Flg22')
 rownames(sampleTable) <- colnames(kres$counts)
 
 degres <- DESeqDataSetFromTximport(kres,
                                    sampleTable,
-                                   ~condition + process + condition:process)
+                                   ~condition)
 
-## DEGs
+## DEGs role out two zeros in one group
 degres <- degres[rowSums(counts(degres)) > 1, ]
 degres <- DESeq(degres)
+
+## count transformation
+rld <- rlog(degres)
+vst <- varianceStabilizingTransformation(degres)
+ntd <- normTransform(degres)
+
+cond <- degres %>%
+  resultsNames %>%
+  str_extract('(?<=condition_).*') %>%
+  .[!is.na(.)] %>%
+  `[`(1:2)
+
+resRaw <- lapply(cond,
+                 function(x) {
+                   degres %>%
+                     results(name = paste0('condition_', x)) %T>%
+                     summary %>%
+                     as_tibble %>%
+                     select(pvalue, padj, log2FoldChange) %>%
+                     rename_all(.funs = list(~paste0(x, '_', .)))
+                 }) %>%
+  bind_cols
+
+res <- cbind.data.frame(as.matrix(mcols(degres)[, 1:10]), assay(ntd), stringsAsFactors = FALSE) %>%
+  rownames_to_column(., var = 'ID') %>%
+  as_tibble %>%
+  bind_cols(resRaw) %>%
+  inner_join(anno, by = 'ID') %>%
+  select(ID, Gene : Description, Flg22_1 : Flg22_SynCom35_vs_Flg22_log2FoldChange) %>%
+  arrange(Flg22_SynCom33_vs_Flg22_padj)
+
+write_csv(res, 'SynCom_vs_flg22_k.csv')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PCA~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
