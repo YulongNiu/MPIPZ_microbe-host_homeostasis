@@ -154,6 +154,49 @@ res <- cbind.data.frame(as.matrix(mcols(degres)[, 1:10]), assay(ntd), stringsAsF
 write_csv(res, 'SynCom_vs_flg22_k.csv')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~SynCom35 vs. SynCom35~~~~~~~~~~~~~~~~~~
+setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/')
+
+## sampleTable
+sampleTable <- data.frame(condition = factor(rep(c('Mock', 'Flg22', 'Flg22_SynCom33', 'Flg22_SynCom35'), each = 3)), process = factor(rep(c('N', 'Y', 'Y', 'Y'), each = 3)))
+sampleTable$condition %<>% relevel(ref = 'Flg22_SynCom33')
+rownames(sampleTable) <- colnames(kres$counts)
+
+degres <- DESeqDataSetFromTximport(kres,
+                                   sampleTable,
+                                   ~condition)
+
+## DEGs role out two zeros in one group
+## degres <- degres[rowSums(counts(degres)) > 1, ]
+degres %<>%
+  counts %>%
+  apply(1, checkFlg22, 1) %>%
+  degres[., ]
+degres <- DESeq(degres)
+
+## count transformation
+rld <- rlog(degres)
+vst <- varianceStabilizingTransformation(degres)
+ntd <- normTransform(degres)
+
+resRaw <- degres %>%
+  results(name = 'condition_Flg22_SynCom35_vs_Flg22_SynCom33') %T>%
+  summary %>%
+  as_tibble %>%
+  select(pvalue, padj, log2FoldChange) %>%
+  rename_all(.funs = list(~paste0('Flg22_SynCom35_vs_Flg22_SynCom33_', .)))
+
+res <- cbind.data.frame(as.matrix(mcols(degres)[, 1:10]), assay(ntd), stringsAsFactors = FALSE) %>%
+  rownames_to_column(., var = 'ID') %>%
+  as_tibble %>%
+  bind_cols(resRaw) %>%
+  inner_join(anno, by = 'ID') %>%
+  select(ID, Gene : Description, Flg22_SynCom33_1 : Flg22_SynCom35_vs_Flg22_SynCom33_log2FoldChange) %>%
+  arrange(Flg22_SynCom35_vs_Flg22_SynCom33_padj)
+
+write_csv(res, 'SynCom35_vs_SynCom33_k_full.csv')
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PCA~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 library('directlabels')
 library('ggplot2')
