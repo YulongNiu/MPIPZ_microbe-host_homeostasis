@@ -30,9 +30,14 @@ meanFlg22 <- function(v) {
 ##p value calculation from WGCNA
 corPvalueStudent <- function(cor, nSamples) {
 
+  ## ref: https://courses.lumenlearning.com/introstats1/chapter/testing-the-significance-of-the-correlation-coefficient/
   T <- sqrt(nSamples - 2) * cor / sqrt(1 - cor^2)
 
-  p <- 2 * pt(abs(T), nSamples - 2, lower.tail = FALSE)
+  if (T < 0) {
+    p <- 1 -  pt(T, nSamples - 2, lower.tail = FALSE)
+  } else {
+    p <- pt(T, nSamples - 2, lower.tail = FALSE)
+  }
 
   return(p)
 }
@@ -220,10 +225,10 @@ traitCorPlot <- moduleTraitCor %>%
   mutate(x = rep(0 : (nrow(cores) - 1), each = ncol(cores))) %>%
   mutate(y = rep((ncol(cores) - 1) : 0, nrow(cores))) %>%
   inner_join(traitPPlot) %>%
-  mutate(addtext = paste0(format(correlation, digit = 2),
+  mutate(addtext = paste0(round(correlation, digit = 2),
                           '\n',
                           '(',
-                          format(pvalue, digit = 2),
+                          round(pvalue, digit = 2),
                           ')'))
 
 ggplot(traitCorPlot, aes(x = x, y = y, fill = correlation)) +

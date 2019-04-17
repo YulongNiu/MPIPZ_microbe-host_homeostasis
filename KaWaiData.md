@@ -192,7 +192,7 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
   
 ## 5 References ##
 
-* [Clustering RNAseq data, making heatmaps, and tree cutting to identify gene modules.](https://2-bitbio.com/2017/04/clustering-rnaseq-data-making-heatmaps.html)
+<!-- * [Clustering RNAseq data, making heatmaps, and tree cutting to identify gene modules.](https://2-bitbio.com/2017/04/clustering-rnaseq-data-making-heatmaps.html) -->
 
 
 
