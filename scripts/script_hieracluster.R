@@ -33,11 +33,13 @@ corPvalueStudent <- function(cor, nSamples) {
   ## ref: https://courses.lumenlearning.com/introstats1/chapter/testing-the-significance-of-the-correlation-coefficient/
   T <- sqrt(nSamples - 2) * cor / sqrt(1 - cor^2)
 
-  if (T < 0) {
-    p <- 1 -  pt(T, nSamples - 2, lower.tail = FALSE)
-  } else {
-    p <- pt(T, nSamples - 2, lower.tail = FALSE)
-  }
+  p <- apply(T, 1:2, function(x) {
+    if (x < 0) {
+      eachp <- 1 -  pt(x, nSamples - 2, lower.tail = FALSE)
+    } else {
+      eachp <- pt(x, nSamples - 2, lower.tail = FALSE)
+    }
+  })
 
   return(p)
 }
