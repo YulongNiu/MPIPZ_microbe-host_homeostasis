@@ -206,18 +206,30 @@ cores <- clusterGene %>%
 moduleTraitCor <- cor(cores, traits, use = 'p')
 moduleTraitPvalue <- corPvalueStudent(moduleTraitCor, nrow(traits))
 
+traitPPlot <- moduleTraitPvalue %>%
+  as.data.frame %>%
+  rownames_to_column('cluster') %>%
+  gather(trait, pvalue, flg22 : rootlen) %>%
+  as_tibble
+
 traitCorPlot <- moduleTraitCor %>%
   as.data.frame %>%
   rownames_to_column('cluster') %>%
   gather(trait, correlation, flg22 : rootlen) %>%
   as_tibble %>%
   mutate(x = rep(0 : (nrow(cores) - 1), each = ncol(cores))) %>%
-  mutate(y = rep((ncol(cores) - 1) : 0, nrow(cores)))
+  mutate(y = rep((ncol(cores) - 1) : 0, nrow(cores))) %>%
+  inner_join(traitPPlot) %>%
+  mutate(addtext = paste0(format(correlation, digit = 2),
+                          '\n',
+                          '(',
+                          format(pvalue, digit = 2),
+                          ')'))
 
 ggplot(traitCorPlot, aes(x = x, y = y, fill = correlation)) +
   geom_tile() +
   scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 7, name = 'RdYlBu')))(100), breaks = seq(-1, 1, 0.5), labels = format(seq(-1, 1, 0.5)), limits = c(-1, 1)) +
-  geom_text(aes(label = correlation %>% format(digit = 2))) +
+  geom_text(aes(label = addtext)) +
   scale_x_continuous(breaks = 0 : 3, labels = c('flg22', 'SynCom33', 'SynCom35', 'rootlen')) +
   scale_y_continuous(breaks = 0 : 7, labels = paste0('cluster_', 8:1)) +
   xlab('Trait') +
