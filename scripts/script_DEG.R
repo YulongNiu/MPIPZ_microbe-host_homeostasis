@@ -60,10 +60,12 @@ degres <- DESeqDataSetFromTximport(kres, sampleTable, ~condition)
 
 ## DEGs
 degres %<>%
-  counts %>%
+  estimateSizeFactors %>%
+  counts(normalized = TRUE) %>%
   apply(1, checkFlg22, 1) %>%
   degres[., ]
-# degres <- degres[rowSums(counts(degres)) > 1, ]
+## degres <- degres[rowSums(counts(degres)) > 1, ]
+save(degres, file = 'degres_condi_Mock.RData')
 degres <- DESeq(degres)
 ## resultsNames(degres)
 
@@ -116,7 +118,8 @@ degres <- DESeqDataSetFromTximport(kres,
 ## DEGs role out two zeros in one group
 ## degres <- degres[rowSums(counts(degres)) > 1, ]
 degres %<>%
-  counts %>%
+  estimateSizeFactors %>%
+  counts(normalized = TRUE) %>%
   apply(1, checkFlg22, 1) %>%
   degres[., ]
 degres <- DESeq(degres)
@@ -169,7 +172,8 @@ degres <- DESeqDataSetFromTximport(kres,
 ## DEGs role out two zeros in one group
 ## degres <- degres[rowSums(counts(degres)) > 1, ]
 degres %<>%
-  counts %>%
+  estimateSizeFactors %>%
+  counts(normalized = TRUE) %>%
   apply(1, checkFlg22, 1) %>%
   degres[., ]
 degres <- DESeq(degres)

@@ -9,3 +9,5 @@
 *.bam
 *.bam.bai
 bamfiles/
+scripts/.history
+results/.history
