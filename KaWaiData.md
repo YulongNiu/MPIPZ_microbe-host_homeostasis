@@ -116,16 +116,15 @@ Flg22_SynCom35_3 Flg22_SynCom35
 
 * 3 groups (flg22, flg22_SynCom33, and flg22_SynCom35) *vs.* Mock
 
-Conditions: 
-
 Results: [results/eachGroup_vs_Mock_k_full.csv](results/eachGroup_vs_Mock_k_full.csv) (remove genes with zero count) and [results/eachGroup_vs_Mock_k.csv](results/eachGroup_vs_Mock_k.csv) (remove gene with at least two zero count in one condition).
 
-* 2 groups (flg22_SynCom33 and flg22_SynCom35) *vs* flg22
+* 2 groups (flg22_SynCom33 and flg22_SynCom35) *vs.* flg22
 
-Base level: Mock
+Results: [results/SynCom_vs_flg22_k_full.csv](results/SynCom_vs_flg22_k_full.csv) and [results/SynCom_vs_flg22_k.csv](results/SynCom_vs_flg22_k.csv).
 
-Conditions:
+* 1 groups flg22_SynCom35 *vs.* flg22_SynCom33
 
+Results: [results/SynCom35_vs_SynCom33_k_full.csv](SynCom35_vs_SynCom33_k_full.csv) and [results/SynCom35_vs_SynCom33_k.csv](results/SynCom35_vs_SynCom33_k.csv).
 
 
 
