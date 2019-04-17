@@ -138,9 +138,25 @@ Flg22_SynCom35_3 Flg22_SynCom35
 
 Hierarchical clustering to find potential gene expression patterns in four conditions (`Mock`, `flg22`, `SynCom33`, and `SynCom35`). The read count of each transcript was scaled, then average value was used to represent each condition. Transcript with more than one zero counts in any of the four conditions were excluded (29161 transcripts left).
 
-* Hierarchical clustering of 29161 transcripts. Distance was calculated as `1 - Pearson's Correlation Coefficient`
+* Hierarchical clustering of 29161 transcripts. 
+
+Distance was calculated as `1 - Pearson's Correlation Coefficient`
 
 ![genetree](results/genetree.jpg)
+
+* Cut trees to get clusters
+
+  height threshold `0.5`
+  
+  ![hieracluster_0d5](results/hieracluster_0d5.jpg)
+  
+  height threshold `1.0`
+  
+  ![hieracluster_1d0.jpg](results/hieracluster_1d0.jpg)
+  
+  height threshold `1.5`
+  
+  ![hieracluster_1d5.jpg](results/hieracluster_1d5.jpg)
 
 
 
