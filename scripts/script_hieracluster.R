@@ -13,6 +13,7 @@ library('ggplot2')
 library('tidyr')
 library('DESeq2')
 library('dplyr')
+library('RColorBrewer')
 
 ##~~~~~~~~~~~~~~~~~~~~~~useful funcs~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 meanFlg22 <- function(v) {
@@ -24,6 +25,16 @@ meanFlg22 <- function(v) {
     sapply(mean, na.rm = TRUE)
 
   return(res)
+}
+
+##p value calculation from WGCNA
+corPvalueStudent <- function(cor, nSamples) {
+
+  T <- sqrt(nSamples - 2) * cor / sqrt(1 - cor^2)
+
+  p <- 2 * pt(abs(T), nSamples - 2, lower.tail = FALSE)
+
+  return(p)
 }
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -181,9 +192,9 @@ ggsave('hieracluster_gene_1d5.jpg', width = 10, dpi = 320)
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~cluster cor phenotype~~~~~~~~~~~~~~~~~
 traits <- data.frame(flg22 = c(0, 1, 1, 1),
-                    SynCom33 = c(0, 0, 1, 0),
-                    SynCom35 = c(0, 0, 0, 1),
-                    rootlen = c(5.5, 1.1, 1.3, 4.8))
+                     SynCom33 = c(0, 0, 1, 0),
+                     SynCom35 = c(0, 0, 0, 1),
+                     rootlen = c(5.6, 1.1, 1.3, 4.9))
 
 cores <- clusterGene %>%
   group_by(hclusth1.5) %>%
@@ -193,5 +204,20 @@ cores <- clusterGene %>%
   t
 
 moduleTraitCor <- cor(cores, traits, use = 'p')
+moduleTraitPvalue <- corPvalueStudent(moduleTraitCor, nrow(traits))
+
+traitCorPlot <- moduleTraitCor %>%
+  as.data.frame %>%
+  rownames_to_column('cluster') %>%
+  gather(trait, correlation, flg22 : rootlen) %>%
+  as_tibble %>%
+  mutate(x = rep(0 : (nrow(cores) - 1), each = ncol(cores))) %>%
+  mutate(y = rep((ncol(cores) - 1) : 0, nrow(cores)))
+
+ggplot(traitCorPlot, aes(x = x, y = y, fill = correlation)) +
+  geom_tile() +
+  scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 7, name = 'RdYlBu')))(100), breaks = seq(-1, 1, 0.25), labels = format(seq(-1, 1, 0.5)), limits = c(-1, 1)) +
+  geom_text(aes(label = correlation %>% format(digit = 2)))
+
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #################################################################

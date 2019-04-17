@@ -171,10 +171,13 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
   
   ![hieracluster_gene_1d5.jpg](results/hieracluster_gene_1d5.jpg)
   
+  
   ```
   AT1G14550.1 AT2G30750.1 AT2G19190.1 
           7           7           7 
   ```
+  
+  correlation of traits (phenotype) and clusters
   
   ```
   flg22 SynCom33 SynCom35 rootlen
@@ -183,6 +186,7 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
     1        1        0     1.3
     1        0        1     4.8
   ```
+  
   
 ## 5 References ##
 
