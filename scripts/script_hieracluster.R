@@ -216,8 +216,13 @@ traitCorPlot <- moduleTraitCor %>%
 
 ggplot(traitCorPlot, aes(x = x, y = y, fill = correlation)) +
   geom_tile() +
-  scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 7, name = 'RdYlBu')))(100), breaks = seq(-1, 1, 0.25), labels = format(seq(-1, 1, 0.5)), limits = c(-1, 1)) +
-  geom_text(aes(label = correlation %>% format(digit = 2)))
-
+  scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 7, name = 'RdYlBu')))(100), breaks = seq(-1, 1, 0.5), labels = format(seq(-1, 1, 0.5)), limits = c(-1, 1)) +
+  geom_text(aes(label = correlation %>% format(digit = 2))) +
+  scale_x_continuous(breaks = 0 : 3, labels = c('flg22', 'SynCom33', 'SynCom35', 'rootlen')) +
+  scale_y_continuous(breaks = 0 : 7, labels = paste0('cluster_', 8:1)) +
+  xlab('Trait') +
+  ylab('Cluster')
+ggsave('hieracluster_1d5_trait.jpg')
+ggsave('hieracluster_1d5_trait.pdf')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #################################################################

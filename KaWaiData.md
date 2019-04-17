@@ -158,7 +158,7 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
 
   height threshold `1.0`
   
-  ![hieracluster_1d0.jpg](results/hieracluster_1d0.jpg)
+  ![hieracluster_1d0](results/hieracluster_1d0.jpg)
   
   ```
   AT1G14550.1 AT2G30750.1 AT2G19190.1 
@@ -167,9 +167,9 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
   
   height threshold `1.5`
   
-  ![hieracluster_1d5.jpg](results/hieracluster_1d5.jpg)
+  ![hieracluster_1d5](results/hieracluster_1d5.jpg)
   
-  ![hieracluster_gene_1d5.jpg](results/hieracluster_gene_1d5.jpg)
+  ![hieracluster_gene_1d5](results/hieracluster_gene_1d5.jpg)
   
   
   ```
@@ -186,6 +186,8 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
     1        1        0     1.3
     1        0        1     4.8
   ```
+  
+  ![hieracluster_1d5_trait.jpg](results/hieracluster_1d5_trait.jpg)
   
   
 ## 5 References ##
