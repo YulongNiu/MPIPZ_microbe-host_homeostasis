@@ -150,13 +150,32 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
   
   ![hieracluster_0d5](results/hieracluster_0d5.jpg)
   
+  ```
+  AT1G14550.1 AT2G30750.1 AT2G19190.1 
+         21          26          20 
+  ```
+
   height threshold `1.0`
   
   ![hieracluster_1d0.jpg](results/hieracluster_1d0.jpg)
   
+  ```
+  AT1G14550.1 AT2G30750.1 AT2G19190.1 
+          9          14          14 
+  ```
+  
   height threshold `1.5`
   
   ![hieracluster_1d5.jpg](results/hieracluster_1d5.jpg)
+  
+  ![hieracluster_gene_1d5.jpg](results/hieracluster_gene_1d5.jpg)
+  
+  ```
+  AT1G14550.1 AT2G30750.1 AT2G19190.1 
+          7           7           7 
+  ```
+
+  
 
 
 
