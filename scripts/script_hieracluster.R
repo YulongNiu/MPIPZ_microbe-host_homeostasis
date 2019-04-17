@@ -4,7 +4,6 @@ setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/')
 load('degres_condi_Mock.RData')
 
 library('readr')
-library('dplyr')
 library('magrittr')
 library('tibble')
 library('gplots')
@@ -13,6 +12,7 @@ library('dynamicTreeCut')
 library('ggplot2')
 library('tidyr')
 library('DESeq2')
+library('dplyr')
 
 ##~~~~~~~~~~~~~~~~~~~~~~useful funcs~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 meanFlg22 <- function(v) {
@@ -143,31 +143,39 @@ clusterGene <- scaleCount %>%
     inner_join(., cl)
   }
 
+## plot core cluster
 clusterCore <- clusterGene %>%
   group_by(hclusth1.5) %>%
   summarise_at(2:5, mean, na.rm = TRUE) %>% ## mean of each cluster
   mutate(hclusth1.5 = hclusth1.5 %>% paste0('cluster_', .)) %>%
   gather(Sample, NorExpress, Mock : flg22_SynCom35)
-
 clusterCore$Sample %<>% factor(levels = c('Mock', 'flg22', 'flg22_SynCom33', 'flg22_SynCom35'), ordered = TRUE)
 
-## plot core cluster
 ggplot(clusterCore, aes(Sample, NorExpress, col = hclusth1.5, group = hclusth1.5)) +
   geom_point() +
   geom_line() +
-  ylab('Scaled counts') +
   facet_wrap(. ~ hclusth1.5, ncol = 2) +
+  ylab('Scaled counts') +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ggsave('hieracluster_1d5.jpg')
 ggsave('hieracluster_1d5.pdf')
 
+## plot all genes
 clusterGenePlot <- clusterGene %>%
   gather(Sample, NorExpress, Mock : flg22_SynCom35) %>%
   mutate(hclusth1.5 = hclusth1.5 %>% paste0('cluster_', .))
+clusterGenePlot$Sample %<>% factor(levels = c('Mock', 'flg22', 'flg22_SynCom33', 'flg22_SynCom35'), ordered = TRUE)
 
+clusterCorePlot <- clusterCore %>% dplyr::mutate(ID = 1 : nrow(clusterCore))
 ggplot(clusterGenePlot, aes(Sample, NorExpress, group = ID)) +
-  geom_line(color = 'grey', alpha = 0.1) +
-  facet_wrap(. ~ hclusth1.5, ncol = 2)
+  geom_line(color = 'grey30', alpha = 0.01) +
+  facet_wrap(. ~ hclusth1.5, ncol = 2) +
+  geom_point(data = clusterCorePlot, aes(Sample, NorExpress, col = hclusth1.5, group = ID)) +
+  geom_line(data = clusterCorePlot, aes(Sample, NorExpress, group = hclusth1.5, col = hclusth1.5)) +
+  ylab('Scaled counts') +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ggsave('hieracluster_gene_1d5.pdf', width = 10, dpi = 320)
+ggsave('hieracluster_gene_1d5.jpg', width = 10, dpi = 320)
 
-ggplot()
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #################################################################
