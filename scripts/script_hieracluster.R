@@ -126,6 +126,7 @@ dev.off()
 cgenes <- c('AT1G14550.1', 'AT2G30750.1', 'AT2G19190.1')
 hclusth1.5[cgenes]
 hclusth1.0[cgenes]
+
 hclusth0.5[cgenes]
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -176,5 +177,21 @@ ggplot(clusterGenePlot, aes(Sample, NorExpress, group = ID)) +
 ggsave('hieracluster_gene_1d5.pdf', width = 10, dpi = 320)
 ggsave('hieracluster_gene_1d5.jpg', width = 10, dpi = 320)
 
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+##~~~~~~~~~~~~~~~~~~~~~~~~cluster cor phenotype~~~~~~~~~~~~~~~~~
+traits <- data.frame(flg22 = c(0, 1, 1, 1),
+                    SynCom33 = c(0, 0, 1, 0),
+                    SynCom35 = c(0, 0, 0, 1),
+                    rootlen = c(5.5, 1.1, 1.3, 4.8))
+
+cores <- clusterGene %>%
+  group_by(hclusth1.5) %>%
+  summarise_at(2:5, mean, na.rm = TRUE) %>%
+  mutate(hclusth1.5 = hclusth1.5 %>% paste0('cluster_', .)) %>%
+  column_to_rownames(var = 'hclusth1.5') %>%
+  t
+
+moduleTraitCor <- cor(cores, traits, use = 'p')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #################################################################

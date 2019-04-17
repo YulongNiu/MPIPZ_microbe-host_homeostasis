@@ -14,7 +14,8 @@
 - [4. Results](#4-results)
     - [4.1 Aligned reads](#41-aligned-reads)
     - [4.2 DEGs](#42-DEGs)
-- [5. Reference](#5-reference)
+    - [4.3 Cluster](#43-Cluster)
+- [5. References](#5-references)
     
 <!-- content end -->
 
@@ -174,10 +175,18 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
   AT1G14550.1 AT2G30750.1 AT2G19190.1 
           7           7           7 
   ```
-
   
+  ```
+  flg22 SynCom33 SynCom35 rootlen
+    0        0        0     5.5
+    1        0        0     1.1
+    1        1        0     1.3
+    1        0        1     4.8
+  ```
+  
+## 5 References ##
 
-
+* [Clustering RNAseq data, making heatmaps, and tree cutting to identify gene modules.](https://2-bitbio.com/2017/04/clustering-rnaseq-data-making-heatmaps.html)
 
 
 
