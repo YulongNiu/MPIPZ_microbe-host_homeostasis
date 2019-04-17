@@ -96,6 +96,12 @@ The *Arabidopsis thaliana* Col-0 treated with flg22, SynCom33+flg22, and SynCom3
 
 ![H_alignment](results/HISAT2_alignment.png)
 
+* PCA plot
+
+![PCA](results/PCA.jpg)
+
+> rlog (Regularized log transformation) 
+
 ### 4.2 DEGs ###
 
 ```
@@ -126,6 +132,9 @@ Results: [results/SynCom_vs_flg22_k_full.csv](results/SynCom_vs_flg22_k_full.csv
 
 Results: [results/SynCom35_vs_SynCom33_k_full.csv](SynCom35_vs_SynCom33_k_full.csv) and [results/SynCom35_vs_SynCom33_k.csv](results/SynCom35_vs_SynCom33_k.csv).
 
+> logarithm transformation in columns `Mock_1` to `Flg22_SynCom35_3`.
+
+### 4.3 Cluster ###
 
 
 
