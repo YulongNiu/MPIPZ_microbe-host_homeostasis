@@ -111,11 +111,10 @@ abline(h=1.0, lty = 2, col='grey')
 abline(h=0.5, lty = 2, col='grey')
 dev.off()
 
-anno %>%
-  mutate(cluster = hclusth0.5) %>%
-  write_csv('tmp1.csv')
 cgenes <- c('AT1G14550.1', 'AT2G30750.1', 'AT2G19190.1')
 hclusth1.5[cgenes]
+hclusth1.0[cgenes]
+hclusth0.5[cgenes]
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~dynamic tree cut~~~~~~~~~~~~~~~~~~~~
@@ -137,23 +136,23 @@ clusterCore <- scaleCount %>%
   rownames_to_column(var = 'ID') %>%
   as_tibble %>%
   {
-    cl <- as.data.frame(hclusth1.5) %>%
+    cl <- as.data.frame(hclusth0.5) %>%
       rownames_to_column(var = 'ID')
     inner_join(., cl)
   } %>% ## join cluster and scaled normalized counts
-  group_by(hclusth1.5) %>%
+  group_by(hclusth0.5) %>%
   summarise_at(2:5, mean, na.rm = TRUE) %>% ## mean of each cluster
-  mutate(hclusth1.5 = hclusth1.5 %>% paste0('cluster_', .)) %>%
+  mutate(hclusth0.5 = hclusth0.5 %>% paste0('cluster_', .)) %>%
   gather(Sample, NorExpress, Mock : flg22_SynCom35)
 
 clusterCore$Sample %<>% factor(levels = c('Mock', 'flg22', 'flg22_SynCom33', 'flg22_SynCom35'), ordered = TRUE)
 
-ggplot(clusterCore, aes(Sample, NorExpress, col = hclusth1.5, group = hclusth1.5)) +
+ggplot(clusterCore, aes(Sample, NorExpress, col = hclusth0.5, group = hclusth0.5)) +
   geom_point() +
   geom_line() +
   ylab('Scaled counts') +
-  facet_wrap(. ~ hclusth1.5, ncol = 2) +
+  facet_wrap(. ~ hclusth0.5, ncol = 5) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
-ggsave('hieracluster.pdf')
+ggsave('hieracluster_0d5.pdf')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #################################################################
