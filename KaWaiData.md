@@ -100,7 +100,7 @@ The *Arabidopsis thaliana* Col-0 treated with flg22, SynCom33+flg22, and SynCom3
 
 ![PCA](results/PCA.jpg)
 
-> rlog (Regularized log transformation) 
+> rlog (regularized log transformation) in PCA.
 
 ### 4.2 DEGs ###
 
@@ -122,19 +122,21 @@ Flg22_SynCom35_3 Flg22_SynCom35
 
 * 3 groups (flg22, flg22_SynCom33, and flg22_SynCom35) *vs.* Mock
 
-Results: [results/eachGroup_vs_Mock_k_full.csv](results/eachGroup_vs_Mock_k_full.csv) (remove genes with zero count) and [results/eachGroup_vs_Mock_k.csv](results/eachGroup_vs_Mock_k.csv) (remove gene with at least two zero count in one condition).
+[results/eachGroup_vs_Mock_k_full.csv](results/eachGroup_vs_Mock_k_full.csv) (remove genes with zero count) and [results/eachGroup_vs_Mock_k.csv](results/eachGroup_vs_Mock_k.csv) (remove gene with at least two zero count in one condition).
 
 * 2 groups (flg22_SynCom33 and flg22_SynCom35) *vs.* flg22
 
-Results: [results/SynCom_vs_flg22_k_full.csv](results/SynCom_vs_flg22_k_full.csv) and [results/SynCom_vs_flg22_k.csv](results/SynCom_vs_flg22_k.csv).
+[results/SynCom_vs_flg22_k_full.csv](results/SynCom_vs_flg22_k_full.csv) and [results/SynCom_vs_flg22_k.csv](results/SynCom_vs_flg22_k.csv).
 
 * 1 groups flg22_SynCom35 *vs.* flg22_SynCom33
 
-Results: [results/SynCom35_vs_SynCom33_k_full.csv](SynCom35_vs_SynCom33_k_full.csv) and [results/SynCom35_vs_SynCom33_k.csv](results/SynCom35_vs_SynCom33_k.csv).
+[results/SynCom35_vs_SynCom33_k_full.csv](SynCom35_vs_SynCom33_k_full.csv) and [results/SynCom35_vs_SynCom33_k.csv](results/SynCom35_vs_SynCom33_k.csv).
 
 > logarithm transformation in columns `Mock_1` to `Flg22_SynCom35_3`.
 
 ### 4.3 Cluster ###
+
+Hierarchical clustering to find potential gene expression patterns in four conditions (`Mock`, `flg22`, `SynCom33`, and `SynCom35`).
 
 
 
