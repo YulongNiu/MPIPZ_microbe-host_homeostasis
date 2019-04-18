@@ -187,8 +187,19 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
     1        0        1     4.8
   ```
   
-  ![hieracluster_1d5_trait.jpg](results/hieracluster_1d5_trait.jpg)
+  ![hieracluster_1d5_trait](results/hieracluster_1d5_trait.jpg)
   
+  heatmaps
+  
+  ![heatmap_group](results/heatmap_group.jpg)
+  
+  ![heatmap_raw](results/heatmap_raw.jpg)
+  
+  ![heatmap_scale](results/heatmap_scale.jpg)
+  
+  ![heatmap_logFC](results/heatmap_logFC.jpg)
+  
+  ![heatmap_sig](results/heatmap_sig.jpg)
   
 ## 5 References ##
 

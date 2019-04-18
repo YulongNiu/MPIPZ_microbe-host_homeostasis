@@ -12,6 +12,7 @@ library('tidyr')
 library('DESeq2')
 library('dplyr')
 library('RColorBrewer')
+library('gridExtra')
 
 load('degres_condi_Mock.RData')
 degres <- read_csv('eachGroup_vs_Mock_k.csv',
@@ -299,8 +300,9 @@ heatlog2FCPlot <- heatPlot %>%
 ## sig |FC| > 1 and padj < 0.05
 fcsig <- heatPlot %>%
   select(ends_with('FoldChange')) %>%
-  abs %>%
-  `>`(1)
+  transmute_all(list(~case_when(. > 1 ~ 1,
+                                . < -1 ~ -1,
+                                TRUE ~ 0)))
 
 padjsig <- heatPlot %>%
   select(ends_with('padj')) %>%
@@ -310,7 +312,7 @@ padjsig <- heatPlot %>%
 
 heatsigPlot <- (padjsig * fcsig) %>%
   as_tibble %>%
-  gather(sample, sig, Flg22_vs_Mock_padj : Flg22_SynCom35_vs_Mock_padj) %>%
+  gather(sample, sig, 1:3) %>%
   mutate(x = rep(0 : 2, each = nrow(heatPlot))) %>%
   mutate(y = rep(0 : (nrow(heatPlot) - 1), 3))
 
@@ -340,8 +342,10 @@ ggplot(heatRawPlot, aes(x = x, y = y, fill = log2(raw))) +
   scale_x_continuous(breaks = 0 : 11,
                      labels = rep(c('Mock', 'flg22', 'flg22_SynCom33', 'flg22_SynCom35'), each = 3) %>%
                        paste(rep(1 : 3, 4), sep = '_')) +
-  theme_flg22(legend.position = 'top',
+  theme_flg22(legend.position = 'left',
               axis.text.x = element_text(angle = 90, hjust = 1))
+ggsave('heatmap_raw.jpg')
+ggsave('heatmap_raw.pdf')
 
 ggplot(heatScalePlot, aes(x = x, y = y, fill = scale)) +
   geom_tile() +
@@ -349,20 +353,30 @@ ggplot(heatScalePlot, aes(x = x, y = y, fill = scale)) +
   scale_x_continuous(breaks = 0 : 11,
                      labels = rep(c('Mock', 'flg22', 'flg22_SynCom33', 'flg22_SynCom35'), each = 3) %>%
                        paste(rep(1 : 3, 4), sep = '_')) +
-  theme_flg22(legend.position = 'top',
+  theme_flg22(legend.position = 'left',
               axis.text.x = element_text(angle = 90, hjust = 1))
+ggsave('heatmap_scale.jpg')
+ggsave('heatmap_scale.pdf')
 
 ggplot(heatlog2FCPlot, aes(x = x, y = y, fill = log2FC)) +
   geom_tile() +
   scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 8, name = 'PiYG')))(100), name = 'log2(FoldChange)') +
   scale_x_continuous(breaks = 0 : 2,
                      labels = paste(c('flg22', 'flg22_SynCom33', 'flg22_SynCom35'), 'vs. Mock')) +
-  theme_flg22(legend.position = 'top',
+  theme_flg22(legend.position = 'left',
               axis.text.x = element_text(angle = 90, hjust = 1))
+ggsave('heatmap_logFC.jpg')
+ggsave('heatmap_logFC.pdf')
 
 ggplot(heatsigPlot, aes(x = x, y = y)) +
   geom_tile(aes(fill = factor(sig))) +
-  scale_fill_manual(name = 'significant', labels = c('No', 'Yes'), values = c('grey', 'red'))
+  scale_fill_manual(name = 'Significant', labels = c('Down', 'No', 'Up'), values = c('green', 'grey', 'red')) +
+  scale_x_continuous(breaks = 0 : 2,
+                     labels = paste(c('flg22', 'flg22_SynCom33', 'flg22_SynCom35'), 'vs. Mock')) +
+  theme_flg22(legend.position = 'left',
+              axis.text.x = element_text(angle = 90, hjust = 1))
+ggsave('heatmap_sig.jpg')
+ggsave('heatmap_sig.pdf')
 
 ggplot(heatGroupPlot, aes(x = x, y = y)) +
   geom_tile(aes(fill = factor(cluster))) +
@@ -370,8 +384,7 @@ ggplot(heatGroupPlot, aes(x = x, y = y)) +
                      labels = 'group') +
   theme_flg22(legend.position = 'left',
               axis.text.x = element_text(angle = 90, hjust = 1))
-
-
-
+ggsave('heatmap_group.jpg')
+ggsave('heatmap_group.pdf')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #################################################################
