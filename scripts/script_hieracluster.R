@@ -15,7 +15,7 @@ library('RColorBrewer')
 library('gridExtra')
 
 load('degres_condi_Mock.RData')
-degres <- read_csv('eachGroup_vs_Mock_k.csv',
+deganno <- read_csv('eachGroup_vs_Mock_k.csv',
                    col_types = cols(Chromosome = col_character()))
 
 ##~~~~~~~~~~~~~~~~~~~~~~useful funcs~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -266,7 +266,7 @@ rawC <- rawCount %>%
   as_tibble %>%
   rename_at(-1, .funs = list(~paste0('Raw_', .)))
 
-degresC <- degres %>%
+degresC <- deganno %>%
   select(ID, Flg22_vs_Mock_pvalue : Flg22_SynCom35_vs_Mock_log2FoldChange)
 
 heatPlot <- rawC %>%
@@ -300,7 +300,7 @@ heatlog2FCPlot <- heatPlot %>%
 ## sig |FC| > 1 and padj < 0.05
 fcsig <- heatPlot %>%
   select(ends_with('FoldChange')) %>%
-  transmute_all(list(~case_when(. > 1 ~ 1,
+  transmute_all(list(~ case_when(. > 1 ~ 1,
                                 . < -1 ~ -1,
                                 TRUE ~ 0)))
 
@@ -308,7 +308,8 @@ padjsig <- heatPlot %>%
   select(ends_with('padj')) %>%
   abs %>%
   `<`(0.05) %>%
-  apply(1:2, function(x) ifelse(is.na(x), FALSE, TRUE))
+  as_tibble %>%
+  transmute_all(list(~ if_else(is.na(.), FALSE, TRUE)))
 
 heatsigPlot <- (padjsig * fcsig) %>%
   as_tibble %>%
@@ -386,5 +387,75 @@ ggplot(heatGroupPlot, aes(x = x, y = y)) +
               axis.text.x = element_text(angle = 90, hjust = 1))
 ggsave('heatmap_group.jpg')
 ggsave('heatmap_group.pdf')
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~merge all plots~~~~~~~~~~~~~~~~~~~~
+groupe <- ggplot(heatGroupPlot, aes(x = x, y = y)) +
+  geom_tile(aes(fill = factor(cluster))) +
+  labs(x = NULL, y = NULL) +
+  scale_y_continuous(expand = c(0, 0), breaks = NULL) +
+  scale_x_continuous(expand = c(0, 0), breaks = NULL) +
+  theme_flg22(title = element_blank(),
+              legend.position = 'none')
+
+rawe <- ggplot(heatRawPlot, aes(x = x, y = y, fill = log2(raw))) +
+  geom_tile() +
+  scale_fill_gradientn(colours = colorRampPalette(brewer.pal(n = 7, name = 'GnBu'))(100), name = 'log2(count)') +
+  labs(x = NULL, y = NULL) +
+  scale_y_continuous(expand = c(0, 0), breaks = NULL) +
+  scale_x_continuous(expand = c(0, 0), breaks = NULL) +
+  theme_flg22(title = element_blank(),
+              legend.position = 'none')
+
+scalee <- ggplot(heatScalePlot, aes(x = x, y = y, fill = scale)) +
+  geom_tile() +
+  scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 7, name = 'RdYlBu')))(100), name = 'scale(count)') +
+  labs(x = NULL, y = NULL) +
+  scale_y_continuous(expand = c(0, 0), breaks = NULL) +
+  scale_x_continuous(expand = c(0, 0), breaks = NULL) +
+  theme_flg22(title = element_blank(),
+              legend.position = 'none')
+
+fce <- ggplot(heatlog2FCPlot, aes(x = x, y = y, fill = log2FC)) +
+  geom_tile() +
+  scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 8, name = 'PiYG')))(100), name = 'log2(FoldChange)') +
+  labs(x = NULL, y = NULL) +
+  scale_y_continuous(expand = c(0, 0), breaks = NULL) +
+  scale_x_continuous(expand = c(0, 0), breaks = NULL) +
+  theme_flg22(title = element_blank(),
+              legend.position = 'none')
+
+sige <- ggplot(heatsigPlot, aes(x = x, y = y)) +
+  geom_tile(aes(fill = factor(sig))) +
+  scale_fill_manual(name = 'Significant', labels = c('Down', 'No', 'Up'), values = c('green', 'grey', 'red')) +
+  labs(x = NULL, y = NULL) +
+  scale_y_continuous(expand = c(0, 0), breaks = NULL) +
+  scale_x_continuous(expand = c(0, 0), breaks = NULL) +
+  theme_flg22(title = element_blank(),
+              legend.position = 'none')
+
+blanke <- ggplot(tibble(x = 0, y = 0 : (nrow(heatPlot) - 1)),
+                 aes(x = x, y = y)) +
+  geom_tile(colour = 'white') +
+  scale_y_continuous(expand = c(0, 0), breaks = NULL) +
+  scale_x_continuous(expand = c(0, 0), breaks = NULL) +
+  theme_flg22(title = element_blank(),
+              legend.position = 'none')
+
+cairo_pdf('heatmap_merge.pdf')
+grid.arrange(groupe,
+             blanke,
+             rawe,
+             blanke,
+             scalee,
+             blanke,
+             fce,
+             blanke,
+             sige,
+             nrow = 1,
+             ncol = 9,
+             widths = c(1/35, 0.5/35, 13/35, 0.5/35, 13/35, 0.5/35, 3/35, 0.5/35, 3/35))
+dev.off()
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #################################################################

@@ -191,6 +191,8 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
   
   heatmaps
   
+  ![heatmap_merge](results/heatmap_merge.jpg)
+  
   ![heatmap_group](results/heatmap_group.jpg)
   
   ![heatmap_raw](results/heatmap_raw.jpg)
