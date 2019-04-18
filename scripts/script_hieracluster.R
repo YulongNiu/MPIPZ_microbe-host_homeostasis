@@ -296,17 +296,81 @@ heatlog2FCPlot <- heatPlot %>%
   mutate(x = rep(0 : 2, each = nrow(heatPlot))) %>%
   mutate(y = rep(0 : (nrow(heatPlot) - 1), 3))
 
+## sig |FC| > 1 and padj < 0.05
+fcsig <- heatPlot %>%
+  select(ends_with('FoldChange')) %>%
+  abs %>%
+  `>`(1)
+
+padjsig <- heatPlot %>%
+  select(ends_with('padj')) %>%
+  abs %>%
+  `<`(0.05) %>%
+  apply(1:2, function(x) ifelse(is.na(x), FALSE, TRUE))
+
+heatsigPlot <- (padjsig * fcsig) %>%
+  as_tibble %>%
+  gather(sample, sig, Flg22_vs_Mock_padj : Flg22_SynCom35_vs_Mock_padj) %>%
+  mutate(x = rep(0 : 2, each = nrow(heatPlot))) %>%
+  mutate(y = rep(0 : (nrow(heatPlot) - 1), 3))
+
+heatGroupPlot <- heatPlot %>%
+  select(ID, cluster = hclusth1.5) %>%
+  mutate(x = 0) %>%
+  mutate(y = 0 : (nrow(heatPlot) - 1))
+
+theme_flg22 <- function(...) {
+  theme_bw() %+replace%
+    theme(axis.text = element_blank(),
+          axis.title = element_blank(),
+          axis.ticks.length = unit(0, 'mm'),
+          axis.line = element_blank(),
+          panel.spacing = unit(0, 'mm'),
+          panel.grid = element_blank(),
+          panel.border = element_blank(),
+          panel.background = element_blank(),
+          plot.margin = unit(c(0, 0, 0, 0), 'line'),
+          legend.spacing = unit(0, 'mm'),
+          ...)
+}
+
 ggplot(heatRawPlot, aes(x = x, y = y, fill = log2(raw))) +
   geom_tile() +
-  scale_fill_gradientn(colours = colorRampPalette(brewer.pal(n = 7, name = 'GnBu'))(100))
+  scale_fill_gradientn(colours = colorRampPalette(brewer.pal(n = 7, name = 'GnBu'))(100), name = 'log2(count)') +
+  scale_x_continuous(breaks = 0 : 11,
+                     labels = rep(c('Mock', 'flg22', 'flg22_SynCom33', 'flg22_SynCom35'), each = 3) %>%
+                       paste(rep(1 : 3, 4), sep = '_')) +
+  theme_flg22(legend.position = 'top',
+              axis.text.x = element_text(angle = 90, hjust = 1))
 
 ggplot(heatScalePlot, aes(x = x, y = y, fill = scale)) +
   geom_tile() +
-  scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 7, name = 'RdYlBu')))(100))
+  scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 7, name = 'RdYlBu')))(100), name = 'scale(count)') +
+  scale_x_continuous(breaks = 0 : 11,
+                     labels = rep(c('Mock', 'flg22', 'flg22_SynCom33', 'flg22_SynCom35'), each = 3) %>%
+                       paste(rep(1 : 3, 4), sep = '_')) +
+  theme_flg22(legend.position = 'top',
+              axis.text.x = element_text(angle = 90, hjust = 1))
 
 ggplot(heatlog2FCPlot, aes(x = x, y = y, fill = log2FC)) +
   geom_tile() +
-  scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 8, name = 'PiYG')))(100))
+  scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 8, name = 'PiYG')))(100), name = 'log2(FoldChange)') +
+  scale_x_continuous(breaks = 0 : 2,
+                     labels = paste(c('flg22', 'flg22_SynCom33', 'flg22_SynCom35'), 'vs. Mock')) +
+  theme_flg22(legend.position = 'top',
+              axis.text.x = element_text(angle = 90, hjust = 1))
+
+ggplot(heatsigPlot, aes(x = x, y = y)) +
+  geom_tile(aes(fill = factor(sig))) +
+  scale_fill_manual(name = 'significant', labels = c('No', 'Yes'), values = c('grey', 'red'))
+
+ggplot(heatGroupPlot, aes(x = x, y = y)) +
+  geom_tile(aes(fill = factor(cluster))) +
+  scale_x_continuous(breaks = 0,
+                     labels = 'group') +
+  theme_flg22(legend.position = 'left',
+              axis.text.x = element_text(angle = 90, hjust = 1))
+
 
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
