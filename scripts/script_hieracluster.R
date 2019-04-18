@@ -1,8 +1,6 @@
 ######################hierarchical clustering####################
 setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/')
 
-load('degres_condi_Mock.RData')
-
 library('readr')
 library('magrittr')
 library('tibble')
@@ -14,6 +12,10 @@ library('tidyr')
 library('DESeq2')
 library('dplyr')
 library('RColorBrewer')
+
+load('degres_condi_Mock.RData')
+degres <- read_csv('eachGroup_vs_Mock_k.csv',
+                   col_types = cols(Chromosome = col_character()))
 
 ##~~~~~~~~~~~~~~~~~~~~~~useful funcs~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 meanFlg22 <- function(v) {
@@ -144,7 +146,6 @@ dev.off()
 cgenes <- c('AT1G14550.1', 'AT2G30750.1', 'AT2G19190.1')
 hclusth1.5[cgenes]
 hclusth1.0[cgenes]
-
 hclusth0.5[cgenes]
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -235,7 +236,10 @@ traitCorPlot <- moduleTraitCor %>%
 
 ggplot(traitCorPlot, aes(x = x, y = y, fill = correlation)) +
   geom_tile() +
-  scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 7, name = 'RdYlBu')))(100), breaks = seq(-1, 1, 0.5), labels = format(seq(-1, 1, 0.5)), limits = c(-1, 1)) +
+  scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 7, name = 'RdYlBu')))(100),
+                       breaks = seq(-1, 1, 0.5),
+                       labels = format(seq(-1, 1, 0.5)),
+                       limits = c(-1, 1)) +
   geom_text(aes(label = addtext)) +
   scale_x_continuous(breaks = 0 : 3, labels = c('flg22', 'SynCom33', 'SynCom35', 'rootlen')) +
   scale_y_continuous(breaks = 0 : 7, labels = paste0('cluster_', 8:1)) +
@@ -244,4 +248,66 @@ ggplot(traitCorPlot, aes(x = x, y = y, fill = correlation)) +
 ggsave('hieracluster_1d5_trait.jpg')
 ggsave('hieracluster_1d5_trait.pdf')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+##~~~~~~~~~~~~~~~~~~~~~~~~heat map~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+scaleC <- rawCount %>%
+  t %>%
+  scale %>%
+  t %>%
+  as.data.frame %>%
+  rownames_to_column('ID') %>%
+  as_tibble %>%
+  rename_at(-1, .funs = list(~paste0('Scale_', .)))
+
+rawC <- rawCount %>%
+  as.data.frame %>%
+  rownames_to_column('ID') %>%
+  as_tibble %>%
+  rename_at(-1, .funs = list(~paste0('Raw_', .)))
+
+degresC <- degres %>%
+  select(ID, Flg22_vs_Mock_pvalue : Flg22_SynCom35_vs_Mock_log2FoldChange)
+
+heatPlot <- rawC %>%
+  inner_join(scaleC) %>%
+  inner_join(degresC) %>%
+  {
+    cl <- as.data.frame(hclusth1.5) %>%
+      rownames_to_column(var = 'ID')
+    inner_join(., cl)
+  } %>%
+  slice(hr$order)
+
+heatRawPlot <- heatPlot %>%
+  select(ID, starts_with('Raw')) %>%
+  gather(sample, raw, Raw_Mock_1 : Raw_Flg22_SynCom35_3) %>%
+  mutate(x = rep(0 : 11, each = nrow(heatPlot))) %>%
+  mutate(y = rep(0 : (nrow(heatPlot) - 1), 12))
+
+heatScalePlot <- heatPlot %>%
+  select(ID, starts_with('Scale')) %>%
+  gather(sample, scale, Scale_Mock_1 : Scale_Flg22_SynCom35_3) %>%
+  mutate(x = rep(0 : 11, each = nrow(heatPlot))) %>%
+  mutate(y = rep(0 : (nrow(heatPlot) - 1), 12))
+
+heatlog2FCPlot <- heatPlot %>%
+  select(ID, ends_with('FoldChange')) %>%
+  gather(sample, log2FC, Flg22_vs_Mock_log2FoldChange : Flg22_SynCom35_vs_Mock_log2FoldChange) %>%
+  mutate(x = rep(0 : 2, each = nrow(heatPlot))) %>%
+  mutate(y = rep(0 : (nrow(heatPlot) - 1), 3))
+
+ggplot(heatRawPlot, aes(x = x, y = y, fill = log2(raw))) +
+  geom_tile() +
+  scale_fill_gradientn(colours = colorRampPalette(brewer.pal(n = 7, name = 'GnBu'))(100))
+
+ggplot(heatScalePlot, aes(x = x, y = y, fill = scale)) +
+  geom_tile() +
+  scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 7, name = 'RdYlBu')))(100))
+
+ggplot(heatlog2FCPlot, aes(x = x, y = y, fill = log2FC)) +
+  geom_tile() +
+  scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 8, name = 'PiYG')))(100))
+
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #################################################################
