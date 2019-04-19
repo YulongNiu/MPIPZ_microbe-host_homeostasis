@@ -371,7 +371,7 @@ ggsave('heatmap_logFC.pdf')
 
 ggplot(heatsigPlot, aes(x = x, y = y)) +
   geom_tile(aes(fill = factor(sig))) +
-  scale_fill_manual(name = 'Significant', labels = c('Down', 'No', 'Up'), values = c('green', 'grey', 'red')) +
+  scale_fill_manual(name = 'Significant', labels = c('Down', 'No', 'Up'), values = c('green', 'grey90', 'red')) +
   scale_x_continuous(breaks = 0 : 2,
                      labels = paste(c('flg22', 'flg22_SynCom33', 'flg22_SynCom35'), 'vs. Mock')) +
   theme_flg22(legend.position = 'left',
@@ -426,7 +426,7 @@ fce <- ggplot(heatlog2FCPlot, aes(x = x, y = y, fill = log2FC)) +
 
 sige <- ggplot(heatsigPlot, aes(x = x, y = y)) +
   geom_tile(aes(fill = factor(sig))) +
-  scale_fill_manual(name = 'Significant', labels = c('Down', 'No', 'Up'), values = c('green', 'grey', 'red')) +
+  scale_fill_manual(name = 'Significant', labels = c('Down', 'No', 'Up'), values = c('green', 'grey90', 'red')) +
   labs(x = NULL, y = NULL) +
   scale_y_continuous(expand = c(0, 0), breaks = NULL) +
   scale_x_continuous(expand = c(0, 0), breaks = NULL) +
