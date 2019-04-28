@@ -13,6 +13,7 @@ library('DESeq2')
 library('dplyr')
 library('RColorBrewer')
 library('gridExtra')
+library('cluster')
 
 load('degres_condi_Mock.RData')
 deganno <- read_csv('eachGroup_vs_Mock_k.csv',
@@ -46,6 +47,7 @@ corPvalueStudent <- function(cor, nSamples) {
 
   return(p)
 }
+
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~prepare counts~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -118,6 +120,86 @@ clusDyn <- scaleCount %>%
   cutreeDynamic(hr, distM = ., method = 'hybrid')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+##~~~~~~~~~~~~~~~~~~~~~~~~~K-means cluster~~~~~~~~~~~~~~~~~~~~~~
+z_var <- apply(meanCount, 1, var)
+z_mean <- apply(meanCount, 1, mean)
+plot(log2(z_mean), log2(z_var), pch = '.')
+abline(h = log2(1), col='red')
+abline(v = log2(1), col='red')
+text(x = 13,
+     y = 23,
+     labels = 'variance > 1 &\n mean > 1',
+     col = 'red')
+
+## filter
+## meanCount %<>% .[which(z_var > 0 & z_mean > 0), ]
+
+## choose groups
+## 1. sum of squared error
+wss <- (nrow(scaleCount) - 1) * sum(apply(scaleCount, 2, var))
+
+for (i in 2:20) {
+  wss[i] <- sum(kmeans(scaleCount,
+                       centers=i,
+                       algorithm = 'MacQueen')$withinss)
+}
+
+plot(1:20,
+     wss,
+     type = 'b',
+     xlab = 'Number of Clusters',
+     ylab = 'Within groups sum of squares')
+
+## 2. average silhouette width
+sil <- rep(0, 20)
+for(i in 2:20){
+  k1to20 <- kmeans(scaleCount, centers = i, nstart = 25, iter.max = 20)
+  ss <- silhouette(k1to20$cluster, dist(scaleCount))
+  sil[i] <- mean(ss[, 3])
+}
+
+plot(1:20,
+     sil,
+     type = 'b',
+     pch = 19,
+     xlab = 'Number of clusters k',
+     ylab='Average silhouette width')
+abline(v = which.max(sil), lty = 2)
+
+## 3. gap statistic
+set.seed(123)
+gap <- clusGap(scaleCount, kmeans, 20, B = 100, verbose = interactive())
+plot(gap, main = "Gap statistic")
+abline(v=which.max(gap$Tab[,3]), lty = 2)
+
+
+kmeansAIC = function(fit){
+
+  m = ncol(fit$centers)
+  n = length(fit$cluster)
+  k = nrow(fit$centers)
+  D = fit$tot.withinss
+  return(D + 2*m*k)
+}
+
+aic <- numeric(20)
+for (i in 1:20) {
+  fit <- kmeans(x = scaleCount, centers = i, algorithm = 'MacQueen')
+  aic[i] <- kmeansAIC(fit)
+}
+
+plot(1:20,
+     aic,
+     type = 'b',
+     pch = 19,
+     xlab = 'Number of clusters k',
+     ylab='AIC')
+
+tmp1 <- kmeansAIC(fit)
+
+kClust <- kmeans(scaleCount, centers = 8, nstart = 1000, iter.max = 20)
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ##~~~~~~~~~~~~~~~~~~~~~~~~cut trees by height ~~~~~~~~~~~~~~~~~~~~~~~~~
 hclusth1.5 <- cutree(hr, h = 1.5)
 hclusth1.0 <- cutree(hr, h = 1.0)
@@ -132,11 +214,11 @@ plot(treeR,
      main = 'Gene Clustering',
      ylab = 'Height')
 
-cbind(hclusth0.5, hclusth1.0, hclusth1.5, clusDyn) %>%
+cbind(hclusth0.5, hclusth1.0, hclusth1.5, clusDyn, kClust$cluster) %>%
   colored_bars(treeR,
                sort_by_labels_order = TRUE,
                y_shift = -0.1,
-               rowLabels = c('h=0.5','h=1.0','h=1.5', 'Dynamic'),
+               rowLabels = c('h=0.5','h=1.0','h=1.5', 'Dynamic', 'k-means(k=8)'),
                cex.rowLabels=0.7)
 
 abline(h=1.5, lty = 2, col='grey')
@@ -148,33 +230,36 @@ cgenes <- c('AT1G14550.1', 'AT2G30750.1', 'AT2G19190.1')
 hclusth1.5[cgenes]
 hclusth1.0[cgenes]
 hclusth0.5[cgenes]
+kClust$cluster[cgenes]
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~plot patterns~~~~~~~~~~~~~~~~~~~~~~~~
 ## join cluster and scaled normalized counts
+cl <- kClust$cluster
+
 clusterGene <- scaleCount %>%
   as.data.frame %>%
   rownames_to_column(var = 'ID') %>%
   as_tibble %>%
   {
-    cl <- as.data.frame(hclusth1.5) %>%
+    cl <- as.data.frame(cl) %>%
       rownames_to_column(var = 'ID')
     inner_join(., cl)
   }
 
 ## plot core cluster
 clusterCore <- clusterGene %>%
-  group_by(hclusth1.5) %>%
+  group_by(cl) %>%
   summarise_at(2:5, mean, na.rm = TRUE) %>% ## mean of each cluster
-  mutate(hclusth1.5 = hclusth1.5 %>% paste0('cluster_', .)) %>%
+  mutate(cl = cl %>% paste0('cluster_', .)) %>%
   gather(Sample, NorExpress, Mock : flg22_SynCom35)
 clusterCore$Sample %<>% factor(levels = c('Mock', 'flg22', 'flg22_SynCom33', 'flg22_SynCom35'), ordered = TRUE)
 
-ggplot(clusterCore, aes(Sample, NorExpress, col = hclusth1.5, group = hclusth1.5)) +
+ggplot(clusterCore, aes(Sample, NorExpress, col = cl, group = cl)) +
   geom_point() +
   geom_line() +
-  facet_wrap(. ~ hclusth1.5, ncol = 2) +
+  facet_wrap(. ~ cl, ncol = 2) +
   ylab('Scaled counts') +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ggsave('hieracluster_1d5.jpg')
