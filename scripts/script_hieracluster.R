@@ -195,9 +195,8 @@ plot(1:20,
      xlab = 'Number of clusters k',
      ylab='AIC')
 
-tmp1 <- kmeansAIC(fit)
-
-kClust <- kmeans(scaleCount, centers = 8, nstart = 1000, iter.max = 20)
+## execute
+kClust10 <- kmeans(scaleCount, centers = 10, nstart = 1000, iter.max = 20)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~cut trees by height ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -214,11 +213,11 @@ plot(treeR,
      main = 'Gene Clustering',
      ylab = 'Height')
 
-cbind(hclusth0.5, hclusth1.0, hclusth1.5, clusDyn, kClust$cluster) %>%
+cbind(hclusth0.5, hclusth1.0, hclusth1.5, clusDyn, kClust10$cluster) %>%
   colored_bars(treeR,
                sort_by_labels_order = TRUE,
                y_shift = -0.1,
-               rowLabels = c('h=0.5','h=1.0','h=1.5', 'Dynamic', 'k-means(k=8)'),
+               rowLabels = c('h=0.5','h=1.0','h=1.5', 'Dynamic', 'k-means(k=10)'),
                cex.rowLabels=0.7)
 
 abline(h=1.5, lty = 2, col='grey')
@@ -230,13 +229,14 @@ cgenes <- c('AT1G14550.1', 'AT2G30750.1', 'AT2G19190.1')
 hclusth1.5[cgenes]
 hclusth1.0[cgenes]
 hclusth0.5[cgenes]
-kClust$cluster[cgenes]
+kClust10$cluster[cgenes]
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~plot patterns~~~~~~~~~~~~~~~~~~~~~~~~
 ## join cluster and scaled normalized counts
 cl <- kClust$cluster
+prefix <- 'kmeans_10'
 
 clusterGene <- scaleCount %>%
   as.data.frame %>%
@@ -261,40 +261,42 @@ ggplot(clusterCore, aes(Sample, NorExpress, col = cl, group = cl)) +
   geom_line() +
   facet_wrap(. ~ cl, ncol = 2) +
   ylab('Scaled counts') +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-ggsave('hieracluster_1d5.jpg')
-ggsave('hieracluster_1d5.pdf')
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  guides(colour = guide_legend(title = 'kmeans (k=10)'))
+ggsave(paste0(prefix, '.pdf'))
+ggsave(paste0(prefix, '.jpg'))
 
 ## plot all genes
 clusterGenePlot <- clusterGene %>%
   gather(Sample, NorExpress, Mock : flg22_SynCom35) %>%
-  mutate(hclusth1.5 = hclusth1.5 %>% paste0('cluster_', .))
+  mutate(cl = cl %>% paste0('cluster_', .))
 clusterGenePlot$Sample %<>% factor(levels = c('Mock', 'flg22', 'flg22_SynCom33', 'flg22_SynCom35'), ordered = TRUE)
 
 clusterCorePlot <- clusterCore %>% dplyr::mutate(ID = 1 : nrow(clusterCore))
 ggplot(clusterGenePlot, aes(Sample, NorExpress, group = ID)) +
   geom_line(color = 'grey30', alpha = 0.01) +
-  facet_wrap(. ~ hclusth1.5, ncol = 2) +
-  geom_point(data = clusterCorePlot, aes(Sample, NorExpress, col = hclusth1.5, group = ID)) +
-  geom_line(data = clusterCorePlot, aes(Sample, NorExpress, group = hclusth1.5, col = hclusth1.5)) +
+  facet_wrap(. ~ cl, ncol = 2) +
+  geom_point(data = clusterCorePlot, aes(Sample, NorExpress, col = cl, group = ID)) +
+  geom_line(data = clusterCorePlot, aes(Sample, NorExpress, group = cl, col = cl)) +
   ylab('Scaled counts') +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-ggsave('hieracluster_gene_1d5.pdf', width = 10, dpi = 320)
-ggsave('hieracluster_gene_1d5.jpg', width = 10, dpi = 320)
-
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  guides(colour = guide_legend(title = 'kmeans (k=10)'))
+ggsave(paste0(prefix, '_genes.pdf'), width = 10, dpi = 320)
+ggsave(paste0(prefix, '_genes.jpg'), width = 10, dpi = 320)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~cluster cor phenotype~~~~~~~~~~~~~~~~~
 traits <- data.frame(flg22 = c(0, 1, 1, 1),
                      SynCom33 = c(0, 0, 1, 0),
                      SynCom35 = c(0, 0, 0, 1),
+                     bacteria = c(0, 0, 1, 1),
                      rootlen = c(5.6, 1.1, 1.3, 4.9))
 
 cores <- clusterGene %>%
-  group_by(hclusth1.5) %>%
+  group_by(cl) %>%
   summarise_at(2:5, mean, na.rm = TRUE) %>%
-  mutate(hclusth1.5 = hclusth1.5 %>% paste0('cluster_', .)) %>%
-  column_to_rownames(var = 'hclusth1.5') %>%
+  mutate(cl = cl %>% paste0('cluster_', .)) %>%
+  column_to_rownames(var = 'cl') %>%
   t
 
 moduleTraitCor <- cor(cores, traits, use = 'p')
@@ -311,8 +313,8 @@ traitCorPlot <- moduleTraitCor %>%
   rownames_to_column('cluster') %>%
   gather(trait, correlation, flg22 : rootlen) %>%
   as_tibble %>%
-  mutate(x = rep(0 : (nrow(cores) - 1), each = ncol(cores))) %>%
-  mutate(y = rep((ncol(cores) - 1) : 0, nrow(cores))) %>%
+  mutate(x = rep(0 : (ncol(traits) - 1), each = ncol(cores))) %>%
+  mutate(y = rep((ncol(cores) - 1) : 0, ncol(traits))) %>%
   inner_join(traitPPlot) %>%
   mutate(addtext = paste0(round(correlation, digit = 2),
                           '\n',
@@ -327,12 +329,12 @@ ggplot(traitCorPlot, aes(x = x, y = y, fill = correlation)) +
                        labels = format(seq(-1, 1, 0.5)),
                        limits = c(-1, 1)) +
   geom_text(aes(label = addtext)) +
-  scale_x_continuous(breaks = 0 : 3, labels = c('flg22', 'SynCom33', 'SynCom35', 'rootlen')) +
-  scale_y_continuous(breaks = 0 : 7, labels = paste0('cluster_', 8:1)) +
+  scale_x_continuous(breaks = 0 : (ncol(traits) - 1), labels = c('flg22', 'SynCom33', 'SynCom35', 'bacteria', 'rootlen')) +
+  scale_y_continuous(breaks = 0 : (ncol(cores) - 1), labels = paste0('cluster_', (ncol(cores)):1)) +
   xlab('Trait') +
   ylab('Cluster')
-ggsave('hieracluster_1d5_trait.jpg')
-ggsave('hieracluster_1d5_trait.pdf')
+ggsave(paste0(prefix, '_trait.jpg'))
+ggsave(paste0(prefix, '_trait.pdf'))
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~heat map~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

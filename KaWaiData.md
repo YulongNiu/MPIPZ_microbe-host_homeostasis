@@ -169,7 +169,7 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
   
   ![hieracluster_1d5](results/hieracluster_1d5.jpg)
   
-  ![hieracluster_gene_1d5](results/hieracluster_gene_1d5.jpg)
+  ![hieracluster_gene_1d5](results/hieracluster_1d5_genes.jpg)
   
   
   ```
