@@ -219,6 +219,10 @@ kClust10$cluster[cgenes]
 cl <- kClust10$cluster
 prefix <- 'kmeans_10'
 
+cl <- hclusth1.5
+prefix <- 'hclust_1d5'
+
+
 clusterGene <- scaleCount %>%
   as.data.frame %>%
   rownames_to_column(var = 'ID') %>%
@@ -243,7 +247,7 @@ ggplot(clusterCore, aes(Sample, NorExpress, col = cl, group = cl)) +
   facet_wrap(. ~ cl, ncol = 2) +
   ylab('Scaled counts') +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  guides(colour = guide_legend(title = 'kmeans (k=10)'))
+  guides(colour = guide_legend(title = 'kmeans (k = 10)'))
 ggsave(paste0(prefix, '.pdf'))
 ggsave(paste0(prefix, '.jpg'))
 
@@ -346,8 +350,7 @@ heatPlot <- rawC %>%
     inner_join(., cl)
   } %T>%
   {(sum(names(cl) == .$ID) == nrow(.)) %>% print} %>% ## check cl names and degresC row names
-  slice(cl %>% order) %T>%
-  write_csv(paste0(prefix, '.csv'))
+  slice(cl %>% order)
 
 heatRawPlot <- heatPlot %>%
   select(ID, starts_with('Raw')) %>%
@@ -515,6 +518,34 @@ sige <- ggplot(heatsigPlot, aes(x = x, y = y)) +
   theme_flg22(title = element_blank(),
               legend.position = 'none')
 
+sigte <- heatGroupPlot %>%
+  select(cluster, y) %>%
+  inner_join(heatsigPlot) %>%
+  select(sample, sig, x, y, cluster) %>%
+  group_by(sample, cluster) %>%
+  count(sig) %>%
+  spread(sig, n) %>%
+  {
+    loc <- heatGroupPlot %>%
+      group_by(cluster) %>%
+      summarise(y = median(y))
+    inner_join(., loc)
+  } %>%
+  rename('down' = `-1`, 'no' = `0`, 'up' = `1`) %>%
+  ungroup %>%
+  mutate_at(c('down', 'no', 'up'), .funs = list(~if_else(is.na(.), 0L, .))) %>%
+  mutate(x = rep(c(0.2, 0.4, 0), each = max(cl))) %>%
+  mutate(signum = paste0(down, '/', no, '/', up)) %>%
+  select(signum, x, y) %>%
+  ggplot(aes(x = x, y = y, label = signum)) +
+  geom_text() +
+  labs(x = NULL, y = NULL) +
+  scale_y_continuous(expand = c(0, 0),  limits = c(0, nrow(heatGroupPlot)), breaks = NULL) +
+  scale_x_continuous(expand = c(0, 0), limits = c(-0.1, 0.5), breaks = NULL) +
+  theme_flg22(title = element_blank(),
+              legend.position = 'none')
+
+
 blanke <- ggplot(tibble(x = 0, y = 0 : (nrow(heatPlot) - 1)),
                  aes(x = x, y = y)) +
   geom_tile(colour = 'white') +
@@ -523,7 +554,7 @@ blanke <- ggplot(tibble(x = 0, y = 0 : (nrow(heatPlot) - 1)),
   theme_flg22(title = element_blank(),
               legend.position = 'none')
 
-cairo_pdf(paste0(prefix, '_heatmap_merge.pdf'))
+cairo_pdf(paste0(prefix, '_heatmap_merge.pdf'), width = 15)
 grid.arrange(groupne,
              groupe,
              blanke,
@@ -534,11 +565,16 @@ grid.arrange(groupne,
              fce,
              blanke,
              sige,
+             sigte,
              nrow = 1,
-             ncol = 10,
-             widths = c(3.5/38.5, 1/38.5, 0.5/38.5, 13/38.5, 0.5/38.5, 13/38.5, 0.5/38.5, 3/38.5, 0.5/38.5, 3/38.5))
+             ncol = 11,
+             widths = c(3.5, 1, 0.5, 13, 0.5, 13, 0.5, 3, 0.5, 3, 10) %>% {. / sum(.)})
 dev.off()
-
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+## write the cluster file
+inner_join(deganno, heatPlot) %>%
+  mutate_at(c('Gene', 'Description'), .funs = list(~if_else(is.na(.), '', .))) %>%
+  write_csv(paste0(prefix, '.csv'))
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #################################################################

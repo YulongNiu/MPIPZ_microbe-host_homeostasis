@@ -180,11 +180,11 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
   correlation of traits (phenotype) and clusters
   
   ```
-  flg22 SynCom33 SynCom35 rootlen
-    0        0        0     5.5
-    1        0        0     1.1
-    1        1        0     1.3
-    1        0        1     4.8
+  flg22 SynCom33 SynCom35 bacteria rootlen
+      0        0        0        0     5.6
+      1        0        0        0     1.1
+      1        1        0        1     1.3
+      1        0        1        1     4.9
   ```
   
   ![hieracluster_1d5_trait](results/hieracluster_1d5_trait.jpg)
