@@ -167,15 +167,16 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
   
   height threshold `1.5`
   
-  ![hieracluster_1d5](results/hieracluster_1d5.jpg)
-  
-  ![hieracluster_gene_1d5](results/hieracluster_1d5_genes.jpg)
-  
-  
   ```
   AT1G14550.1 AT2G30750.1 AT2G19190.1 
           7           7           7 
   ```
+  
+  ![hieracluster_1d5](results/hclust_1d5.jpg)
+  
+  ![hieracluster_gene_1d5](results/hclust_1d5_genes.jpg)
+  
+  
   
   correlation of traits (phenotype) and clusters
   
@@ -187,21 +188,21 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
       1        0        1        1     4.9
   ```
   
-  ![hieracluster_1d5_trait](results/hieracluster_1d5_trait.jpg)
+  ![hieracluster_1d5_trait](results/hclust_1d5_trait.jpg)
   
   heatmaps
   
-  ![heatmap_merge](results/heatmap_merge.jpg)
+  ![heatmap_merge](results/hclust_1d5_heatmap_merge.jpg)
   
-  ![heatmap_group](results/heatmap_group.jpg)
+  ![heatmap_group](results/hclust_1d5_heatmap_group.jpg)
   
-  ![heatmap_raw](results/heatmap_raw.jpg)
+  ![heatmap_raw](results/hclust_1d5_heatmap_raw.jpg)
   
-  ![heatmap_scale](results/heatmap_scale.jpg)
+  ![heatmap_scale](results/hclust_1d5_heatmap_scale.jpg)
   
-  ![heatmap_logFC](results/heatmap_logFC.jpg)
+  ![heatmap_logFC](results/hclust_1d5_heatmap_logFC.jpg)
   
-  ![heatmap_sig](results/heatmap_sig.jpg)
+  ![heatmap_sig](results/hclust_1d5_heatmap_sig.jpg)
   
 ## 5 References ##
 
