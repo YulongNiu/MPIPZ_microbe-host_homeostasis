@@ -144,37 +144,17 @@ for (i in 2:20) {
                        algorithm = 'MacQueen')$withinss)
 }
 
-plot(1:20,
-     wss,
-     type = 'b',
-     xlab = 'Number of Clusters',
-     ylab = 'Within groups sum of squares')
-
-## 2. average silhouette width
-sil <- rep(0, 20)
-for(i in 2:20){
-  k1to20 <- kmeans(scaleCount, centers = i, nstart = 25, iter.max = 20)
-  ss <- silhouette(k1to20$cluster, dist(scaleCount))
-  sil[i] <- mean(ss[, 3])
-}
-
-plot(1:20,
-     sil,
-     type = 'b',
-     pch = 19,
-     xlab = 'Number of clusters k',
-     ylab='Average silhouette width')
-abline(v = which.max(sil), lty = 2)
-
-## 3. gap statistic
-set.seed(123)
-gap <- clusGap(scaleCount, kmeans, 20, B = 100, verbose = interactive())
-plot(gap, main = "Gap statistic")
-abline(v=which.max(gap$Tab[,3]), lty = 2)
+ggplot(tibble(k = 1:20, wss = wss), aes(k, wss)) +
+  geom_point(colour = '#D55E00', size = 3) +
+  geom_line(linetype = 'dashed') +
+  xlab('number of clusters') +
+  ylab('Sum of squared error')
+ggsave('kmeans_sse.pdf')
+ggsave('kmeans_sse.jpg')
 
 
+## 2. Akaike information criterion
 kmeansAIC = function(fit){
-
   m = ncol(fit$centers)
   n = length(fit$cluster)
   k = nrow(fit$centers)
@@ -188,15 +168,16 @@ for (i in 1:20) {
   aic[i] <- kmeansAIC(fit)
 }
 
-plot(1:20,
-     aic,
-     type = 'b',
-     pch = 19,
-     xlab = 'Number of clusters k',
-     ylab='AIC')
+ggplot(tibble(k = 1:20, aic = aic), aes(k, wss)) +
+  geom_point(colour = '#009E73', size = 3) +
+  geom_line(linetype = 'dashed') +
+  xlab('Number of clusters') +
+  ylab('Akaike information criterion')
+ggsave('kmeans_AIC.pdf')
+ggsave('kmeans_AIC.jpg')
 
 ## execute
-kClust10 <- kmeans(scaleCount, centers = 10, nstart = 1000, iter.max = 20)
+kClust10 <- kmeans(scaleCount, centers = 10, algorithm= 'MacQueen', nstart = 1000, iter.max = 20)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~cut trees by height ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -235,7 +216,7 @@ kClust10$cluster[cgenes]
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~plot patterns~~~~~~~~~~~~~~~~~~~~~~~~
 ## join cluster and scaled normalized counts
-cl <- kClust$cluster
+cl <- kClust10$cluster
 prefix <- 'kmeans_10'
 
 clusterGene <- scaleCount %>%
@@ -360,11 +341,13 @@ heatPlot <- rawC %>%
   inner_join(scaleC) %>%
   inner_join(degresC) %>%
   {
-    cl <- as.data.frame(hclusth1.5) %>%
+    cl <- as.data.frame(cl) %>%
       rownames_to_column(var = 'ID')
     inner_join(., cl)
-  } %>%
-  slice(hr$order)
+  } %T>%
+  {(sum(names(cl) == .$ID) == nrow(.)) %>% print} %>% ## check cl names and degresC row names
+  slice(cl %>% order) %T>%
+  write_csv(paste0(prefix, '.csv'))
 
 heatRawPlot <- heatPlot %>%
   select(ID, starts_with('Raw')) %>%
@@ -405,7 +388,7 @@ heatsigPlot <- (padjsig * fcsig) %>%
   mutate(y = rep(0 : (nrow(heatPlot) - 1), 3))
 
 heatGroupPlot <- heatPlot %>%
-  select(ID, cluster = hclusth1.5) %>%
+  select(ID, cluster = cl) %>%
   mutate(x = 0) %>%
   mutate(y = 0 : (nrow(heatPlot) - 1))
 
@@ -432,8 +415,8 @@ ggplot(heatRawPlot, aes(x = x, y = y, fill = log2(raw))) +
                        paste(rep(1 : 3, 4), sep = '_')) +
   theme_flg22(legend.position = 'left',
               axis.text.x = element_text(angle = 90, hjust = 1))
-ggsave('heatmap_raw.jpg')
-ggsave('heatmap_raw.pdf')
+ggsave(paste0(prefix, '_heatmap_raw.jpg'))
+ggsave(paste0(prefix, '_heatmap_raw.pdf'))
 
 ggplot(heatScalePlot, aes(x = x, y = y, fill = scale)) +
   geom_tile() +
@@ -443,8 +426,8 @@ ggplot(heatScalePlot, aes(x = x, y = y, fill = scale)) +
                        paste(rep(1 : 3, 4), sep = '_')) +
   theme_flg22(legend.position = 'left',
               axis.text.x = element_text(angle = 90, hjust = 1))
-ggsave('heatmap_scale.jpg')
-ggsave('heatmap_scale.pdf')
+ggsave(paste0(prefix, '_heatmap_scale.jpg'))
+ggsave(paste0(prefix, '_heatmap_scale.pdf'))
 
 ggplot(heatlog2FCPlot, aes(x = x, y = y, fill = log2FC)) +
   geom_tile() +
@@ -453,8 +436,8 @@ ggplot(heatlog2FCPlot, aes(x = x, y = y, fill = log2FC)) +
                      labels = paste(c('flg22', 'flg22_SynCom33', 'flg22_SynCom35'), 'vs. Mock')) +
   theme_flg22(legend.position = 'left',
               axis.text.x = element_text(angle = 90, hjust = 1))
-ggsave('heatmap_logFC.jpg')
-ggsave('heatmap_logFC.pdf')
+ggsave(paste0(prefix, '_heatmap_logFC.jpg'))
+ggsave(paste0(prefix, '_heatmap_logFC.pdf'))
 
 ggplot(heatsigPlot, aes(x = x, y = y)) +
   geom_tile(aes(fill = factor(sig))) +
@@ -463,8 +446,8 @@ ggplot(heatsigPlot, aes(x = x, y = y)) +
                      labels = paste(c('flg22', 'flg22_SynCom33', 'flg22_SynCom35'), 'vs. Mock')) +
   theme_flg22(legend.position = 'left',
               axis.text.x = element_text(angle = 90, hjust = 1))
-ggsave('heatmap_sig.jpg')
-ggsave('heatmap_sig.pdf')
+ggsave(paste0(prefix, '_heatmap_sig.jpg'))
+ggsave(paste0(prefix, '_heatmap_sig.pdf'))
 
 ggplot(heatGroupPlot, aes(x = x, y = y)) +
   geom_tile(aes(fill = factor(cluster))) +
@@ -472,14 +455,26 @@ ggplot(heatGroupPlot, aes(x = x, y = y)) +
                      labels = 'group') +
   theme_flg22(legend.position = 'left',
               axis.text.x = element_text(angle = 90, hjust = 1))
-ggsave('heatmap_group.jpg')
-ggsave('heatmap_group.pdf')
+ggsave(paste0(prefix, '_heatmap_group.jpg'))
+ggsave(paste0(prefix, '_heatmap_group.pdf'))
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~merge all plots~~~~~~~~~~~~~~~~~~~~
 groupe <- ggplot(heatGroupPlot, aes(x = x, y = y)) +
   geom_tile(aes(fill = factor(cluster))) +
   labs(x = NULL, y = NULL) +
   scale_y_continuous(expand = c(0, 0), breaks = NULL) +
+  scale_x_continuous(expand = c(0, 0), breaks = NULL) +
+  theme_flg22(title = element_blank(),
+              legend.position = 'none')
+
+groupne <- heatGroupPlot %>%
+  group_by(cluster) %>%
+  summarise(y = median(y)) %>%
+  mutate(x = 0, cluster = cluster %>% paste0('cluster', .)) %>%
+  ggplot(aes(x = x, y = y, label = cluster)) +
+  geom_text() +
+  labs(x = NULL, y = NULL) +
+  scale_y_continuous(expand = c(0, 0),  limits = c(0, nrow(heatGroupPlot)), breaks = NULL) +
   scale_x_continuous(expand = c(0, 0), breaks = NULL) +
   theme_flg22(title = element_blank(),
               legend.position = 'none')
@@ -528,8 +523,9 @@ blanke <- ggplot(tibble(x = 0, y = 0 : (nrow(heatPlot) - 1)),
   theme_flg22(title = element_blank(),
               legend.position = 'none')
 
-cairo_pdf('heatmap_merge.pdf')
-grid.arrange(groupe,
+cairo_pdf(paste0(prefix, '_heatmap_merge.pdf'))
+grid.arrange(groupne,
+             groupe,
              blanke,
              rawe,
              blanke,
@@ -539,8 +535,8 @@ grid.arrange(groupe,
              blanke,
              sige,
              nrow = 1,
-             ncol = 9,
-             widths = c(1/35, 0.5/35, 13/35, 0.5/35, 13/35, 0.5/35, 3/35, 0.5/35, 3/35))
+             ncol = 10,
+             widths = c(3.5/38.5, 1/38.5, 0.5/38.5, 13/38.5, 0.5/38.5, 13/38.5, 0.5/38.5, 3/38.5, 0.5/38.5, 3/38.5))
 dev.off()
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
