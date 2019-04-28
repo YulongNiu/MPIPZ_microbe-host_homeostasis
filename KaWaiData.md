@@ -9,12 +9,14 @@
     - [2.1 Alignment](#21-alignment)
     - [2.2 Quantification](#22-quantification)
 - [3. Progress](#3-progress)
-    - [3.1 pre-processing](#31-pre-processing)
+    - [3.1 Pre-processing](#31-pre-processing)
     - [3.2 Alignment](#21-alignment)
 - [4. Results](#4-results)
     - [4.1 Aligned reads](#41-aligned-reads)
     - [4.2 DEGs](#42-DEGs)
     - [4.3 Cluster](#43-Cluster)
+        - [4.3.1 Hierarchical clustering](#431-hierarchical-clustering)
+        - [4.3.2 k-means clustering](#432-k-means-clustering)
 - [5. References](#5-references)
     
 <!-- content end -->
@@ -137,9 +139,11 @@ Flg22_SynCom35_3 Flg22_SynCom35
 
 ### 4.3 Cluster ###
 
+#### 4.3.1 Hierarchical clustering ####
+
 Hierarchical clustering to find potential gene expression patterns in four conditions (`Mock`, `flg22`, `SynCom33`, and `SynCom35`). The read count of each transcript was scaled, then average value was used to represent each condition. Transcript with more than one zero counts in any of the four conditions were excluded (29161 transcripts left).
 
-* Hierarchical clustering of 29161 transcripts. 
+
 
 Distance was calculated as `1 - Pearson's Correlation Coefficient`
 
@@ -203,6 +207,15 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
   ![heatmap_logFC](results/hclust_1d5_heatmap_logFC.jpg)
   
   ![heatmap_sig](results/hclust_1d5_heatmap_sig.jpg)
+  
+#### 4.3.2 k-means clustering ####
+
+Choose k (group number) by the sum of squared error (SSE) and Akaike information criterion (AIC). k number **10** was finally chose.
+
+![kmeans_sse](results/kmeans_sse.jpg)
+
+![kmeans_AIC](results/kmeans_AIC.jpg)
+
   
 ## 5 References ##
 
