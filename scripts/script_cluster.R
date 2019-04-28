@@ -147,7 +147,7 @@ for (i in 2:20) {
 ggplot(tibble(k = 1:20, wss = wss), aes(k, wss)) +
   geom_point(colour = '#D55E00', size = 3) +
   geom_line(linetype = 'dashed') +
-  xlab('number of clusters') +
+  xlab('Number of clusters') +
   ylab('Sum of squared error')
 ggsave('kmeans_sse.pdf')
 ggsave('kmeans_sse.jpg')

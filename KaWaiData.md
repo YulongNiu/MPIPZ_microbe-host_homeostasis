@@ -143,8 +143,6 @@ Flg22_SynCom35_3 Flg22_SynCom35
 
 Hierarchical clustering to find potential gene expression patterns in four conditions (`Mock`, `flg22`, `SynCom33`, and `SynCom35`). The read count of each transcript was scaled, then average value was used to represent each condition. Transcript with more than one zero counts in any of the four conditions were excluded (29161 transcripts left).
 
-
-
 Distance was calculated as `1 - Pearson's Correlation Coefficient`
 
 ![genetree](results/genetree.jpg)
@@ -180,9 +178,7 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
   
   ![hieracluster_gene_1d5](results/hclust_1d5_genes.jpg)
   
-  
-  
-  correlation of traits (phenotype) and clusters
+* correlation of traits (phenotype) and clusters
   
   ```
   flg22 SynCom33 SynCom35 bacteria rootlen
@@ -194,7 +190,7 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
   
   ![hieracluster_1d5_trait](results/hclust_1d5_trait.jpg)
   
-  heatmaps
+* heatmaps
   
   ![heatmap_merge](results/hclust_1d5_heatmap_merge.jpg)
   
@@ -216,7 +212,37 @@ Choose k (group number) by the sum of squared error (SSE) and Akaike information
 
 ![kmeans_AIC](results/kmeans_AIC.jpg)
 
+
+  ```
+  AT1G14550.1 AT2G30750.1 AT2G19190.1 
+          9           9           9 
+  ```
+* correlation of traits (phenotype) and clusters
   
+  ```
+  flg22 SynCom33 SynCom35 bacteria rootlen
+      0        0        0        0     5.6
+      1        0        0        0     1.1
+      1        1        0        1     1.3
+      1        0        1        1     4.9
+  ```
+  
+  ![hieracluster_1d5_trait](results/kmeans_10_trait.jpg)
+  
+* heatmaps
+  
+  ![heatmap_merge](results/kmeans_10_heatmap_merge.jpg)
+  
+  ![heatmap_group](results/kmeans_10_heatmap_group.jpg)
+  
+  ![heatmap_raw](results/kmeans_10_heatmap_raw.jpg)
+  
+  ![heatmap_scale](results/kmeans_10_heatmap_scale.jpg)
+  
+  ![heatmap_logFC](results/kmeans_10_heatmap_logFC.jpg)
+  
+  ![heatmap_sig](results/kmeans_10_heatmap_sig.jpg)
+
 ## 5 References ##
 
 * Garrido-Oter R, Nakano RT, Dombrowski N, Ma KW; AgBiome Team, McHardy AC, Schulze-Lefert P. **Modular Traits of the Rhizobiales Root Microbiota and Their Evolutionary Relationship with Symbiotic Rhizobia** *Cell Host Microbe.* 2018;24(1):155-167.e5.
