@@ -11,4 +11,5 @@
 bamfiles/
 scripts/.history
 results/.history
+.history
 geneset/
