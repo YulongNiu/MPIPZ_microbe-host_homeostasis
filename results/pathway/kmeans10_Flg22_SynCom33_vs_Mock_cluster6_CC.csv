@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0009579",4.9701870935294e-06,0.999999435640731,9,240,"thylakoid","CC"
 "2","GO:0010287",1.18377344707258e-05,0.99999923327858,6,93,"plastoglobule","CC"
 "3","GO:0009534",0.00243874848083832,0.999563958234666,6,251,"chloroplast thylakoid","CC"

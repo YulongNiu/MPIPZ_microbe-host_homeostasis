@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0019825",1.03623237246825e-05,0.99999891577787,8,214,"oxygen binding","MF"
 "2","GO:0000293",3.08062735454694e-05,0.99999963388095,3,13,"ferric-chelate reductase activity","MF"
 "3","GO:0020037",3.37757089648367e-05,0.999995110662921,9,328,"heme binding","MF"

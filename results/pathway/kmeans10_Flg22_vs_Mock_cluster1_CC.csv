@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0005887",0.00317634442695619,0.999298685625947,7,202,"integral component of plasma membrane","CC"
 "2","GO:0005576",0.00473391512954338,0.997306316806422,37,2337,"extracellular region","CC"
 "3","GO:0031209",0.0094807188383262,0.999593099630558,2,16,"SCAR complex","CC"

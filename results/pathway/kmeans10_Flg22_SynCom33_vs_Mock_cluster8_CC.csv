@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0042651",0.0083059885552461,0.999224303977019,3,33,"thylakoid membrane","CC"
 "2","GO:0009507",0.00866900155049103,0.993837064048157,96,6337,"chloroplast","CC"
 "3","GO:0005874",0.00913712551656778,0.997044747337207,9,238,"microtubule","CC"

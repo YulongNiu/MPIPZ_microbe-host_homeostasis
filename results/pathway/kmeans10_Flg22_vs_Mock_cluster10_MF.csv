@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0035299",0.000128341770984559,0.999999720732737,2,3,"inositol pentakisphosphate 2-kinase activity","MF"
 "2","GO:0003950",0.00600530224341327,0.999795948063649,2,17,"NAD+ ADP-ribosyltransferase activity","MF"
 "3","GO:0016620",0.00615815321595079,0.999786854667889,2,18,"oxidoreductase activity, acting on the aldehyde or oxo group of donors, NAD or NADP as acceptor","MF"

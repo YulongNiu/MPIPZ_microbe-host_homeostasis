@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0009768",3.17412104395252e-06,0.999999947387924,4,24,"photosynthesis, light harvesting in photosystem I","BP"
 "2","GO:0006952",1.74695481045226e-05,0.999996499755495,13,761,"defense response","BP"
 "3","GO:0009617",3.24750221604594e-05,0.999997467528793,6,144,"response to bacterium","BP"

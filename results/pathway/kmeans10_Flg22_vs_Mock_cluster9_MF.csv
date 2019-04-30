@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0030599",3.82854547800264e-05,0.999996141574026,7,57,"pectinesterase activity","MF"
 "2","GO:0045330",8.53343492178007e-05,0.999992298145329,6,48,"aspartyl esterase activity","MF"
 "3","GO:0046983",0.000317086551145644,0.999903093375273,15,333,"protein dimerization activity","MF"

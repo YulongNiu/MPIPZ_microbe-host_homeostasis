@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0005828",0.00134791497982762,0.999980204598498,2,10,"kinetochore microtubule","CC"
 "2","GO:0005880",0.00290069177270292,0.999933660077519,2,14,"nuclear microtubule","CC"
 "3","GO:0031019",0.00544005426353125,1,1,1,"mitochondrial mRNA editing complex","CC"

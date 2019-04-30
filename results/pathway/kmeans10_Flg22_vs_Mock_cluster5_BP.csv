@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0016310",0.000202471266031894,0.999958490560192,10,557,"phosphorylation","BP"
 "2","GO:0006952",0.000237923928582165,0.999941425288851,12,761,"defense response","BP"
 "3","GO:0009664",0.0006459240817356,0.999953723645132,4,80,"plant-type cell wall organization","BP"

@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0009451",2.31520879734567e-05,0.999997274791785,8,216,"RNA modification","BP"
 "2","GO:0010115",0.00157150139368269,0.999974615715406,2,11,"regulation of abscisic acid biosynthetic process","BP"
 "3","GO:0048579",0.00189125959896615,0.999967004867849,2,10,"negative regulation of long-day photoperiodism, flowering","BP"

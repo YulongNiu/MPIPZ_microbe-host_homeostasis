@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0031640",4.55722264496466e-05,0.999999321158175,3,29,"killing of cells of other organism","BP"
 "2","GO:0042542",8.5218415565714e-05,0.999996457143854,4,90,"response to hydrogen peroxide","BP"
 "3","GO:0009733",0.000341555858990627,0.999959054987959,6,334,"response to auxin","BP"

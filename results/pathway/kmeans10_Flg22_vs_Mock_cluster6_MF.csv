@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0019843",0.00441021131395337,0.999460602501808,4,84,"rRNA binding","MF"
 "2","GO:0000095",0.00546127287860639,0.999832524578533,2,11,"S-adenosyl-L-methionine transmembrane transporter activity","MF"
 "3","GO:0080073",0.00960942870669687,1,1,1,"spermidine:coumaroyl CoA N-acyltransferase activity","MF"

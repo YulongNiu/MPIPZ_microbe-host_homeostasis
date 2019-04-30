@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0008887",3.08056471183864e-06,0.999999992924493,3,4,"glycerate kinase activity","MF"
 "2","GO:0005353",4.35553189654602e-05,0.999999494328946,3,8,"fructose transmembrane transporter activity","MF"
 "3","GO:0005355",6.93030022075727e-05,0.999999013051912,3,9,"glucose transmembrane transporter activity","MF"

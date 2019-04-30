@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0007568",7.94354232160712e-06,0.999999680867223,5,72,"aging","BP"
 "2","GO:0009744",2.54502032203833e-05,0.999998684534295,5,89,"response to sucrose","BP"
 "3","GO:0009416",7.08958744385982e-05,0.999991882543212,7,261,"response to light stimulus","BP"

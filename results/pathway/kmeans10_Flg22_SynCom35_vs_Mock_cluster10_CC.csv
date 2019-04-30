@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0016021",0.00806151977836052,0.995258197264459,42,5396,"integral component of membrane","CC"
 "2","GO:0005784",0.0308607462193269,0.999589585733713,1,7,"Sec61 translocon complex","CC"
 "3","GO:0032541",0.0441667847081154,0.999137590315453,1,8,"cortical endoplasmic reticulum","CC"

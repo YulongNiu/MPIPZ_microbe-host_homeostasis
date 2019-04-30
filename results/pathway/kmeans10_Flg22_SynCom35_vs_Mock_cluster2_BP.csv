@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0055114",8.63105226319989e-19,1,70,1421,"oxidation-reduction process","BP"
 "2","GO:0006749",2.73748392827996e-11,1,12,56,"glutathione metabolic process","BP"
 "3","GO:0009407",2.18299111320638e-10,0.999999999989636,11,52,"toxin catabolic process","BP"

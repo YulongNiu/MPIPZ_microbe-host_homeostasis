@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0004340",0.000562689388897487,0.999994953036929,2,8,"glucokinase activity","MF"
 "2","GO:0004396",0.000562689388897487,0.999994953036929,2,8,"hexokinase activity","MF"
 "3","GO:0005536",0.000562689388897487,0.999994953036929,2,8,"glucose binding","MF"

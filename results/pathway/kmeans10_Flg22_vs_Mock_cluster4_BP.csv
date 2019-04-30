@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0043489",0.000133246721971125,0.999999583008372,2,4,"RNA stabilization","BP"
 "2","GO:0048629",0.000208643702001677,0.999999049737576,2,5,"trichome patterning","BP"
 "3","GO:0001678",0.000562689388897487,0.999994953036929,2,8,"cellular glucose homeostasis","BP"

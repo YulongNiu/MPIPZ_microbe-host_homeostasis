@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0005615",6.88308791859368e-05,0.999992134395992,7,141,"extracellular space","CC"
 "2","GO:0005576",9.86564544248246e-05,0.999957777233687,33,2337,"extracellular region","CC"
 "3","GO:0031225",0.00141004544896903,0.999730998696844,7,232,"anchored component of membrane","CC"

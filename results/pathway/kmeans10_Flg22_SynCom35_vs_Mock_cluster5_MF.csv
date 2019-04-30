@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0003962",5.07155246826362e-05,0.999999931073932,2,3,"cystathionine gamma-synthase activity","MF"
 "2","GO:0045735",9.73058472103421e-05,0.999995837242615,4,56,"nutrient reservoir activity","MF"
 "3","GO:0004612",0.000163882258634491,0.999999340793292,2,5,"phosphoenolpyruvate carboxykinase (ATP) activity","MF"

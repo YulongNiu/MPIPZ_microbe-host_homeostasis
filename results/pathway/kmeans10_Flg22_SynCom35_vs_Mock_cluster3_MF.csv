@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0050284",0.000787425065802099,0.999999800634112,1,4,"sinapate 1-glucosyltransferase activity","MF"
 "2","GO:0016407",0.00603323072308556,0.999985144680325,1,20,"acetyltransferase activity","MF"
 "3","GO:0005543",0.00633480657237006,0.999983477121861,1,24,"phospholipid binding","MF"

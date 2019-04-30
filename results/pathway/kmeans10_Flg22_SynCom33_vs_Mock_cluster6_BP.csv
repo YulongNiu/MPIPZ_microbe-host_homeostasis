@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0015979",7.05799857161716e-05,0.999993632436268,6,127,"photosynthesis","BP"
 "2","GO:0015805",0.000116041986340447,0.999999760051135,2,3,"S-adenosyl-L-methionine transport","BP"
 "3","GO:0009780",0.00426141586507507,1,1,1,"photosynthetic NADP+ reduction","BP"

@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0010200",6.78688303466816e-06,0.99999933181242,8,165,"response to chitin","BP"
 "2","GO:0009751",2.80419674913946e-05,0.999996613978039,8,209,"response to salicylic acid","BP"
 "3","GO:0002221",0.000133805901702553,0.99999719191107,3,20,"pattern recognition receptor signaling pathway","BP"

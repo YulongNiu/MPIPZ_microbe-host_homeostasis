@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0006227",0.000588687460760444,0.999999903709226,1,3,"dUDP biosynthetic process","BP"
 "2","GO:0006233",0.000588687460760444,0.999999903709226,1,3,"dTDP biosynthetic process","BP"
 "3","GO:0006235",0.000588687460760444,0.999999903709226,1,3,"dTTP biosynthetic process","BP"

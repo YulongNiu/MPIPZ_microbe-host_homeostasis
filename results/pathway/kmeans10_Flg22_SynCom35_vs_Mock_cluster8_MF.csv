@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0042349",0.00223533652413757,0.999998776040758,1,2,"guiding stereospecific synthesis activity","MF"
 "2","GO:0042030",0.0024334780505771,0.999998549291976,1,2,"ATPase inhibitor activity","MF"
 "3","GO:0047787",0.00261189232565292,0.999998328619514,1,2,"delta4-3-oxosteroid 5beta-reductase activity","MF"

@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0043291",0.00135536924769595,0.999990224376562,2,3,"RAVE complex","CC"
 "2","GO:0045334",0.00483880328138443,0.999874176527833,2,7,"clathrin-coated endocytic vesicle","CC"
 "3","GO:0008023",0.00498865864532455,0.999868221505252,2,7,"transcription elongation factor complex","CC"

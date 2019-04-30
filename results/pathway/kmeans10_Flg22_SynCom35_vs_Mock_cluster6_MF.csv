@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0000095",0.00300929148364343,0.999932152686912,2,11,"S-adenosyl-L-methionine transmembrane transporter activity","MF"
 "2","GO:1990714",0.00360354699692667,0.999909649295085,2,12,"hydroxyproline O-galactosyltransferase activity","MF"
 "3","GO:0080073",0.00624523955325399,1,1,1,"spermidine:coumaroyl CoA N-acyltransferase activity","MF"

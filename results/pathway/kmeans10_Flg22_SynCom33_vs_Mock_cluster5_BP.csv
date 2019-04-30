@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0009768",1.90183748022478e-10,0.999999999993824,10,24,"photosynthesis, light harvesting in photosystem I","BP"
 "2","GO:0009664",6.3029306536476e-09,0.999999999342904,14,80,"plant-type cell wall organization","BP"
 "3","GO:0006952",6.04869687074976e-08,0.999999983738257,43,761,"defense response","BP"

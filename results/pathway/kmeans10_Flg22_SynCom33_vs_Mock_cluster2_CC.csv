@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0043231",0.000883737168541645,0.999844645693723,7,225,"intracellular membrane-bounded organelle","CC"
 "2","GO:0036513",0.00630846292484551,0.999778747496663,2,18,"Derlin-1 retrotranslocation complex","CC"
 "3","GO:0000325",0.010714885384171,0.99887385882511,3,64,"plant-type vacuole","CC"

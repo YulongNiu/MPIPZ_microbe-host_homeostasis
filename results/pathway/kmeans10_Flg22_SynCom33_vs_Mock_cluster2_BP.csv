@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0055114",8.0546686262587e-08,0.999999977918273,29,1421,"oxidation-reduction process","BP"
 "2","GO:0019354",2.85592690288887e-06,0.99999999061884,3,5,"siroheme biosynthetic process","BP"
 "3","GO:0019379",4.31693537439709e-05,1,2,2,"sulfate assimilation, phosphoadenylyl sulfate reduction by phosphoadenylyl-sulfate reductase (thioredoxin)","BP"

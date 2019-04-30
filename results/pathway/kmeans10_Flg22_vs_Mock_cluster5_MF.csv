@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0004612",0.000176301480209363,0.999999263034319,2,5,"phosphoenolpyruvate carboxykinase (ATP) activity","MF"
 "2","GO:0016301",0.000677311852549801,0.999781142676092,15,1329,"kinase activity","MF"
 "3","GO:0000293",0.00134623747606232,0.999979409908432,2,13,"ferric-chelate reductase activity","MF"

@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0005576",6.66795846668433e-08,1,97,2337,"extracellular region","CC"
 "2","GO:0005618",2.12149027894461e-06,0.999999211352923,35,604,"cell wall","CC"
 "3","GO:0005887",4.80188685168902e-06,0.999998881128674,17,202,"integral component of plasma membrane","CC"

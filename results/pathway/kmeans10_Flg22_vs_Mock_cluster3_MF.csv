@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0001002",0.00443610960420521,0.999992914427782,1,4,"RNA polymerase III type 1 promoter sequence-specific DNA binding","MF"
 "2","GO:0001003",0.00443610960420521,0.999992914427782,1,4,"RNA polymerase III type 2 promoter sequence-specific DNA binding","MF"
 "3","GO:0043874",0.00521551835937532,0.999989550341884,1,5,"acireductone synthase activity","MF"

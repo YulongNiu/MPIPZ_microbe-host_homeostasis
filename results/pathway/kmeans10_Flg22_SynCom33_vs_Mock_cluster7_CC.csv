@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0016020",0.0109058860241877,0.994776161096581,19,2227,"membrane","CC"
 "2","GO:0048046",0.0137244014620845,0.99602850254513,7,522,"apoplast","CC"
 "3","GO:0098590",0.0144890150372142,0.999930070607618,1,3,"plasma membrane region","CC"

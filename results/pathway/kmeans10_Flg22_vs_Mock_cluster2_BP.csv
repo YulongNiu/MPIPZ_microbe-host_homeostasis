@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0046482",0.00172304513880077,0.999998971549319,1,4,"para-aminobenzoic acid metabolic process","BP"
 "2","GO:0070936",0.00261259010680105,0.999997371972847,1,6,"protein K48-linked ubiquitination","BP"
 "3","GO:0030970",0.00434449024255875,0.999992146572365,1,10,"retrograde protein transport, ER to cytosol","BP"

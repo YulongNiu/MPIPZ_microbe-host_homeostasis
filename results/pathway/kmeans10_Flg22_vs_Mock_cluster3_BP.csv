@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0046854",0.00075674076476169,0.999991091877158,2,37,"phosphatidylinositol phosphorylation","BP"
 "2","GO:0090470",0.000936023630614291,1,1,1,"shoot organ boundary specification","BP"
 "3","GO:0009834",0.00140207787086905,0.999977000769735,2,69,"plant-type secondary cell wall biogenesis","BP"

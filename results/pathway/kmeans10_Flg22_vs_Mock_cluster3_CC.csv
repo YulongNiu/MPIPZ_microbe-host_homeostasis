@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0019185",0.00447173875121297,0.999992320641953,1,5,"snRNA-activating protein complex","CC"
 "2","GO:0000127",0.0116721133831421,0.999940391824643,1,11,"transcription factor TFIIIC complex","CC"
 "3","GO:0030125",0.0169952706309063,0.999867071103495,1,22,"clathrin vesicle coat","CC"

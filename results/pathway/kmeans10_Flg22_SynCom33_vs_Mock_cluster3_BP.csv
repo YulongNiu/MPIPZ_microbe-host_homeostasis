@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0080167",2.30111485010115e-13,1,15,162,"response to karrikin","BP"
 "2","GO:0048544",0.00253766028650749,0.999845603452089,3,33,"recognition of pollen","BP"
 "3","GO:0006970",0.00357820653209499,0.999309411507498,6,196,"response to osmotic stress","BP"

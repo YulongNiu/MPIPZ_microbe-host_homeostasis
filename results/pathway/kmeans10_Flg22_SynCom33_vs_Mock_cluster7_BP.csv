@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0071732",3.17264431347479e-09,0.999999999956941,6,27,"cellular response to nitric oxide","BP"
 "2","GO:0071281",3.35690851369592e-09,0.999999999922036,7,48,"cellular response to iron ion","BP"
 "3","GO:0071369",1.69084022409518e-08,0.999999999676053,6,35,"cellular response to ethylene stimulus","BP"

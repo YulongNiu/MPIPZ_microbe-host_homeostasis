@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0034457",0.00172486510684397,0.999998969374725,1,4,"Mpp10 complex","CC"
 "2","GO:0008024",0.00439895432064547,0.999991948257692,1,10,"cyclin/CDK positive transcription elongation factor complex","CC"
 "3","GO:0036513",0.00776190008186792,0.999973661794967,1,18,"Derlin-1 retrotranslocation complex","CC"

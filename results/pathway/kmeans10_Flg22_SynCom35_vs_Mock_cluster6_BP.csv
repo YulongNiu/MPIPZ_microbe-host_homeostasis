@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0015805",0.000183672827800558,0.999999520459334,2,3,"S-adenosyl-L-methionine transport","BP"
 "2","GO:0015979",0.000210977033981358,0.999976614375607,6,127,"photosynthesis","BP"
 "3","GO:0009645",0.00221006770395241,0.999956336663806,2,13,"response to low light intensity stimulus","BP"

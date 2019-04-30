@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0030076",0.00583552975957201,0.999802164159316,2,20,"light-harvesting complex","CC"
 "2","GO:0016021",0.0123075908994287,0.992797888005741,37,5396,"integral component of membrane","CC"
 "3","GO:0033185",0.020741980528361,0.999838410991952,1,4,"dolichol-phosphate-mannose synthase complex","CC"

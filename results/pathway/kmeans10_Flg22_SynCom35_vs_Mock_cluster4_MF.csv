@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0004402",4.20648928271728e-05,0.9999985625191,4,62,"histone acetyltransferase activity","MF"
 "2","GO:0003712",4.97464505103765e-05,0.999998222287583,4,64,"transcription coregulator activity","MF"
 "3","GO:0005516",0.00469903687296868,0.999223840243831,5,382,"calmodulin binding","MF"

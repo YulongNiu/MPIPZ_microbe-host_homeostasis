@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0062034",0.000111543567412015,0.999999773827875,2,3,"L-pipecolic acid biosynthetic process","BP"
 "2","GO:0000303",0.00276118360911594,0.999939687992079,2,12,"response to superoxide","BP"
 "3","GO:0009088",0.00359774721574865,0.999908080293875,2,14,"threonine biosynthetic process","BP"

@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0047215",0.000861865521465783,0.999999828508127,1,2,"indole-3-acetate beta-glucosyltransferase activity","MF"
 "2","GO:1990837",0.000861970450820815,0.999999828466358,1,2,"sequence-specific double-stranded DNA binding","MF"
 "3","GO:0080002",0.00172304513880077,0.999998971549319,1,4,"UDP-glucose:4-aminobenzoate acylglucosyltransferase activity","MF"

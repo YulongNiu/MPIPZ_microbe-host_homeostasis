@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0080061",6.73038741349681e-06,0.999999961254443,3,7,"indole-3-acetonitrile nitrilase activity","MF"
 "2","GO:0080109",6.73038741349681e-06,0.999999961254443,3,7,"indole-3-acetonitrile nitrile hydratase activity","MF"
 "3","GO:0000257",1.0586641164456e-05,0.999999924164283,3,8,"nitrilase activity","MF"

@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0047274",7.94627122149923e-08,0.999999999672176,4,7,"galactinol-sucrose galactosyltransferase activity","MF"
 "2","GO:0008887",1.34595195240511e-06,0.999999997666387,3,4,"glycerate kinase activity","MF"
 "3","GO:0000062",5.41970642675383e-05,0.999999246864962,3,11,"fatty-acyl-CoA binding","MF"

@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0009801",0.000196921971168858,1,1,1,"cinnamic acid ester metabolic process","BP"
 "2","GO:0005976",0.00156887507960489,0.999999155525395,1,5,"polysaccharide metabolic process","BP"
 "3","GO:0007130",0.00168060985916271,0.999999030906039,1,5,"synaptonemal complex assembly","BP"

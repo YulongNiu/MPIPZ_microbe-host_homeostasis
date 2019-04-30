@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0005955",0.0124333616902787,0.999948641474078,1,3,"calcineurin complex","CC"
 "2","GO:0035327",0.0269028293457479,0.999697909751212,1,6,"transcriptionally active chromatin","CC"
 "3","GO:0008023",0.0299869072195669,0.999613571582508,1,7,"transcription elongation factor complex","CC"

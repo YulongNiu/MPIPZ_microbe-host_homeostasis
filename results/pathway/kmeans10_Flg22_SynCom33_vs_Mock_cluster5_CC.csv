@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0005576",5.4428278083322e-10,1,103,2337,"extracellular region","CC"
 "2","GO:0030076",1.93972185745693e-08,0.999999999321069,8,20,"light-harvesting complex","CC"
 "3","GO:0009522",3.15545533694964e-08,0.999999998372134,9,28,"photosystem I","CC"

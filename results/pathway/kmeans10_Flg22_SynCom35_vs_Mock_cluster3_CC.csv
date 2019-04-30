@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0030136",0.0101442310449626,0.999956987987516,1,35,"clathrin-coated vesicle","CC"
 "2","GO:0005794",0.045603598998771,0.996084672372058,2,1421,"Golgi apparatus","CC"
 "3","GO:0043231",0.055180051131646,0.998672642281345,1,225,"intracellular membrane-bounded organelle","CC"

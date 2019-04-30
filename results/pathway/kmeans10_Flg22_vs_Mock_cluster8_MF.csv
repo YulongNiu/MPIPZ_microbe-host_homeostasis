@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0008134",2.71864288941433e-06,0.999999624657915,11,131,"transcription factor binding","MF"
 "2","GO:0000977",4.23709850443243e-06,0.99999953821116,9,86,"RNA polymerase II regulatory region sequence-specific DNA binding","MF"
 "3","GO:0047196",2.28334548017577e-05,0.999999424378871,4,14,"long-chain-alcohol O-fatty-acyltransferase activity","MF"

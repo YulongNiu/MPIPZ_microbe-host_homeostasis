@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0071949",0.000614366558194377,0.999956566762999,4,75,"FAD binding","MF"
 "2","GO:0005451",0.000642702588781565,0.999993832476048,2,8,"monovalent cation:proton antiporter activity","MF"
 "3","GO:0004364",0.000861796068140617,0.999933554767363,4,67,"glutathione transferase activity","MF"

@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0015979",0.000124263295813865,0.999984346487603,7,127,"photosynthesis","BP"
 "2","GO:0015805",0.000345150303251089,0.999998759166825,2,3,"S-adenosyl-L-methionine transport","BP"
 "3","GO:0000028",0.00346209792539529,0.999761919086156,3,39,"ribosomal small subunit assembly","BP"

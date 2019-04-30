@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0009750",2.83111063165613e-07,0.999999991312124,6,28,"response to fructose","BP"
 "2","GO:1902334",3.56977401283535e-06,0.999999991383931,3,4,"fructose export from vacuole to cytoplasm","BP"
 "3","GO:0009749",3.7986426154027e-06,0.999999731635789,7,67,"response to glucose","BP"

@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0045330",3.16153158329589e-06,0.999999733820747,8,48,"aspartyl esterase activity","MF"
 "2","GO:0030599",1.75562378783479e-05,0.99999809150821,8,57,"pectinesterase activity","MF"
 "3","GO:0030246",6.28621653788506e-05,0.999983547483906,15,237,"carbohydrate binding","MF"

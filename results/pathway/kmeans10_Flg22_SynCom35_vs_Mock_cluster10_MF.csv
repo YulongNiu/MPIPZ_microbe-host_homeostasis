@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0035299",0.000109700166442874,0.999999779676206,2,3,"inositol pentakisphosphate 2-kinase activity","MF"
 "2","GO:0005509",0.00198623619404952,0.999598147943315,7,320,"calcium ion binding","MF"
 "3","GO:0005345",0.00310472945982076,0.999924485814933,2,18,"purine nucleobase transmembrane transporter activity","MF"

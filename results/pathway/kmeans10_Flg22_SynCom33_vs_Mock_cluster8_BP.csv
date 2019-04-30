@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0080167",0.000103480851894825,0.999982555241826,9,162,"response to karrikin","BP"
 "2","GO:0010052",0.000133955366568008,0.999997609356369,3,9,"guard cell differentiation","BP"
 "3","GO:0019395",0.00175221340418835,0.999976432883098,2,5,"fatty acid oxidation","BP"

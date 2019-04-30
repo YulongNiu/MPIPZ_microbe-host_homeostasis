@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0045430",0.000317705131303734,0.999998903509459,2,3,"chalcone isomerase activity","MF"
 "2","GO:0044212",0.000564948804428627,0.999834804596933,13,373,"transcription regulatory region DNA binding","MF"
 "3","GO:0016709",0.000790776037985409,0.999863915126939,7,136,"oxidoreductase activity, acting on paired donors, with incorporation or reduction of molecular oxygen, NAD(P)H as one donor, and incorporation of one atom of oxygen","MF"

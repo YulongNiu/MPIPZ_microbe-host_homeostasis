@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0080044",0.0014738300356854,0.999867220871123,4,92,"quercetin 7-O-glucosyltransferase activity","MF"
 "2","GO:0004553",0.00156822676929449,0.999743695584588,6,216,"hydrolase activity, hydrolyzing O-glycosyl compounds","MF"
 "3","GO:0080043",0.00172238412983824,0.999837919511566,4,96,"quercetin 3-O-glucosyltransferase activity","MF"

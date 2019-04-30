@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0071456",2.00393927829045e-08,0.999999998995693,9,31,"cellular response to hypoxia","BP"
 "2","GO:0055072",3.20702645368445e-06,0.999999732914524,8,43,"iron ion homeostasis","BP"
 "3","GO:0048544",1.55690720995253e-05,0.999999004897559,6,33,"recognition of pollen","BP"

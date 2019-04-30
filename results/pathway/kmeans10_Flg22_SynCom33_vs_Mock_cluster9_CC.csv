@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0005576",1.27592392404156e-12,1,101,2337,"extracellular region","CC"
 "2","GO:0009505",3.38666132584687e-08,0.999999991986126,26,369,"plant-type cell wall","CC"
 "3","GO:0005618",6.23176793640242e-05,0.999975360336824,28,604,"cell wall","CC"

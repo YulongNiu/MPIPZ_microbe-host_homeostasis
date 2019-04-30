@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0005871",0.0209732095940505,0.99981720500456,1,92,"kinesin complex","CC"
 "2","GO:0005654",0.0352611229274427,0.999477779310258,1,169,"nucleoplasm","CC"
 "3","GO:0005874",0.0509922285814044,0.998899071516824,1,238,"microtubule","CC"

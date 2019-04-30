@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0008194",0.00210185225856073,0.999709470191887,5,133,"UDP-glycosyltransferase activity","MF"
 "2","GO:0080044",0.00289814107561446,0.999684887025112,4,92,"quercetin 7-O-glucosyltransferase activity","MF"
 "3","GO:0080043",0.00336260415501127,0.999618585397701,4,96,"quercetin 3-O-glucosyltransferase activity","MF"

@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0010005",0.00564001995650033,0.999814264437851,2,17,"cortical microtubule, transverse to long axis","CC"
 "2","GO:0030677",0.00658802843865881,1,1,1,"ribonuclease P complex","CC"
 "3","GO:0000172",0.0106077373385014,0.999971858329048,1,2,"ribonuclease MRP complex","CC"

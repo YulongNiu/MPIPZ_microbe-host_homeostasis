@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0031422",0.00448524442648203,1,1,1,"RecQ helicase-Topo III complex","CC"
 "2","GO:0031307",0.00651789622104181,0.999761401443025,2,26,"integral component of mitochondrial outer membrane","CC"
 "3","GO:0070274",0.00900348261919143,0.999979774874658,1,2,"RES complex","CC"

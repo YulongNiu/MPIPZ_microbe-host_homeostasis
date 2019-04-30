@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0030145",2.52262108539952e-06,0.999999753907756,9,48,"manganese ion binding","MF"
 "2","GO:0015301",1.50252966623741e-05,0.99999908534035,6,25,"anion:anion antiporter activity","MF"
 "3","GO:0008909",4.57728913505162e-05,0.999999736931598,3,4,"isochorismate synthase activity","MF"

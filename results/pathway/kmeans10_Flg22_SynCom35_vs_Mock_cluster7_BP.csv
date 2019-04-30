@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0010438",4.40930322736932e-06,0.999999980090724,3,6,"cellular response to sulfur starvation","BP"
 "2","GO:0006817",7.64732922540248e-06,0.99999984130818,4,23,"phosphate ion transport","BP"
 "3","GO:0019499",3.13151817123341e-05,0.999999639327429,3,11,"cyanide metabolic process","BP"

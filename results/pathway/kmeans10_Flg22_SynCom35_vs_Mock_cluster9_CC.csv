@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0005576",5.79526699521841e-09,0.999999998388424,37,2337,"extracellular region","CC"
 "2","GO:0009530",0.000465671492628921,0.999996539039079,2,6,"primary cell wall","CC"
 "3","GO:0012505",0.00204187768688383,0.999798653166178,4,99,"endomembrane system","CC"

@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0005199",4.90382995998813e-09,0.99999999974116,10,34,"structural constituent of cell wall","MF"
 "2","GO:0016168",2.14517291996035e-07,0.999999985292535,9,35,"chlorophyll binding","MF"
 "3","GO:0016301",2.6816348266083e-07,1,59,1329,"kinase activity","MF"

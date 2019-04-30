@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0071483",4.49105346406932e-05,0.999999893747856,2,7,"cellular response to blue light","BP"
 "2","GO:0010218",0.000168385253789746,0.999995997987993,3,65,"response to far red light","BP"
 "3","GO:1901599",0.00223533652413757,0.999998776040758,1,2,"(-)-pinoresinol biosynthetic process","BP"

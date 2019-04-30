@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0009744",3.47870333669083e-11,1,11,89,"response to sucrose","BP"
 "2","GO:0006979",9.28992064140616e-08,0.999999986285545,15,379,"response to oxidative stress","BP"
 "3","GO:0010325",7.38544466794817e-07,0.999999992877696,4,11,"raffinose family oligosaccharide biosynthetic process","BP"

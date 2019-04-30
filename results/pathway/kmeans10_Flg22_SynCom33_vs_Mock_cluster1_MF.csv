@@ -1,4 +1,4 @@
-"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","term","ontology"
+"","category","over_represented_pvalue","under_represented_pvalue","numDEInCat","numInCat","Annotation","ontology"
 "1","GO:0047274",0.000328977913639997,0.999997841520195,2,7,"galactinol-sucrose galactosyltransferase activity","MF"
 "2","GO:0004064",0.00368193538147715,1,1,1,"arylesterase activity","MF"
 "3","GO:0004970",0.00753756483220173,0.99970018264157,2,32,"ionotropic glutamate receptor activity","MF"
