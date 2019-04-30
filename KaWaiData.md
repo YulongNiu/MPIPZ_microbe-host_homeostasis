@@ -17,6 +17,7 @@
     - [4.3 Cluster](#43-Cluster)
         - [4.3.1 Hierarchical clustering](#431-hierarchical-clustering)
         - [4.3.2 k-means clustering](#432-k-means-clustering)
+    - [4.4 Gene-set analysis](#44-gene-set-analysis)
 - [5. References](#5-references)
     
 <!-- content end -->
@@ -245,6 +246,20 @@ Choose k (group number) by the sum of squared error (SSE) and Akaike information
   ![heatmap_logFC](results/kmeans_10_heatmap_logFC.jpg)
   
   ![heatmap_sig](results/kmeans_10_heatmap_sig.jpg)
+  
+### 4.4 Gene-set analysis ###
+
+Find significantly changed gene ontology, KEGG, and BioCyc gene-sets in each k-means cluster.
+
+![means10_cluster9_BP](results/pathway/kmeans10_cluster9_BP.jpg)
+
+![means10_cluster9_MF](results/pathway/kmeans10_cluster9_MF.jpg)
+
+![means10_cluster9_CC](results/pathways/kmeans10_cluster9_CC.jpg)
+
+![means10_cluster9_KEGG](results/pathways/kmeans10_cluster9_KEGG.jpg)
+
+![means10_cluster9_BioCyc](results/pathways/kmeans10_cluster9_BioCyc.jpg)
 
 ## 5 References ##
 
