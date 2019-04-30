@@ -255,11 +255,11 @@ Find significantly changed gene ontology, KEGG, and BioCyc gene-sets in each k-m
 
 ![means10_cluster9_MF](results/pathway/kmeans10_cluster9_MF.jpg)
 
-![means10_cluster9_CC](results/pathways/kmeans10_cluster9_CC.jpg)
+![means10_cluster9_CC](results/pathway/kmeans10_cluster9_CC.jpg)
 
-![means10_cluster9_KEGG](results/pathways/kmeans10_cluster9_KEGG.jpg)
+![means10_cluster9_KEGG](results/pathway/kmeans10_cluster9_KEGG.jpg)
 
-![means10_cluster9_BioCyc](results/pathways/kmeans10_cluster9_BioCyc.jpg)
+![means10_cluster9_BioCyc](results/pathway/kmeans10_cluster9_BioCyc.jpg)
 
 ## 5 References ##
 
