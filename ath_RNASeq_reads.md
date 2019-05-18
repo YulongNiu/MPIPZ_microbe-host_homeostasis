@@ -1,4 +1,4 @@
-# How many reads are enough for Arabidopsis RNA-Seq
+# How many reads are enough for Arabidopsis RNA-Seq?
 
 <!-- content start -->
 
@@ -20,16 +20,24 @@ Estimate coverage from exons.
 1. Retrieve exons from [Ensembl database](ftp://ftp.ensemblgenomes.org/pub/plants/release-42/fasta/arabidopsis_thaliana/cdna/Arabidopsis_thaliana.TAIR10.cdna.all.fa.gz) (Araport11). A total of 193,130 non-redundant exons with average length of 336.4bp.
 
 ```
-  Coverage `Reads (million)`
-1 0.1X                0.0433
-2 0.5X                0.217 
-3 1X                  0.433 
-4 2X                  0.866 
-5 3X                  1.30  
-6 5X                  2.17  
-7 10X                 4.33  
-8 15X                 6.50  
-9 20X                 8.66  
+   Coverage `Reads (million)`
+   <chr>                <dbl>
+ 1 0.1X                0.0433
+ 2 0.5X                0.217 
+ 3 1X                  0.433 
+ 4 2X                  0.866 
+ 5 3X                  1.30  
+ 6 5X                  2.17  
+ 7 10X                 4.33  
+ 8 15X                 6.50  
+ 9 20X                 8.66  
+10 30X                13.0   
+11 40X                17.3   
+12 50X                21.7   
 ```
+
+2. Directly use the summary table from the [TAIR](https://arabidopsis.org/portals/genAnnotation/gene_structural_annotation/annotation_data.jsp) database.
+
+![TAIR_genome_summary](results/TAIR_genome_summary.png)
 
 
