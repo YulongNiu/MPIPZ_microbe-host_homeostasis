@@ -26,6 +26,10 @@ depth <- c(0.1, 0.5, 1, 2, 3, 5, 10, 15, 20, 30, 40, 50)
 
 tibble(Coverage = paste0(depth, 'X'),
        `Reads (million)` = sum(geneAnno$length) / 1e6 / readlen * depth)
+
+tibble(Coverage = paste0(depth, 'X'),
+       `Reads (million)` = 27655 * 6.7 * 335.5 / 1e6 / readlen * depth)
+
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ####################################################################

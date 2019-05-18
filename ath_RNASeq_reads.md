@@ -40,4 +40,20 @@ Estimate coverage from exons.
 
 ![TAIR_genome_summary](results/TAIR_genome_summary.png)
 
+```
+   Coverage `Reads (million)`
+   <chr>                <dbl>
+ 1 0.1X                0.0414
+ 2 0.5X                0.207 
+ 3 1X                  0.414 
+ 4 2X                  0.829 
+ 5 3X                  1.24  
+ 6 5X                  2.07  
+ 7 10X                 4.14  
+ 8 15X                 6.22  
+ 9 20X                 8.29  
+10 30X                12.4   
+11 40X                16.6   
+12 50X                20.7   
+```
 
