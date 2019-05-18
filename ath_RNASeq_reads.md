@@ -15,9 +15,9 @@
 
 ### 1.1 Exons
 
-Estimate coverage from exons. 
+Estimate coverage from exons, and we assuming that the read length is `150bp`
 
-1. Retrieve exons from [Ensembl database](ftp://ftp.ensemblgenomes.org/pub/plants/release-42/fasta/arabidopsis_thaliana/cdna/Arabidopsis_thaliana.TAIR10.cdna.all.fa.gz) (Araport11). A total of 193,130 non-redundant exons with average length of 336.4bp.
+1. Retrieve exons from [Ensembl database](ftp://ftp.ensemblgenomes.org/pub/plants/release-43/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.43.gff3.gz) (Araport11). A total of `193,130` non-redundant exons with average length of `336.4bp`.
 
 ```
    Coverage `Reads (million)`
@@ -56,4 +56,29 @@ Estimate coverage from exons.
 11 40X                16.6   
 12 50X                20.7   
 ```
+
+### Transcripts
+
+Retrieve transcripts from [Ensembl database](ftp://ftp.ensemblgenomes.org/pub/plants/release-43/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.43.gff3.gz) (Araport11), which including 3,746 lncRNA and 43,256 mRNA sequences.
+
+```
+   Coverage `Reads (million)`
+   <chr>                <dbl>
+ 1 0.1X                0.0761
+ 2 0.5X                0.381 
+ 3 1X                  0.761 
+ 4 2X                  1.52  
+ 5 3X                  2.28  
+ 6 5X                  3.81  
+ 7 10X                 7.61  
+ 8 15X                11.4   
+ 9 20X                15.2   
+10 30X                22.8   
+11 40X                30.5   
+12 50X                38.1 
+```
+
+
+
+
 
