@@ -93,7 +93,7 @@ Randomly drop reads, then test the number of significantly changed genes, false 
 
 * flg22+SynCom35 *vs.* Mock
 
-![Flg22_SynCom35_vs_Mock_subSeq](results/Flg22_SynCom35_vs_Mock_subSeq)
+![Flg22_SynCom35_vs_Mock_subSeq](results/Flg22_SynCom35_vs_Mock_subSeq.jpg)
 
 ## 3. References
 
