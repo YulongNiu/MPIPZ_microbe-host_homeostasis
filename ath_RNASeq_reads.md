@@ -57,7 +57,7 @@ Estimate coverage from exons, and we assuming that the read length is `150bp`
 12 50X                20.7   
 ```
 
-### Transcripts
+### 2.2 Transcripts
 
 Retrieve transcripts from [Ensembl database](ftp://ftp.ensemblgenomes.org/pub/plants/release-43/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.43.gff3.gz) (Araport11), which including 3,746 lncRNA and 43,256 mRNA sequences.
 
@@ -77,6 +77,8 @@ Retrieve transcripts from [Ensembl database](ftp://ftp.ensemblgenomes.org/pub/pl
 11 40X                30.5   
 12 50X                38.1 
 ```
+
+### 2.3 Read data
 
 
 
