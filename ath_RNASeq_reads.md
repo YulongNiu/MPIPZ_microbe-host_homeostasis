@@ -7,7 +7,8 @@
 - [1. Estimation](#1-Estimation)
     - [1.1 Exons](#11-exons)
     - [1.2 Transcripts](#12-transcripts)
-- [2. Expriments](#2-Estimation)
+- [2. subSeq](#2-subseq)
+- [3. References](#2-references)
 
 <!-- content end -->
 
@@ -57,7 +58,7 @@ Estimate coverage from exons, and we assuming that the read length is `150bp`
 12 50X                20.7   
 ```
 
-### 2.2 Transcripts
+### 1.2 Transcripts
 
 Retrieve transcripts from [Ensembl database](ftp://ftp.ensemblgenomes.org/pub/plants/release-43/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.43.gff3.gz) (Araport11), which including 3,746 lncRNA and 43,256 mRNA sequences.
 
@@ -78,7 +79,27 @@ Retrieve transcripts from [Ensembl database](ftp://ftp.ensemblgenomes.org/pub/pl
 12 50X                38.1 
 ```
 
-### 2.3 Read data
+## 2. subSeq
+
+Randomly drop reads, then test the number of significantly changed genes, false discovery proportions (FDP), Spearman correlation and mean-squared error (MSE).
+
+* flg22 *vs.* Mock
+
+![Flg22_vs_Mock_subSeq](results/Flg22_vs_Mock_subSeq.jpg)
+
+* flg22+SynCom33 *vs.* Mock
+
+![](results/)
+
+* flg22+SynCom35 *vs.* Mock
+
+![](results/)
+
+## 3. References
+
+1. Robinson DG, Storey JD: **subSeq: determining appropriate sequencing depth through efficient read subsampling.** *Bioinformatics*. 2014;30(23):3424-6.
+
+
 
 
 

@@ -89,6 +89,7 @@ kres$counts %>%
 library('subSeq')
 library('magrittr')
 library('DESeq2')
+library('ggplot2')
 
 setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/')
 
@@ -96,15 +97,15 @@ load('degres_condi_Mock.RData')
 
 rawCount <- counts(degres)
 
-tvscIdx <- c(1:6, c(1:3, 7:9), c(1:3, 10:12))
+tvscIdx <- list(1:6, c(1:3, 7:9), c(1:3, 10:12))
 tvscName <- c('Flg22_vs_Mock_subSeq', 'Flg22_SynCom33_vs_Mock_subSeq', 'Flg22_SynCom35_vs_Mock_subSeq')
 
 for(i in seq_along(tvscIdx)) {
   ## two conditions
-  testCounts <- rawCount[, 1:6] %>%
+  testCounts <- rawCount[, tvscIdx[[i]]] %>%
     .[rowSums(.) >= 5, ]
   testCondi <- degres$condition %>%
-    .[1:6] %>%
+    .[tvscIdx[[i]]] %>%
     droplevels
 
   proportions <- 10^seq(-2, 0, .1)
@@ -118,6 +119,4 @@ for(i in seq_along(tvscIdx)) {
   ggsave(paste0(tvscName[i], '.pdf'))
   ggsave(paste0(tvscName[i], '.jpg'))
 }
-
-
 ###################################################################
