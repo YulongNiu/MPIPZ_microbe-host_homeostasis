@@ -1,4 +1,4 @@
-# How many reads are enough for Arabidopsis RNA-Seq?
+# How many reads are enough for *Arabidopsis* RNA-Seq?
 
 <!-- content start -->
 
