@@ -578,3 +578,45 @@ inner_join(deganno, heatPlot) %>%
   write_csv(paste0(prefix, '.csv'))
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #################################################################
+
+
+########################separate DEGs############################
+library('tibble')
+library('readr')
+library('dplyr')
+
+setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/')
+savepath <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/kmeanssig'
+
+## cgenes <- c('AT1G14550.1', 'AT2G30750.1', 'AT2G19190.1')
+## kres %>%
+##   slice(which(kres$ID %in% cgenes))
+
+kres <- read_csv('kmeans_10.csv',
+                 col_types = cols(Chromosome = col_character()))
+
+## base columns
+g <- c('Flg22', 'Flg22_SynCom33', 'Flg22_SynCom35')
+
+for (i in g) {
+
+  eachcols <- c(paste(i, 1:3, sep = '_'),
+                paste0(i, c('_vs_Mock_pvalue', '_vs_Mock_padj', '_vs_Mock_log2FoldChange')))
+
+  eachres <- kres %>%
+    select(ID : Mock_3, eachcols, cl) %>%
+    filter(eachcols[6] %>% get %>% abs %>% {. > 1}) %>%
+    arrange(eachcols[6] %>% get %>% desc)
+
+  cls <- eachres$cl %>% unique
+
+  for (j in cls) {
+    fname <- i %>% paste0('_vs_Mock_cluster', j, '.csv') %>% file.path(savepath, .)
+    eachres %>%
+      filter(cl == j) %>%
+      mutate(Gene = Gene %>% coalesce('')) %>%
+      mutate(Description = Description %>% coalesce('')) %>%
+      write_csv(fname)
+  }
+}
+#################################################################
