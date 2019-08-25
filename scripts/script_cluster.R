@@ -216,7 +216,14 @@ kClust10$cluster[cgenes]
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~plot patterns~~~~~~~~~~~~~~~~~~~~~~~~
 ## join cluster and scaled normalized counts
-cl <- kClust10$cluster
+kmeansRes <- read_csv('../results/kmeans_10.csv',
+                      col_types = cols(Chromosome = col_character())) %>%
+  select(ID, cl) %>%
+  rename(clreal = cl)
+
+cl <- kmeansRes$clreal[match(names(kClust10$cluster), kmeansRes$ID)] %>%
+  set_names(names(kClust10$cluster))
+##cl <- kClust10$cluster
 prefix <- 'kmeans_10'
 
 cl <- hclusth1.5
@@ -232,6 +239,7 @@ clusterGene <- scaleCount %>%
       rownames_to_column(var = 'ID')
     inner_join(., cl)
   }
+
 
 ## plot core cluster
 clusterCore <- clusterGene %>%
@@ -382,7 +390,7 @@ padjsig <- heatPlot %>%
   abs %>%
   `<`(0.05) %>%
   as_tibble %>%
-  transmute_all(list(~ if_else(is.na(.), FALSE, TRUE)))
+  transmute_all(list(~ if_else(is.na(.), FALSE, .)))
 
 heatsigPlot <- (padjsig * fcsig) %>%
   as_tibble %>%

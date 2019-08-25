@@ -1,5 +1,5 @@
 ###########################Raw reads######################
-rawpath <- '/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data'
+rawpath <- '/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data_1stadd'
 setwd(rawpath)
 
 library('magrittr')
@@ -8,7 +8,7 @@ library('foreach')
 library('tibble')
 library('readr')
 
-ncore <- 12
+ncore <- 40
 
 fqs <- dir(rawpath,
            pattern = 'fq.gz',
@@ -105,18 +105,18 @@ KHoutput <- function(op, type = 'PE', org = 'hsa') {
 }
 
 ##~~~~~~~~~~~~~~~~~~~~~~~test contamination~~~~~~~~~~~~~~~~~~~~~~~~~~~
-athout <- 'align_nohup.out' %>%
+athout <- 'align_nohup_1stadd.out' %>%
   readLines %>%
-  KHoutput(type = 'SE', org = 'ath') %>%
+  KHoutput(type = 'PE', org = 'ath') %>%
   mutate(H_ath = round(hmap/trimfq, 3), K_ath = round(kmap/trimfq, 3)) %>%
   select(c(-hmap, -kmap, -org))
 
 ## raw reads
-rawrd <- read_csv('raw_seqnumber.csv')
+rawrd <- read_csv('raw_seqnumber_1stadd.csv') %>%
+  slice(seq(1, nrow(.), 2))
 
 contam <- rawrd %>%
-  inner_join(athout) %>%
-  slice(c(10:12, 1:9))
+  inner_join(athout)
 
 write_csv(contam, 'ath_alignment.csv')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,10 +1,12 @@
 ####################merge fq files lines or runs##################
-require('magrittr')
-require('doParallel')
-require('foreach')
+library('magrittr')
+library('doParallel')
+library('foreach')
+library('readr')
+library('dplyr')
 
-rawfqPath <- '/biodata/dep_psl/grp_rgo/metatranscriptomics/data/flg22'
-resFolder <- '/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data'
+rawfqPath <- '/biodata/dep_psl/grp_rgo/yniu/KaWai_raw_data_1stadd'
+resFolder <- '/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data_1stadd'
 catPath <- '/bin/cat'
 mvPath <- '/bin/mv'
 ncore <- 12
@@ -14,13 +16,12 @@ rawfq <- dir(rawfqPath,
 
 fqs <- rawfq %>%
   strsplit('_', fixed = TRUE) %>%
-  lapply('[', c(1, 2, 4, 7)) %>%
+  lapply('[', c(1, 2, 7)) %>%
   sapply(paste, collapse = '_')
 
 ## group fq gz files
 fqIdx <- split(seq_along(fqs), fqs)
 fqPrefix <- names(fqIdx)
-
 
 registerDoParallel(cores = ncore)
 
@@ -49,6 +50,7 @@ foreach (i = seq_along(fqIdx), .combine = c) %dopar% {
 
 stopImplicitCluster()
 
+##~~~~~~~~~~~~~~~~~~~~~raw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## change to sample names
 fqraws <- dir(resFolder)
 fqnews <- c('Mock', 'Flg22', 'Flg22_SynCom33', 'Flg22_SynCom35') %>%
@@ -71,4 +73,45 @@ for (i in seq_along(fqraws)) {
 
   system(mvC)
 }
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+##~~~~~~~~~~~~~~~~~~~~~~~~1stadd~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+anno <- read_delim('/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/results/list_samples_1stadd.txt', delim = '\t')
+fqraws <- dir(resFolder)
+
+for (i in seq_len(nrow(anno))) {
+
+  fqin <- anno[i, 1] %>%
+    file.path(resFolder, .) %>%
+    paste0('_R1.fq.gz')
+
+  fqout <- anno[i, 5] %>%
+    file.path(resFolder, .) %>%
+    paste0('_R1.fq.gz')
+
+  mvC <- paste(mvPath,
+               fqin,
+               fqout)
+
+  print(mvC)
+
+  system(mvC)
+
+  fqin <- anno[i, 1] %>%
+    file.path(resFolder, .) %>%
+    paste0('_R2.fq.gz')
+
+  fqout <- anno[i, 5] %>%
+    file.path(resFolder, .) %>%
+    paste0('_R2.fq.gz')
+
+  mvC <- paste(mvPath,
+               fqin,
+               fqout)
+
+  print(mvC)
+
+  system(mvC)
+}
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ####################################################################

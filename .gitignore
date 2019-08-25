@@ -8,7 +8,7 @@
 *.DS_Store
 *.bam
 *.bam.bai
-bamfiles/
+align_data_1stadd/
 scripts/.history
 results/.history
 .history

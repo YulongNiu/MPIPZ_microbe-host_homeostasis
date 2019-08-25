@@ -70,7 +70,7 @@ padjsig <- kmeansRes %>%
   abs %>%
   `<`(0.05) %>%
   as_tibble %>%
-  transmute_all(list(~ if_else(is.na(.), FALSE, TRUE)))
+  transmute_all(list(~ if_else(is.na(.), FALSE, .)))
 
 sig <- (padjsig * fcsig) %>%
   as_tibble %>%
@@ -108,7 +108,6 @@ for (i in vsGroup) {
     }
   }
 }
-
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~KEGG~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -193,7 +192,7 @@ for (i in cln) {
         rename(pvalue = over_represented_pvalue) %>%
         mutate(group = vsGroup[k], ratio = numDEInCat / numInCat) %>%
         filter(pvalue < 0.05 &
-               numDEInCat > 3)
+               numDEInCat > 1)
     }
 
     colorPal <- colorRampPalette(rev(c('red', 'yellow', 'cyan', 'blue')), bias=1)(10)
