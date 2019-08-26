@@ -111,12 +111,20 @@ athout <- 'align_nohup_1stadd.out' %>%
   mutate(H_ath = round(hmap/trimfq, 3), K_ath = round(kmap/trimfq, 3)) %>%
   select(c(-hmap, -kmap, -org))
 
+athvirusout <- 'align_nohup_1stadd_latenvirus.out' %>%
+  readLines %>%
+  KHoutput(type = 'PE', org = 'ath') %>%
+  mutate(H_ath = round(hmap/trimfq, 3), K_ath = round(kmap/trimfq, 3)) %>%
+  select(c(-hmap, -kmap, -org)) %>%
+  rename(Hvirus_ath = H_ath, Kvirus_ath = K_ath)
+
 ## raw reads
 rawrd <- read_csv('raw_seqnumber_1stadd.csv') %>%
   slice(seq(1, nrow(.), 2))
 
 contam <- rawrd %>%
-  inner_join(athout)
+  inner_join(athout) %>%
+  inner_join(athvirusout)
 
 write_csv(contam, 'ath_alignment.csv')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
