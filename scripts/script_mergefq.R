@@ -6,7 +6,7 @@ library('readr')
 library('dplyr')
 
 rawfqPath <- '/biodata/dep_psl/grp_rgo/yniu/KaWai_raw_data_1stadd'
-resFolder <- '/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data_1stadd'
+resFolder <- '/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data_1stadd_test'
 catPath <- '/bin/cat'
 mvPath <- '/bin/mv'
 ncore <- 12

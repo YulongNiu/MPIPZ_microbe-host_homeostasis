@@ -10,7 +10,7 @@ checkFlg22 <- function(v, threshold) {
   require('magrittr')
 
   res <- v %>%
-    split(rep(1 : 4, each = 3)) %>%
+    split(rep(1 : 10, each = 4)) %>%
     sapply(checkZeros, threshold) %>%
     all
 
@@ -38,13 +38,13 @@ anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno
 wd <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/align_data_1stadd'
 setwd(wd)
 
-anno <- read_delim('/home/Yulong/netscratch/KaWaiFlg22/results/list_samples_1stadd.txt', delim = '\t')
+annoSample <- read_delim('/home/Yulong/netscratch/KaWaiFlg22/results/list_samples_1stadd.txt', delim = '\t')
 
-slabel <- anno$Anno %>%
+slabel <- annoSample$Anno %>%
   paste0('_ath_kallisto')
 
 files <- file.path(wd, slabel, 'abundance.h5')
-names(files) <- anno$Anno
+names(files) <- annoSample$Anno
 kres <- tximport(files, type = 'kallisto', txOut = TRUE)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -52,7 +52,7 @@ kres <- tximport(files, type = 'kallisto', txOut = TRUE)
 setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/')
 
 ## sampleTable
-sampleTable <- data.frame(condition = factor(rep(c('Mock', 'Mock_Flg22', 'HKSynCom33', 'HKSynCom33_Flg22', 'SynCom33', 'SynCom33_Flg22', 'HKSynCom35', 'HKSynCom33_Flg35', 'SynCom35', 'SynCom35_Flg22'), 4)))
+sampleTable <- data.frame(condition = factor(rep(c('Mock', 'Mock_Flg22', 'HKSynCom33', 'HKSynCom33_Flg22', 'SynCom33', 'SynCom33_Flg22', 'HKSynCom35', 'HKSynCom35_Flg22', 'SynCom35', 'SynCom35_Flg22'), 4)))
 sampleTable$condition %<>% relevel(ref = 'Mock')
 rownames(sampleTable) <- colnames(kres$counts)
 
@@ -65,7 +65,7 @@ degres %<>%
   apply(1, checkFlg22, 1) %>%
   degres[., ]
 ## degres <- degres[rowSums(counts(degres)) > 1, ]
-save(degres, file = 'degres_condi_Mock.RData')
+save(degres, file = 'degres_condi_Mock_1stadd.RData')
 degres <- DESeq(degres)
 ## resultsNames(degres)
 
@@ -96,10 +96,10 @@ res <- cbind.data.frame(as.matrix(mcols(degres)[, 1:10]), assay(ntd), stringsAsF
   as_tibble %>%
   bind_cols(resRaw) %>%
   inner_join(anno, by = 'ID') %>%
-  select(ID, Gene : Description, Mock_1 : Flg22_SynCom35_vs_Mock_log2FoldChange) %>%
-  arrange(Flg22_vs_Mock_padj)
+  select(ID, Gene : Description, Mock_1 : SynCom35_Flg22_vs_Mock_log2FoldChange) %>%
+  arrange(Mock_Flg22_vs_Mock_padj)
 
-write_csv(res, 'eachGroup_vs_Mock_k.csv')
+write_csv(res, 'eachGroup_vs_Mock_k_1stadd.csv')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
