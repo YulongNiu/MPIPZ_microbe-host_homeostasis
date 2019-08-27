@@ -326,6 +326,16 @@ Find significantly changed gene ontology, KEGG, and BioCyc gene-sets in each k-m
 
 ### 5.3 Clusters
 
+![kmeans_sse_1stadd](results/kmeans_sse_1stadd.jpg)
+
+![kmeans_AIC_1stadd](results/kmeans_AIC_1stadd.jpg)
+
+![cluster10_1stadd](results/cluster10_1stadd.jpg)
+
+![cluster10_genes_1stadd](results/cluster10_genes_1stadd.jpg)
+
+![cluster10_trait_1stadd](results/cluster10_trait_1stadd.jpg)
+
 ## References
 
 * Garrido-Oter R, Nakano RT, Dombrowski N, Ma KW; AgBiome Team, McHardy AC, Schulze-Lefert P. **Modular Traits of the Rhizobiales Root Microbiota and Their Evolutionary Relationship with Symbiotic Rhizobia** *Cell Host Microbe.* 2018;24(1):155-167.e5.
