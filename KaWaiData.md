@@ -20,6 +20,8 @@
     - [4.4 Gene-set analysis](#44-gene-set-analysis)
 - [5. 1stadd](#5-1stadd)
     - [5.1 Aligned reads](#51-aligned-reads)
+    - [5.2 DEGs](#52-DEGs)
+    - [5.3 Cluster](#53-cluster)
 - [References](#references)
     
 <!-- content end -->
@@ -309,6 +311,12 @@ Find significantly changed gene ontology, KEGG, and BioCyc gene-sets in each k-m
 | SynCom35_Flg22_2   | 6208664 | 6005766 | 0.639 | 0.629 | 0.976      | 0.976      | 
 | SynCom35_Flg22_3   | 8719287 | 8476158 | 0.707 | 0.698 | 0.977      | 0.974      | 
 | SynCom35_Flg22_4   | 6892972 | 6745962 | 0.691 | 0.673 | 0.98       | 0.968      | 
+
+### 5.2 DEGs
+
+![PCA_1stadd](results/PCA_1stadd.pdf)
+
+### 5.3 Clusters
 
 ## References
 

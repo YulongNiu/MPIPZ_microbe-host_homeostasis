@@ -45,6 +45,9 @@ slabel <- annoSample$Anno %>%
 
 files <- file.path(wd, slabel, 'abundance.h5')
 names(files) <- annoSample$Anno
+idx <- c(1, 11, 21, 31) %>%
+  {rep(., 10) + rep(0 : 9, each = 4)}
+files %<>% .[idx]
 kres <- tximport(files, type = 'kallisto', txOut = TRUE)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -52,8 +55,8 @@ kres <- tximport(files, type = 'kallisto', txOut = TRUE)
 setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/')
 
 ## sampleTable
-sampleTable <- data.frame(condition = factor(rep(c('Mock', 'Mock_Flg22', 'HKSynCom33', 'HKSynCom33_Flg22', 'SynCom33', 'SynCom33_Flg22', 'HKSynCom35', 'HKSynCom35_Flg22', 'SynCom35', 'SynCom35_Flg22'), 4)))
-sampleTable$condition %<>% relevel(ref = 'Mock')
+condi <- c('Mock', 'Mock_Flg22', 'HKSynCom33', 'HKSynCom33_Flg22', 'SynCom33', 'SynCom33_Flg22', 'HKSynCom35', 'HKSynCom35_Flg22', 'SynCom35', 'SynCom35_Flg22')
+sampleTable <- data.frame(condition = factor(rep(condi, each = 4), levels = condi))
 rownames(sampleTable) <- colnames(kres$counts)
 
 degres <- DESeqDataSetFromTximport(kres, sampleTable, ~condition)
@@ -211,7 +214,7 @@ percentVar <- round(100 * percentVar)
 pca1 <- pca$x[,1]
 pca2 <- pca$x[,2]
 pcaData <- data.frame(PC1 = pca1, PC2 = pca2, Group = colData(rld)[, 1], ID = rownames(colData(rld)))
-cairo_pdf('PCA.pdf', width = 12)
+cairo_pdf('PCA_1stadd.pdf', width = 12)
 ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group)) +
   geom_point(size = 3) +
   xlab(paste0("PC1: ",percentVar[1],"% variance")) +
