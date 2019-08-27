@@ -324,7 +324,7 @@ Find significantly changed gene ontology, KEGG, and BioCyc gene-sets in each k-m
 
 ![cluster10_selectgene_1stadd](results/cluster10_selectgene_1stadd.jpg)
 
-### 5.3 Clusters
+### 5.3 Cluster
 
 ![kmeans_sse_1stadd](results/kmeans_sse_1stadd.jpg)
 
@@ -333,6 +333,20 @@ Find significantly changed gene ontology, KEGG, and BioCyc gene-sets in each k-m
 ![cluster10_1stadd](results/cluster10_1stadd.jpg)
 
 ![cluster10_genes_1stadd](results/cluster10_genes_1stadd.jpg)
+
+```
+   Flg22 SynCom33 SynCom35 bacteria
+1      0        0        0        0
+2      1        0        0        0
+3      0        1        0        1
+4      1        1        0        1
+5      0        1        0        1
+6      1        1        0        1
+7      0        0        1        1
+8      1        0        1        1
+9      0        0        1        1
+10     1        0        1        1
+```
 
 ![cluster10_trait_1stadd](results/cluster10_trait_1stadd.jpg)
 
