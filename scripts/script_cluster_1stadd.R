@@ -53,7 +53,7 @@ corPvalueStudent <- function(cor, nSamples) {
 rawCount <- counts(degres)
 
 ## mean value of normalized count
-sampleN <- c('Mock', 'Mock_Flg22', 'HKSynCom33', 'HKSynCom33_Flg22', 'SynCom33', 'SynCom33_Flg22', 'HKSyCom35', 'HKSyCom35_Flg22', 'SynCom35', 'SynCom35_Flg22')
+sampleN <- c('Mock', 'Mock_Flg22', 'HKSynCom33', 'HKSynCom33_Flg22', 'SynCom33', 'SynCom33_Flg22', 'HKSynCom35', 'HKSynCom35_Flg22', 'SynCom35', 'SynCom35_Flg22')
 meanCount <- rawCount %>%
   apply(1, meanFlg22) %>%
   t
@@ -549,6 +549,25 @@ inner_join(deganno, heatPlot) %>%
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #################################################################
 
+##########################plot genes############################
+cgenes <- c('AT1G14550.1', 'AT2G30750.1', 'AT2G19190.1', 'AT5G24110.1')
+
+genePlot <- deganno %>%
+  filter(ID %in% cgenes) %>%
+  select(Gene, Mock_1 : SynCom35_Flg22_4) %>%
+  gather(ID, NormCount, -1) %>%
+  mutate(ID = ID %>% substring(1, nchar(.) - 2)) %>%
+  mutate(ID = factor(ID, levels = sampleN))
+
+genePlot %>%
+  ggplot(aes(x = ID, y = NormCount)) +
+  geom_dotplot(binaxis='y', stackdir='center') +
+  facet_wrap(. ~ Gene, ncol = 2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+ggsave(file = paste0(prefix, '_selectgene_1stadd.pdf'))
+ggsave(file = paste0(prefix, '_selectgene_1stadd.jpg'))
+##################################################################
 
 ########################separate DEGs############################
 library('tibble')

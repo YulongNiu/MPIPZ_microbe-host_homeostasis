@@ -54,10 +54,11 @@ corPvalueStudent <- function(cor, nSamples) {
 rawCount <- counts(degres)
 
 ## mean value of normalized count
+sampleN <- c('Mock', 'Flg22', 'Flg22_SynCom33', 'Flg22_SynCom35')
 meanCount <- rawCount %>%
   apply(1, meanFlg22) %>%
   t
-colnames(meanCount) <- c('Mock', 'flg22', 'flg22_SynCom33', 'flg22_SynCom35')
+colnames(meanCount) <- sampleN
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~cluster~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -587,6 +588,25 @@ inner_join(deganno, heatPlot) %>%
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #################################################################
 
+##########################plot genes############################
+cgenes <- c('AT1G14550.1', 'AT2G30750.1', 'AT2G19190.1', 'AT5G24110.1')
+
+genePlot <- deganno %>%
+  filter(ID %in% cgenes) %>%
+  select(Gene, Mock_1 : Flg22_SynCom35_3) %>%
+  gather(ID, NormCount, -1) %>%
+  mutate(ID = ID %>% substring(1, nchar(.) - 2)) %>%
+  mutate(ID = factor(ID, levels = sampleN))
+
+genePlot %>%
+  ggplot(aes(x = ID, y = NormCount)) +
+  geom_dotplot(binaxis='y', stackdir='center') +
+  facet_wrap(. ~ Gene, ncol = 2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+ggsave(file = paste0(prefix, '_selectgene.pdf'))
+ggsave(file = paste0(prefix, '_selectgene.jpg'))
+##################################################################
 
 ########################separate DEGs############################
 library('tibble')
