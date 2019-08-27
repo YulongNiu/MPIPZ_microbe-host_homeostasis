@@ -314,7 +314,7 @@ Find significantly changed gene ontology, KEGG, and BioCyc gene-sets in each k-m
 
 ### 5.2 DEGs
 
-![PCA_1stadd](results/PCA_1stadd.pdf)
+![PCA_1stadd](results/PCA_1stadd.jpg)
 
 ### 5.3 Clusters
 
