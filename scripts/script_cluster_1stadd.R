@@ -125,7 +125,7 @@ ggsave('kmeans_AIC_1stadd_1stadd.pdf')
 ggsave('kmeans_AIC_1stadd_1stadd.jpg')
 
 ## execute
-kClust10 <- kmeans(scaleCount, centers = 10, algorithm= 'MacQueen', nstart = 1000, iter.max = 20)
+kClust10 <- kmeans(scaleCount, centers = 16, algorithm= 'MacQueen', nstart = 1000, iter.max = 20)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~cut trees by height ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -228,7 +228,7 @@ ggsave(paste0(prefix, '_genes_1stadd.jpg'), width = 10, dpi = 320)
 traits <- data.frame(Flg22 = c(0, 1, 0, 1, 0, 1, 0, 1, 0, 1),
                      SynCom33 = c(0, 0, 1, 1, 1, 1, 0, 0, 0, 0),
                      SynCom35 = c(0, 0, 0, 0, 0, 0, 1, 1, 1, 1),
-                     bacteria = c(0, 0, 1, 1, 1, 1, 1, 1, 1, 1))
+                     LiveBacteria = c(0, 0, 0, 0, 1, 1, 0, 0, 1, 1))
 
 cores <- clusterGene %>%
   group_by(cl) %>%
@@ -556,12 +556,15 @@ genePlot <- deganno %>%
   filter(ID %in% cgenes) %>%
   select(Gene, Mock_1 : SynCom35_Flg22_4) %>%
   gather(ID, NormCount, -1) %>%
+  mutate(Group = rep(1 : 4, nrow(.) / 4)) %>%
   mutate(ID = ID %>% substring(1, nchar(.) - 2)) %>%
-  mutate(ID = factor(ID, levels = sampleN))
+  mutate(ID = factor(ID, levels = sampleN)) %>%
+  mutate(Gene = factor(Gene))
 
 genePlot %>%
   ggplot(aes(x = ID, y = NormCount)) +
   geom_dotplot(binaxis='y', stackdir='center') +
+  stat_summary(fun.y = mean, geom = 'point', color='red') +
   facet_wrap(. ~ Gene, ncol = 2) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 

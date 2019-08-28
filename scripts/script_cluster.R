@@ -595,12 +595,15 @@ genePlot <- deganno %>%
   filter(ID %in% cgenes) %>%
   select(Gene, Mock_1 : Flg22_SynCom35_3) %>%
   gather(ID, NormCount, -1) %>%
+  mutate(Group = rep(1 : 4, nrow(.) / 4)) %>%
   mutate(ID = ID %>% substring(1, nchar(.) - 2)) %>%
-  mutate(ID = factor(ID, levels = sampleN))
+  mutate(ID = factor(ID, levels = sampleN)) %>%
+  mutate(Gene = factor(Gene))
 
 genePlot %>%
   ggplot(aes(x = ID, y = NormCount)) +
   geom_dotplot(binaxis='y', stackdir='center') +
+  stat_summary(fun.y = mean, geom = 'point', color='red') +
   facet_wrap(. ~ Gene, ncol = 2) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
