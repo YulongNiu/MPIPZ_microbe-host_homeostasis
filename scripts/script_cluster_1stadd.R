@@ -164,7 +164,7 @@ kClust10$cluster[cgenes]
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~plot patterns~~~~~~~~~~~~~~~~~~~~~~~~
 ## join cluster and scaled normalized counts
-kmeansRes <- read_csv('../results/kmeans_10.csv',
+kmeansRes <- read_csv('../results/cluster10_1stadd.csv',
                       col_types = cols(Chromosome = col_character())) %>%
   select(ID, cl) %>%
   rename(clreal = cl)
@@ -201,7 +201,7 @@ ggplot(clusterCore, aes(Sample, NorExpress, col = cl, group = cl)) +
   facet_wrap(. ~ cl, ncol = 2) +
   ylab('Scaled counts') +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  guides(colour = guide_legend(title = 'kmeans (k = 10)'))
+  guides(colour = guide_legend(title = 'kmeans (k=16)'))
 ggsave(paste0(prefix, '_1stadd.pdf'))
 ggsave(paste0(prefix, '_1stadd.jpg'))
 
@@ -219,7 +219,7 @@ ggplot(clusterGenePlot, aes(Sample, NorExpress, group = ID)) +
   geom_line(data = clusterCorePlot, aes(Sample, NorExpress, group = cl, col = cl)) +
   ylab('Scaled counts') +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  guides(colour = guide_legend(title = 'kmeans (k=10)'))
+  guides(colour = guide_legend(title = 'kmeans (k=16)'))
 ggsave(paste0(prefix, '_genes_1stadd.pdf'), width = 10, dpi = 320)
 ggsave(paste0(prefix, '_genes_1stadd.jpg'), width = 10, dpi = 320)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
