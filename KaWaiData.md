@@ -385,12 +385,13 @@ threshold 5
 
 ![veen_plot_35down](results/veen_plot_35down.jpg)
 
-![]()
+![kmeans10_cluster9_BP](results/pathway_35down/kmeans10_cluster9_BP.jpg)
 
 * SynCom35 up DEGs
 
 ![veen_plot_35up](results/veen_plot_35up.jpg)
 
+![kmeans10_cluster4_BP](results/pathway_35up/kmeans10_cluster4_BP.jpg)
 
 
 ## References
