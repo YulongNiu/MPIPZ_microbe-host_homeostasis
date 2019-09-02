@@ -316,6 +316,8 @@ Find significantly changed gene ontology, KEGG, and BioCyc gene-sets in each k-m
 
 ![PCA_1stadd](results/PCA_1stadd.jpg)
 
+![PCA_1stadd_3d](results/PCA_1stadd_3d.gif)
+
 * 1st RNA-Seq
 
 ![kmeans_10_selectgene](results/kmeans_10_selectgene.jpg)
