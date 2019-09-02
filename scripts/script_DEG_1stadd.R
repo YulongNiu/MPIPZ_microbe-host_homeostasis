@@ -16,6 +16,7 @@ checkFlg22 <- function(v, threshold) {
 
   return(res)
 }
+
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -209,9 +210,20 @@ library('directlabels')
 library('ggplot2')
 library('RColorBrewer')
 
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## remove low count
+thres <- 5
+rldData <- assay(rld)
+
+rl <- apply(rldData, 1, function(x){
+  return(sum(x > thres) == length(x))
+})
+rldData %<>% .[rl, ]
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 cols <- colData(rld)[, 1] %>% factor(., labels = brewer.pal(10, name = 'Paired'))
 
-pca <- prcomp(t(assay(rld)))
+pca <- prcomp(t(rldData))
 percentVar <- pca$sdev^2/sum(pca$sdev^2)
 percentVar <- round(100 * percentVar)
 pca1 <- pca$x[,1]
@@ -223,8 +235,8 @@ ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group)) +
   ylab(paste0("PC2: ",percentVar[2],"% variance")) +
   geom_dl(aes(label = ID, color = Group), method = 'smart.grid') +
   scale_colour_manual(values = levels(cols))
-ggsave('PCA_1stadd.pdf', width = 15, height = 12)
-ggsave('PCA_1stadd.jpg', width = 15, height = 12)
+ggsave('PCA_1stadd_thres5.pdf', width = 15, height = 12)
+ggsave('PCA_1stadd_thres5.jpg', width = 15, height = 12)
 
 
 library('rgl')

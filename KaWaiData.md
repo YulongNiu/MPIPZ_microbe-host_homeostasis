@@ -318,6 +318,14 @@ Find significantly changed gene ontology, KEGG, and BioCyc gene-sets in each k-m
 
 ![PCA_1stadd_3d](results/PCA_1stadd_3d.gif)
 
+threshold 2
+
+![PCA_1stadd](results/PCA_1stadd_thres2.jpg)
+
+threshold 5
+
+![PCA_1stadd](results/PCA_1stadd_thres5.jpg)
+
 * 1st RNA-Seq
 
 ![kmeans_10_selectgene](results/kmeans_10_selectgene.jpg)
@@ -340,12 +348,12 @@ Find significantly changed gene ontology, KEGG, and BioCyc gene-sets in each k-m
    Flg22 SynCom33 SynCom35 bacteria
 1      0        0        0        0
 2      1        0        0        0
-3      0        1        0        1
-4      1        1        0        1
+3      0        1        0        0
+4      1        1        0        0
 5      0        1        0        1
 6      1        1        0        1
-7      0        0        1        1
-8      1        0        1        1
+7      0        0        1        0
+8      1        0        1        0
 9      0        0        1        1
 10     1        0        1        1
 ```
