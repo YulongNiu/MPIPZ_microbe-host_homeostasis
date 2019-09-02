@@ -190,7 +190,7 @@ kClust10$cluster[cgenes]
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~plot patterns~~~~~~~~~~~~~~~~~~~~~~~~
 ## join cluster and scaled normalized counts
 kmeansRes <- read_csv('../results/cluster10_1stadd.csv',
-                      col_types = cols(Chromosome = col_character())) %>%
+                      col_types = cols(Chromosome = col_character())) %>%kmeans_10.csv
   select(ID, cl) %>%
   rename(clreal = cl)
 
@@ -254,6 +254,11 @@ traits <- data.frame(Flg22 = c(0, 1, 0, 1, 0, 1, 0, 1, 0, 1),
                      SynCom33 = c(0, 0, 1, 1, 1, 1, 0, 0, 0, 0),
                      SynCom35 = c(0, 0, 0, 0, 0, 0, 1, 1, 1, 1),
                      LiveBacteria = c(0, 0, 0, 0, 1, 1, 0, 0, 1, 1))
+
+traits <- data.frame(flg22 = c(0, 1, 1, 1),
+                     SynCom33 = c(0, 0, 1, 0),
+                     SynCom35 = c(0, 0, 0, 1),
+                     bacteria = c(0, 0, 1, 1))
 
 cores <- clusterGene %>%
   group_by(cl) %>%

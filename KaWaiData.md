@@ -22,6 +22,7 @@
     - [5.1 Aligned reads](#51-aligned-reads)
     - [5.2 DEGs](#52-DEGs)
     - [5.3 Cluster](#53-cluster)
+- [6. Comparison](#6-comparison)
 - [References](#references)
     
 <!-- content end -->
@@ -378,6 +379,11 @@ threshold 5
 
 ![cluster10_g4_1stadd](results/cluster10_g4_1stadd.jpg)
 
+## Comparison 
+
+* Veen plot
+
+![veen_plot](results/veen_plot.jpg)
 
 ## References
 
