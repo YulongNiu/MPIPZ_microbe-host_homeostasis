@@ -379,11 +379,19 @@ threshold 5
 
 ![cluster10_g4_1stadd](results/cluster10_g4_1stadd.jpg)
 
-## Comparison 
+## 6. Comparison 
 
-* Veen plot
+* SynCom35 down DEGs
 
-![veen_plot](results/veen_plot.jpg)
+![veen_plot_35down](results/veen_plot_35down.jpg)
+
+![]()
+
+* SynCom35 up DEGs
+
+![veen_plot_35up](results/veen_plot_35up.jpg)
+
+
 
 ## References
 

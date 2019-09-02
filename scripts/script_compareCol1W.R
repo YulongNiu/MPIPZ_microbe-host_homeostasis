@@ -21,18 +21,26 @@ wmutantRaw %>%
   filter(ID %in% cgenes) %>%
   .$cl
 
+##    -
+## _ /  \_
 ## wmutant cluster 9
-## col1 cluster 10
+## col0 cluster 10
+
+## _   /
+##  \ /
+##   -
+## wmutant cluster 4
+## col0 cluster 1
 
 col110ID <- col1Raw %>%
-  filter(cl == 10) %>%
+  filter(cl == 1) %>%
   .$ID
 
 wmutant9ID <- wmutantRaw %>%
-  filter(cl == 9) %>%
+  filter(cl == 4) %>%
   .$ID
 
-cairo_pdf('veen_plot.pdf')
+cairo_pdf('veen_plot_35up.pdf')
 grid.newpage()
 draw.pairwise.venn(setdiff(col110ID, wmutant9ID) %>% length,
                    setdiff(wmutant9ID, col110ID) %>% length,
@@ -48,6 +56,5 @@ dev.off()
 intersect(col110ID, wmutant9ID) %>%
   {filter(wmutantRaw, ID %in% .)} %>%
   mutate_at(c('Gene', 'Description'), .funs = list(~if_else(is.na(.), '', .))) %>%
-  write_csv('tmp1.csv')
-
+  write_csv('inter_col0mu_up.csv')
 ########################################################################
