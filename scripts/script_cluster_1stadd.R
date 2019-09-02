@@ -49,7 +49,7 @@ corPvalueStudent <- function(cor, nSamples) {
 }
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-##~~~~~~~~~~~~~~~~~~~~~~prepare counts~~~~~~~~~~~~~~~~~~~~~~~~~~
+##~~~~~~~~~~~~~~~~~~~~~k-means cluster~~~~~~~~~~~~~~~~~~~~~~~~~
 rawCount <- counts(degres)
 
 ## mean value of normalized count
@@ -58,16 +58,25 @@ meanCount <- rawCount %>%
   apply(1, meanFlg22) %>%
   t
 colnames(meanCount) <- sampleN
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-##~~~~~~~~~~~~~~~~~~~~~~~~~K-means cluster~~~~~~~~~~~~~~~~~~~~~~
 ## scale
 scaleCount <- meanCount %>%
   t %>%
   scale %>%
   t
 scaleCount %<>% .[complete.cases(.), ]
+
+## Mock HK33 HK35 -- g1
+scaleCount %<>% .[, c(1, 3, 7)]
+
+## Mock Mock+flg22 HK33+flg22 HK35+flg22 -- g2
+scaleCount %<>% .[, c(1, 2, 4, 8)]
+
+## Mock 33 35 -- g3
+scaleCount %<>% .[, c(1, 5, 9)]
+
+## Mock Mock+flg22 33+flg22 35+flg22 -- g4
+scaleCount %<>% .[, c(1, 2, 6, 10)]
 
 ## Cluster rows by Pearson correlation
 hr <- scaleCount %>%
@@ -113,8 +122,8 @@ ggplot(tibble(k = 1:20, wss = wss), aes(k, wss)) +
   geom_line(linetype = 'dashed') +
   xlab('Number of clusters') +
   ylab('Sum of squared error')
-ggsave('kmeans_sse_1stadd_1stadd.pdf')
-ggsave('kmeans_sse_1stadd_1stadd.jpg')
+ggsave('kmeans_sse_1stadd_g4.pdf')
+ggsave('kmeans_sse_1stadd_g4.jpg')
 
 
 ## 2. Akaike information criterion
@@ -137,11 +146,11 @@ ggplot(tibble(k = 1:20, aic = aic), aes(k, wss)) +
   geom_line(linetype = 'dashed') +
   xlab('Number of clusters') +
   ylab('Akaike information criterion')
-ggsave('kmeans_AIC_1stadd_1stadd.pdf')
-ggsave('kmeans_AIC_1stadd_1stadd.jpg')
+ggsave('kmeans_AIC_1stadd_g4.pdf')
+ggsave('kmeans_AIC_1stadd_g4.jpg')
 
 ## execute
-kClust10 <- kmeans(scaleCount, centers = 16, algorithm= 'MacQueen', nstart = 1000, iter.max = 20)
+kClust10 <- kmeans(scaleCount, centers = 10, algorithm= 'MacQueen', nstart = 1000, iter.max = 20)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~cut trees by height ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -170,7 +179,7 @@ abline(h=1.0, lty = 2, col='grey')
 abline(h=0.5, lty = 2, col='grey')
 dev.off()
 
-cgenes <- c('AT1G14550.1', 'AT2G30750.1', 'AT2G19190.1')
+cgenes <- c('AT1G14550.1', 'AT2G30750.1', 'AT2G19190.1', 'AT5G24110.1')
 hclusth1.5[cgenes]
 hclusth1.0[cgenes]
 hclusth0.5[cgenes]
@@ -191,7 +200,7 @@ cl <- kmeansRes$clreal[match(names(kClust10$cluster), kmeansRes$ID)] %>%
 prefix <- 'kmeans_10'
 
 cl <- kClust10$cluster
-prefix <- 'cluster10'
+prefix <- 'cluster10_g4'
 
 clusterGene <- scaleCount %>%
   as.data.frame %>%
@@ -217,7 +226,7 @@ ggplot(clusterCore, aes(Sample, NorExpress, col = cl, group = cl)) +
   facet_wrap(. ~ cl, ncol = 2) +
   ylab('Scaled counts') +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  guides(colour = guide_legend(title = 'kmeans (k=16)'))
+  guides(colour = guide_legend(title = 'kmeans (k=10)'))
 ggsave(paste0(prefix, '_1stadd.pdf'))
 ggsave(paste0(prefix, '_1stadd.jpg'))
 

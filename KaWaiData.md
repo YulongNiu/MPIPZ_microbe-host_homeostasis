@@ -362,6 +362,23 @@ threshold 5
 
 ![1stadd.jpg](results/1stadd.jpg)
 
+* Mock HKSynCom33 HKSynCom35
+
+![cluster10_g1_1stadd](results/cluster10_g1_1stadd.jpg)
+
+* Mock Mock+flg22 HKSynCom33+flg22 HKSynCom35+flg22
+
+![cluster10_g2_1stadd](results/cluster10_g2_1stadd.jpg)
+
+* Mock SynCom33 SynCom35
+
+![cluster10_g3_1stadd](results/cluster10_g3_1stadd.jpg)
+
+* Mock Mock+flg22 SynCom33+flg22 SynCom35+flg22
+
+![cluster10_g4_1stadd](results/cluster10_g4_1stadd.jpg)
+
+
 ## References
 
 * Garrido-Oter R, Nakano RT, Dombrowski N, Ma KW; AgBiome Team, McHardy AC, Schulze-Lefert P. **Modular Traits of the Rhizobiales Root Microbiota and Their Evolutionary Relationship with Symbiotic Rhizobia** *Cell Host Microbe.* 2018;24(1):155-167.e5.
