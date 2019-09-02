@@ -69,6 +69,22 @@ scaleCount <- meanCount %>%
   t
 scaleCount %<>% .[complete.cases(.), ]
 
+## Cluster rows by Pearson correlation
+hr <- scaleCount %>%
+  t %>%
+  cor(method = 'pearson') %>%
+  {1 - .} %>%
+  as.dist %>%
+  hclust(method = 'complete')
+
+## Clusters columns by Spearman correlation
+hc <- scaleCount %>%
+  cor(method = 'spearman') %>%
+  {1 - .} %>%
+  as.dist %>%
+  hclust(method = 'complete')
+
+
 z_var <- apply(meanCount, 1, var)
 z_mean <- apply(meanCount, 1, mean)
 plot(log2(z_mean), log2(z_var), pch = '.')
