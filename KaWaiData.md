@@ -426,6 +426,13 @@ Find significantly changed gene ontology, KEGG, and BioCyc gene-sets in each k-m
 | ![kmeans_10](results/kmeans_10.jpg)             | ![map2_to_1](results/map2_to_1.jpg)             |
 | ![kmeans_10_genes](results/kmeans_10_genes.jpg) | ![map2_to_1_genes](results/map2_to_1_genes.jpg) |
 
+
+| MapMutant                                       | RawCol0                                                             |
+|-------------------------------------------------|---------------------------------------------------------------------|
+| ![map1_to_2](results/map1_to_2.jpg)             | ![cluster10_g4_1stadd](results/cluster10_g4_1stadd.jpg)             |
+| ![map1_to_2_genes](results/map1_to_2_genes.jpg) | ![cluster10_g4_genes_1stadd](results/cluster10_g4_genes_1stadd.jpg) |
+
+
 * SynCom35 down DEGs
 
 ![veen_plot_35down](results/veen_plot_35down.jpg)
