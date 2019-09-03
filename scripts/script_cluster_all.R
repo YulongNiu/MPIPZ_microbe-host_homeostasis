@@ -76,7 +76,7 @@ scaleCount %<>% .[complete.cases(.), ]
 wmutantRaw <- read_csv('kmeans_10.csv',
                        col_types = cols(Chromosome = col_character()))
 scaleCount %<>% .[, c(1, 2, 6, 10)]
-prefix <- 'map2_to_1'
+prefix <- 'map2_to_1_all'
 
 clusterGene <- scaleCount %>%
   as.data.frame %>%
