@@ -19,6 +19,7 @@ load('degres_condi_Mock_1stadd.RData')
 deganno <- read_csv('eachGroup_vs_Mock_k_1stadd.csv',
                     col_types = cols(Chromosome = col_character()))
 
+
 ##~~~~~~~~~~~~~~~~~~~~~~useful funcs~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 meanFlg22 <- function(v) {
 
@@ -54,6 +55,9 @@ rawCount <- counts(degres)
 
 ## mean value of normalized count
 sampleN <- c('Mock', 'Mock_Flg22', 'HKSynCom33', 'HKSynCom33_Flg22', 'SynCom33', 'SynCom33_Flg22', 'HKSynCom35', 'HKSynCom35_Flg22', 'SynCom35', 'SynCom35_Flg22')
+
+sampleN <- c('Mock', 'Mock_Flg22', 'SynCom33_Flg22', 'SynCom35_Flg22')
+
 meanCount <- rawCount %>%
   apply(1, meanFlg22) %>%
   t
@@ -65,152 +69,45 @@ scaleCount <- meanCount %>%
   scale %>%
   t
 scaleCount %<>% .[complete.cases(.), ]
-
-## Mock HK33 HK35 -- g1
-scaleCount %<>% .[, c(1, 3, 7)]
-
-## Mock Mock+flg22 HK33+flg22 HK35+flg22 -- g2
-scaleCount %<>% .[, c(1, 2, 4, 8)]
-
-## Mock 33 35 -- g3
-scaleCount %<>% .[, c(1, 5, 9)]
-
-## Mock Mock+flg22 33+flg22 35+flg22 -- g4
-scaleCount %<>% .[, c(1, 2, 6, 10)]
-
-## Cluster rows by Pearson correlation
-hr <- scaleCount %>%
-  t %>%
-  cor(method = 'pearson') %>%
-  {1 - .} %>%
-  as.dist %>%
-  hclust(method = 'complete')
-
-## Clusters columns by Spearman correlation
-hc <- scaleCount %>%
-  cor(method = 'spearman') %>%
-  {1 - .} %>%
-  as.dist %>%
-  hclust(method = 'complete')
-
-
-z_var <- apply(meanCount, 1, var)
-z_mean <- apply(meanCount, 1, mean)
-plot(log2(z_mean), log2(z_var), pch = '.')
-abline(h = log2(1), col='red')
-abline(v = log2(1), col='red')
-text(x = 13,
-     y = 23,
-     labels = 'variance > 1 &\n mean > 1',
-     col = 'red')
-
-## filter
-## meanCount %<>% .[which(z_var > 0 & z_mean > 0), ]
-
-## choose groups
-## 1. sum of squared error
-wss <- (nrow(scaleCount) - 1) * sum(apply(scaleCount, 2, var))
-
-for (i in 2:20) {
-  wss[i] <- sum(kmeans(scaleCount,
-                       centers=i,
-                       algorithm = 'MacQueen')$withinss)
-}
-
-ggplot(tibble(k = 1:20, wss = wss), aes(k, wss)) +
-  geom_point(colour = '#D55E00', size = 3) +
-  geom_line(linetype = 'dashed') +
-  xlab('Number of clusters') +
-  ylab('Sum of squared error')
-ggsave('kmeans_sse_1stadd_g4.pdf')
-ggsave('kmeans_sse_1stadd_g4.jpg')
-
-
-## 2. Akaike information criterion
-kmeansAIC = function(fit){
-  m = ncol(fit$centers)
-  n = length(fit$cluster)
-  k = nrow(fit$centers)
-  D = fit$tot.withinss
-  return(D + 2*m*k)
-}
-
-aic <- numeric(20)
-for (i in 1:20) {
-  fit <- kmeans(x = scaleCount, centers = i, algorithm = 'MacQueen')
-  aic[i] <- kmeansAIC(fit)
-}
-
-ggplot(tibble(k = 1:20, aic = aic), aes(k, wss)) +
-  geom_point(colour = '#009E73', size = 3) +
-  geom_line(linetype = 'dashed') +
-  xlab('Number of clusters') +
-  ylab('Akaike information criterion')
-ggsave('kmeans_AIC_1stadd_g4.pdf')
-ggsave('kmeans_AIC_1stadd_g4.jpg')
-
-## execute
-kClust10 <- kmeans(scaleCount, centers = 10, algorithm= 'MacQueen', nstart = 1000, iter.max = 20)
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-##~~~~~~~~~~~~~~~~~~~~~~~~cut trees by height ~~~~~~~~~~~~~~~~~~~~~~~~~
-hclusth1.5 <- cutree(hr, h = 1.5)
-hclusth1.0 <- cutree(hr, h = 1.0)
-hclusth0.5 <- cutree(hr, h = 0.5)
-
-cairo_1stadd.pdf('genetree_1stadd.pdf')
-treeR <- hr %>%
-  as.dendrogram(method = 'average')
-
-plot(treeR,
-     leaflab = 'none',
-     main = 'Gene Clustering',
-     ylab = 'Height')
-
-cbind(hclusth0.5, hclusth1.0, hclusth1.5, clusDyn, kClust10$cluster) %>%
-  colored_bars(treeR,
-               sort_by_labels_order = TRUE,
-               y_shift = -0.1,
-               rowLabels = c('h=0.5','h=1.0','h=1.5', 'Dynamic', 'k-means(k=10)'),
-               cex.rowLabels=0.7)
-
-abline(h=1.5, lty = 2, col='grey')
-abline(h=1.0, lty = 2, col='grey')
-abline(h=0.5, lty = 2, col='grey')
-dev.off()
-
-cgenes <- c('AT1G14550.1', 'AT2G30750.1', 'AT2G19190.1', 'AT5G24110.1')
-hclusth1.5[cgenes]
-hclusth1.0[cgenes]
-hclusth0.5[cgenes]
-kClust10$cluster[cgenes]
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~plot patterns~~~~~~~~~~~~~~~~~~~~~~~~
-## join cluster and scaled normalized counts
-kmeansRes <- read_csv('../results/cluster10_1stadd.csv',
-                      col_types = cols(Chromosome = col_character())) %>%kmeans_10.csv
-  select(ID, cl) %>%
-  rename(clreal = cl)
-
-cl <- kmeansRes$clreal[match(names(kClust10$cluster), kmeansRes$ID)] %>%
-  set_names(names(kClust10$cluster))
-##cl <- kClust10$cluster
-prefix <- 'kmeans_10'
-
-cl <- kClust10$cluster
-prefix <- 'cluster10_g4'
+## map 2nd to 1st clusters
+wmutantRaw <- read_csv('kmeans_10.csv',
+                       col_types = cols(Chromosome = col_character()))
+scaleCount %<>% .[, c(1, 2, 6, 10)]
+prefix <- 'map2_to_1'
 
 clusterGene <- scaleCount %>%
   as.data.frame %>%
   rownames_to_column(var = 'ID') %>%
   as_tibble %>%
   {
-    cl <- as.data.frame(cl) %>%
-      rownames_to_column(var = 'ID')
+    cl <- select(wmutantRaw, ID, cl) %>%
+      inner_join(tibble(ID = rownames(scaleCount)))
     inner_join(., cl)
   }
+
+## map 1st to 2nd clusters
+col0Raw <- read_csv('cluster10_g4_1stadd.csv',
+                    col_types = cols(Chromosome = col_character()))
+
+prefix <- 'map1_to_2'
+
+clusterGene <- scaleCount %>%
+  as.data.frame %>%
+  rownames_to_column(var = 'ID') %>%
+  as_tibble %>%
+  {
+    cl <- select(col0Raw, ID, cl) %>%
+      inner_join(tibble(ID = rownames(scaleCount)))
+    inner_join(., cl)
+  }
+
+cgenes <- c('AT1G14550.1', 'AT2G30750.1', 'AT2G19190.1', 'AT5G24110.1')
+clusterGene %>%
+  filter(ID %in% cgenes) %>%
+  .$cl
 
 ## plot core cluster
 clusterCore <- clusterGene %>%
@@ -227,8 +124,8 @@ ggplot(clusterCore, aes(Sample, NorExpress, col = cl, group = cl)) +
   ylab('Scaled counts') +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   guides(colour = guide_legend(title = 'kmeans (k=10)'))
-ggsave(paste0(prefix, '_1stadd.pdf'))
-ggsave(paste0(prefix, '_1stadd.jpg'))
+ggsave(paste0(prefix, '.pdf'))
+ggsave(paste0(prefix, '.jpg'))
 
 ## plot all genes
 clusterGenePlot <- clusterGene %>%
@@ -245,8 +142,8 @@ ggplot(clusterGenePlot, aes(Sample, NorExpress, group = ID)) +
   ylab('Scaled counts') +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   guides(colour = guide_legend(title = 'kmeans (k=16)'))
-ggsave(paste0(prefix, '_genes_1stadd.pdf'), width = 10, dpi = 320)
-ggsave(paste0(prefix, '_genes_1stadd.jpg'), width = 10, dpi = 320)
+ggsave(paste0(prefix, '_genes.pdf'), width = 10, dpi = 320)
+ggsave(paste0(prefix, '_genes.jpg'), width = 10, dpi = 320)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~cluster cor phenotype~~~~~~~~~~~~~~~~~
