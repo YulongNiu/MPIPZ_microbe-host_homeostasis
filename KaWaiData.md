@@ -315,17 +315,57 @@ Find significantly changed gene ontology, KEGG, and BioCyc gene-sets in each k-m
 
 ### 5.2 DEGs
 
+* Raw
+
 ![PCA_1stadd](results/PCA_1stadd.jpg)
+
+![PCA_1stadd_C23](results/PCA_1stadd_C23.jpg)
 
 ![PCA_1stadd_3d](results/PCA_1stadd_3d.gif)
 
-threshold 2
+* threshold 2
 
 ![PCA_1stadd](results/PCA_1stadd_thres2.jpg)
 
-threshold 5
+* threshold 5
 
 ![PCA_1stadd](results/PCA_1stadd_thres5.jpg)
+
+* Mock + Mock_flg22
+
+![PCA_1stadd_M_M22_C12](results/PCA_1stadd_M_M22_C12.jpg)
+
+![PCA_1stadd_M_M22_C23](results/PCA_1stadd_M_M22_C23.jpg)
+
+* SynCom33
+
+![PCA_1stadd_33_C12](results/PCA_1stadd_33_C12.jpg)
+
+![PCA_1stadd_33_C23](results/PCA_1stadd_33_C23.jpg)
+
+* SynCom35
+
+![PCA_1stadd_35_C12](results/PCA_1stadd_35_C12.jpg)
+
+![PCA_1stadd_35_C23](results/PCA_1stadd_35_C23.jpg)
+
+* flg22
+
+![PCA_1stadd_flg22_C12](results/PCA_1stadd_flg22_C12.jpg)
+
+![PCA_1stadd_flg22_C23](results/PCA_1stadd_flg22_C23.jpg)
+
+* SynCom33 + SynCom33_flg22 + SynCom35 + SynCom35_flg22
+
+![PCA_1stadd_33_35_C12](results/PCA_1stadd_33_35_C12.jpg)
+
+![PCA_1stadd_33_35_C23](results/PCA_1stadd_33_35_C23.jpg)
+
+* mock + mock_flg22 + SynCom33_flg22 + SynCom35_flg22
+
+![PCA_1stadd_like1st_C12](results/PCA_1stadd_like1st_C12.jpg)
+
+![PCA_1stadd_like1st_C23](results/PCA_1stadd_like1st_C23.jpg)
 
 * 1st RNA-Seq
 

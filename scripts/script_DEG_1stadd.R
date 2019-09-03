@@ -39,7 +39,7 @@ anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno
 wd <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/align_data_1stadd'
 setwd(wd)
 
-annoSample <- read_delim('/home/Yulong/netscratch/KaWaiFlg22/results/list_samples_1stadd.txt', delim = '\t')
+annoSample <- read_delim('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results//list_samples_1stadd.txt', delim = '\t')
 
 slabel <- annoSample$Anno %>%
   paste0('_ath_kallisto')
@@ -212,7 +212,7 @@ library('RColorBrewer')
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## remove low count
-thres <- 5
+thres <- 0
 rldData <- assay(rld)
 
 rl <- apply(rldData, 1, function(x){
@@ -223,6 +223,7 @@ rldData %<>% .[rl, ]
 
 cols <- colData(rld)[, 1] %>% factor(., labels = brewer.pal(10, name = 'Paired'))
 
+## 1 - 2 C
 pca <- prcomp(t(rldData))
 percentVar <- pca$sdev^2/sum(pca$sdev^2)
 percentVar <- round(100 * percentVar)
@@ -235,10 +236,85 @@ ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group)) +
   ylab(paste0("PC2: ",percentVar[2],"% variance")) +
   geom_dl(aes(label = ID, color = Group), method = 'smart.grid') +
   scale_colour_manual(values = levels(cols))
-ggsave('PCA_1stadd_thres5.pdf', width = 15, height = 12)
-ggsave('PCA_1stadd_thres5.jpg', width = 15, height = 12)
+ggsave('PCA_1stadd.pdf', width = 15, height = 12)
+ggsave('PCA_1stadd.jpg', width = 15, height = 12)
+
+## 2 - 3 C
+pca <- prcomp(t(rldData))
+percentVar <- pca$sdev^2/sum(pca$sdev^2)
+percentVar <- round(100 * percentVar)
+pca1 <- pca$x[,2]
+pca2 <- pca$x[,3]
+pcaData <- data.frame(PC1 = pca1, PC2 = pca2, Group = colData(rld)[, 1], ID = rownames(colData(rld)))
+ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group)) +
+  geom_point(size = 3) +
+  xlab(paste0("PC2: ",percentVar[2],"% variance")) +
+  ylab(paste0("PC3: ",percentVar[3],"% variance")) +
+  geom_dl(aes(label = ID, color = Group), method = 'smart.grid') +
+  scale_colour_manual(values = levels(cols))
+ggsave('PCA_1stadd_C23.pdf', width = 15, height = 12)
+ggsave('PCA_1stadd_C23.jpg', width = 15, height = 12)
 
 
+## Mock + Mock_flg22
+sampleIdx <- c(1:8)
+colorIdx <- c(1:2)
+
+## 33
+sampleIdx <- c(9:24)
+colorIdx <- c(3:6)
+
+## 35
+sampleIdx <- c(25:40)
+colorIdx <- c(7:10)
+
+## flg22
+sampleIdx <- c(5:8, 13:16, 21:24, 29:32, 37:40)
+colorIdx <- c(2, 4, 6, 8, 10)
+
+## 33 + 33_flg22 + 35 + 35_flg22
+sampleIdx <- c(17:24, 33:40)
+colorIdx <- c(5:6, 9:10)
+
+## mock + mock_flg22 + 33_flg22 + 35_flg22
+sampleIdx <- c(1:8, 21:24, 37:40)
+colorIdx <- c(1, 2, 6, 10)
+
+rldDataPart <- rldData[, sampleIdx]
+pca <- prcomp(t(rldDataPart))
+percentVar <- pca$sdev^2/sum(pca$sdev^2)
+percentVar <- round(100 * percentVar)
+pca1 <- pca$x[, 1]
+pca2 <- pca$x[, 2]
+pcaData <- data.frame(PC1 = pca1, PC2 = pca2, Group = colData(rld)[sampleIdx, 1], ID = rownames(colData(rld))[sampleIdx])
+ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group)) +
+  geom_point(size = 3) +
+  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
+  ylab(paste0("PC2: ",percentVar[2],"% variance")) +
+  geom_dl(aes(label = ID, color = Group), method = 'smart.grid') +
+  scale_colour_manual(values = levels(cols)[colorIdx])
+ggsave('PCA_1stadd_like1st_C12.pdf', width = 15, height = 12)
+ggsave('PCA_1stadd_like1st_C12.jpg', width = 15, height = 12)
+
+
+rldDataPart <- rldData[, sampleIdx]
+pca <- prcomp(t(rldDataPart))
+percentVar <- pca$sdev^2/sum(pca$sdev^2)
+percentVar <- round(100 * percentVar)
+pca1 <- pca$x[, 2]
+pca2 <- pca$x[, 3]
+pcaData <- data.frame(PC1 = pca1, PC2 = pca2, Group = colData(rld)[sampleIdx, 1], ID = rownames(colData(rld))[sampleIdx])
+ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group)) +
+  geom_point(size = 3) +
+  xlab(paste0("PC2: ",percentVar[2],"% variance")) +
+  ylab(paste0("PC3: ",percentVar[3],"% variance")) +
+  geom_dl(aes(label = ID, color = Group), method = 'smart.grid') +
+  scale_colour_manual(values = levels(cols)[colorIdx])
+ggsave('PCA_1stadd_like1st_C23.pdf', width = 15, height = 12)
+ggsave('PCA_1stadd_like1st_C23.jpg', width = 15, height = 12)
+
+
+## 3D plot
 library('rgl')
 cols <- colData(rld)[, 1] %>% factor(., labels = brewer.pal(10, name = 'Paired'))
 plot3d(pca$x[, 1:3],
