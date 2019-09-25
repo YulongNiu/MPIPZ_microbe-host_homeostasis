@@ -6,13 +6,31 @@ library('readr')
 library('dplyr')
 
 rawfqPath <- '/biodata/dep_psl/grp_rgo/yniu/KaWai_raw_data_1stadd'
-resFolder <- '/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data_1stadd_test'
+resFolder <- '/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data_1stadd'
 catPath <- '/bin/cat'
 mvPath <- '/bin/mv'
-ncore <- 12
+ncore <- 40
 
 rawfq <- dir(rawfqPath,
              pattern = 'fastq.gz')
+
+## check unique md5sum
+registerDoParallel(cores = ncore)
+fqmd5 <- foreach (i = seq_along(fqIdx)) %dopar% {
+  eachmd5 <- fqIdx[[i]] %>%
+    {file.path(rawfqPath, rawfq[.])} %>%
+    paste('md5sum ', .) %>%
+    system(intern = TRUE) %>%
+    strsplit(split = ' ', fixed = TRUE) %>%
+    unlist %>%
+    .[c(1, 3)]
+
+  return(eachmd5)
+} %>% do.call(rbind, .)
+
+(fqmd5[, 1] %>% unique %>% length) == nrow(fqmd5)
+stopImplicitCluster()
+
 
 fqs <- rawfq %>%
   strsplit('_', fixed = TRUE) %>%
@@ -24,7 +42,6 @@ fqIdx <- split(seq_along(fqs), fqs)
 fqPrefix <- names(fqIdx)
 
 registerDoParallel(cores = ncore)
-
 foreach (i = seq_along(fqIdx), .combine = c) %dopar% {
 
   ## input files
@@ -47,7 +64,6 @@ foreach (i = seq_along(fqIdx), .combine = c) %dopar% {
 
   return(NULL)
 }
-
 stopImplicitCluster()
 
 ##~~~~~~~~~~~~~~~~~~~~~raw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -76,42 +92,51 @@ for (i in seq_along(fqraws)) {
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~1stadd~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-anno <- read_delim('/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/results/list_samples_1stadd.txt', delim = '\t')
+anno <- read_csv('/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/results/Ka-Wai_sample_4313.csv')
 fqraws <- dir(resFolder)
 
 for (i in seq_len(nrow(anno))) {
 
-  fqin <- anno[i, 1] %>%
+  ## merge different batch
+  fqin <- anno[i, c(1, 6)] %>%
+    as.character %>%
+    .[!is.na(.)] %>%
     file.path(resFolder, .) %>%
-    paste0('_R1.fq.gz')
+    paste0('_R1.fq.gz') %>%
+    paste(collapse = ' ')
 
   fqout <- anno[i, 5] %>%
     file.path(resFolder, .) %>%
     paste0('_R1.fq.gz')
 
-  mvC <- paste(mvPath,
-               fqin,
-               fqout)
+  mergeC <- paste(catPath,
+                  fqin,
+                  '>',
+                  fqout)
+  print(mergeC)
 
-  print(mvC)
+  system(mergeC)
 
-  system(mvC)
-
-  fqin <- anno[i, 1] %>%
+  fqin <- anno[i, c(1, 6)] %>%
+    as.character %>%
+    .[!is.na(.)] %>%
     file.path(resFolder, .) %>%
-    paste0('_R2.fq.gz')
+    paste0('_R2.fq.gz') %>%
+    paste(collapse = ' ')
 
   fqout <- anno[i, 5] %>%
     file.path(resFolder, .) %>%
     paste0('_R2.fq.gz')
 
-  mvC <- paste(mvPath,
-               fqin,
-               fqout)
+  mergeC <- paste(catPath,
+                  fqin,
+                  '>',
+                  fqout)
+  print(mergeC)
 
-  print(mvC)
-
-  system(mvC)
+  system(mergeC)
 }
+
+system('rm `ls | grep "4313\\|4219"`')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ####################################################################
