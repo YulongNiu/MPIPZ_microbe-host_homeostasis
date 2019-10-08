@@ -7,6 +7,7 @@ library('doParallel')
 library('foreach')
 library('tibble')
 library('readr')
+library('dplyr')
 
 ncore <- 40
 
@@ -16,11 +17,17 @@ fqs <- dir(rawpath,
 
 registerDoParallel(cores = ncore)
 
-rn <- foreach(i = seq_along(fqs), .combine = c) %dopar% {
+rn <- foreach(i = seq(1, length(fqs), 2), .combine = bind_rows) %dopar% {
 
-  eachrn <- paste('zcat', fqs[i], '| awk "END{print NR/4}"') %>%
+  eachr1 <- paste('zcat', fqs[i], '| awk "END{print NR/4}"') %>%
     system(inter = TRUE) %>%
     as.numeric
+
+  eachr2 <- paste('zcat', fqs[i + 1], '| awk "END{print NR/4}"') %>%
+    system(inter = TRUE) %>%
+    as.numeric
+
+  eachrn <- tibble(rawfq_R1 = eachr1, rawfq_R2 = eachr2)
 
   return(eachrn)
 }
@@ -31,11 +38,13 @@ snames <- fqs %>%
   strsplit(split = '/', fixed = TRUE) %>%
   sapply('[[', 8) %>%
   strsplit(split = '.', fixed = TRUE) %>%
-  sapply('[[', 1)
+  sapply('[[', 1) %>%
+  substr(start = 1, stop = nchar(.) - 3) %>%
+  unique
 
-tibble(sample = snames,
-       rawfq = rn) %>%
-  write_csv('raw_seqnumber.csv')
+rn %>%
+  mutate(sample = snames) %>%
+  write_csv('raw_seqnumber_1stadd.csv')
 ##########################################################
 
 #################extract Kallisto and HISAT2 output########
@@ -119,12 +128,12 @@ athvirusout <- 'align_nohup_1stadd_latenvirus.out' %>%
   rename(Hvirus_ath = H_ath, Kvirus_ath = K_ath)
 
 ## raw reads
-rawrd <- read_csv('raw_seqnumber_1stadd.csv') %>%
-  slice(seq(1, nrow(.), 2))
+rawrd <- read_csv('raw_seqnumber_1stadd.csv')
 
 contam <- rawrd %>%
   inner_join(athout) %>%
-  inner_join(athvirusout)
+  inner_join(athvirusout) %>%
+  select(sample, everything())
 
 write_csv(contam, 'ath_alignment.csv')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
