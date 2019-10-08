@@ -313,6 +313,8 @@ Find significantly changed gene ontology, KEGG, and BioCyc gene-sets in each k-m
 | SynCom35_Flg22_3   | 8719287 | 8476158 | 0.707 | 0.698 | 0.977      | 0.974      | 
 | SynCom35_Flg22_4   | 6892972 | 6745962 | 0.691 | 0.673 | 0.98       | 0.968      | 
 
+1stadd re-sequence
+
 | sample             | rawfq_R1 | rawfq_R2 | trimfq   | H_ath | K_ath | Hvirus_ath | Kvirus_ath | 
 |--------------------|----------|----------|----------|-------|-------|------------|------------| 
 | HKSynCom33_1       | 13172195 | 9729822  | 9481296  | 0.466 | 0.474 | 0.975      | 0.689      | 
