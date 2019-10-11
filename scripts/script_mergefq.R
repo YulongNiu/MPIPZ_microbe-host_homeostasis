@@ -14,6 +14,15 @@ ncore <- 40
 rawfq <- dir(rawfqPath,
              pattern = 'fastq.gz')
 
+fqs <- rawfq %>%
+  strsplit('_', fixed = TRUE) %>%
+  lapply('[', c(1, 2, 7)) %>%
+  sapply(paste, collapse = '_')
+
+## group fq gz files
+fqIdx <- split(seq_along(fqs), fqs)
+fqPrefix <- names(fqIdx)
+
 ## check unique md5sum
 registerDoParallel(cores = ncore)
 fqmd5 <- foreach (i = seq_along(fqIdx)) %dopar% {
@@ -31,19 +40,9 @@ fqmd5 <- foreach (i = seq_along(fqIdx)) %dopar% {
 (fqmd5[, 1] %>% unique %>% length) == nrow(fqmd5)
 stopImplicitCluster()
 
-
-fqs <- rawfq %>%
-  strsplit('_', fixed = TRUE) %>%
-  lapply('[', c(1, 2, 7)) %>%
-  sapply(paste, collapse = '_')
-
-## group fq gz files
-fqIdx <- split(seq_along(fqs), fqs)
-fqPrefix <- names(fqIdx)
-
+## merge
 registerDoParallel(cores = ncore)
 foreach (i = seq_along(fqIdx), .combine = c) %dopar% {
-
   ## input files
   fqin <- fqIdx[[i]] %>%
     {file.path(rawfqPath, rawfq[.])} %>%
@@ -138,5 +137,52 @@ for (i in seq_len(nrow(anno))) {
 }
 
 system('rm `ls | grep "4313\\|4219"`')
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+##~~~~~~~~~~~~~~~~~~~~~~~~soil~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+anno <- read_csv('/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/results/Ka-Wai_soil.csv')
+fqraws <- dir(resFolder)
+
+for (i in seq_len(nrow(anno))) {
+
+  ## merge different batch
+  fqin <- anno[i, 1] %>%
+    as.character %>%
+    .[!is.na(.)] %>%
+    file.path(resFolder, .) %>%
+    paste0('_R1.fq.gz') %>%
+    paste(collapse = ' ')
+
+  fqout <- anno[i, 5] %>%
+    file.path(resFolder, .) %>%
+    paste0('_R1.fq.gz')
+
+  mergeC <- paste(catPath,
+                  fqin,
+                  '>',
+                  fqout)
+  print(mergeC)
+
+  system(mergeC)
+
+  fqin <- anno[i, 1] %>%
+    as.character %>%
+    .[!is.na(.)] %>%
+    file.path(resFolder, .) %>%
+    paste0('_R2.fq.gz') %>%
+    paste(collapse = ' ')
+
+  fqout <- anno[i, 5] %>%
+    file.path(resFolder, .) %>%
+    paste0('_R2.fq.gz')
+
+  mergeC <- paste(catPath,
+                  fqin,
+                  '>',
+                  fqout)
+  print(mergeC)
+
+  system(mergeC)
+}
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ####################################################################

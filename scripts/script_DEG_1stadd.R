@@ -208,6 +208,8 @@ write_csv(res, 'SynCom35_vs_SynCom33_k_full.csv')
 library('directlabels')
 library('ggplot2')
 library('RColorBrewer')
+library('limma')
+library('sva')
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## remove low count
@@ -218,17 +220,24 @@ rl <- apply(rldData, 1, function(x){
   return(sum(x > thres) == length(x))
 })
 rldData %<>% .[rl, ]
+
+## batch correction limma
+rldData %<>% removeBatchEffect(rep(1 : 4, 10) %>% factor)
+
+## batch correction sva
+modcombat <- model.matrix(~1, data = sampleTable)
+rldData %<>% ComBat(dat = ., batch = rep(rep(1 : 4, 10) %>% factor) %>% factor, mod = modcombat, par.prior = TRUE, prior.plots = FALSE)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 cols <- colData(rld)[, 1] %>% factor(., labels = brewer.pal(10, name = 'Paired'))
 
 ## 1 - 2 C
-pca <- prcomp(t(rldData))
+pca <- prcomp(t(rldData[, -seq(4, 40, 4)]))
 percentVar <- pca$sdev^2/sum(pca$sdev^2)
 percentVar <- round(100 * percentVar)
 pca1 <- pca$x[,1]
 pca2 <- pca$x[,2]
-pcaData <- data.frame(PC1 = pca1, PC2 = pca2, Group = colData(rld)[, 1], ID = rownames(colData(rld)))
+pcaData <- data.frame(PC1 = pca1, PC2 = pca2, Group = colData(rld)[, 1][-seq(4, 40, 4)], ID = rownames(colData(rld))[-seq(4, 40, 4)])
 ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group)) +
   geom_point(size = 3) +
   xlab(paste0("PC1: ",percentVar[1],"% variance")) +

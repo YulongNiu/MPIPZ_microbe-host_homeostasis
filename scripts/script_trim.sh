@@ -50,4 +50,21 @@ do
 done
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# ##~~~~~~~~~~~~~~~~~~~~~soil~~~~~~~~~~~~~~~~~~~~~~~~~~
+# fq=($(ls | grep fq.gz))
+# fqnames=($(echo "${fq[@]%_*}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
+
+# for i in ${fqnames[@]}
+# do
+#     echo "Trimming ${i}_R1.fq.gz ${i}_R2.fq.gz."
+
+#     ${FASTP_PATH}/fastp -w ${CORENUM} \
+#                  -z 6 \
+#                  -p -c \
+#                  -h ${i}.html \
+#                  -i ${i}_R1.fq.gz -I ${i}_R2.fq.gz \
+#                  -o ${CLEAN_PATH}/${i}_R1.fq.gz -O ${CLEAN_PATH}/${i}_R2.fq.gz
+# done
+# ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 date

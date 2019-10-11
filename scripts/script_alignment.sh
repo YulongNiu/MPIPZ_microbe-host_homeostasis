@@ -1,8 +1,8 @@
 date
 
 REF_PATH=/netscratch/dep_psl/grp_rgo/yniu/ref/ath
-CLEAN_PATH=/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd
-ALIGN_PATH=/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/align_data_1stadd
+CLEAN_PATH=/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil
+ALIGN_PATH=/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/align_data_soil
 
 KALLISTO_PATH=/home/yniu/Biotools/kallisto_v0.45.1
 HISAT2_PATH=/home/yniu/Biotools/hisat2-2.1.0
@@ -91,5 +91,3 @@ for i in ${fqnames[@]}; do
 
 done
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-

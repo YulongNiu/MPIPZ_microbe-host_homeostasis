@@ -66,6 +66,45 @@ scaleCount <- meanCount %>%
   t
 scaleCount %<>% .[complete.cases(.), ]
 
+## Cluster rows by Pearson correlation
+hr <- scaleCount %>%
+  t %>%
+  cor(method = 'pearson') %>%
+  {1 - .} %>%
+  as.dist %>%
+  hclust(method = 'complete')
+
+## Clusters columns by Spearman correlation
+hc <- scaleCount %>%
+  cor(method = 'spearman') %>%
+  {1 - .} %>%
+  as.dist %>%
+  hclust(method = 'complete')
+
+cairo_pdf('heatmap.pdf')
+heatmap.2(meanCount,
+          Rowv = as.dendrogram(hr),
+          Colv = as.dendrogram(hc),
+          col = redgreen(100),
+          scale = 'row',
+          margins = c(7, 7),
+          cexCol = 0.7,
+          labRow = F,
+          main = 'Heatmap.2',
+          trace = 'none')
+dev.off()
+
+hc %>%
+  as.dendrogram(method = 'average') %>%
+  plot(main = 'Sample Clustering',
+       ylab = 'Height')
+
+hr %>%
+  as.dendrogram(method = 'average') %>%
+  plot(leaflab = 'none',
+       main = 'Gene Clustering',
+       ylab = 'Height')
+
 ## Mock HK33 HK35 -- g1
 scaleCount %<>% .[, c(1, 3, 7)]
 
