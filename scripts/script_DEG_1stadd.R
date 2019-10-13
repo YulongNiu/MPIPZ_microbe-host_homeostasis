@@ -232,6 +232,22 @@ rldData %<>% ComBat(dat = ., batch = rep(rep(1 : 4, 10) %>% factor) %>% factor, 
 cols <- colData(rld)[, 1] %>% factor(., labels = brewer.pal(10, name = 'Paired'))
 
 ## 1 - 2 C
+pca <- prcomp(t(rldData))
+percentVar <- pca$sdev^2/sum(pca$sdev^2)
+percentVar <- round(100 * percentVar)
+pca1 <- pca$x[,1]
+pca2 <- pca$x[,2]
+pcaData <- data.frame(PC1 = pca1, PC2 = pca2, Group = colData(rld)[, 1], ID = rownames(colData(rld)))
+ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group)) +
+  geom_point(size = 3) +
+  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
+  ylab(paste0("PC2: ",percentVar[2],"% variance")) +
+  geom_dl(aes(label = ID, color = Group), method = 'smart.grid') +
+  scale_colour_manual(values = levels(cols))
+ggsave('PCA_1stadd.pdf', width = 15, height = 12)
+ggsave('PCA_1stadd.jpg', width = 15, height = 12)
+
+## remove sample 4
 pca <- prcomp(t(rldData[, -seq(4, 40, 4)]))
 percentVar <- pca$sdev^2/sum(pca$sdev^2)
 percentVar <- round(100 * percentVar)
