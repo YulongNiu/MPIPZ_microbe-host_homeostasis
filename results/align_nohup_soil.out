@@ -1,0 +1,316 @@
+====================================
+Kallisto using ath cDNA for Mock_1.
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+[quant] running in paired-end mode
+[quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/Mock_1_R1.fq.gz
+                             /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/Mock_1_R2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 7,877,992 reads, 5,773,162 reads pseudoaligned
+[quant] estimated average fragment length: 367.985
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 921 rounds
+
+HISAT2 using ath genome for Mock_1.
+7877992 reads; of these:
+  7877992 (100.00%) were paired; of these:
+    2143995 (27.21%) aligned concordantly 0 times
+    5578545 (70.81%) aligned concordantly exactly 1 time
+    155452 (1.97%) aligned concordantly >1 times
+    ----
+    2143995 pairs aligned concordantly 0 times; of these:
+      8302 (0.39%) aligned discordantly 1 time
+    ----
+    2135693 pairs aligned 0 times concordantly or discordantly; of these:
+      4271386 mates make up the pairs; of these:
+        4042697 (94.65%) aligned 0 times
+        218503 (5.12%) aligned exactly 1 time
+        10186 (0.24%) aligned >1 times
+74.34% overall alignment rate
+[bam_sort_core] merging from 0 files and 45 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for Mock_2.
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+[quant] running in paired-end mode
+[quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/Mock_2_R1.fq.gz
+                             /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/Mock_2_R2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 8,060,175 reads, 1,950,392 reads pseudoaligned
+[quant] estimated average fragment length: 364.956
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 954 rounds
+
+HISAT2 using ath genome for Mock_2.
+8060175 reads; of these:
+  8060175 (100.00%) were paired; of these:
+    6127353 (76.02%) aligned concordantly 0 times
+    1881787 (23.35%) aligned concordantly exactly 1 time
+    51035 (0.63%) aligned concordantly >1 times
+    ----
+    6127353 pairs aligned concordantly 0 times; of these:
+      1553 (0.03%) aligned discordantly 1 time
+    ----
+    6125800 pairs aligned 0 times concordantly or discordantly; of these:
+      12251600 mates make up the pairs; of these:
+        12170923 (99.34%) aligned 0 times
+        77285 (0.63%) aligned exactly 1 time
+        3392 (0.03%) aligned >1 times
+24.50% overall alignment rate
+[bam_sort_core] merging from 0 files and 45 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for Mock_3.
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+[quant] running in paired-end mode
+[quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/Mock_3_R1.fq.gz
+                             /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/Mock_3_R2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 7,970,040 reads, 3,713,582 reads pseudoaligned
+[quant] estimated average fragment length: 367.827
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 957 rounds
+
+HISAT2 using ath genome for Mock_3.
+7970040 reads; of these:
+  7970040 (100.00%) were paired; of these:
+    4314058 (54.13%) aligned concordantly 0 times
+    3570720 (44.80%) aligned concordantly exactly 1 time
+    85262 (1.07%) aligned concordantly >1 times
+    ----
+    4314058 pairs aligned concordantly 0 times; of these:
+      3784 (0.09%) aligned discordantly 1 time
+    ----
+    4310274 pairs aligned 0 times concordantly or discordantly; of these:
+      8620548 mates make up the pairs; of these:
+        8472628 (98.28%) aligned 0 times
+        142192 (1.65%) aligned exactly 1 time
+        5728 (0.07%) aligned >1 times
+46.85% overall alignment rate
+[bam_sort_core] merging from 0 files and 45 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for SynCom33_1.
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+[quant] running in paired-end mode
+[quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom33_1_R1.fq.gz
+                             /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom33_1_R2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 7,457,972 reads, 2,996,225 reads pseudoaligned
+[quant] estimated average fragment length: 371.383
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 939 rounds
+
+HISAT2 using ath genome for SynCom33_1.
+7457972 reads; of these:
+  7457972 (100.00%) were paired; of these:
+    4485194 (60.14%) aligned concordantly 0 times
+    2901095 (38.90%) aligned concordantly exactly 1 time
+    71683 (0.96%) aligned concordantly >1 times
+    ----
+    4485194 pairs aligned concordantly 0 times; of these:
+      3174 (0.07%) aligned discordantly 1 time
+    ----
+    4482020 pairs aligned 0 times concordantly or discordantly; of these:
+      8964040 mates make up the pairs; of these:
+        8844814 (98.67%) aligned 0 times
+        115153 (1.28%) aligned exactly 1 time
+        4073 (0.05%) aligned >1 times
+40.70% overall alignment rate
+[bam_sort_core] merging from 0 files and 45 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for SynCom33_2.
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+[quant] running in paired-end mode
+[quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom33_2_R1.fq.gz
+                             /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom33_2_R2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 6,218,020 reads, 1,708,042 reads pseudoaligned
+[quant] estimated average fragment length: 368.678
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 892 rounds
+
+HISAT2 using ath genome for SynCom33_2.
+6218020 reads; of these:
+  6218020 (100.00%) were paired; of these:
+    4525865 (72.79%) aligned concordantly 0 times
+    1651770 (26.56%) aligned concordantly exactly 1 time
+    40385 (0.65%) aligned concordantly >1 times
+    ----
+    4525865 pairs aligned concordantly 0 times; of these:
+      1315 (0.03%) aligned discordantly 1 time
+    ----
+    4524550 pairs aligned 0 times concordantly or discordantly; of these:
+      9049100 mates make up the pairs; of these:
+        8980561 (99.24%) aligned 0 times
+        66092 (0.73%) aligned exactly 1 time
+        2447 (0.03%) aligned >1 times
+27.79% overall alignment rate
+[bam_sort_core] merging from 0 files and 45 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for SynCom33_3.
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+[quant] running in paired-end mode
+[quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom33_3_R1.fq.gz
+                             /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom33_3_R2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 7,914,251 reads, 3,439,746 reads pseudoaligned
+[quant] estimated average fragment length: 369.972
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 979 rounds
+
+HISAT2 using ath genome for SynCom33_3.
+7914251 reads; of these:
+  7914251 (100.00%) were paired; of these:
+    4526931 (57.20%) aligned concordantly 0 times
+    3308505 (41.80%) aligned concordantly exactly 1 time
+    78815 (1.00%) aligned concordantly >1 times
+    ----
+    4526931 pairs aligned concordantly 0 times; of these:
+      3616 (0.08%) aligned discordantly 1 time
+    ----
+    4523315 pairs aligned 0 times concordantly or discordantly; of these:
+      9046630 mates make up the pairs; of these:
+        8907554 (98.46%) aligned 0 times
+        133579 (1.48%) aligned exactly 1 time
+        5497 (0.06%) aligned >1 times
+43.72% overall alignment rate
+[bam_sort_core] merging from 0 files and 45 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for SynCom35_1.
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+[quant] running in paired-end mode
+[quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom35_1_R1.fq.gz
+                             /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom35_1_R2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 5,700,937 reads, 3,708,336 reads pseudoaligned
+[quant] estimated average fragment length: 366.467
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,009 rounds
+
+HISAT2 using ath genome for SynCom35_1.
+5700937 reads; of these:
+  5700937 (100.00%) were paired; of these:
+    2050460 (35.97%) aligned concordantly 0 times
+    3570155 (62.62%) aligned concordantly exactly 1 time
+    80322 (1.41%) aligned concordantly >1 times
+    ----
+    2050460 pairs aligned concordantly 0 times; of these:
+      4411 (0.22%) aligned discordantly 1 time
+    ----
+    2046049 pairs aligned 0 times concordantly or discordantly; of these:
+      4092098 mates make up the pairs; of these:
+        3951769 (96.57%) aligned 0 times
+        135227 (3.30%) aligned exactly 1 time
+        5102 (0.12%) aligned >1 times
+65.34% overall alignment rate
+[bam_sort_core] merging from 0 files and 45 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for SynCom35_2.
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+[quant] running in paired-end mode
+[quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom35_2_R1.fq.gz
+                             /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom35_2_R2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 7,997,360 reads, 2,708,978 reads pseudoaligned
+[quant] estimated average fragment length: 378.531
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 964 rounds
+
+HISAT2 using ath genome for SynCom35_2.
+7997360 reads; of these:
+  7997360 (100.00%) were paired; of these:
+    5329918 (66.65%) aligned concordantly 0 times
+    2605237 (32.58%) aligned concordantly exactly 1 time
+    62205 (0.78%) aligned concordantly >1 times
+    ----
+    5329918 pairs aligned concordantly 0 times; of these:
+      2810 (0.05%) aligned discordantly 1 time
+    ----
+    5327108 pairs aligned 0 times concordantly or discordantly; of these:
+      10654216 mates make up the pairs; of these:
+        10542239 (98.95%) aligned 0 times
+        107730 (1.01%) aligned exactly 1 time
+        4247 (0.04%) aligned >1 times
+34.09% overall alignment rate
+[bam_sort_core] merging from 0 files and 45 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for SynCom35_3.
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+[quant] running in paired-end mode
+[quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom35_3_R1.fq.gz
+                             /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom35_3_R2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 6,587,690 reads, 3,734,653 reads pseudoaligned
+[quant] estimated average fragment length: 376.313
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 957 rounds
+
+HISAT2 using ath genome for SynCom35_3.
+6587690 reads; of these:
+  6587690 (100.00%) were paired; of these:
+    2903732 (44.08%) aligned concordantly 0 times
+    3599313 (54.64%) aligned concordantly exactly 1 time
+    84645 (1.28%) aligned concordantly >1 times
+    ----
+    2903732 pairs aligned concordantly 0 times; of these:
+      4260 (0.15%) aligned discordantly 1 time
+    ----
+    2899472 pairs aligned 0 times concordantly or discordantly; of these:
+      5798944 mates make up the pairs; of these:
+        5653034 (97.48%) aligned 0 times
+        140427 (2.42%) aligned exactly 1 time
+        5483 (0.09%) aligned >1 times
+57.09% overall alignment rate
+[bam_sort_core] merging from 0 files and 45 in-memory blocks...
+=====================================
+

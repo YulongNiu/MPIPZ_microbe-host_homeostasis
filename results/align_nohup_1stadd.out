@@ -1,12 +1,12 @@
-Sender: LSF System <hpcadmin@hpc006.cluster.local>
-Subject: Job 1722161: <bash ./script_alignment.sh> Done
+Sender: LSF System <hpcadmin@hpc003.cluster.local>
+Subject: Job 1790172: <bash ./script_alignment.sh> Done
 
 Job <bash ./script_alignment.sh> was submitted from host <hpc001.cluster.local> by user <yniu> in cluster <hpc000>.
-Job was executed on host(s) <40*hpc006.cluster.local>, in queue <multicore40>, as user <yniu> in cluster <hpc000>.
+Job was executed on host(s) <40*hpc003.cluster.local>, in queue <multicore40>, as user <yniu> in cluster <hpc000>.
 </home/yniu> was used as the home directory.
 </netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/scripts> was used as the working directory.
-Started at Thu Sep 26 13:15:14 2019
-Results reported at Thu Sep 26 19:46:22 2019
+Started at Sat Oct 12 16:46:32 2019
+Results reported at Sun Oct 13 00:38:35 2019
 
 Your job looked like:
 
@@ -19,16 +19,16 @@ Successfully completed.
 
 Resource usage summary:
 
-    CPU time   :2090265.38 sec.
-    Max Memory :      8193 MB
-    Max Swap   :    105652 MB
+    CPU time   :1797055.88 sec.
+    Max Memory :     10374 MB
+    Max Swap   :    108188 MB
 
     Max Processes  :        10
     Max Threads    :       141
 
 The output (if any) follows:
 
-Thu Sep 26 13:15:15 CEST 2019
+Sat Oct 12 16:46:36 CEST 2019
 ====================================
 Kallisto using ath cDNA for HKSynCom33_1.
 
@@ -42,27 +42,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom33_1_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom33_1_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 9,481,296 reads, 4,489,449 reads pseudoaligned
-[quant] estimated average fragment length: 279.721
+[quant] processed 12,783,484 reads, 5,855,057 reads pseudoaligned
+[quant] estimated average fragment length: 279.582
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,041 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,062 rounds
 
 HISAT2 using ath genome for HKSynCom33_1.
-9481296 reads; of these:
-  9481296 (100.00%) were paired; of these:
-    6697434 (70.64%) aligned concordantly 0 times
-    2710302 (28.59%) aligned concordantly exactly 1 time
-    73560 (0.78%) aligned concordantly >1 times
+12783484 reads; of these:
+  12783484 (100.00%) were paired; of these:
+    6922552 (54.15%) aligned concordantly 0 times
+    5695607 (44.55%) aligned concordantly exactly 1 time
+    165325 (1.29%) aligned concordantly >1 times
     ----
-    6697434 pairs aligned concordantly 0 times; of these:
-      559981 (8.36%) aligned discordantly 1 time
+    6922552 pairs aligned concordantly 0 times; of these:
+      3730 (0.05%) aligned discordantly 1 time
     ----
-    6137453 pairs aligned 0 times concordantly or discordantly; of these:
-      12274906 mates make up the pairs; of these:
-        10125664 (82.49%) aligned 0 times
-        2058803 (16.77%) aligned exactly 1 time
-        90439 (0.74%) aligned >1 times
-46.60% overall alignment rate
+    6918822 pairs aligned 0 times concordantly or discordantly; of these:
+      13837644 mates make up the pairs; of these:
+        13669325 (98.78%) aligned 0 times
+        157059 (1.14%) aligned exactly 1 time
+        11260 (0.08%) aligned >1 times
+46.54% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -78,27 +78,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom33_2_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom33_2_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 8,871,075 reads, 5,229,792 reads pseudoaligned
-[quant] estimated average fragment length: 288.313
+[quant] processed 10,287,182 reads, 6,610,639 reads pseudoaligned
+[quant] estimated average fragment length: 288.785
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,048 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,071 rounds
 
 HISAT2 using ath genome for HKSynCom33_2.
-8871075 reads; of these:
-  8871075 (100.00%) were paired; of these:
-    4869955 (54.90%) aligned concordantly 0 times
-    3887110 (43.82%) aligned concordantly exactly 1 time
-    114010 (1.29%) aligned concordantly >1 times
+10287182 reads; of these:
+  10287182 (100.00%) were paired; of these:
+    3691943 (35.89%) aligned concordantly 0 times
+    6398997 (62.20%) aligned concordantly exactly 1 time
+    196242 (1.91%) aligned concordantly >1 times
     ----
-    4869955 pairs aligned concordantly 0 times; of these:
-      832614 (17.10%) aligned discordantly 1 time
+    3691943 pairs aligned concordantly 0 times; of these:
+      4511 (0.12%) aligned discordantly 1 time
     ----
-    4037341 pairs aligned 0 times concordantly or discordantly; of these:
-      8074682 mates make up the pairs; of these:
-        6176202 (76.49%) aligned 0 times
-        1790467 (22.17%) aligned exactly 1 time
-        108013 (1.34%) aligned >1 times
-65.19% overall alignment rate
+    3687432 pairs aligned 0 times concordantly or discordantly; of these:
+      7374864 mates make up the pairs; of these:
+        7159978 (97.09%) aligned 0 times
+        200372 (2.72%) aligned exactly 1 time
+        14514 (0.20%) aligned >1 times
+65.20% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -114,27 +114,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom33_3_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom33_3_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 8,953,840 reads, 4,927,033 reads pseudoaligned
-[quant] estimated average fragment length: 287.829
+[quant] processed 10,560,115 reads, 6,042,451 reads pseudoaligned
+[quant] estimated average fragment length: 287.553
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 983 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,071 rounds
 
 HISAT2 using ath genome for HKSynCom33_3.
-8953840 reads; of these:
-  8953840 (100.00%) were paired; of these:
-    5265604 (58.81%) aligned concordantly 0 times
-    3578937 (39.97%) aligned concordantly exactly 1 time
-    109299 (1.22%) aligned concordantly >1 times
+10560115 reads; of these:
+  10560115 (100.00%) were paired; of these:
+    4530916 (42.91%) aligned concordantly 0 times
+    5843079 (55.33%) aligned concordantly exactly 1 time
+    186120 (1.76%) aligned concordantly >1 times
     ----
-    5265604 pairs aligned concordantly 0 times; of these:
-      622178 (11.82%) aligned discordantly 1 time
+    4530916 pairs aligned concordantly 0 times; of these:
+      4192 (0.09%) aligned discordantly 1 time
     ----
-    4643426 pairs aligned 0 times concordantly or discordantly; of these:
-      9286852 mates make up the pairs; of these:
-        7511773 (80.89%) aligned 0 times
-        1680057 (18.09%) aligned exactly 1 time
-        95022 (1.02%) aligned >1 times
-58.05% overall alignment rate
+    4526724 pairs aligned 0 times concordantly or discordantly; of these:
+      9053448 mates make up the pairs; of these:
+        8862292 (97.89%) aligned 0 times
+        175659 (1.94%) aligned exactly 1 time
+        15497 (0.17%) aligned >1 times
+58.04% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -151,25 +151,25 @@ Warning: you asked for 130, but only 128 cores on the machine
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom33_4_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
 [quant] processed 8,454,418 reads, 6,902,240 reads pseudoaligned
-[quant] estimated average fragment length: 281.347
+[quant] estimated average fragment length: 280.658
 [   em] quantifying the abundances ... done
 [   em] the Expectation-Maximization algorithm ran for 1,046 rounds
 
 HISAT2 using ath genome for HKSynCom33_4.
 8454418 reads; of these:
   8454418 (100.00%) were paired; of these:
-    1525961 (18.05%) aligned concordantly 0 times
-    6731821 (79.62%) aligned concordantly exactly 1 time
-    196636 (2.33%) aligned concordantly >1 times
+    1525960 (18.05%) aligned concordantly 0 times
+    6731818 (79.62%) aligned concordantly exactly 1 time
+    196640 (2.33%) aligned concordantly >1 times
     ----
-    1525961 pairs aligned concordantly 0 times; of these:
-      3622 (0.24%) aligned discordantly 1 time
+    1525960 pairs aligned concordantly 0 times; of these:
+      3620 (0.24%) aligned discordantly 1 time
     ----
-    1522339 pairs aligned 0 times concordantly or discordantly; of these:
-      3044678 mates make up the pairs; of these:
-        2866124 (94.14%) aligned 0 times
-        167345 (5.50%) aligned exactly 1 time
-        11209 (0.37%) aligned >1 times
+    1522340 pairs aligned 0 times concordantly or discordantly; of these:
+      3044680 mates make up the pairs; of these:
+        2866126 (94.14%) aligned 0 times
+        167346 (5.50%) aligned exactly 1 time
+        11208 (0.37%) aligned >1 times
 83.05% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
@@ -187,25 +187,25 @@ Warning: you asked for 130, but only 128 cores on the machine
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom33_Flg22_1_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
 [quant] processed 5,922,387 reads, 5,161,299 reads pseudoaligned
-[quant] estimated average fragment length: 290.22
+[quant] estimated average fragment length: 290.083
 [   em] quantifying the abundances ... done
 [   em] the Expectation-Maximization algorithm ran for 1,029 rounds
 
 HISAT2 using ath genome for HKSynCom33_Flg22_1.
 5922387 reads; of these:
   5922387 (100.00%) were paired; of these:
-    746832 (12.61%) aligned concordantly 0 times
-    5018148 (84.73%) aligned concordantly exactly 1 time
-    157407 (2.66%) aligned concordantly >1 times
+    746879 (12.61%) aligned concordantly 0 times
+    5018105 (84.73%) aligned concordantly exactly 1 time
+    157403 (2.66%) aligned concordantly >1 times
     ----
-    746832 pairs aligned concordantly 0 times; of these:
-      2925 (0.39%) aligned discordantly 1 time
+    746879 pairs aligned concordantly 0 times; of these:
+      2921 (0.39%) aligned discordantly 1 time
     ----
-    743907 pairs aligned 0 times concordantly or discordantly; of these:
-      1487814 mates make up the pairs; of these:
-        1341768 (90.18%) aligned 0 times
-        133680 (8.98%) aligned exactly 1 time
-        12366 (0.83%) aligned >1 times
+    743958 pairs aligned 0 times concordantly or discordantly; of these:
+      1487916 mates make up the pairs; of these:
+        1341752 (90.18%) aligned 0 times
+        133743 (8.99%) aligned exactly 1 time
+        12421 (0.83%) aligned >1 times
 88.67% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
@@ -222,27 +222,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom33_Flg22_2_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom33_Flg22_2_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 9,336,118 reads, 4,947,875 reads pseudoaligned
-[quant] estimated average fragment length: 293.512
+[quant] processed 11,142,660 reads, 6,042,863 reads pseudoaligned
+[quant] estimated average fragment length: 293.463
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,015 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,138 rounds
 
 HISAT2 using ath genome for HKSynCom33_Flg22_2.
-9336118 reads; of these:
-  9336118 (100.00%) were paired; of these:
-    5773680 (61.84%) aligned concordantly 0 times
-    3445917 (36.91%) aligned concordantly exactly 1 time
-    116521 (1.25%) aligned concordantly >1 times
+11142660 reads; of these:
+  11142660 (100.00%) were paired; of these:
+    5100725 (45.78%) aligned concordantly 0 times
+    5835010 (52.37%) aligned concordantly exactly 1 time
+    206925 (1.86%) aligned concordantly >1 times
     ----
-    5773680 pairs aligned concordantly 0 times; of these:
-      620494 (10.75%) aligned discordantly 1 time
+    5100725 pairs aligned concordantly 0 times; of these:
+      4479 (0.09%) aligned discordantly 1 time
     ----
-    5153186 pairs aligned 0 times concordantly or discordantly; of these:
-      10306372 mates make up the pairs; of these:
-        8364004 (81.15%) aligned 0 times
-        1830341 (17.76%) aligned exactly 1 time
-        112027 (1.09%) aligned >1 times
-55.21% overall alignment rate
+    5096246 pairs aligned 0 times concordantly or discordantly; of these:
+      10192492 mates make up the pairs; of these:
+        9979758 (97.91%) aligned 0 times
+        191261 (1.88%) aligned exactly 1 time
+        21473 (0.21%) aligned >1 times
+55.22% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -258,27 +258,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom33_Flg22_3_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom33_Flg22_3_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 9,562,475 reads, 5,974,148 reads pseudoaligned
-[quant] estimated average fragment length: 283.632
+[quant] processed 11,242,512 reads, 7,979,349 reads pseudoaligned
+[quant] estimated average fragment length: 283.901
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,019 rounds
+[   em] the Expectation-Maximization algorithm ran for 942 rounds
 
 HISAT2 using ath genome for HKSynCom33_Flg22_3.
-9562475 reads; of these:
-  9562475 (100.00%) were paired; of these:
-    4741053 (49.58%) aligned concordantly 0 times
-    4689869 (49.04%) aligned concordantly exactly 1 time
-    131553 (1.38%) aligned concordantly >1 times
+11242512 reads; of these:
+  11242512 (100.00%) were paired; of these:
+    3296341 (29.32%) aligned concordantly 0 times
+    7719961 (68.67%) aligned concordantly exactly 1 time
+    226210 (2.01%) aligned concordantly >1 times
     ----
-    4741053 pairs aligned concordantly 0 times; of these:
-      1066578 (22.50%) aligned discordantly 1 time
+    3296341 pairs aligned concordantly 0 times; of these:
+      4596 (0.14%) aligned discordantly 1 time
     ----
-    3674475 pairs aligned 0 times concordantly or discordantly; of these:
-      7348950 mates make up the pairs; of these:
-        5405526 (73.56%) aligned 0 times
-        1829356 (24.89%) aligned exactly 1 time
-        114068 (1.55%) aligned >1 times
-71.74% overall alignment rate
+    3291745 pairs aligned 0 times concordantly or discordantly; of these:
+      6583490 mates make up the pairs; of these:
+        6351149 (96.47%) aligned 0 times
+        216024 (3.28%) aligned exactly 1 time
+        16317 (0.25%) aligned >1 times
+71.75% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -295,19 +295,19 @@ Warning: you asked for 130, but only 128 cores on the machine
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom33_Flg22_4_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
 [quant] processed 8,519,488 reads, 5,239,855 reads pseudoaligned
-[quant] estimated average fragment length: 290.769
+[quant] estimated average fragment length: 290.428
 [   em] quantifying the abundances ... done
 [   em] the Expectation-Maximization algorithm ran for 1,008 rounds
 
 HISAT2 using ath genome for HKSynCom33_Flg22_4.
 8519488 reads; of these:
   8519488 (100.00%) were paired; of these:
-    3279220 (38.49%) aligned concordantly 0 times
-    5094596 (59.80%) aligned concordantly exactly 1 time
-    145672 (1.71%) aligned concordantly >1 times
+    3279218 (38.49%) aligned concordantly 0 times
+    5094593 (59.80%) aligned concordantly exactly 1 time
+    145677 (1.71%) aligned concordantly >1 times
     ----
-    3279220 pairs aligned concordantly 0 times; of these:
-      3038 (0.09%) aligned discordantly 1 time
+    3279218 pairs aligned concordantly 0 times; of these:
+      3036 (0.09%) aligned discordantly 1 time
     ----
     3276182 pairs aligned 0 times concordantly or discordantly; of these:
       6552364 mates make up the pairs; of these:
@@ -330,27 +330,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom35_1_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom35_1_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 7,729,681 reads, 5,254,239 reads pseudoaligned
-[quant] estimated average fragment length: 281.692
+[quant] processed 9,826,277 reads, 7,822,829 reads pseudoaligned
+[quant] estimated average fragment length: 282.031
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,046 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,077 rounds
 
 HISAT2 using ath genome for HKSynCom35_1.
-7729681 reads; of these:
-  7729681 (100.00%) were paired; of these:
-    3080212 (39.85%) aligned concordantly 0 times
-    4509481 (58.34%) aligned concordantly exactly 1 time
-    139988 (1.81%) aligned concordantly >1 times
+9826277 reads; of these:
+  9826277 (100.00%) were paired; of these:
+    1983945 (20.19%) aligned concordantly 0 times
+    7593946 (77.28%) aligned concordantly exactly 1 time
+    248386 (2.53%) aligned concordantly >1 times
     ----
-    3080212 pairs aligned concordantly 0 times; of these:
-      935268 (30.36%) aligned discordantly 1 time
+    1983945 pairs aligned concordantly 0 times; of these:
+      4963 (0.25%) aligned discordantly 1 time
     ----
-    2144944 pairs aligned 0 times concordantly or discordantly; of these:
-      4289888 mates make up the pairs; of these:
-        2941596 (68.57%) aligned 0 times
-        1242902 (28.97%) aligned exactly 1 time
-        105390 (2.46%) aligned >1 times
-80.97% overall alignment rate
+    1978982 pairs aligned 0 times concordantly or discordantly; of these:
+      3957964 mates make up the pairs; of these:
+        3744064 (94.60%) aligned 0 times
+        194266 (4.91%) aligned exactly 1 time
+        19634 (0.50%) aligned >1 times
+80.95% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -367,25 +367,25 @@ Warning: you asked for 130, but only 128 cores on the machine
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom35_2_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
 [quant] processed 6,170,945 reads, 5,552,511 reads pseudoaligned
-[quant] estimated average fragment length: 274.851
+[quant] estimated average fragment length: 274.644
 [   em] quantifying the abundances ... done
 [   em] the Expectation-Maximization algorithm ran for 1,052 rounds
 
 HISAT2 using ath genome for HKSynCom35_2.
 6170945 reads; of these:
   6170945 (100.00%) were paired; of these:
-    617644 (10.01%) aligned concordantly 0 times
-    5403626 (87.57%) aligned concordantly exactly 1 time
-    149675 (2.43%) aligned concordantly >1 times
+    617668 (10.01%) aligned concordantly 0 times
+    5403598 (87.57%) aligned concordantly exactly 1 time
+    149679 (2.43%) aligned concordantly >1 times
     ----
-    617644 pairs aligned concordantly 0 times; of these:
+    617668 pairs aligned concordantly 0 times; of these:
       3045 (0.49%) aligned discordantly 1 time
     ----
-    614599 pairs aligned 0 times concordantly or discordantly; of these:
-      1229198 mates make up the pairs; of these:
-        1089539 (88.64%) aligned 0 times
-        130606 (10.63%) aligned exactly 1 time
-        9053 (0.74%) aligned >1 times
+    614623 pairs aligned 0 times concordantly or discordantly; of these:
+      1229246 mates make up the pairs; of these:
+        1089503 (88.63%) aligned 0 times
+        130668 (10.63%) aligned exactly 1 time
+        9075 (0.74%) aligned >1 times
 91.17% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
@@ -402,27 +402,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom35_3_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom35_3_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 7,953,467 reads, 4,972,729 reads pseudoaligned
-[quant] estimated average fragment length: 295.991
+[quant] processed 9,603,304 reads, 6,928,818 reads pseudoaligned
+[quant] estimated average fragment length: 295.682
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 946 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,096 rounds
 
 HISAT2 using ath genome for HKSynCom35_3.
-7953467 reads; of these:
-  7953467 (100.00%) were paired; of these:
-    3982369 (50.07%) aligned concordantly 0 times
-    3870469 (48.66%) aligned concordantly exactly 1 time
-    100629 (1.27%) aligned concordantly >1 times
+9603304 reads; of these:
+  9603304 (100.00%) were paired; of these:
+    2728751 (28.41%) aligned concordantly 0 times
+    6692060 (69.68%) aligned concordantly exactly 1 time
+    182493 (1.90%) aligned concordantly >1 times
     ----
-    3982369 pairs aligned concordantly 0 times; of these:
-      965447 (24.24%) aligned discordantly 1 time
+    2728751 pairs aligned concordantly 0 times; of these:
+      4102 (0.15%) aligned discordantly 1 time
     ----
-    3016922 pairs aligned 0 times concordantly or discordantly; of these:
-      6033844 mates make up the pairs; of these:
-        4342300 (71.97%) aligned 0 times
-        1598588 (26.49%) aligned exactly 1 time
-        92956 (1.54%) aligned >1 times
-72.70% overall alignment rate
+    2724649 pairs aligned 0 times concordantly or discordantly; of these:
+      5449298 mates make up the pairs; of these:
+        5244494 (96.24%) aligned 0 times
+        190248 (3.49%) aligned exactly 1 time
+        14556 (0.27%) aligned >1 times
+72.69% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -438,27 +438,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom35_4_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom35_4_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 9,809,914 reads, 5,188,239 reads pseudoaligned
-[quant] estimated average fragment length: 293.311
+[quant] processed 12,091,544 reads, 6,650,965 reads pseudoaligned
+[quant] estimated average fragment length: 293.494
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,061 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,081 rounds
 
 HISAT2 using ath genome for HKSynCom35_4.
-9809914 reads; of these:
-  9809914 (100.00%) were paired; of these:
-    6616434 (67.45%) aligned concordantly 0 times
-    3099949 (31.60%) aligned concordantly exactly 1 time
-    93531 (0.95%) aligned concordantly >1 times
+12091544 reads; of these:
+  12091544 (100.00%) were paired; of these:
+    5394307 (44.61%) aligned concordantly 0 times
+    6490773 (53.68%) aligned concordantly exactly 1 time
+    206464 (1.71%) aligned concordantly >1 times
     ----
-    6616434 pairs aligned concordantly 0 times; of these:
-      946711 (14.31%) aligned discordantly 1 time
+    5394307 pairs aligned concordantly 0 times; of these:
+      3860 (0.07%) aligned discordantly 1 time
     ----
-    5669723 pairs aligned 0 times concordantly or discordantly; of these:
-      11339446 mates make up the pairs; of these:
-        8570783 (75.58%) aligned 0 times
-        2620632 (23.11%) aligned exactly 1 time
-        148031 (1.31%) aligned >1 times
-56.32% overall alignment rate
+    5390447 pairs aligned 0 times concordantly or discordantly; of these:
+      10780894 mates make up the pairs; of these:
+        10568453 (98.03%) aligned 0 times
+        199322 (1.85%) aligned exactly 1 time
+        13119 (0.12%) aligned >1 times
+56.30% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -482,17 +482,17 @@ Warning: you asked for 130, but only 128 cores on the machine
 HISAT2 using ath genome for HKSynCom35_Flg22_1.
 6588694 reads; of these:
   6588694 (100.00%) were paired; of these:
-    254812 (3.87%) aligned concordantly 0 times
-    6145138 (93.27%) aligned concordantly exactly 1 time
-    188744 (2.86%) aligned concordantly >1 times
+    254818 (3.87%) aligned concordantly 0 times
+    6145130 (93.27%) aligned concordantly exactly 1 time
+    188746 (2.86%) aligned concordantly >1 times
     ----
-    254812 pairs aligned concordantly 0 times; of these:
-      4150 (1.63%) aligned discordantly 1 time
+    254818 pairs aligned concordantly 0 times; of these:
+      4151 (1.63%) aligned discordantly 1 time
     ----
-    250662 pairs aligned 0 times concordantly or discordantly; of these:
-      501324 mates make up the pairs; of these:
-        305526 (60.94%) aligned 0 times
-        180764 (36.06%) aligned exactly 1 time
+    250667 pairs aligned 0 times concordantly or discordantly; of these:
+      501334 mates make up the pairs; of these:
+        305531 (60.94%) aligned 0 times
+        180769 (36.06%) aligned exactly 1 time
         15034 (3.00%) aligned >1 times
 97.68% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
@@ -511,25 +511,25 @@ Warning: you asked for 130, but only 128 cores on the machine
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom35_Flg22_2_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
 [quant] processed 6,307,990 reads, 5,067,902 reads pseudoaligned
-[quant] estimated average fragment length: 297.354
+[quant] estimated average fragment length: 297.599
 [   em] quantifying the abundances ... done
 [   em] the Expectation-Maximization algorithm ran for 1,033 rounds
 
 HISAT2 using ath genome for HKSynCom35_Flg22_2.
 6307990 reads; of these:
   6307990 (100.00%) were paired; of these:
-    1239994 (19.66%) aligned concordantly 0 times
-    4924118 (78.06%) aligned concordantly exactly 1 time
-    143878 (2.28%) aligned concordantly >1 times
+    1239985 (19.66%) aligned concordantly 0 times
+    4924270 (78.06%) aligned concordantly exactly 1 time
+    143735 (2.28%) aligned concordantly >1 times
     ----
-    1239994 pairs aligned concordantly 0 times; of these:
-      2790 (0.23%) aligned discordantly 1 time
+    1239985 pairs aligned concordantly 0 times; of these:
+      2793 (0.23%) aligned discordantly 1 time
     ----
-    1237204 pairs aligned 0 times concordantly or discordantly; of these:
-      2474408 mates make up the pairs; of these:
-        2342965 (94.69%) aligned 0 times
-        121257 (4.90%) aligned exactly 1 time
-        10186 (0.41%) aligned >1 times
+    1237192 pairs aligned 0 times concordantly or discordantly; of these:
+      2474384 mates make up the pairs; of these:
+        2342955 (94.69%) aligned 0 times
+        121241 (4.90%) aligned exactly 1 time
+        10188 (0.41%) aligned >1 times
 81.43% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
@@ -547,24 +547,24 @@ Warning: you asked for 130, but only 128 cores on the machine
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom35_Flg22_3_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
 [quant] processed 8,516,934 reads, 5,066,183 reads pseudoaligned
-[quant] estimated average fragment length: 303.46
+[quant] estimated average fragment length: 303.621
 [   em] quantifying the abundances ... done
 [   em] the Expectation-Maximization algorithm ran for 1,034 rounds
 
 HISAT2 using ath genome for HKSynCom35_Flg22_3.
 8516934 reads; of these:
   8516934 (100.00%) were paired; of these:
-    3482081 (40.88%) aligned concordantly 0 times
-    4897760 (57.51%) aligned concordantly exactly 1 time
-    137093 (1.61%) aligned concordantly >1 times
+    3482082 (40.88%) aligned concordantly 0 times
+    4897710 (57.51%) aligned concordantly exactly 1 time
+    137142 (1.61%) aligned concordantly >1 times
     ----
-    3482081 pairs aligned concordantly 0 times; of these:
+    3482082 pairs aligned concordantly 0 times; of these:
       3011 (0.09%) aligned discordantly 1 time
     ----
-    3479070 pairs aligned 0 times concordantly or discordantly; of these:
-      6958140 mates make up the pairs; of these:
+    3479071 pairs aligned 0 times concordantly or discordantly; of these:
+      6958142 mates make up the pairs; of these:
         6809118 (97.86%) aligned 0 times
-        137990 (1.98%) aligned exactly 1 time
+        137992 (1.98%) aligned exactly 1 time
         11032 (0.16%) aligned >1 times
 60.03% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
@@ -582,27 +582,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom35_Flg22_4_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/HKSynCom35_Flg22_4_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 10,870,667 reads, 5,661,045 reads pseudoaligned
-[quant] estimated average fragment length: 295.892
+[quant] processed 12,618,526 reads, 6,637,354 reads pseudoaligned
+[quant] estimated average fragment length: 295.918
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,069 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,102 rounds
 
 HISAT2 using ath genome for HKSynCom35_Flg22_4.
-10870667 reads; of these:
-  10870667 (100.00%) were paired; of these:
-    6439208 (59.23%) aligned concordantly 0 times
-    4297411 (39.53%) aligned concordantly exactly 1 time
-    134048 (1.23%) aligned concordantly >1 times
+12618526 reads; of these:
+  12618526 (100.00%) were paired; of these:
+    5935680 (47.04%) aligned concordantly 0 times
+    6473581 (51.30%) aligned concordantly exactly 1 time
+    209265 (1.66%) aligned concordantly >1 times
     ----
-    6439208 pairs aligned concordantly 0 times; of these:
-      540998 (8.40%) aligned discordantly 1 time
+    5935680 pairs aligned concordantly 0 times; of these:
+      4092 (0.07%) aligned discordantly 1 time
     ----
-    5898210 pairs aligned 0 times concordantly or discordantly; of these:
-      11796420 mates make up the pairs; of these:
-        10040136 (85.11%) aligned 0 times
-        1662815 (14.10%) aligned exactly 1 time
-        93469 (0.79%) aligned >1 times
-53.82% overall alignment rate
+    5931588 pairs aligned 0 times concordantly or discordantly; of these:
+      11863176 mates make up the pairs; of these:
+        11661052 (98.30%) aligned 0 times
+        186101 (1.57%) aligned exactly 1 time
+        16023 (0.14%) aligned >1 times
+53.79% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -618,27 +618,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/Mock_1_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/Mock_1_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 10,530,758 reads, 5,661,389 reads pseudoaligned
-[quant] estimated average fragment length: 267.115
+[quant] processed 12,732,898 reads, 6,994,312 reads pseudoaligned
+[quant] estimated average fragment length: 267.127
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,063 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,081 rounds
 
 HISAT2 using ath genome for Mock_1.
-10530758 reads; of these:
-  10530758 (100.00%) were paired; of these:
-    6091010 (57.84%) aligned concordantly 0 times
-    4314464 (40.97%) aligned concordantly exactly 1 time
-    125284 (1.19%) aligned concordantly >1 times
+12732898 reads; of these:
+  12732898 (100.00%) were paired; of these:
+    5710213 (44.85%) aligned concordantly 0 times
+    6817279 (53.54%) aligned concordantly exactly 1 time
+    205406 (1.61%) aligned concordantly >1 times
     ----
-    6091010 pairs aligned concordantly 0 times; of these:
-      599280 (9.84%) aligned discordantly 1 time
+    5710213 pairs aligned concordantly 0 times; of these:
+      4432 (0.08%) aligned discordantly 1 time
     ----
-    5491730 pairs aligned 0 times concordantly or discordantly; of these:
-      10983460 mates make up the pairs; of these:
-        9283997 (84.53%) aligned 0 times
-        1614813 (14.70%) aligned exactly 1 time
-        84650 (0.77%) aligned >1 times
-55.92% overall alignment rate
+    5705781 pairs aligned 0 times concordantly or discordantly; of these:
+      11411562 mates make up the pairs; of these:
+        11232824 (98.43%) aligned 0 times
+        166301 (1.46%) aligned exactly 1 time
+        12437 (0.11%) aligned >1 times
+55.89% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -654,27 +654,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/Mock_2_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/Mock_2_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 9,879,823 reads, 6,374,087 reads pseudoaligned
-[quant] estimated average fragment length: 297.275
+[quant] processed 11,144,820 reads, 8,300,543 reads pseudoaligned
+[quant] estimated average fragment length: 297.366
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,086 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,024 rounds
 
 HISAT2 using ath genome for Mock_2.
-9879823 reads; of these:
-  9879823 (100.00%) were paired; of these:
-    4564463 (46.20%) aligned concordantly 0 times
-    5173430 (52.36%) aligned concordantly exactly 1 time
-    141930 (1.44%) aligned concordantly >1 times
+11144820 reads; of these:
+  11144820 (100.00%) were paired; of these:
+    2896607 (25.99%) aligned concordantly 0 times
+    8018058 (71.94%) aligned concordantly exactly 1 time
+    230155 (2.07%) aligned concordantly >1 times
     ----
-    4564463 pairs aligned concordantly 0 times; of these:
-      1132050 (24.80%) aligned discordantly 1 time
+    2896607 pairs aligned concordantly 0 times; of these:
+      4625 (0.16%) aligned discordantly 1 time
     ----
-    3432413 pairs aligned 0 times concordantly or discordantly; of these:
-      6864826 mates make up the pairs; of these:
-        4910432 (71.53%) aligned 0 times
-        1835229 (26.73%) aligned exactly 1 time
-        119165 (1.74%) aligned >1 times
-75.15% overall alignment rate
+    2891982 pairs aligned 0 times concordantly or discordantly; of these:
+      5783964 mates make up the pairs; of these:
+        5534020 (95.68%) aligned 0 times
+        229573 (3.97%) aligned exactly 1 time
+        20371 (0.35%) aligned >1 times
+75.17% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -690,27 +690,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/Mock_3_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/Mock_3_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 10,644,054 reads, 5,349,676 reads pseudoaligned
-[quant] estimated average fragment length: 300.3
+[quant] processed 13,715,287 reads, 6,893,012 reads pseudoaligned
+[quant] estimated average fragment length: 300.29
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,062 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,085 rounds
 
 HISAT2 using ath genome for Mock_3.
-10644054 reads; of these:
-  10644054 (100.00%) were paired; of these:
-    7842111 (73.68%) aligned concordantly 0 times
-    2718297 (25.54%) aligned concordantly exactly 1 time
-    83646 (0.79%) aligned concordantly >1 times
+13715287 reads; of these:
+  13715287 (100.00%) were paired; of these:
+    6833466 (49.82%) aligned concordantly 0 times
+    6661049 (48.57%) aligned concordantly exactly 1 time
+    220772 (1.61%) aligned concordantly >1 times
     ----
-    7842111 pairs aligned concordantly 0 times; of these:
-      971706 (12.39%) aligned discordantly 1 time
+    6833466 pairs aligned concordantly 0 times; of these:
+      4291 (0.06%) aligned discordantly 1 time
     ----
-    6870405 pairs aligned 0 times concordantly or discordantly; of these:
-      13740810 mates make up the pairs; of these:
-        10425012 (75.87%) aligned 0 times
-        3146867 (22.90%) aligned exactly 1 time
-        168931 (1.23%) aligned >1 times
-51.03% overall alignment rate
+    6829175 pairs aligned 0 times concordantly or discordantly; of these:
+      13658350 mates make up the pairs; of these:
+        13429981 (98.33%) aligned 0 times
+        210009 (1.54%) aligned exactly 1 time
+        18360 (0.13%) aligned >1 times
+51.04% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -726,27 +726,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/Mock_4_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/Mock_4_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 9,368,037 reads, 5,580,379 reads pseudoaligned
-[quant] estimated average fragment length: 292.54
+[quant] processed 11,513,757 reads, 6,722,514 reads pseudoaligned
+[quant] estimated average fragment length: 292.91
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,070 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,058 rounds
 
 HISAT2 using ath genome for Mock_4.
-9368037 reads; of these:
-  9368037 (100.00%) were paired; of these:
-    4861522 (51.89%) aligned concordantly 0 times
-    4379044 (46.74%) aligned concordantly exactly 1 time
-    127471 (1.36%) aligned concordantly >1 times
+11513757 reads; of these:
+  11513757 (100.00%) were paired; of these:
+    4816665 (41.83%) aligned concordantly 0 times
+    6499322 (56.45%) aligned concordantly exactly 1 time
+    197770 (1.72%) aligned concordantly >1 times
     ----
-    4861522 pairs aligned concordantly 0 times; of these:
-      411894 (8.47%) aligned discordantly 1 time
+    4816665 pairs aligned concordantly 0 times; of these:
+      4457 (0.09%) aligned discordantly 1 time
     ----
-    4449628 pairs aligned 0 times concordantly or discordantly; of these:
-      8899256 mates make up the pairs; of these:
-        7393502 (83.08%) aligned 0 times
-        1432015 (16.09%) aligned exactly 1 time
-        73739 (0.83%) aligned >1 times
-60.54% overall alignment rate
+    4812208 pairs aligned 0 times concordantly or discordantly; of these:
+      9624416 mates make up the pairs; of these:
+        9388252 (97.55%) aligned 0 times
+        220820 (2.29%) aligned exactly 1 time
+        15344 (0.16%) aligned >1 times
+59.23% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -762,27 +762,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/Mock_Flg22_1_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/Mock_Flg22_1_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 8,363,034 reads, 5,076,243 reads pseudoaligned
-[quant] estimated average fragment length: 280.331
+[quant] processed 10,700,223 reads, 7,410,380 reads pseudoaligned
+[quant] estimated average fragment length: 280.363
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,055 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,096 rounds
 
 HISAT2 using ath genome for Mock_Flg22_1.
-8363034 reads; of these:
-  8363034 (100.00%) were paired; of these:
-    4437395 (53.06%) aligned concordantly 0 times
-    3818333 (45.66%) aligned concordantly exactly 1 time
-    107306 (1.28%) aligned concordantly >1 times
+10700223 reads; of these:
+  10700223 (100.00%) were paired; of these:
+    3288260 (30.73%) aligned concordantly 0 times
+    7196572 (67.26%) aligned concordantly exactly 1 time
+    215391 (2.01%) aligned concordantly >1 times
     ----
-    4437395 pairs aligned concordantly 0 times; of these:
-      1021131 (23.01%) aligned discordantly 1 time
+    3288260 pairs aligned concordantly 0 times; of these:
+      4341 (0.13%) aligned discordantly 1 time
     ----
-    3416264 pairs aligned 0 times concordantly or discordantly; of these:
-      6832528 mates make up the pairs; of these:
-        4961176 (72.61%) aligned 0 times
-        1760443 (25.77%) aligned exactly 1 time
-        110909 (1.62%) aligned >1 times
-70.34% overall alignment rate
+    3283919 pairs aligned 0 times concordantly or discordantly; of these:
+      6567838 mates make up the pairs; of these:
+        6350641 (96.69%) aligned 0 times
+        200460 (3.05%) aligned exactly 1 time
+        16737 (0.25%) aligned >1 times
+70.32% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -798,27 +798,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/Mock_Flg22_2_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/Mock_Flg22_2_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 9,408,411 reads, 5,515,074 reads pseudoaligned
-[quant] estimated average fragment length: 288.604
+[quant] processed 11,123,514 reads, 7,080,565 reads pseudoaligned
+[quant] estimated average fragment length: 288.61
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,083 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,106 rounds
 
 HISAT2 using ath genome for Mock_Flg22_2.
-9408411 reads; of these:
-  9408411 (100.00%) were paired; of these:
-    5197539 (55.24%) aligned concordantly 0 times
-    4091602 (43.49%) aligned concordantly exactly 1 time
-    119270 (1.27%) aligned concordantly >1 times
+11123514 reads; of these:
+  11123514 (100.00%) were paired; of these:
+    4082394 (36.70%) aligned concordantly 0 times
+    6830996 (61.41%) aligned concordantly exactly 1 time
+    210124 (1.89%) aligned concordantly >1 times
     ----
-    5197539 pairs aligned concordantly 0 times; of these:
-      848963 (16.33%) aligned discordantly 1 time
+    4082394 pairs aligned concordantly 0 times; of these:
+      4799 (0.12%) aligned discordantly 1 time
     ----
-    4348576 pairs aligned 0 times concordantly or discordantly; of these:
-      8697152 mates make up the pairs; of these:
-        6708784 (77.14%) aligned 0 times
-        1877186 (21.58%) aligned exactly 1 time
-        111182 (1.28%) aligned >1 times
-64.35% overall alignment rate
+    4077595 pairs aligned 0 times concordantly or discordantly; of these:
+      8155190 mates make up the pairs; of these:
+        7925566 (97.18%) aligned 0 times
+        207760 (2.55%) aligned exactly 1 time
+        21864 (0.27%) aligned >1 times
+64.37% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -834,27 +834,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/Mock_Flg22_3_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/Mock_Flg22_3_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 10,244,461 reads, 5,516,050 reads pseudoaligned
-[quant] estimated average fragment length: 295.578
+[quant] processed 12,868,862 reads, 7,354,085 reads pseudoaligned
+[quant] estimated average fragment length: 295.192
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,037 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,032 rounds
 
 HISAT2 using ath genome for Mock_Flg22_3.
-10244461 reads; of these:
-  10244461 (100.00%) were paired; of these:
-    6832509 (66.69%) aligned concordantly 0 times
-    3314753 (32.36%) aligned concordantly exactly 1 time
-    97199 (0.95%) aligned concordantly >1 times
+12868862 reads; of these:
+  12868862 (100.00%) were paired; of these:
+    5546884 (43.10%) aligned concordantly 0 times
+    7097843 (55.16%) aligned concordantly exactly 1 time
+    224135 (1.74%) aligned concordantly >1 times
     ----
-    6832509 pairs aligned concordantly 0 times; of these:
-      1050740 (15.38%) aligned discordantly 1 time
+    5546884 pairs aligned concordantly 0 times; of these:
+      4482 (0.08%) aligned discordantly 1 time
     ----
-    5781769 pairs aligned 0 times concordantly or discordantly; of these:
-      11563538 mates make up the pairs; of these:
-        8631237 (74.64%) aligned 0 times
-        2781650 (24.06%) aligned exactly 1 time
-        150651 (1.30%) aligned >1 times
-57.87% overall alignment rate
+    5542402 pairs aligned 0 times concordantly or discordantly; of these:
+      11084804 mates make up the pairs; of these:
+        10841102 (97.80%) aligned 0 times
+        223345 (2.01%) aligned exactly 1 time
+        20357 (0.18%) aligned >1 times
+57.88% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -870,27 +870,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/Mock_Flg22_4_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/Mock_Flg22_4_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 8,908,409 reads, 5,670,655 reads pseudoaligned
-[quant] estimated average fragment length: 285.356
+[quant] processed 10,352,975 reads, 8,140,500 reads pseudoaligned
+[quant] estimated average fragment length: 285.522
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 921 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,022 rounds
 
 HISAT2 using ath genome for Mock_Flg22_4.
-8908409 reads; of these:
-  8908409 (100.00%) were paired; of these:
-    4231466 (47.50%) aligned concordantly 0 times
-    4542409 (50.99%) aligned concordantly exactly 1 time
-    134534 (1.51%) aligned concordantly >1 times
+10352975 reads; of these:
+  10352975 (100.00%) were paired; of these:
+    2196522 (21.22%) aligned concordantly 0 times
+    7910853 (76.41%) aligned concordantly exactly 1 time
+    245600 (2.37%) aligned concordantly >1 times
     ----
-    4231466 pairs aligned concordantly 0 times; of these:
-      1422470 (33.62%) aligned discordantly 1 time
+    2196522 pairs aligned concordantly 0 times; of these:
+      5005 (0.23%) aligned discordantly 1 time
     ----
-    2808996 pairs aligned 0 times concordantly or discordantly; of these:
-      5617992 mates make up the pairs; of these:
-        3575037 (63.64%) aligned 0 times
-        1895023 (33.73%) aligned exactly 1 time
-        147932 (2.63%) aligned >1 times
-79.93% overall alignment rate
+    2191517 pairs aligned 0 times concordantly or discordantly; of these:
+      4383034 mates make up the pairs; of these:
+        4142771 (94.52%) aligned 0 times
+        222272 (5.07%) aligned exactly 1 time
+        17991 (0.41%) aligned >1 times
+79.99% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -906,27 +906,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom33_1_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom33_1_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 8,334,786 reads, 5,323,879 reads pseudoaligned
-[quant] estimated average fragment length: 279.837
+[quant] processed 8,341,083 reads, 5,996,481 reads pseudoaligned
+[quant] estimated average fragment length: 280.09
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,151 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,067 rounds
 
 HISAT2 using ath genome for SynCom33_1.
-8334786 reads; of these:
-  8334786 (100.00%) were paired; of these:
-    3891050 (46.68%) aligned concordantly 0 times
-    4313410 (51.75%) aligned concordantly exactly 1 time
-    130326 (1.56%) aligned concordantly >1 times
+8341083 reads; of these:
+  8341083 (100.00%) were paired; of these:
+    2352095 (28.20%) aligned concordantly 0 times
+    5808288 (69.63%) aligned concordantly exactly 1 time
+    180700 (2.17%) aligned concordantly >1 times
     ----
-    3891050 pairs aligned concordantly 0 times; of these:
-      835045 (21.46%) aligned discordantly 1 time
+    2352095 pairs aligned concordantly 0 times; of these:
+      3726 (0.16%) aligned discordantly 1 time
     ----
-    3056005 pairs aligned 0 times concordantly or discordantly; of these:
-      6112010 mates make up the pairs; of these:
-        4524860 (74.03%) aligned 0 times
-        1484386 (24.29%) aligned exactly 1 time
-        102764 (1.68%) aligned >1 times
-72.86% overall alignment rate
+    2348369 pairs aligned 0 times concordantly or discordantly; of these:
+      4696738 mates make up the pairs; of these:
+        4509176 (96.01%) aligned 0 times
+        174220 (3.71%) aligned exactly 1 time
+        13342 (0.28%) aligned >1 times
+72.97% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -942,27 +942,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom33_2_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom33_2_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 10,958,603 reads, 5,469,620 reads pseudoaligned
-[quant] estimated average fragment length: 289.574
+[quant] processed 13,220,235 reads, 6,568,042 reads pseudoaligned
+[quant] estimated average fragment length: 289.115
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,047 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,062 rounds
 
 HISAT2 using ath genome for SynCom33_2.
-10958603 reads; of these:
-  10958603 (100.00%) were paired; of these:
-    7817449 (71.34%) aligned concordantly 0 times
-    3051753 (27.85%) aligned concordantly exactly 1 time
-    89401 (0.82%) aligned concordantly >1 times
+13220235 reads; of these:
+  13220235 (100.00%) were paired; of these:
+    6692240 (50.62%) aligned concordantly 0 times
+    6328656 (47.87%) aligned concordantly exactly 1 time
+    199339 (1.51%) aligned concordantly >1 times
     ----
-    7817449 pairs aligned concordantly 0 times; of these:
-      865518 (11.07%) aligned discordantly 1 time
+    6692240 pairs aligned concordantly 0 times; of these:
+      4428 (0.07%) aligned discordantly 1 time
     ----
-    6951931 pairs aligned 0 times concordantly or discordantly; of these:
-      13903862 mates make up the pairs; of these:
-        10913080 (78.49%) aligned 0 times
-        2848382 (20.49%) aligned exactly 1 time
-        142400 (1.02%) aligned >1 times
-50.21% overall alignment rate
+    6687812 pairs aligned 0 times concordantly or discordantly; of these:
+      13375624 mates make up the pairs; of these:
+        13155140 (98.35%) aligned 0 times
+        203110 (1.52%) aligned exactly 1 time
+        17374 (0.13%) aligned >1 times
+50.25% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -978,27 +978,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom33_3_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom33_3_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 10,072,905 reads, 6,692,585 reads pseudoaligned
-[quant] estimated average fragment length: 286.18
+[quant] processed 12,026,972 reads, 7,980,906 reads pseudoaligned
+[quant] estimated average fragment length: 285.904
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,082 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,099 rounds
 
 HISAT2 using ath genome for SynCom33_3.
-10072905 reads; of these:
-  10072905 (100.00%) were paired; of these:
-    3427948 (34.03%) aligned concordantly 0 times
-    6464762 (64.18%) aligned concordantly exactly 1 time
-    180195 (1.79%) aligned concordantly >1 times
+12026972 reads; of these:
+  12026972 (100.00%) were paired; of these:
+    4118902 (34.25%) aligned concordantly 0 times
+    7689899 (63.94%) aligned concordantly exactly 1 time
+    218171 (1.81%) aligned concordantly >1 times
     ----
-    3427948 pairs aligned concordantly 0 times; of these:
-      3602 (0.11%) aligned discordantly 1 time
+    4118902 pairs aligned concordantly 0 times; of these:
+      4439 (0.11%) aligned discordantly 1 time
     ----
-    3424346 pairs aligned 0 times concordantly or discordantly; of these:
-      6848692 mates make up the pairs; of these:
-        6650838 (97.11%) aligned 0 times
-        185048 (2.70%) aligned exactly 1 time
-        12806 (0.19%) aligned >1 times
-66.99% overall alignment rate
+    4114463 pairs aligned 0 times concordantly or discordantly; of these:
+      8228926 mates make up the pairs; of these:
+        7975800 (96.92%) aligned 0 times
+        236495 (2.87%) aligned exactly 1 time
+        16631 (0.20%) aligned >1 times
+66.84% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -1014,27 +1014,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom33_4_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom33_4_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 9,805,819 reads, 5,503,129 reads pseudoaligned
-[quant] estimated average fragment length: 294.044
+[quant] processed 12,030,929 reads, 7,496,661 reads pseudoaligned
+[quant] estimated average fragment length: 293.267
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,000 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,014 rounds
 
 HISAT2 using ath genome for SynCom33_4.
-9805819 reads; of these:
-  9805819 (100.00%) were paired; of these:
-    6207125 (63.30%) aligned concordantly 0 times
-    3492793 (35.62%) aligned concordantly exactly 1 time
-    105901 (1.08%) aligned concordantly >1 times
+12030929 reads; of these:
+  12030929 (100.00%) were paired; of these:
+    4535557 (37.70%) aligned concordantly 0 times
+    7260700 (60.35%) aligned concordantly exactly 1 time
+    234672 (1.95%) aligned concordantly >1 times
     ----
-    6207125 pairs aligned concordantly 0 times; of these:
-      1201907 (19.36%) aligned discordantly 1 time
+    4535557 pairs aligned concordantly 0 times; of these:
+      4942 (0.11%) aligned discordantly 1 time
     ----
-    5005218 pairs aligned 0 times concordantly or discordantly; of these:
-      10010436 mates make up the pairs; of these:
-        7188314 (71.81%) aligned 0 times
-        2656280 (26.54%) aligned exactly 1 time
-        165842 (1.66%) aligned >1 times
-63.35% overall alignment rate
+    4530615 pairs aligned 0 times concordantly or discordantly; of these:
+      9061230 mates make up the pairs; of these:
+        8813805 (97.27%) aligned 0 times
+        228079 (2.52%) aligned exactly 1 time
+        19346 (0.21%) aligned >1 times
+63.37% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -1050,27 +1050,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom33_Flg22_1_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom33_Flg22_1_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 8,204,361 reads, 4,955,282 reads pseudoaligned
-[quant] estimated average fragment length: 280.15
+[quant] processed 11,037,970 reads, 7,295,856 reads pseudoaligned
+[quant] estimated average fragment length: 280.29
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,059 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,090 rounds
 
 HISAT2 using ath genome for SynCom33_Flg22_1.
-8204361 reads; of these:
-  8204361 (100.00%) were paired; of these:
-    4263595 (51.97%) aligned concordantly 0 times
-    3824412 (46.61%) aligned concordantly exactly 1 time
-    116354 (1.42%) aligned concordantly >1 times
+11037970 reads; of these:
+  11037970 (100.00%) were paired; of these:
+    3764178 (34.10%) aligned concordantly 0 times
+    7047386 (63.85%) aligned concordantly exactly 1 time
+    226406 (2.05%) aligned concordantly >1 times
     ----
-    4263595 pairs aligned concordantly 0 times; of these:
-      754845 (17.70%) aligned discordantly 1 time
+    3764178 pairs aligned concordantly 0 times; of these:
+      4919 (0.13%) aligned discordantly 1 time
     ----
-    3508750 pairs aligned 0 times concordantly or discordantly; of these:
-      7017500 mates make up the pairs; of these:
-        5406846 (77.05%) aligned 0 times
-        1513886 (21.57%) aligned exactly 1 time
-        96768 (1.38%) aligned >1 times
-67.05% overall alignment rate
+    3759259 pairs aligned 0 times concordantly or discordantly; of these:
+      7518518 mates make up the pairs; of these:
+        7287872 (96.93%) aligned 0 times
+        209717 (2.79%) aligned exactly 1 time
+        20929 (0.28%) aligned >1 times
+66.99% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -1086,27 +1086,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom33_Flg22_2_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom33_Flg22_2_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 9,054,576 reads, 5,245,165 reads pseudoaligned
-[quant] estimated average fragment length: 282.684
+[quant] processed 10,723,034 reads, 6,749,190 reads pseudoaligned
+[quant] estimated average fragment length: 282.784
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,102 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,055 rounds
 
 HISAT2 using ath genome for SynCom33_Flg22_2.
-9054576 reads; of these:
-  9054576 (100.00%) were paired; of these:
-    5114088 (56.48%) aligned concordantly 0 times
-    3811951 (42.10%) aligned concordantly exactly 1 time
-    128537 (1.42%) aligned concordantly >1 times
+10723034 reads; of these:
+  10723034 (100.00%) were paired; of these:
+    3975410 (37.07%) aligned concordantly 0 times
+    6515725 (60.76%) aligned concordantly exactly 1 time
+    231899 (2.16%) aligned concordantly >1 times
     ----
-    5114088 pairs aligned concordantly 0 times; of these:
-      844390 (16.51%) aligned discordantly 1 time
+    3975410 pairs aligned concordantly 0 times; of these:
+      4632 (0.12%) aligned discordantly 1 time
     ----
-    4269698 pairs aligned 0 times concordantly or discordantly; of these:
-      8539396 mates make up the pairs; of these:
-        6521458 (76.37%) aligned 0 times
-        1885791 (22.08%) aligned exactly 1 time
-        132147 (1.55%) aligned >1 times
-63.99% overall alignment rate
+    3970778 pairs aligned 0 times concordantly or discordantly; of these:
+      7941556 mates make up the pairs; of these:
+        7713543 (97.13%) aligned 0 times
+        205165 (2.58%) aligned exactly 1 time
+        22848 (0.29%) aligned >1 times
+64.03% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -1122,27 +1122,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom33_Flg22_3_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom33_Flg22_3_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 8,335,743 reads, 4,773,595 reads pseudoaligned
-[quant] estimated average fragment length: 291.52
+[quant] processed 12,297,414 reads, 6,530,174 reads pseudoaligned
+[quant] estimated average fragment length: 291.685
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,049 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,132 rounds
 
 HISAT2 using ath genome for SynCom33_Flg22_3.
-8335743 reads; of these:
-  8335743 (100.00%) were paired; of these:
-    4849362 (58.18%) aligned concordantly 0 times
-    3385888 (40.62%) aligned concordantly exactly 1 time
-    100493 (1.21%) aligned concordantly >1 times
+12297414 reads; of these:
+  12297414 (100.00%) were paired; of these:
+    5823672 (47.36%) aligned concordantly 0 times
+    6273708 (51.02%) aligned concordantly exactly 1 time
+    200034 (1.63%) aligned concordantly >1 times
     ----
-    4849362 pairs aligned concordantly 0 times; of these:
-      328532 (6.77%) aligned discordantly 1 time
+    5823672 pairs aligned concordantly 0 times; of these:
+      4473 (0.08%) aligned discordantly 1 time
     ----
-    4520830 pairs aligned 0 times concordantly or discordantly; of these:
-      9041660 mates make up the pairs; of these:
-        7436412 (82.25%) aligned 0 times
-        1534016 (16.97%) aligned exactly 1 time
-        71232 (0.79%) aligned >1 times
-55.39% overall alignment rate
+    5819199 pairs aligned 0 times concordantly or discordantly; of these:
+      11638398 mates make up the pairs; of these:
+        11408730 (98.03%) aligned 0 times
+        208526 (1.79%) aligned exactly 1 time
+        21142 (0.18%) aligned >1 times
+53.61% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -1159,25 +1159,25 @@ Warning: you asked for 130, but only 128 cores on the machine
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom33_Flg22_4_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
 [quant] processed 9,138,305 reads, 6,029,709 reads pseudoaligned
-[quant] estimated average fragment length: 302.276
+[quant] estimated average fragment length: 302.325
 [   em] quantifying the abundances ... done
 [   em] the Expectation-Maximization algorithm ran for 1,013 rounds
 
 HISAT2 using ath genome for SynCom33_Flg22_4.
 9138305 reads; of these:
   9138305 (100.00%) were paired; of these:
-    3099623 (33.92%) aligned concordantly 0 times
-    5856435 (64.09%) aligned concordantly exactly 1 time
-    182247 (1.99%) aligned concordantly >1 times
+    3099610 (33.92%) aligned concordantly 0 times
+    5856381 (64.09%) aligned concordantly exactly 1 time
+    182314 (2.00%) aligned concordantly >1 times
     ----
-    3099623 pairs aligned concordantly 0 times; of these:
-      3612 (0.12%) aligned discordantly 1 time
+    3099610 pairs aligned concordantly 0 times; of these:
+      3604 (0.12%) aligned discordantly 1 time
     ----
-    3096011 pairs aligned 0 times concordantly or discordantly; of these:
-      6192022 mates make up the pairs; of these:
-        6004150 (96.97%) aligned 0 times
-        170680 (2.76%) aligned exactly 1 time
-        17192 (0.28%) aligned >1 times
+    3096006 pairs aligned 0 times concordantly or discordantly; of these:
+      6192012 mates make up the pairs; of these:
+        6004149 (96.97%) aligned 0 times
+        170647 (2.76%) aligned exactly 1 time
+        17216 (0.28%) aligned >1 times
 67.15% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
@@ -1194,27 +1194,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom35_1_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom35_1_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 9,836,776 reads, 5,719,169 reads pseudoaligned
-[quant] estimated average fragment length: 281.829
+[quant] processed 11,384,694 reads, 7,097,748 reads pseudoaligned
+[quant] estimated average fragment length: 281.885
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,040 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,157 rounds
 
 HISAT2 using ath genome for SynCom35_1.
-9836776 reads; of these:
-  9836776 (100.00%) were paired; of these:
-    5383454 (54.73%) aligned concordantly 0 times
-    4316070 (43.88%) aligned concordantly exactly 1 time
-    137252 (1.40%) aligned concordantly >1 times
+11384694 reads; of these:
+  11384694 (100.00%) were paired; of these:
+    4248104 (37.31%) aligned concordantly 0 times
+    6908084 (60.68%) aligned concordantly exactly 1 time
+    228506 (2.01%) aligned concordantly >1 times
     ----
-    5383454 pairs aligned concordantly 0 times; of these:
-      826185 (15.35%) aligned discordantly 1 time
+    4248104 pairs aligned concordantly 0 times; of these:
+      4321 (0.10%) aligned discordantly 1 time
     ----
-    4557269 pairs aligned 0 times concordantly or discordantly; of these:
-      9114538 mates make up the pairs; of these:
-        7164574 (78.61%) aligned 0 times
-        1829962 (20.08%) aligned exactly 1 time
-        120002 (1.32%) aligned >1 times
-63.58% overall alignment rate
+    4243783 pairs aligned 0 times concordantly or discordantly; of these:
+      8487566 mates make up the pairs; of these:
+        8289748 (97.67%) aligned 0 times
+        182092 (2.15%) aligned exactly 1 time
+        15726 (0.19%) aligned >1 times
+63.59% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -1230,27 +1230,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom35_2_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom35_2_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 8,353,159 reads, 5,543,430 reads pseudoaligned
-[quant] estimated average fragment length: 303.552
+[quant] processed 9,911,636 reads, 8,070,343 reads pseudoaligned
+[quant] estimated average fragment length: 303.856
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,019 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,059 rounds
 
 HISAT2 using ath genome for SynCom35_2.
-8353159 reads; of these:
-  8353159 (100.00%) were paired; of these:
-    3552589 (42.53%) aligned concordantly 0 times
-    4660369 (55.79%) aligned concordantly exactly 1 time
-    140201 (1.68%) aligned concordantly >1 times
+9911636 reads; of these:
+  9911636 (100.00%) were paired; of these:
+    1869451 (18.86%) aligned concordantly 0 times
+    7795667 (78.65%) aligned concordantly exactly 1 time
+    246518 (2.49%) aligned concordantly >1 times
     ----
-    3552589 pairs aligned concordantly 0 times; of these:
-      1235652 (34.78%) aligned discordantly 1 time
+    1869451 pairs aligned concordantly 0 times; of these:
+      4702 (0.25%) aligned discordantly 1 time
     ----
-    2316937 pairs aligned 0 times concordantly or discordantly; of these:
-      4633874 mates make up the pairs; of these:
-        2925655 (63.14%) aligned 0 times
-        1577544 (34.04%) aligned exactly 1 time
-        130675 (2.82%) aligned >1 times
-82.49% overall alignment rate
+    1864749 pairs aligned 0 times concordantly or discordantly; of these:
+      3729498 mates make up the pairs; of these:
+        3469685 (93.03%) aligned 0 times
+        238875 (6.41%) aligned exactly 1 time
+        20938 (0.56%) aligned >1 times
+82.50% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -1267,25 +1267,25 @@ Warning: you asked for 130, but only 128 cores on the machine
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom35_3_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
 [quant] processed 8,025,669 reads, 6,394,011 reads pseudoaligned
-[quant] estimated average fragment length: 296.286
+[quant] estimated average fragment length: 296.509
 [   em] quantifying the abundances ... done
 [   em] the Expectation-Maximization algorithm ran for 1,060 rounds
 
 HISAT2 using ath genome for SynCom35_3.
 8025669 reads; of these:
   8025669 (100.00%) were paired; of these:
-    1727964 (21.53%) aligned concordantly 0 times
-    6118552 (76.24%) aligned concordantly exactly 1 time
-    179153 (2.23%) aligned concordantly >1 times
+    1727930 (21.53%) aligned concordantly 0 times
+    6118611 (76.24%) aligned concordantly exactly 1 time
+    179128 (2.23%) aligned concordantly >1 times
     ----
-    1727964 pairs aligned concordantly 0 times; of these:
-      5138 (0.30%) aligned discordantly 1 time
+    1727930 pairs aligned concordantly 0 times; of these:
+      5145 (0.30%) aligned discordantly 1 time
     ----
-    1722826 pairs aligned 0 times concordantly or discordantly; of these:
-      3445652 mates make up the pairs; of these:
-        3180512 (92.31%) aligned 0 times
-        248496 (7.21%) aligned exactly 1 time
-        16644 (0.48%) aligned >1 times
+    1722785 pairs aligned 0 times concordantly or discordantly; of these:
+      3445570 mates make up the pairs; of these:
+        3180499 (92.31%) aligned 0 times
+        248501 (7.21%) aligned exactly 1 time
+        16570 (0.48%) aligned >1 times
 80.19% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
@@ -1302,28 +1302,30 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom35_4_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom35_4_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 10,192,754 reads, 5,760,422 reads pseudoaligned
-[quant] estimated average fragment length: 292.874
+[quant] processed 11,942,099 reads, 7,238,651 reads pseudoaligned
+[quant] estimated average fragment length: 292.641
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,206 rounds
+[   em] the Expectation-Maximization algorithm ran for 964 rounds
 
 HISAT2 using ath genome for SynCom35_4.
-10192754 reads; of these:
-  10192754 (100.00%) were paired; of these:
-    6038786 (59.25%) aligned concordantly 0 times
-    4022308 (39.46%) aligned concordantly exactly 1 time
-    131660 (1.29%) aligned concordantly >1 times
+11942099 reads; of these:
+  11942099 (100.00%) were paired; of these:
+    4716873 (39.50%) aligned concordantly 0 times
+    6983786 (58.48%) aligned concordantly exactly 1 time
+    241440 (2.02%) aligned concordantly >1 times
     ----
-    6038786 pairs aligned concordantly 0 times; of these:
-      933565 (15.46%) aligned discordantly 1 time
+    4716873 pairs aligned concordantly 0 times; of these:
+      5964 (0.13%) aligned discordantly 1 time
     ----
-    5105221 pairs aligned 0 times concordantly or discordantly; of these:
-      10210442 mates make up the pairs; of these:
-        7810885 (76.50%) aligned 0 times
-        2245709 (21.99%) aligned exactly 1 time
-        153848 (1.51%) aligned >1 times
-61.68% overall alignment rate
-[bam_sort_core] merging from 0 files and 130 in-memory blocks...
+    4710909 pairs aligned 0 times concordantly or discordantly; of these:
+      9421818 mates make up the pairs; of these:
+        9135991 (96.97%) aligned 0 times
+        263502 (2.80%) aligned exactly 1 time
+        22325 (0.24%) aligned >1 times
+61.75% overall alignment rate
+samtools sort: couldn't allocate memory for bam_mem
+[E::hts_open_format] Failed to open file /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/align_data_1stadd/SynCom35_4_ath_hisat2.bam
+samtools index: failed to open "/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/align_data_1stadd/SynCom35_4_ath_hisat2.bam": No such file or directory
 =====================================
 ====================================
 Kallisto using ath cDNA for SynCom35_Flg22_1.
@@ -1338,27 +1340,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom35_Flg22_1_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom35_Flg22_1_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 8,839,012 reads, 5,001,138 reads pseudoaligned
-[quant] estimated average fragment length: 289.773
+[quant] processed 10,706,105 reads, 6,456,076 reads pseudoaligned
+[quant] estimated average fragment length: 290.036
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,028 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,049 rounds
 
 HISAT2 using ath genome for SynCom35_Flg22_1.
-8839012 reads; of these:
-  8839012 (100.00%) were paired; of these:
-    5136717 (58.11%) aligned concordantly 0 times
-    3590828 (40.62%) aligned concordantly exactly 1 time
-    111467 (1.26%) aligned concordantly >1 times
+10706105 reads; of these:
+  10706105 (100.00%) were paired; of these:
+    4227635 (39.49%) aligned concordantly 0 times
+    6274102 (58.60%) aligned concordantly exactly 1 time
+    204368 (1.91%) aligned concordantly >1 times
     ----
-    5136717 pairs aligned concordantly 0 times; of these:
-      771057 (15.01%) aligned discordantly 1 time
+    4227635 pairs aligned concordantly 0 times; of these:
+      3855 (0.09%) aligned discordantly 1 time
     ----
-    4365660 pairs aligned 0 times concordantly or discordantly; of these:
-      8731320 mates make up the pairs; of these:
-        6814034 (78.04%) aligned 0 times
-        1804805 (20.67%) aligned exactly 1 time
-        112481 (1.29%) aligned >1 times
-61.45% overall alignment rate
+    4223780 pairs aligned 0 times concordantly or discordantly; of these:
+      8447560 mates make up the pairs; of these:
+        8255631 (97.73%) aligned 0 times
+        177491 (2.10%) aligned exactly 1 time
+        14438 (0.17%) aligned >1 times
+61.44% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -1374,27 +1376,27 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom35_Flg22_2_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom35_Flg22_2_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 8,489,058 reads, 4,940,043 reads pseudoaligned
-[quant] estimated average fragment length: 304.702
+[quant] processed 10,515,421 reads, 6,592,980 reads pseudoaligned
+[quant] estimated average fragment length: 304.481
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,058 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,018 rounds
 
 HISAT2 using ath genome for SynCom35_Flg22_2.
-8489058 reads; of these:
-  8489058 (100.00%) were paired; of these:
-    4714953 (55.54%) aligned concordantly 0 times
-    3658840 (43.10%) aligned concordantly exactly 1 time
-    115265 (1.36%) aligned concordantly >1 times
+10515421 reads; of these:
+  10515421 (100.00%) were paired; of these:
+    3955505 (37.62%) aligned concordantly 0 times
+    6350164 (60.39%) aligned concordantly exactly 1 time
+    209752 (1.99%) aligned concordantly >1 times
     ----
-    4714953 pairs aligned concordantly 0 times; of these:
-      723583 (15.35%) aligned discordantly 1 time
+    3955505 pairs aligned concordantly 0 times; of these:
+      3858 (0.10%) aligned discordantly 1 time
     ----
-    3991370 pairs aligned 0 times concordantly or discordantly; of these:
-      7982740 mates make up the pairs; of these:
-        6183278 (77.46%) aligned 0 times
-        1693310 (21.21%) aligned exactly 1 time
-        106152 (1.33%) aligned >1 times
-63.58% overall alignment rate
+    3951647 pairs aligned 0 times concordantly or discordantly; of these:
+      7903294 mates make up the pairs; of these:
+        7667651 (97.02%) aligned 0 times
+        217919 (2.76%) aligned exactly 1 time
+        17724 (0.22%) aligned >1 times
+63.54% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
 ====================================
@@ -1411,25 +1413,25 @@ Warning: you asked for 130, but only 128 cores on the machine
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom35_Flg22_3_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
 [quant] processed 8,476,158 reads, 5,914,061 reads pseudoaligned
-[quant] estimated average fragment length: 304.151
+[quant] estimated average fragment length: 304.022
 [   em] quantifying the abundances ... done
 [   em] the Expectation-Maximization algorithm ran for 1,047 rounds
 
 HISAT2 using ath genome for SynCom35_Flg22_3.
 8476158 reads; of these:
   8476158 (100.00%) were paired; of these:
-    2582530 (30.47%) aligned concordantly 0 times
-    5720504 (67.49%) aligned concordantly exactly 1 time
-    173124 (2.04%) aligned concordantly >1 times
+    2582525 (30.47%) aligned concordantly 0 times
+    5720365 (67.49%) aligned concordantly exactly 1 time
+    173268 (2.04%) aligned concordantly >1 times
     ----
-    2582530 pairs aligned concordantly 0 times; of these:
-      3205 (0.12%) aligned discordantly 1 time
+    2582525 pairs aligned concordantly 0 times; of these:
+      3202 (0.12%) aligned discordantly 1 time
     ----
-    2579325 pairs aligned 0 times concordantly or discordantly; of these:
-      5158650 mates make up the pairs; of these:
-        4974986 (96.44%) aligned 0 times
-        169802 (3.29%) aligned exactly 1 time
-        13862 (0.27%) aligned >1 times
+    2579323 pairs aligned 0 times concordantly or discordantly; of these:
+      5158646 mates make up the pairs; of these:
+        4974982 (96.44%) aligned 0 times
+        169787 (3.29%) aligned exactly 1 time
+        13877 (0.27%) aligned >1 times
 70.65% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
@@ -1446,26 +1448,26 @@ Warning: you asked for 130, but only 128 cores on the machine
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom35_Flg22_4_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom35_Flg22_4_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 9,580,293 reads, 5,790,396 reads pseudoaligned
-[quant] estimated average fragment length: 277.912
+[quant] processed 11,120,876 reads, 7,469,633 reads pseudoaligned
+[quant] estimated average fragment length: 278.008
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,024 rounds
+[   em] the Expectation-Maximization algorithm ran for 1,028 rounds
 
 HISAT2 using ath genome for SynCom35_Flg22_4.
-9580293 reads; of these:
-  9580293 (100.00%) were paired; of these:
-    4976509 (51.95%) aligned concordantly 0 times
-    4453340 (46.48%) aligned concordantly exactly 1 time
-    150444 (1.57%) aligned concordantly >1 times
+11120876 reads; of these:
+  11120876 (100.00%) were paired; of these:
+    3568710 (32.09%) aligned concordantly 0 times
+    7296386 (65.61%) aligned concordantly exactly 1 time
+    255780 (2.30%) aligned concordantly >1 times
     ----
-    4976509 pairs aligned concordantly 0 times; of these:
-      980993 (19.71%) aligned discordantly 1 time
+    3568710 pairs aligned concordantly 0 times; of these:
+      4889 (0.14%) aligned discordantly 1 time
     ----
-    3995516 pairs aligned 0 times concordantly or discordantly; of these:
-      7991032 mates make up the pairs; of these:
-        5963960 (74.63%) aligned 0 times
-        1883290 (23.57%) aligned exactly 1 time
-        143782 (1.80%) aligned >1 times
-68.87% overall alignment rate
+    3563821 pairs aligned 0 times concordantly or discordantly; of these:
+      7127642 mates make up the pairs; of these:
+        6914886 (97.02%) aligned 0 times
+        195460 (2.74%) aligned exactly 1 time
+        17296 (0.24%) aligned >1 times
+68.91% overall alignment rate
 [bam_sort_core] merging from 0 files and 130 in-memory blocks...
 =====================================
