@@ -244,8 +244,8 @@ ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group)) +
   ylab(paste0("PC2: ",percentVar[2],"% variance")) +
   geom_dl(aes(label = ID, color = Group), method = 'smart.grid') +
   scale_colour_manual(values = levels(cols))
-ggsave('PCA_1stadd.pdf', width = 15, height = 12)
-ggsave('PCA_1stadd.jpg', width = 15, height = 12)
+ggsave('PCA_1stadd_sva.pdf', width = 15, height = 12)
+ggsave('PCA_1stadd_sva.jpg', width = 15, height = 12)
 
 ## remove sample 4
 pca <- prcomp(t(rldData[, -seq(4, 40, 4)]))
