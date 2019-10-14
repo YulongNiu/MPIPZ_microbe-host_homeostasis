@@ -23,6 +23,8 @@
     - [5.2 DEGs](#52-DEGs)
     - [5.3 Cluster](#53-cluster)
 - [6. Comparison](#6-comparison)
+- [7. Soil](#7-soil)
+    - [7.1 Aligned reads](#71-aligned-reads)
 - [References](#references)
     
 <!-- content end -->
@@ -495,6 +497,22 @@ Remove sample effect with SVA
 ![veen_plot_35up](results/veen_plot_35up.jpg)
 
 ![kmeans10_cluster4_BP](results/pathway_35up/kmeans10_cluster4_BP.jpg)
+
+## 7 Soil
+
+### 7.1 Aligned reads
+
+| sample     | rawfq_R1 | rawfq_R2 | trimfq  | H_ath | K_ath | Hvirus_ath | Kvirus_ath | 
+|------------|----------|----------|---------|-------|-------|------------|------------| 
+| Mock_1     | 8146907  | 8146907  | 7877992 | 0.743 | 0.733 | 0.967      | 0.963      | 
+| Mock_2     | 8309895  | 8309895  | 8060175 | 0.245 | 0.242 | 0.961      | 0.98       | 
+| Mock_3     | 8270999  | 8270999  | 7970040 | 0.468 | 0.466 | 0.963      | 0.975      | 
+| SynCom33_1 | 7729411  | 7729411  | 7457972 | 0.407 | 0.402 | 0.961      | 0.971      | 
+| SynCom33_2 | 6428754  | 6428754  | 6218020 | 0.278 | 0.275 | 0.969      | 0.987      | 
+| SynCom33_3 | 8165040  | 8165040  | 7914251 | 0.437 | 0.435 | 0.968      | 0.98       | 
+| SynCom35_1 | 5889076  | 5889076  | 5700937 | 0.653 | 0.65  | 0.969      | 0.975      | 
+| SynCom35_2 | 8231172  | 8231172  | 7997360 | 0.341 | 0.339 | 0.966      | 0.98       | 
+| SynCom35_3 | 6797977  | 6797977  | 6587690 | 0.571 | 0.567 | 0.968      | 0.974      | 
 
 
 ## References
