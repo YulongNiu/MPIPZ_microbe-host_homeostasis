@@ -112,6 +112,12 @@ ggsave('auto_sv_1stadd.pdf')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~DEG Mock vs. 3 conditions~~~~~~~~~~~~~~~~~
+degres$sv1 <- svobj$sv[, 1]
+degres$sv2 <- svobj$sv[, 2]
+degres$sv3 <- svobj$sv[, 3]
+degres$sv4 <- svobj$sv[, 4]
+design(degres) <- ~sv1 + sv2 + sv3 + sv4 + condition
+
 cond <- degres %>%
   resultsNames %>%
   str_extract('(?<=condition_).*') %>%

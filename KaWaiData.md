@@ -376,14 +376,6 @@ Remove sample effect with SVA
 
 ![PCA_1stadd_3d](results/PCA_1stadd_3d.gif)
 
-* threshold 2
-
-![PCA_1stadd](results/PCA_1stadd_thres2.jpg)
-
-* threshold 5
-
-![PCA_1stadd](results/PCA_1stadd_thres5.jpg)
-
 * Mock + Mock_flg22
 
 ![PCA_1stadd_M_M22_C12](results/PCA_1stadd_M_M22_C12.jpg)
