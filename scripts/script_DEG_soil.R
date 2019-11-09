@@ -10,7 +10,7 @@ checkFlg22 <- function(v, threshold) {
   require('magrittr')
 
   res <- v %>%
-    split(rep(1 : 10, each = 4)) %>%
+    split(rep(1 : 3, each = 4)) %>%
     sapply(checkZeros, threshold) %>%
     all
 
@@ -23,7 +23,10 @@ library('tximport')
 library('rhdf5')
 library('magrittr')
 library('DESeq2')
-library('tidyverse')
+library('tibble')
+library('readr')
+library('dplyr')
+library('stringr')
 
 anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno.csv',
                  col_types = cols(Chromosome = col_character())) %>%
@@ -32,28 +35,27 @@ anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno
 
 
 ##~~~~~~~~~~~~~~~~~~~~load k alignments~~~~~~~~~~~~~~~~~~~~~~~~~~
-wd <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/align_data_1stadd/'
+wd <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/align_data_soil'
 setwd(wd)
 
-annoSample <- read_delim('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results//list_samples_1stadd.txt', delim = '\t')
+annoSample <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ka-Wai_soil.csv')
 
 slabel <- annoSample$Anno %>%
   paste0('_ath_kallisto')
 
 files <- file.path(wd, slabel, 'abundance.h5')
 names(files) <- annoSample$Anno
-idx <- c(1, 11, 21, 31) %>%
-  {rep(., 10) + rep(0 : 9, each = 4)}
+idx <- c(1, 4, 7, 2, 5, 8, 3, 6, 9)
 files %<>% .[idx]
 kres <- tximport(files, type = 'kallisto', txOut = TRUE)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~normalization~~~~~~~~~~~~~~~~~~~~~~~
+##~~~~~~~~~~~~~~~~~~~~~~~~DEG Mock vs. 3 conditions~~~~~~~~~~~~~~~~~
 setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/')
 
 ## sampleTable
-condi <- c('Mock', 'Mock_Flg22', 'HKSynCom33', 'HKSynCom33_Flg22', 'SynCom33', 'SynCom33_Flg22', 'HKSynCom35', 'HKSynCom35_Flg22', 'SynCom35', 'SynCom35_Flg22')
-sampleTable <- data.frame(condition = factor(rep(condi, each = 4), levels = condi))
+condi <- c('Mock', 'SynCom33', 'SynCom35')
+sampleTable <- data.frame(condition = factor(rep(condi, each = 3), levels = condi))
 rownames(sampleTable) <- colnames(kres$counts)
 
 degres <- DESeqDataSetFromTximport(kres, sampleTable, ~condition)
@@ -64,54 +66,16 @@ degres %<>%
   counts(normalized = TRUE) %>%
   apply(1, checkFlg22, 1) %>%
   degres[., ]
-
-save(degres, file = 'degres_condi_Mock_1stadd.RData')
-
+## degres <- degres[rowSums(counts(degres)) > 1, ]
+save(degres, file = 'degres_condi_Mock_soil.RData')
 degres <- DESeq(degres)
+## resultsNames(degres)
 
 ## count transformation
 rld <- rlog(degres)
 vst <- varianceStabilizingTransformation(degres)
 ntd <- normTransform(degres)
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-##~~~~~~~~~~~~~~~~~~~~~~~~~~hidden batch effect~~~~~~~~~~~~~~~~~~~~~
-library('sva')
-library('ggplot2')
-
-dat <- rld %>%
-  assay %>%
-  {.[rowMeans(.) > 1, ]}
-mod <- model.matrix(~ condition, colData(degres))
-mod0 <- model.matrix(~ 1, colData(degres))
-
-## manual detect surrogate variance
-svnum <- 4
-svseq <- svaseq(dat, mod, mod0, n.sv = svnum)
-
-## auto detect sv
-svobj <- sva(dat, mod, mod0)
-svnum <- svobj$sv %>% ncol
-
-svobj$sv %>%
-  set_colnames(paste0('sv', seq_len(svnum))) %>%
-  as_tibble %>%
-  gather(key = 'sv', value = 'value') %>%
-  mutate(condition = colData(degres) %>%
-           .$condition %>%
-           rep(svnum) %>%
-           as.character,
-         sample = rep(colnames(degres), svnum)) %>%
-  mutate(group = paste(sv, condition, sep = '_')) %>%
-  ggplot(aes(sample, value, colour = sv, group = group)) +
-  geom_point() +
-  geom_line() +
-  theme(axis.text.x = element_text(angle = 90))
-ggsave('auto_sv_1stadd.jpg')
-ggsave('auto_sv_1stadd.pdf')
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-##~~~~~~~~~~~~~~~~~~~~~~~~DEG Mock vs. 3 conditions~~~~~~~~~~~~~~~~~
 cond <- degres %>%
   resultsNames %>%
   str_extract('(?<=condition_).*') %>%
@@ -248,25 +212,23 @@ library('sva')
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## remove low count
-dat <- rld %>%
-  assay %>%
-  {.[rowMeans(.) > 1, ]}
+thres <- 0
+rldData <- assay(rld)
 
-group <- sampleTable$condition
-design <- model.matrix(~ group)
-rldData <- dat %>%
-  removeBatchEffect(covariates = svobj$sv,
-                    design = design)
+rl <- apply(rldData, 1, function(x){
+  return(sum(x > thres) == length(x))
+})
+rldData %<>% .[rl, ]
 
-## ## batch correction limma
-## rldData %<>% removeBatchEffect(rep(1 : 4, 10) %>% factor)
+## batch correction limma
+rldData %<>% removeBatchEffect(rep(1 : 3, 3) %>% factor)
 
-## ## batch correction sva
-## modcombat <- model.matrix(~1, data = sampleTable)
-## rldData %<>% ComBat(dat = ., batch = rep(rep(1 : 4, 10) %>% factor) %>% factor, mod = modcombat, par.prior = TRUE, prior.plots = FALSE)
+## batch correction sva
+modcombat <- model.matrix(~1, data = sampleTable)
+rldData %<>% ComBat(dat = ., batch = rep(rep(1 : 3, 3) %>% factor) %>% factor, mod = modcombat, par.prior = TRUE, prior.plots = FALSE)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-cols <- colData(rld)[, 1] %>% factor(., labels = brewer.pal(10, name = 'Paired'))
+cols <- colData(rld)[, 1] %>% factor(., labels = brewer.pal(10, name = 'Paired')[c(1, 5, 9)])
 
 ## 1 - 2 C
 pca <- prcomp(t(rldData))
@@ -281,8 +243,8 @@ ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group)) +
   ylab(paste0("PC2: ",percentVar[2],"% variance")) +
   geom_dl(aes(label = ID, color = Group), method = 'smart.grid') +
   scale_colour_manual(values = levels(cols))
-ggsave('PCA_1stadd_sva.pdf', width = 15, height = 12)
-ggsave('PCA_1stadd_sva.jpg', width = 15, height = 12)
+ggsave('PCA_soil_SVA.pdf', width = 15, height = 12)
+ggsave('PCA_soil_SVA.jpg', width = 15, height = 12)
 
 ## 2 - 3 C
 pca <- prcomp(t(rldData))
@@ -297,8 +259,8 @@ ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group)) +
   ylab(paste0("PC3: ",percentVar[3],"% variance")) +
   geom_dl(aes(label = ID, color = Group), method = 'smart.grid') +
   scale_colour_manual(values = levels(cols))
-ggsave('PCA_1stadd_C23.pdf', width = 15, height = 12)
-ggsave('PCA_1stadd_C23.jpg', width = 15, height = 12)
+ggsave('PCA_soil.pdf', width = 15, height = 12)
+ggsave('PCA_soil.jpg', width = 15, height = 12)
 
 
 ## Mock + Mock_flg22

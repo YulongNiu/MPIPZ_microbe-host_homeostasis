@@ -1,0 +1,13 @@
+{
+	"n_targets": 48359,
+	"n_bootstraps": 0,
+	"n_processed": 6218020,
+	"n_pseudoaligned": 1708042,
+	"n_unique": 975415,
+	"p_pseudoaligned": 27.5,
+	"p_unique": 15.7,
+	"kallisto_version": "0.45.1",
+	"index_version": 10,
+	"start_time": "Fri Oct 11 14:48:30 2019",
+	"call": "/home/yniu/Biotools/kallisto_v0.45.1/kallisto quant -t 45 -i /netscratch/dep_psl/grp_rgo/yniu/ref/ath/ath.kindex -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/align_data_soil/SynCom33_2_ath_kallisto /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom33_2_R1.fq.gz /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom33_2_R2.fq.gz"
+}

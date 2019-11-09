@@ -19,7 +19,7 @@ load('athGO.RData')
 load('athKEGG.RData')
 load('athBioCyc.RData')
 
-kmeansRes <- read_csv('../results/inter_col0mu_35up_1stadd.csv',
+kmeansRes <- read_csv('../results/cluster10_1stadd.csv',
                       col_types = cols(Chromosome = col_character())) %>%
   select(ID, Length, starts_with('Mock_Flg22'), starts_with('SynCom33_Flg22'), starts_with('SynCom35_Flg22'), cl)
 
@@ -84,9 +84,10 @@ sig <- (padjsig * fcsig) %>%
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~GO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 vsGroup <- c('Mock_Flg22_vs_Mock', 'SynCom33_Flg22_vs_Mock', 'SynCom35_Flg22_vs_Mock')
-cln <- 1:10
-cln <- 10
-cln <- 1
+## cln <- 1:10
+## cln <- 10
+## cln <- 1
+cln <- 2
 
 for (i in vsGroup) {
   for (j in cln) {
@@ -107,7 +108,7 @@ for (i in vsGroup) {
     termCat <- c('BP', 'MF', 'CC')
     for (k in termCat) {
       write.csv(GOTestWithCat %>% filter(ontology == k),
-                paste0('kmeans10_', i, '_cluster', j, '_', k, '.csv') %>% file.path('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/pathway_35up_1stadd', .))
+                paste0('kmeans10_', i, '_cluster', j, '_', k, '.csv') %>% file.path('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/pathway_35down_1stadd_raw', .))
     }
   }
 }
@@ -135,7 +136,7 @@ for (i in vsGroup) {
       mutate(ontology = 'KEGG')
 
     write.csv(KEGGTestWithCat,
-              paste0('kmeans10_', i, '_cluster', j, '_KEGG', '.csv') %>% file.path('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/pathway_35up_1stadd', .))
+              paste0('kmeans10_', i, '_cluster', j, '_KEGG', '.csv') %>% file.path('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/pathway_35down_1stadd_raw', .))
   }
 }
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -162,7 +163,7 @@ for (i in vsGroup) {
       mutate(ontology = 'BioCyc')
 
     write.csv(BioCycTestWithCat,
-              paste0('kmeans10_', i, '_cluster', j, '_BioCyc', '.csv') %>% file.path('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/pathway_35up_1stadd', .))
+              paste0('kmeans10_', i, '_cluster', j, '_BioCyc', '.csv') %>% file.path('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/pathway_35down_1stadd_raw', .))
   }
 }
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -170,7 +171,7 @@ for (i in vsGroup) {
 
 
 ###################################plot###########################
-setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/pathway_35up_1stadd')
+setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/pathway_35down_1stadd_raw')
 
 library('ggplot2')
 library('readr')
@@ -178,9 +179,10 @@ library('dplyr')
 library('magrittr')
 library('foreach')
 
-cln <- 1:10
-cln <- 10
-cln <- 1
+## cln <- 1:10
+## cln <- 10
+## cln <- 1
+cln <- 2
 
 geneset <- c('BP', 'MF', 'CC', 'KEGG', 'BioCyc')
 
@@ -197,7 +199,7 @@ for (i in cln) {
         rename(pvalue = over_represented_pvalue) %>%
         mutate(group = vsGroup[k], ratio = numDEInCat / numInCat) %>%
         filter(pvalue < 0.05 &
-               numDEInCat >= 1)
+               numDEInCat >= 2)
     }
 
     colorPal <- colorRampPalette(rev(c('red', 'yellow', 'cyan', 'blue')), bias=1)(10)
