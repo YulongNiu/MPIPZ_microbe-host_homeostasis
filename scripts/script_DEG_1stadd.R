@@ -248,24 +248,6 @@ ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group)) +
 ggsave('PCA_1stadd_35.pdf', width = 15, height = 12)
 ggsave('PCA_1stadd_35.jpg', width = 15, height = 12)
 
-
-rldDataPart <- rldData[, sampleIdx]
-pca <- prcomp(t(rldDataPart))
-percentVar <- pca$sdev^2/sum(pca$sdev^2)
-percentVar <- round(100 * percentVar)
-pca1 <- pca$x[, 2]
-pca2 <- pca$x[, 3]
-pcaData <- data.frame(PC1 = pca1, PC2 = pca2, Group = colData(rld)[sampleIdx, 1], ID = rownames(colData(rld))[sampleIdx])
-ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group)) +
-  geom_point(size = 3) +
-  xlab(paste0("PC2: ",percentVar[2],"% variance")) +
-  ylab(paste0("PC3: ",percentVar[3],"% variance")) +
-  geom_dl(aes(label = ID, color = Group), method = 'smart.grid') +
-  scale_colour_manual(values = levels(cols)[colorIdx])
-ggsave('PCA_1stadd_like1st_C23.pdf', width = 15, height = 12)
-ggsave('PCA_1stadd_like1st_C23.jpg', width = 15, height = 12)
-
-
 ## 3D plot
 library('rgl')
 cols <- colData(rld)[, 1] %>% factor(., labels = brewer.pal(10, name = 'Paired'))
@@ -281,6 +263,5 @@ for (i in 1:360) {
   view3d(userMatrix=rotationMatrix(2*pi * i/360, 0, 1, 0))
   rgl.snapshot(filename=paste('animation_merge/frame-',
                               sprintf('%03d', i), '.jpg', sep=''))}
-
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ##################################################################
