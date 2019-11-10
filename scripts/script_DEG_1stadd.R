@@ -245,8 +245,8 @@ ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group)) +
   ylab(paste0("PC2: ",percentVar[2],"% variance")) +
   geom_dl(aes(label = ID, color = Group), method = 'smart.grid') +
   scale_colour_manual(values = levels(cols)[colorIdx])
-ggsave('PCA_1stadd_like1st.pdf', width = 15, height = 12)
-ggsave('PCA_1stadd_like1st.jpg', width = 15, height = 12)
+ggsave('PCA_1stadd_35.pdf', width = 15, height = 12)
+ggsave('PCA_1stadd_35.jpg', width = 15, height = 12)
 
 
 rldDataPart <- rldData[, sampleIdx]

@@ -378,27 +378,27 @@ Remove sample effect with SVA
 
 * Mock + Mock_flg22
 
-![PCA_1stadd_M_M22_C12](results/PCA_1stadd_M_M22.jpg)
+![PCA_1stadd_M_M22](results/PCA_1stadd_M_M22.jpg)
 
 * SynCom33
 
-![PCA_1stadd_33_C12](results/PCA_1stadd_33.jpg)
+![PCA_1stadd_33](results/PCA_1stadd_33.jpg)
 
 * SynCom35
 
-![PCA_1stadd_35_C12](results/PCA_1stadd_35.jpg)
+![PCA_1stadd_35](results/PCA_1stadd_35.jpg)
 
 * flg22
 
-![PCA_1stadd_flg22_C12](results/PCA_1stadd_flg22.jpg)
+![PCA_1stadd_flg22](results/PCA_1stadd_flg22.jpg)
 
 * SynCom33 + SynCom33_flg22 + SynCom35 + SynCom35_flg22
 
-![PCA_1stadd_33_35_C12](results/PCA_1stadd_33_35.jpg)
+![PCA_1stadd_33_35](results/PCA_1stadd_33_35.jpg)
 
 * mock + mock_flg22 + SynCom33_flg22 + SynCom35_flg22
 
-![PCA_1stadd_like1st_C12](results/PCA_1stadd_like1st.jpg)
+![PCA_1stadd_like1st](results/PCA_1stadd_like1st.jpg)
 
 * 1st RNA-Seq
 
