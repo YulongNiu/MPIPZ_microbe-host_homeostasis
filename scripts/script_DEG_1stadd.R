@@ -211,12 +211,12 @@ sampleIdx <- c(1:8)
 colorIdx <- c(1:2)
 
 ## 33
-prefixPCA <- 'M_M33'
+prefixPCA <- '33'
 sampleIdx <- c(9:24)
 colorIdx <- c(3:6)
 
 ## 35
-prefixPCA <- 'M_M35'
+prefixPCA <- '35'
 sampleIdx <- c(25:40)
 colorIdx <- c(7:10)
 
