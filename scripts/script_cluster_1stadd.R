@@ -8,6 +8,7 @@ library('gplots')
 library('dendextend')
 library('dynamicTreeCut')
 library('ggplot2')
+library('stringr')
 library('tidyr')
 library('DESeq2')
 library('dplyr')
@@ -236,7 +237,7 @@ cl <- kmeansRes$clreal[match(names(kClust10$cluster), kmeansRes$ID)] %>%
   set_names(names(kClust10$cluster))
 
 cl <- kClust10$cluster
-prefix <- 'kmeans_10'
+prefix <- 'kmeans10'
 
 cl <- kClust10$cluster
 prefix <- 'cluster10'
@@ -255,9 +256,10 @@ clusterGene <- scaleCount %>%
 clusterCore <- clusterGene %>%
   group_by(cl) %>%
   summarise_at(-1, mean, na.rm = TRUE) %>% ## mean of each cluster
-  mutate(cl = cl %>% paste0('cluster_', .)) %>%
-  gather(Sample, NorExpress, -1)
-clusterCore$Sample %<>% factor(levels = sampleN, ordered = TRUE)
+  mutate(cl = paste0('cluster_', cl) %>%
+           factor(levels = paste0('cluster_', cl))) %>%
+  gather(Sample, NorExpress, -1) %>%
+  mutate(Sample = Sample %>% factor(levels = sampleN, ordered = TRUE))
 
 ggplot(clusterCore, aes(Sample, NorExpress, col = cl, group = cl)) +
   geom_point() +
@@ -272,10 +274,12 @@ ggsave(paste0(prefix, '_1stadd.jpg'))
 ## plot all genes
 clusterGenePlot <- clusterGene %>%
   gather(Sample, NorExpress, -ID, -cl) %>%
-  mutate(cl = cl %>% paste0('cluster_', .))
-clusterGenePlot$Sample %<>% factor(levels = sampleN, ordered = TRUE)
+  mutate(cl = paste0('cluster_', cl) %>%
+           factor(levels = paste0('cluster_', sort(unique(cl))))) %>%
+  mutate(Sample = Sample %>% factor(levels = sampleN, ordered = TRUE))
 
-clusterCorePlot <- clusterCore %>% dplyr::mutate(ID = 1 : nrow(clusterCore))
+clusterCorePlot <- clusterCore %>%
+  dplyr::mutate(ID = 1 : nrow(clusterCore))
 ggplot(clusterGenePlot, aes(Sample, NorExpress, group = ID)) +
   geom_line(color = 'grey30', alpha = 0.01) +
   facet_wrap(. ~ cl, ncol = 2) +
@@ -291,7 +295,9 @@ ggsave(paste0(prefix, '_genes_1stadd.jpg'), width = 10, dpi = 320)
 ##~~~~~~~~~~~~~~~~~~~~~~~~cluster cor phenotype~~~~~~~~~~~~~~~~~
 traits <- data.frame(Flg22 = c(0, 1, 0, 1, 0, 1, 0, 1, 0, 1),
                      SynCom33 = c(0, 0, 1, 1, 1, 1, 0, 0, 0, 0),
+                     LiveSynCom33 = c(0, 0, 0, 0, 1, 1, 0, 0, 0, 0),
                      SynCom35 = c(0, 0, 0, 0, 0, 0, 1, 1, 1, 1),
+                     LiveSynCom35 = c(0, 0, 0, 0, 0, 0, 0, 0, 1, 1),
                      LiveBacteria = c(0, 0, 0, 0, 1, 1, 0, 0, 1, 1))
 
 traits <- data.frame(flg22 = c(0, 1, 1, 1),
@@ -339,7 +345,8 @@ ggplot(traitCorPlot, aes(x = x, y = y, fill = correlation)) +
   scale_x_continuous(breaks = 0 : (ncol(traits) - 1), labels = colnames(traits)) +
   scale_y_continuous(breaks = 0 : (ncol(cores) - 1), labels = paste0('cluster_', (ncol(cores)):1)) +
   xlab('Trait') +
-  ylab('Cluster')
+  ylab('Cluster') +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ggsave(paste0(prefix, '_trait_1stadd.jpg'))
 ggsave(paste0(prefix, '_trait_1stadd.pdf'))
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

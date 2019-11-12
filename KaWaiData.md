@@ -419,38 +419,22 @@ Remove sample effect with SVA
 ![kmeans10_genes_1stadd](results/kmeans10_genes_1stadd.jpg)
 
 ```
-   Flg22 SynCom33 SynCom35 bacteria
-1      0        0        0        0
-2      1        0        0        0
-3      0        1        0        0
-4      1        1        0        0
-5      0        1        0        1
-6      1        1        0        1
-7      0        0        1        0
-8      1        0        1        0
-9      0        0        1        1
-10     1        0        1        1
+  Flg22 SynCom33 LiveSynCom33 SynCom35 LiveSynCom35 LiveBacteria
+1      0        0            0        0            0            0
+2      1        0            0        0            0            0
+3      0        1            0        0            0            0
+4      1        1            0        0            0            0
+5      0        1            1        0            0            1
+6      1        1            1        0            0            1
+7      0        0            0        1            0            0
+8      1        0            0        1            0            0
+9      0        0            0        1            1            1
+10     1        0            0        1            1            1
 ```
 
 ![kmeans10_trait_1stadd](results/kmeans10_trait_1stadd.jpg)
 
 ![1stadd.jpg](results/1stadd.jpg)
-
-* Mock HKSynCom33 HKSynCom35
-
-![cluster10_g1_1stadd](results/cluster10_g1_1stadd.jpg)
-
-* Mock Mock+flg22 HKSynCom33+flg22 HKSynCom35+flg22
-
-![cluster10_g2_1stadd](results/cluster10_g2_1stadd.jpg)
-
-* Mock SynCom33 SynCom35
-
-![cluster10_g3_1stadd](results/cluster10_g3_1stadd.jpg)
-
-* Mock Mock+flg22 SynCom33+flg22 SynCom35+flg22
-
-![cluster10_g4_1stadd](results/cluster10_g4_1stadd.jpg)
 
 ## 6. Comparison 
 
