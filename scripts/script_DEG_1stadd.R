@@ -24,6 +24,7 @@ library('rhdf5')
 library('magrittr')
 library('DESeq2')
 library('tidyverse')
+library('apeglm')
 
 anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno.csv',
                  col_types = cols(Chromosome = col_character())) %>%
@@ -58,11 +59,11 @@ rownames(sampleTable) <- colnames(kres$counts)
 
 degres <- DESeqDataSetFromTximport(kres, sampleTable, ~condition)
 
-## remove 0|0|x|x, 0|0|0|x, 0|0|0|0
+## remove 0|0|0|x, 0|0|0|0
 degres %<>%
   estimateSizeFactors %>%
   counts(normalized = TRUE) %>%
-  apply(1, checkFlg22, 1) %>%
+  apply(1, checkFlg22, 2) %>%
   degres[., ]
 
 degres <- DESeq(degres)
@@ -124,6 +125,7 @@ resRaw <- lapply(cond,
                  function(x) {
                    degres %>%
                      results(name = paste0('condition_', x)) %T>%
+                     ## lfcShrink(coef = paste0('condition_', x), type = 'apeglm') %T>%
                      summary %>%
                      as_tibble %>%
                      select(pvalue, padj, log2FoldChange) %>%
@@ -131,8 +133,7 @@ resRaw <- lapply(cond,
                  }) %>%
   bind_cols
 
-
-res <- cbind.data.frame(as.matrix(mcols(degres)[, 1:10]), assay(ntd), stringsAsFactors = FALSE) %>%
+res <- cbind.data.frame(as.matrix(mcols(degres)[, 1:10]), counts(degres, normalize = TRUE), stringsAsFactors = FALSE) %>%
   rownames_to_column(., var = 'ID') %>%
   as_tibble %>%
   bind_cols(resRaw) %>%
@@ -266,5 +267,7 @@ for (i in 1:360) {
   view3d(userMatrix=rotationMatrix(2*pi * i/360, 0, 1, 0))
   rgl.snapshot(filename=paste('animation_merge/frame-',
                               sprintf('%03d', i), '.jpg', sep=''))}
+
+save(degres, rldData, file = 'degres_condi_Mock_1stadd.RData')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ##################################################################

@@ -50,7 +50,7 @@ corPvalueStudent <- function(cor, nSamples) {
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~k-means cluster~~~~~~~~~~~~~~~~~~~~~~~~~
-rawCount <- counts(degres)
+rawCount <- rldData
 
 ## mean value of normalized count
 sampleN <- c('Mock', 'Mock_Flg22', 'HKSynCom33', 'HKSynCom33_Flg22', 'SynCom33', 'SynCom33_Flg22', 'HKSynCom35', 'HKSynCom35_Flg22', 'SynCom35', 'SynCom35_Flg22')
@@ -132,12 +132,11 @@ hc <- scaleCount %>%
   as.dist %>%
   hclust(method = 'complete')
 
-
 z_var <- apply(meanCount, 1, var)
 z_mean <- apply(meanCount, 1, mean)
 plot(log2(z_mean), log2(z_var), pch = '.')
-abline(h = log2(1), col='red')
-abline(v = log2(1), col='red')
+abline(h = 1, col='red')
+abline(v = 1, col='red')
 text(x = 13,
      y = 23,
      labels = 'variance > 1 &\n mean > 1',
@@ -161,8 +160,8 @@ ggplot(tibble(k = 1:20, wss = wss), aes(k, wss)) +
   geom_line(linetype = 'dashed') +
   xlab('Number of clusters') +
   ylab('Sum of squared error')
-ggsave('kmeans_sse_1stadd_g4.pdf')
-ggsave('kmeans_sse_1stadd_g4.jpg')
+ggsave('kmeans_sse_1stadd.pdf')
+ggsave('kmeans_sse_1stadd.jpg')
 
 
 ## 2. Akaike information criterion
@@ -185,8 +184,8 @@ ggplot(tibble(k = 1:20, aic = aic), aes(k, wss)) +
   geom_line(linetype = 'dashed') +
   xlab('Number of clusters') +
   ylab('Akaike information criterion')
-ggsave('kmeans_AIC_1stadd_g4.pdf')
-ggsave('kmeans_AIC_1stadd_g4.jpg')
+ggsave('kmeans_AIC_1stadd.pdf')
+ggsave('kmeans_AIC_1stadd.jpg')
 
 ## execute
 kClust10 <- kmeans(scaleCount, centers = 10, algorithm= 'MacQueen', nstart = 1000, iter.max = 20)
@@ -235,11 +234,12 @@ kmeansRes <- read_csv('../results/cluster10_1stadd.csv',
 
 cl <- kmeansRes$clreal[match(names(kClust10$cluster), kmeansRes$ID)] %>%
   set_names(names(kClust10$cluster))
-##cl <- kClust10$cluster
+
+cl <- kClust10$cluster
 prefix <- 'kmeans_10'
 
 cl <- kClust10$cluster
-prefix <- 'cluster10_g4'
+prefix <- 'cluster10'
 
 clusterGene <- scaleCount %>%
   as.data.frame %>%
