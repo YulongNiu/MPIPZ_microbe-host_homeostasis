@@ -414,9 +414,9 @@ Remove sample effect with SVA
 
 ![kmeans_AIC_1stadd](results/kmeans_AIC_1stadd.jpg)
 
-![cluster10_1stadd](results/cluster10_1stadd.jpg)
+![kmeans10_1stadd](results/kmeans10_1stadd.jpg)
 
-![cluster10_genes_1stadd](results/cluster10_genes_1stadd.jpg)
+![kmeans10_genes_1stadd](results/kmeans10_genes_1stadd.jpg)
 
 ```
    Flg22 SynCom33 SynCom35 bacteria
@@ -432,7 +432,7 @@ Remove sample effect with SVA
 10     1        0        1        1
 ```
 
-![cluster10_trait_1stadd](results/cluster10_trait_1stadd.jpg)
+![kmeans10_trait_1stadd](results/kmeans10_trait_1stadd.jpg)
 
 ![1stadd.jpg](results/1stadd.jpg)
 
