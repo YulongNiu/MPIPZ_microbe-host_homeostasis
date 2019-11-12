@@ -58,20 +58,17 @@ rownames(sampleTable) <- colnames(kres$counts)
 
 degres <- DESeqDataSetFromTximport(kres, sampleTable, ~condition)
 
-## DEGs
+## remove 0|0|x|x, 0|0|0|x, 0|0|0|0
 degres %<>%
   estimateSizeFactors %>%
   counts(normalized = TRUE) %>%
   apply(1, checkFlg22, 1) %>%
   degres[., ]
 
-save(degres, file = 'degres_condi_Mock_1stadd.RData')
-
 degres <- DESeq(degres)
 
 ## count transformation
 rld <- rlog(degres)
-vst <- varianceStabilizingTransformation(degres)
 ntd <- normTransform(degres)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -147,7 +144,7 @@ write_csv(res, 'eachGroup_vs_Mock_k_1stadd.csv')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PCA~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-library('directlabels')
+library('ggrepel')
 library('ggplot2')
 library('RColorBrewer')
 library('limma')
@@ -182,12 +179,12 @@ percentVar <- round(100 * percentVar)
 pca1 <- pca$x[,1]
 pca2 <- pca$x[,2]
 pcaData <- data.frame(PC1 = pca1, PC2 = pca2, Group = colData(rld)[, 1], ID = rownames(colData(rld)))
-ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group)) +
+ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group, label = ID)) +
   geom_point(size = 3) +
   xlab(paste0("PC1: ",percentVar[1],"% variance")) +
   ylab(paste0("PC2: ",percentVar[2],"% variance")) +
-  geom_dl(aes(label = ID, color = Group), method = 'smart.grid') +
-  scale_colour_manual(values = levels(cols))
+  scale_colour_manual(values = levels(cols)) +
+  geom_text_repel(force = 5)
 ggsave('PCA_1stadd_sva.pdf', width = 15, height = 12)
 ggsave('PCA_1stadd_sva.jpg', width = 15, height = 12)
 
