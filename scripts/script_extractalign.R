@@ -1,5 +1,5 @@
 ###########################Raw reads######################
-rawpath <- '/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data_soil'
+rawpath <- '/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data_1stadd'
 setwd(rawpath)
 
 library('magrittr')
@@ -114,13 +114,13 @@ KHoutput <- function(op, type = 'PE', org = 'hsa') {
 }
 
 ##~~~~~~~~~~~~~~~~~~~~~~~test contamination~~~~~~~~~~~~~~~~~~~~~~~~~~~
-athout <- 'align_nohup_soil.out' %>%
+athout <- 'align_nohup_1stadd.out' %>%
   readLines %>%
   KHoutput(type = 'PE', org = 'ath') %>%
   mutate(H_ath = round(hmap/trimfq, 3), K_ath = round(kmap/trimfq, 3)) %>%
   select(c(-hmap, -kmap, -org))
 
-athvirusout <- 'align_nohup_soil_latenvirus.out' %>%
+athvirusout <- 'align_nohup_1stadd_latenvirus.out' %>%
   readLines %>%
   KHoutput(type = 'PE', org = 'ath') %>%
   mutate(H_ath = round(hmap/trimfq, 3), K_ath = round(kmap/trimfq, 3)) %>%
@@ -128,13 +128,13 @@ athvirusout <- 'align_nohup_soil_latenvirus.out' %>%
   rename(Hvirus_ath = H_ath, Kvirus_ath = K_ath)
 
 ## raw reads
-rawrd <- read_csv('raw_seqnumber_soil.csv')
+rawrd <- read_csv('raw_seqnumber_1stadd.csv')
 
 contam <- rawrd %>%
   inner_join(athout) %>%
   inner_join(athvirusout) %>%
   select(sample, everything())
 
-write_csv(contam, 'ath_alignment_soil.csv')
+write_csv(contam, 'ath_alignment_1stadd.csv')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ######################################################

@@ -226,7 +226,7 @@ HISAT2 using ath genome for HKSynCom33_Flg22_2.
   11142660 (100.00%) were paired; of these:
     494677 (4.44%) aligned concordantly 0 times
     10435478 (93.65%) aligned concordantly exactly 1 time
-    212505 (1.91%) aligned concordantly >1 times
+    212505 (1.91%) aligned concordantly >1
     ----
     494677 pairs aligned concordantly 0 times; of these:
       8235 (1.66%) aligned discordantly 1 time
@@ -881,27 +881,27 @@ Kallisto using ath cDNA for SynCom33_1.
 [quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom33_1_R1.fq.gz
                              /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd/SynCom33_1_R2.fq.gz
 [quant] finding pseudoalignments for the reads ... done
-[quant] processed 8,341,083 reads, 8,099,168 reads pseudoaligned
-[quant] estimated average fragment length: 284.753
+[quant] processed 10,238,121 reads, 9,941,418 reads pseudoaligned
+[quant] estimated average fragment length: 284.796
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,067 rounds
+[   em] the Expectation-Maximization algorithm ran for 980 rounds
 
 HISAT2 using ath genome for SynCom33_1.
-8341083 reads; of these:
-  8341083 (100.00%) were paired; of these:
-    349196 (4.19%) aligned concordantly 0 times
-    7810763 (93.64%) aligned concordantly exactly 1 time
-    181124 (2.17%) aligned concordantly >1 times
+10238121 reads; of these:
+  10238121 (100.00%) were paired; of these:
+    421505 (4.12%) aligned concordantly 0 times
+    9590846 (93.68%) aligned concordantly exactly 1 time
+    225770 (2.21%) aligned concordantly >1 times
     ----
-    349196 pairs aligned concordantly 0 times; of these:
-      4799 (1.37%) aligned discordantly 1 time
+    421505 pairs aligned concordantly 0 times; of these:
+      5899 (1.40%) aligned discordantly 1 time
     ----
-    344397 pairs aligned 0 times concordantly or discordantly; of these:
-      688794 mates make up the pairs; of these:
-        410871 (59.65%) aligned 0 times
-        264438 (38.39%) aligned exactly 1 time
-        13485 (1.96%) aligned >1 times
-97.54% overall alignment rate
+    415606 pairs aligned 0 times concordantly or discordantly; of these:
+      831212 mates make up the pairs; of these:
+        496748 (59.76%) aligned 0 times
+        317680 (38.22%) aligned exactly 1 time
+        16784 (2.02%) aligned >1 times
+97.57% overall alignment rate
 [bam_sort_core] merging from 0 files and 120 in-memory blocks...
 =====================================
 ====================================
