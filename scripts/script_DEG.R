@@ -109,6 +109,11 @@ ggsave('auto_sv.pdf')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~DEG Mock vs. 3 conditions~~~~~~~~~~~~~~~~~
+degres$sv1 <- svobj$sv[, 1]
+degres$sv2 <- svobj$sv[, 2]
+degres$sv3 <- svobj$sv[, 3]
+design(degres) <- ~sv1 + sv2 + sv3 + condition
+
 cond <- degres %>%
   resultsNames %>%
   str_extract('(?<=condition_).*') %>%
@@ -125,14 +130,13 @@ resRaw <- lapply(cond,
                  }) %>%
   bind_cols
 
-
-res <- cbind.data.frame(as.matrix(mcols(degres)[, 1:10]), assay(ntd), stringsAsFactors = FALSE) %>%
+res <- cbind.data.frame(as.matrix(mcols(degres)[, 1:10]), counts(degres, normalize = TRUE), stringsAsFactors = FALSE) %>%
   rownames_to_column(., var = 'ID') %>%
   as_tibble %>%
   bind_cols(resRaw) %>%
   inner_join(anno, by = 'ID') %>%
-  select(ID, Gene : Description, Mock_1 : Flg22_SynCom35_vs_Mock_log2FoldChange) %>%
-  arrange(Flg22_vs_Mock_padj)
+  select(ID, Gene : Description, Mock_1 : SynCom35_Flg22_vs_Mock_log2FoldChange) %>%
+  arrange(Mock_Flg22_vs_Mock_padj)
 
 write_csv(res, 'eachGroup_vs_Mock_k.csv')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -173,5 +177,7 @@ ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group, label = ID)) +
   geom_text_repel(force = 5)
 ggsave('PCA_raw.pdf', width = 15, height = 12)
 ggsave('PCA_raw.jpg', width = 15, height = 12)
+
+save(degres, rldData, file = 'degres_condi_Mock.RData')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ##################################################################
