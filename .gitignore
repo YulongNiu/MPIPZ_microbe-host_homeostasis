@@ -10,6 +10,7 @@
 *.bam.bai
 align_data_1stadd/
 align_data_1stadd_virus1/
+align_data/
 scripts/.history
 results/.history
 .history

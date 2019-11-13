@@ -36,7 +36,7 @@ anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno
 wd <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/align_data_1stadd/'
 setwd(wd)
 
-annoSample <- read_delim('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results//list_samples_1stadd.txt', delim = '\t')
+annoSample <- read_delim('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/list_samples_1stadd.txt', delim = '\t')
 
 slabel <- annoSample$Anno %>%
   paste0('_ath_kallisto')

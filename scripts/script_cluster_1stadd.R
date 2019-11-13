@@ -583,24 +583,6 @@ blanke <- ggplot(tibble(x = 0, y = 0 : (nrow(heatPlot) - 1)),
   theme_flg22(title = element_blank(),
               legend.position = 'none')
 
-cairo_1stadd.pdf(paste0(prefix, '_heatmap_merge_1stadd.pdf'), width = 15)
-grid.arrange(groupne,
-             groupe,
-             blanke,
-             rawe,
-             blanke,
-             scalee,
-             blanke,
-             fce,
-             blanke,
-             sige,
-             sigte,
-             nrow = 1,
-             ncol = 11,
-             widths = c(3.5, 1, 0.5, 13, 0.5, 13, 0.5, 3, 0.5, 3, 10) %>% {. / sum(.)})
-dev.off()
-
-
 g <- grid.arrange(groupne,
                   groupe,
                   blanke,
@@ -628,7 +610,13 @@ inner_join(deganno, heatPlot) %>%
 ##########################plot genes############################
 cgenes <- c('AT1G14550.1', 'AT2G30750.1', 'AT2G19190.1', 'AT5G24110.1')
 
-genePlot <- deganno %>%
+d <- plotCounts(degres, gene=cgenes[1], intgroup="condition")
+
+genePlot <- rldData %>%
+  as.data.frame %>%
+  rownames_to_column('ID') %>%
+  as_tibble %>%
+  inner_join(deganno %>% select(ID, Gene)) %>%
   filter(ID %in% cgenes) %>%
   select(Gene, Mock_1 : SynCom35_Flg22_4) %>%
   gather(ID, NormCount, -1) %>%

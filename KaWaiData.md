@@ -135,16 +135,6 @@ Flg22_SynCom35_3 Flg22_SynCom35
 
 [results/eachGroup_vs_Mock_k_full.csv](results/eachGroup_vs_Mock_k_full.csv) (remove genes with zero count) and [results/eachGroup_vs_Mock_k.csv](results/eachGroup_vs_Mock_k.csv) (remove gene with at least two zero count in one condition).
 
-* 2 groups (flg22_SynCom33 and flg22_SynCom35) *vs.* flg22
-
-[results/SynCom_vs_flg22_k_full.csv](results/SynCom_vs_flg22_k_full.csv) and [results/SynCom_vs_flg22_k.csv](results/SynCom_vs_flg22_k.csv).
-
-* 1 groups flg22_SynCom35 *vs.* flg22_SynCom33
-
-[results/SynCom35_vs_SynCom33_k_full.csv](SynCom35_vs_SynCom33_k_full.csv) and [results/SynCom35_vs_SynCom33_k.csv](results/SynCom35_vs_SynCom33_k.csv).
-
-> logarithm transformation in columns `Mock_1` to `Flg22_SynCom35_3`.
-
 ### 4.3 Cluster ###
 
 #### 4.3.1 Hierarchical clustering ####
@@ -243,16 +233,6 @@ Choose k (group number) by the sum of squared error (SSE) and Akaike information
 * heatmaps
   
   ![heatmap_merge](results/kmeans_10_heatmap_merge.jpg)
-  
-  ![heatmap_group](results/kmeans_10_heatmap_group.jpg)
-  
-  ![heatmap_raw](results/kmeans_10_heatmap_raw.jpg)
-  
-  ![heatmap_scale](results/kmeans_10_heatmap_scale.jpg)
-  
-  ![heatmap_logFC](results/kmeans_10_heatmap_logFC.jpg)
-  
-  ![heatmap_sig](results/kmeans_10_heatmap_sig.jpg)
   
 ### 4.4 Gene-set analysis ###
 
