@@ -192,16 +192,6 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
   
   ![heatmap_merge](results/hclust_1d5_heatmap_merge.jpg)
   
-  ![heatmap_group](results/hclust_1d5_heatmap_group.jpg)
-  
-  ![heatmap_raw](results/hclust_1d5_heatmap_raw.jpg)
-  
-  ![heatmap_scale](results/hclust_1d5_heatmap_scale.jpg)
-  
-  ![heatmap_logFC](results/hclust_1d5_heatmap_logFC.jpg)
-  
-  ![heatmap_sig](results/hclust_1d5_heatmap_sig.jpg)
-  
 #### 4.3.2 k-means clustering ####
 
 Choose k (group number) by the sum of squared error (SSE) and Akaike information criterion (AIC). k number **10** was finally chose.
