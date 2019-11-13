@@ -138,21 +138,40 @@ write_csv(res, 'eachGroup_vs_Mock_k.csv')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PCA~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-library('directlabels')
+library('ggrepel')
 library('ggplot2')
+library('RColorBrewer')
+library('limma')
+library('sva')
 
-pca <- prcomp(t(assay(rld)))
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## remove low count
+dat <- rld %>%
+  assay %>%
+  {.[rowMeans(.) > 1, ]}
+
+group <- sampleTable$condition
+design <- model.matrix(~ group)
+rldData <- dat %>%
+  removeBatchEffect(covariates = svobj$sv,
+                    design = design)
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+cols <- colData(rld)[, 1] %>% factor(levels = c('#a6cee3', '#1f78b4', '#e31a1c', '#6a3d9a'))
+
+pca <- prcomp(t(dat))
 percentVar <- pca$sdev^2/sum(pca$sdev^2)
 percentVar <- round(100 * percentVar)
 pca1 <- pca$x[,1]
 pca2 <- pca$x[,2]
 pcaData <- data.frame(PC1 = pca1, PC2 = pca2, Group = colData(rld)[, 1], ID = rownames(colData(rld)))
-cairo_pdf('PCA.pdf', width = 12)
-ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group)) +
+ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group, label = ID)) +
   geom_point(size = 3) +
+  scale_colour_manual(values = levels(cols)) +
   xlab(paste0("PC1: ",percentVar[1],"% variance")) +
   ylab(paste0("PC2: ",percentVar[2],"% variance")) +
-  geom_dl(aes(label = ID, color = Group), method = 'smart.grid')
-dev.off()
+  geom_text_repel(force = 5)
+ggsave('PCA_raw.pdf', width = 15, height = 12)
+ggsave('PCA_raw.jpg', width = 15, height = 12)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ##################################################################

@@ -109,7 +109,11 @@ The *Arabidopsis thaliana* Col-0 treated with flg22, SynCom33+flg22, and SynCom3
 
 * PCA plot
 
-![PCA](results/PCA.jpg)
+![PCA_raw](results/PCA_raw.jpg)
+
+![auto_sv](results/auto_sv.jpg)
+
+![PCA_sva](results/PCA_sva.jpg)
 
 > rlog (regularized log transformation) in PCA.
 
