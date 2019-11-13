@@ -50,10 +50,10 @@ corPvalueStudent <- function(cor, nSamples) {
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~prepare counts~~~~~~~~~~~~~~~~~~~~~~~~~~
-rawCount <- counts(degres)
+rawCount <- rldData
 
 ## mean value of normalized count
-sampleN <- c('Mock', 'Flg22', 'Flg22_SynCom33', 'Flg22_SynCom35')
+sampleN <- c('Mock', 'Mock_Flg22', 'SynCom33_Flg22', 'SynCom35_Flg22')
 meanCount <- rawCount %>%
   apply(1, meanFlg22) %>%
   t
@@ -124,8 +124,8 @@ clusDyn <- scaleCount %>%
 z_var <- apply(meanCount, 1, var)
 z_mean <- apply(meanCount, 1, mean)
 plot(log2(z_mean), log2(z_var), pch = '.')
-abline(h = log2(1), col='red')
-abline(v = log2(1), col='red')
+abline(h = 1, col='red')
+abline(v = 1, col='red')
 text(x = 13,
      y = 23,
      labels = 'variance > 1 &\n mean > 1',
@@ -151,7 +151,6 @@ ggplot(tibble(k = 1:20, wss = wss), aes(k, wss)) +
   ylab('Sum of squared error')
 ggsave('kmeans_sse.pdf')
 ggsave('kmeans_sse.jpg')
-
 
 ## 2. Akaike information criterion
 kmeansAIC = function(fit){
@@ -206,7 +205,7 @@ abline(h=1.0, lty = 2, col='grey')
 abline(h=0.5, lty = 2, col='grey')
 dev.off()
 
-cgenes <- c('AT1G14550.1', 'AT2G30750.1', 'AT2G19190.1')
+cgenes <- c('AT1G14550.1', 'AT2G30750.1', 'AT2G19190.1', 'AT5G24110.1')
 hclusth1.5[cgenes]
 hclusth1.0[cgenes]
 hclusth0.5[cgenes]
@@ -223,12 +222,9 @@ kmeansRes <- read_csv('../results/kmeans_10.csv',
 
 cl <- kmeansRes$clreal[match(names(kClust10$cluster), kmeansRes$ID)] %>%
   set_names(names(kClust10$cluster))
-##cl <- kClust10$cluster
+
+cl <- kClust10$cluster
 prefix <- 'kmeans_10'
-
-cl <- hclusth1.5
-prefix <- 'hclust_1d5'
-
 
 clusterGene <- scaleCount %>%
   as.data.frame %>%
@@ -240,14 +236,14 @@ clusterGene <- scaleCount %>%
     inner_join(., cl)
   }
 
-
 ## plot core cluster
 clusterCore <- clusterGene %>%
   group_by(cl) %>%
-  summarise_at(2:5, mean, na.rm = TRUE) %>% ## mean of each cluster
-  mutate(cl = cl %>% paste0('cluster_', .)) %>%
-  gather(Sample, NorExpress, Mock : flg22_SynCom35)
-clusterCore$Sample %<>% factor(levels = c('Mock', 'flg22', 'flg22_SynCom33', 'flg22_SynCom35'), ordered = TRUE)
+  summarise_at(-1, mean, na.rm = TRUE) %>% ## mean of each cluster
+  mutate(cl = paste0('cluster_', cl) %>%
+           factor(levels = paste0('cluster_', cl))) %>%
+  gather(Sample, NorExpress, -1) %>%
+  mutate(Sample = Sample %>% factor(levels = sampleN, ordered = TRUE))
 
 ggplot(clusterCore, aes(Sample, NorExpress, col = cl, group = cl)) +
   geom_point() +
@@ -255,17 +251,17 @@ ggplot(clusterCore, aes(Sample, NorExpress, col = cl, group = cl)) +
   facet_wrap(. ~ cl, ncol = 2) +
   ylab('Scaled counts') +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  guides(colour = guide_legend(title = 'kmeans (k = 10)'))
+  guides(colour = guide_legend(title = 'kmeans (k=10)'))
 ggsave(paste0(prefix, '.pdf'))
 ggsave(paste0(prefix, '.jpg'))
 
 ## plot all genes
 clusterGenePlot <- clusterGene %>%
-  gather(Sample, NorExpress, Mock : flg22_SynCom35) %>%
-  mutate(cl = cl %>% paste0('cluster_', .))
-clusterGenePlot$Sample %<>% factor(levels = c('Mock', 'flg22', 'flg22_SynCom33', 'flg22_SynCom35'), ordered = TRUE)
+  gather(Sample, NorExpress, -ID, -cl) %>%
+  mutate(cl = paste0('cluster_', cl) %>%
+           factor(levels = paste0('cluster_', sort(unique(cl))))) %>%
+  mutate(Sample = Sample %>% factor(levels = sampleN, ordered = TRUE))
 
-clusterCorePlot <- clusterCore %>% dplyr::mutate(ID = 1 : nrow(clusterCore))
 ggplot(clusterGenePlot, aes(Sample, NorExpress, group = ID)) +
   geom_line(color = 'grey30', alpha = 0.01) +
   facet_wrap(. ~ cl, ncol = 2) +
@@ -347,7 +343,7 @@ rawC <- rawCount %>%
   rename_at(-1, .funs = list(~paste0('Raw_', .)))
 
 degresC <- deganno %>%
-  select(ID, Flg22_vs_Mock_pvalue : Flg22_SynCom35_vs_Mock_log2FoldChange)
+  select(ID, Mock_Flg22_vs_Mock_pvalue : SynCom35_Flg22_vs_Mock_log2FoldChange)
 
 heatPlot <- rawC %>%
   inner_join(scaleC) %>%
@@ -362,19 +358,19 @@ heatPlot <- rawC %>%
 
 heatRawPlot <- heatPlot %>%
   select(ID, starts_with('Raw')) %>%
-  gather(sample, raw, Raw_Mock_1 : Raw_Flg22_SynCom35_3) %>%
+  gather(sample, raw, -1) %>%
   mutate(x = rep(0 : 11, each = nrow(heatPlot))) %>%
   mutate(y = rep(0 : (nrow(heatPlot) - 1), 12))
 
 heatScalePlot <- heatPlot %>%
   select(ID, starts_with('Scale')) %>%
-  gather(sample, scale, Scale_Mock_1 : Scale_Flg22_SynCom35_3) %>%
+  gather(sample, scale, -1) %>%
   mutate(x = rep(0 : 11, each = nrow(heatPlot))) %>%
   mutate(y = rep(0 : (nrow(heatPlot) - 1), 12))
 
 heatlog2FCPlot <- heatPlot %>%
   select(ID, ends_with('FoldChange')) %>%
-  gather(sample, log2FC, Flg22_vs_Mock_log2FoldChange : Flg22_SynCom35_vs_Mock_log2FoldChange) %>%
+  gather(sample, log2FC, -1) %>%
   mutate(x = rep(0 : 2, each = nrow(heatPlot))) %>%
   mutate(y = rep(0 : (nrow(heatPlot) - 1), 3))
 
@@ -422,7 +418,7 @@ ggplot(heatRawPlot, aes(x = x, y = y, fill = log2(raw))) +
   geom_tile() +
   scale_fill_gradientn(colours = colorRampPalette(brewer.pal(n = 7, name = 'GnBu'))(100), name = 'log2(count)') +
   scale_x_continuous(breaks = 0 : 11,
-                     labels = rep(c('Mock', 'flg22', 'flg22_SynCom33', 'flg22_SynCom35'), each = 3) %>%
+                     labels = rep(sampleN, each = 3) %>%
                        paste(rep(1 : 3, 4), sep = '_')) +
   theme_flg22(legend.position = 'left',
               axis.text.x = element_text(angle = 90, hjust = 1))
@@ -433,7 +429,7 @@ ggplot(heatScalePlot, aes(x = x, y = y, fill = scale)) +
   geom_tile() +
   scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 7, name = 'RdYlBu')))(100), name = 'scale(count)') +
   scale_x_continuous(breaks = 0 : 11,
-                     labels = rep(c('Mock', 'flg22', 'flg22_SynCom33', 'flg22_SynCom35'), each = 3) %>%
+                     labels = rep(sampleN, each = 3) %>%
                        paste(rep(1 : 3, 4), sep = '_')) +
   theme_flg22(legend.position = 'left',
               axis.text.x = element_text(angle = 90, hjust = 1))
