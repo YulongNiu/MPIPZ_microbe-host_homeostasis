@@ -342,13 +342,17 @@ Find significantly changed gene ontology, KEGG, and BioCyc gene-sets in each k-m
 
 ![PCA_1stadd_C23_raw](results/PCA_1stadd_C23_raw.jpg)
 
-Remove sample effect with SVA
+* Remove sample effect with SVA
 
 ![auto_sv_1stadd](results/auto_sv_1stadd.jpg)
 
 ![PCA_1stadd_sva](results/PCA_1stadd_sva.jpg)
 
 ![PCA_1stadd_3d](results/PCA_1stadd_3d.gif)
+
+* Virus load
+
+![PCA_1stadd_virusload_sva](results/PCA_1stadd_virusload_sva.jpg)
 
 * Mock + Mock_flg22
 

@@ -272,6 +272,19 @@ save(degres, rldData, file = 'degres_condi_Mock_1stadd.RData')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~virus load~~~~~~~~~~~~~~~~~~~~~~~~~~
+virusLoad <- read_csv('ath_alignment.csv') %>%
+  mutate(K_virus = Kvirus_ath - K_ath)
 
+virusData <- inner_join(virusLoad, pcaData, by = c('sample' = 'ID'))
+ggplot(virusData, aes(x = PC1, y = PC2, colour = K_virus, label = sample)) +
+  geom_point(size = 3) +
+  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
+  ylab(paste0("PC2: ",percentVar[2],"% variance")) +
+  geom_text_repel(force = 5) +
+  scale_colour_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 4, name = 'RdYlBu')))(10)) +
+  labs(col = 'Virus load')
+
+ggsave('PCA_1stadd_virusload_sva.pdf', width = 15, height = 12)
+ggsave('PCA_1stadd_virusload_sva.jpg', width = 15, height = 12)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ##################################################################
