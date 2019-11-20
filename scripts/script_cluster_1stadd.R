@@ -15,6 +15,7 @@ library('dplyr')
 library('RColorBrewer')
 library('gridExtra')
 library('cluster')
+library('scales')
 
 load('degres_condi_Mock_1stadd.RData')
 deganno <- read_csv('eachGroup_vs_Mock_k_1stadd.csv',
@@ -239,9 +240,6 @@ cl <- kmeansRes$clreal[match(names(kClust10$cluster), kmeansRes$ID)] %>%
 cl <- kClust10$cluster
 prefix <- 'kmeans10'
 
-cl <- kClust10$cluster
-prefix <- 'cluster10'
-
 clusterGene <- scaleCount %>%
   as.data.frame %>%
   rownames_to_column(var = 'ID') %>%
@@ -266,8 +264,16 @@ ggplot(clusterCore, aes(Sample, NorExpress, col = cl, group = cl)) +
   geom_line() +
   facet_wrap(. ~ cl, ncol = 2) +
   ylab('Scaled counts') +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  guides(colour = guide_legend(title = 'kmeans (k=10)'))
+  scale_color_manual(values = hue_pal()(10),
+                     breaks = kClust10$cluster %>%
+                       table %>%
+                       names %>%
+                       paste0('cluster_', .),
+                     labels = kClust10$cluster %>%
+                       table %>%
+                       {paste0('cluster_', names(.), ' ', .)},
+                     guide = guide_legend(title = 'kmeans (k = 10)')) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ggsave(paste0(prefix, '_1stadd.pdf'))
 ggsave(paste0(prefix, '_1stadd.jpg'))
 

@@ -283,8 +283,19 @@ ggplot(virusData, aes(x = PC1, y = PC2, colour = K_virus, label = sample)) +
   geom_text_repel(force = 5) +
   scale_colour_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 4, name = 'RdYlBu')))(10)) +
   labs(col = 'Virus load')
-
 ggsave('PCA_1stadd_virusload_sva.pdf', width = 15, height = 12)
 ggsave('PCA_1stadd_virusload_sva.jpg', width = 15, height = 12)
+
+
+hc <- rldData %>%
+  cor(method = 'pearson') %>%
+  {1 - .} %>%
+  as.dist %>%
+  hclust(method = 'complete')
+
+hc %>%
+  as.dendrogram(method = 'average') %>%
+  plot(main = 'Sample Clustering',
+       ylab = 'Height')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ##################################################################
