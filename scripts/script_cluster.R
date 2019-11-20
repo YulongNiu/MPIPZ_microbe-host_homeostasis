@@ -558,7 +558,6 @@ blanke <- ggplot(tibble(x = 0, y = 0 : (nrow(heatPlot) - 1)),
   theme_flg22(title = element_blank(),
               legend.position = 'none')
 
-cairo_pdf(paste0(prefix, '_heatmap_merge.pdf'), width = 15)
 grid.arrange(groupne,
              groupe,
              blanke,
@@ -573,7 +572,6 @@ grid.arrange(groupne,
              nrow = 1,
              ncol = 11,
              widths = c(3.5, 1, 0.5, 13, 0.5, 13, 0.5, 3, 0.5, 3, 10) %>% {. / sum(.)})
-dev.off()
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ## write the cluster file
