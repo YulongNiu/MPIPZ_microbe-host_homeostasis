@@ -528,7 +528,7 @@ rawe <- ggplot(heatRawPlot, aes(x = x, y = y, fill = log2(raw))) +
 
 scalee <- ggplot(heatScalePlot, aes(x = x, y = y, fill = scale)) +
   geom_tile() +
-  scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 7, name = 'RdYlBu')))(100), name = 'scale(count)') +
+  scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral')))(50), name = 'scale(count)') +
   labs(x = NULL, y = NULL) +
   scale_y_continuous(expand = c(0, 0), breaks = NULL) +
   scale_x_continuous(expand = c(0, 0), breaks = NULL) +
@@ -605,6 +605,16 @@ g <- grid.arrange(groupne,
 ggsave(file = paste0(prefix, '_heatmap_merge_1stadd.pdf'), plot = g)
 ggsave(file = paste0(prefix, '_heatmap_merge_1stadd.jpg'), plot = g)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+g <- grid.arrange(groupne,
+                  groupe,
+                  blanke,
+                  scalee,
+                  nrow = 1,
+                  ncol = 4,
+                  widths = c(3.5, 1, 0.5, 13) %>% {. / sum(.)})
+ggsave(file = paste0(prefix, '_heatmap_all.pdf'), plot = g)
+ggsave(file = paste0(prefix, '_heatmap_all.jpg'), plot = g)
 
 ## write the cluster file
 inner_join(deganno, heatPlot) %>%

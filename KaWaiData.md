@@ -412,7 +412,7 @@ Find significantly changed gene ontology, KEGG, and BioCyc gene-sets in each k-m
 
 ![kmeans10_trait_1stadd](results/kmeans10_trait_1stadd.jpg)
 
-![1stadd.jpg](results/1stadd.jpg)
+![kmeans10_heatmap_all_900den](results/kmeans10_heatmap_all_900den.jpg)
 
 ## 6. Comparison 
 
