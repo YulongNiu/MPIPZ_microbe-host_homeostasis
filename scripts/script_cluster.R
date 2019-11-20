@@ -14,6 +14,7 @@ library('dplyr')
 library('RColorBrewer')
 library('gridExtra')
 library('cluster')
+library('scales')
 
 load('degres_condi_Mock.RData')
 deganno <- read_csv('eachGroup_vs_Mock_k.csv',
@@ -250,8 +251,16 @@ ggplot(clusterCore, aes(Sample, NorExpress, col = cl, group = cl)) +
   geom_line() +
   facet_wrap(. ~ cl, ncol = 2) +
   ylab('Scaled counts') +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  guides(colour = guide_legend(title = 'kmeans (k=10)'))
+  scale_color_manual(values = hue_pal()(10),
+                     breaks = kClust10$cluster %>%
+                       table %>%
+                       names %>%
+                       paste0('cluster_', .),
+                     labels = kClust10$cluster %>%
+                       table %>%
+                       {paste0('cluster_', names(.), ' ', .)},
+                     guide = guide_legend(title = 'kmeans (k = 10)')) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ggsave(paste0(prefix, '.pdf'))
 ggsave(paste0(prefix, '.jpg'))
 
@@ -262,6 +271,8 @@ clusterGenePlot <- clusterGene %>%
            factor(levels = paste0('cluster_', sort(unique(cl))))) %>%
   mutate(Sample = Sample %>% factor(levels = sampleN, ordered = TRUE))
 
+clusterCorePlot <- clusterCore %>%
+  dplyr::mutate(ID = 1 : nrow(clusterCore))
 ggplot(clusterGenePlot, aes(Sample, NorExpress, group = ID)) +
   geom_line(color = 'grey30', alpha = 0.01) +
   facet_wrap(. ~ cl, ncol = 2) +
@@ -269,7 +280,7 @@ ggplot(clusterGenePlot, aes(Sample, NorExpress, group = ID)) +
   geom_line(data = clusterCorePlot, aes(Sample, NorExpress, group = cl, col = cl)) +
   ylab('Scaled counts') +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  guides(colour = guide_legend(title = 'kmeans (k=10)'))
+  guides(colour = guide_legend(title = 'kmeans (k=16)'))
 ggsave(paste0(prefix, '_genes.pdf'), width = 10, dpi = 320)
 ggsave(paste0(prefix, '_genes.jpg'), width = 10, dpi = 320)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -497,7 +508,7 @@ rawe <- ggplot(heatRawPlot, aes(x = x, y = y, fill = log2(raw))) +
 
 scalee <- ggplot(heatScalePlot, aes(x = x, y = y, fill = scale)) +
   geom_tile() +
-  scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 7, name = 'RdYlBu')))(100), name = 'scale(count)') +
+  scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral')))(50), name = 'scale(count)') +
   labs(x = NULL, y = NULL) +
   scale_y_continuous(expand = c(0, 0), breaks = NULL) +
   scale_x_continuous(expand = c(0, 0), breaks = NULL) +
@@ -573,6 +584,17 @@ grid.arrange(groupne,
              ncol = 11,
              widths = c(3.5, 1, 0.5, 13, 0.5, 13, 0.5, 3, 0.5, 3, 10) %>% {. / sum(.)})
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+g <- grid.arrange(groupne,
+                  groupe,
+                  blanke,
+                  scalee,
+                  nrow = 1,
+                  ncol = 4,
+                  widths = c(3.5, 1, 0.5, 13) %>% {. / sum(.)})
+ggsave(file = paste0(prefix, '_heatmap_all.pdf'), plot = g)
+ggsave(file = paste0(prefix, '_heatmap_all.jpg'), plot = g)
 
 ## write the cluster file
 inner_join(deganno, heatPlot) %>%

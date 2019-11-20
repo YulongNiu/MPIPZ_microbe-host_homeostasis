@@ -194,7 +194,7 @@ Distance was calculated as `1 - Pearson's Correlation Coefficient`
   
 * heatmaps
   
-  ![heatmap_merge](results/hclust_1d5_heatmap_merge.jpg)
+![heatmap_merge](results/hclust_1d5_heatmap_merge.jpg)
   
 #### 4.3.2 k-means clustering ####
 
@@ -208,25 +208,25 @@ Choose k (group number) by the sum of squared error (SSE) and Akaike information
   
 ![kmeans_gene_1d5](results/kmeans_10_genes.jpg)
 
-  ```
-  AT1G14550.1 AT2G30750.1 AT2G19190.1 
-          9           9           9 
-  ```
+```
+AT1G14550.1 AT2G30750.1 AT2G19190.1 AT5G24110.1 
+          7           7           6           7 
+```
 * correlation of traits (phenotype) and clusters
   
-  ```
+```
   flg22 SynCom33 SynCom35 bacteria rootlen
       0        0        0        0     5.6
       1        0        0        0     1.1
       1        1        0        1     1.3
       1        0        1        1     4.9
-  ```
+```
   
-  ![kmeans_1d5_trait](results/kmeans_10_trait.jpg)
+![kmeans_10_trait](results/kmeans_10_trait.jpg)
   
 * heatmaps
   
-  ![heatmap_merge](results/kmeans_10_heatmap_merge.jpg)
+![kmeans_10_heatmap_all_900den](results/kmeans_10_heatmap_all_900den.jpg)
   
 ### 4.4 Gene-set analysis ###
 
@@ -412,7 +412,7 @@ Find significantly changed gene ontology, KEGG, and BioCyc gene-sets in each k-m
 
 ![kmeans10_trait_1stadd](results/kmeans10_trait_1stadd.jpg)
 
-![kmeans10_heatmap_all_900den](results/kmeans10_heatmap_all_900den.jpg)
+![kmeans10_heatmap_all_900den_1stadd](results/kmeans10_heatmap_all_900den_1stadd.jpg)
 
 ## 6. Comparison 
 
