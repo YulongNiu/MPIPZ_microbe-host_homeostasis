@@ -27,3 +27,20 @@ wget https://websafe.mpipz.mpg.de/d/8ZKyPiAEWn/4296_G_run623_GATCAGCG_S359_L007_
 wget https://websafe.mpipz.mpg.de/d/iek97gAsXt/4296_H_run623_TCCGTCTT_S360_L007_R1_001.fastq.gz
 wget https://websafe.mpipz.mpg.de/d/UgypYkPYN7/4296_H_run623_TCCGTCTT_S360_L007_R2_001.fastq.gz
 
+
+wget https://websafe.mpipz.mpg.de/d/y0h3WpPHRN/4397_A_run629_GAATCTGT_S24_L002_R1_001.fastq.gz
+wget https://websafe.mpipz.mpg.de/d/97LQA4CvDC/4397_A_run629_GAATCTGT_S24_L002_R2_001.fastq.gz
+wget https://websafe.mpipz.mpg.de/d/DoD80VRTwW/4397_B_run629_GATCAGCG_S25_L002_R1_001.fastq.gz
+wget https://websafe.mpipz.mpg.de/d/0AYybeHHvk/4397_B_run629_GATCAGCG_S25_L002_R2_001.fastq.gz
+wget https://websafe.mpipz.mpg.de/d/pgWVWfnzi5/4397_D_run629_GAGGATGG_S27_L002_R1_001.fastq.gz
+wget https://websafe.mpipz.mpg.de/d/QWXiBc2jaT/4397_D_run629_GAGGATGG_S27_L002_R2_001.fastq.gz
+wget https://websafe.mpipz.mpg.de/d/3ZolmNUePF/4397_E_run629_TCCGTCTT_S28_L002_R1_001.fastq.gz
+wget https://websafe.mpipz.mpg.de/d/H8o572obcO/4397_E_run629_TCCGTCTT_S28_L002_R2_001.fastq.gz
+wget https://websafe.mpipz.mpg.de/d/uqjPUFWf4F/4397_F_run629_TTGTTCCA_S29_L002_R1_001.fastq.gz
+wget https://websafe.mpipz.mpg.de/d/yug38SsP3Q/4397_F_run629_TTGTTCCA_S29_L002_R2_001.fastq.gz
+wget https://websafe.mpipz.mpg.de/d/nUV1NBWA3n/4397_G_run629_GATTCATC_S30_L002_R1_001.fastq.gz
+wget https://websafe.mpipz.mpg.de/d/9KdEw4ZZnG/4397_G_run629_GATTCATC_S30_L002_R2_001.fastq.gz
+wget https://websafe.mpipz.mpg.de/d/pYvNBqWrRG/4397_H_run629_TTCCTGCT_S31_L002_R1_001.fastq.gz
+wget https://websafe.mpipz.mpg.de/d/Kk7D9yI6EU/4397_H_run629_TTCCTGCT_S31_L002_R2_001.fastq.gz
+wget https://websafe.mpipz.mpg.de/d/naeiNuSg9M/4397_C_run629_TTCGCACC_S26_L002_R1_001.fastq.gz
+wget https://websafe.mpipz.mpg.de/d/atePrJJtS6/4397_C_run629_TTCGCACC_S26_L002_R2_001.fastq.gz

@@ -151,7 +151,6 @@ library('RColorBrewer')
 library('limma')
 library('sva')
 
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## remove low count
 dat <- rld %>%
   assay %>%
@@ -163,14 +162,6 @@ rldData <- dat %>%
   removeBatchEffect(covariates = svobj$sv,
                     design = design)
 
-## ## batch correction limma
-## rldData %<>% removeBatchEffect(rep(1 : 4, 10) %>% factor)
-
-## ## batch correction sva
-## modcombat <- model.matrix(~1, data = sampleTable)
-## rldData %<>% ComBat(dat = ., batch = rep(rep(1 : 4, 10) %>% factor) %>% factor, mod = modcombat, par.prior = TRUE, prior.plots = FALSE)
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 cols <- colData(rld)[, 1] %>% factor(., labels = brewer.pal(10, name = 'Paired'))
 
 ## 1 - 2 C
@@ -179,15 +170,32 @@ percentVar <- pca$sdev^2/sum(pca$sdev^2)
 percentVar <- round(100 * percentVar)
 pca1 <- pca$x[,1]
 pca2 <- pca$x[,2]
-pcaData <- data.frame(PC1 = pca1, PC2 = pca2, Group = colData(rld)[, 1], ID = rownames(colData(rld)))
-ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group, label = ID)) +
-  geom_point(size = 3) +
+pcaData <- tibble(PC1 = pca1, PC2 = pca2, Group = colData(rld)[, 1], ID = rownames(colData(rld))) %>%
+  mutate(SynCom = rep(c('Mock', 'Non-suppressive', 'suppressive'), c(8, 16, 16))) %>%
+  mutate(Treatment = rep(c('Mock', 'Mock+flg22', 'HK', 'HK+flg22', 'Live', 'Live+flg22', 'HK', 'HK+flg22', 'Live', 'Live+flg22'), each = 4) %>% factor) %>%
+  mutate(Cluster = rep(c('Mock', 'Mock+flg22', 'HK', 'HK+flg22', 'Non-suppressive', 'Non-suppressive+flg22', 'HK', 'HK+flg22', 'suppressive', 'suppressive+flg22'), each = 4) %>% factor) %>%
+  mutate(flg22 = c('without', 'with') %>% rep(each = 4) %>% rep(5) %>% factor)
+
+ggplot(pcaData, aes(x = PC1, y = PC2, colour = SynCom)) +
+  geom_point(aes(shape = Treatment), size = 4) +
   xlab(paste0("PC1: ",percentVar[1],"% variance")) +
   ylab(paste0("PC2: ",percentVar[2],"% variance")) +
-  scale_colour_manual(values = levels(cols)) +
-  geom_text_repel(force = 5)
-ggsave('PCA_1stadd_sva.pdf', width = 15, height = 12)
-ggsave('PCA_1stadd_sva.jpg', width = 15, height = 12)
+  scale_colour_manual(values = c('#000000', '#377eb8', '#e41a1c')) +
+  scale_shape_manual(values = c(0, 2, 15, 17, 1, 16),
+                     name = 'Experimental\nConditions') +
+  stat_ellipse(aes(x = PC1, y = PC2, group = Group, linetype = flg22), type = 't', level = 0.7) +
+  scale_linetype_manual(values = c(1, 2), guide = FALSE) +
+  coord_fixed(1) +
+  theme_classic() +
+  theme(plot.title = element_text(hjust = 0.5, size = 12, face = 'bold'),
+        legend.text.align = 0,
+        axis.text = element_text(size = 13),
+        axis.title = element_text(size = 14),
+        legend.text=element_text(size= 13),
+        legend.title = element_text(size = 14))
+
+ggsave('PCA_1stadd_sva.pdf', width = 13)
+ggsave('PCA_1stadd_sva.jpg', width = 13)
 
 ## 2 - 3 C
 pca <- prcomp(t(rldData))
