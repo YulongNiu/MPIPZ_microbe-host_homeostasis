@@ -146,7 +146,7 @@ fqraws <- dir(resFolder)
 for (i in seq_len(nrow(anno))) {
 
   ## merge different batch
-  fqin <- anno[i, 1] %>%
+  fqin <- anno[i, c(1, 6)] %>%
     as.character %>%
     .[!is.na(.)] %>%
     file.path(resFolder, .) %>%
@@ -165,7 +165,7 @@ for (i in seq_len(nrow(anno))) {
 
   system(mergeC)
 
-  fqin <- anno[i, 1] %>%
+  fqin <- anno[i, c(1, 6)] %>%
     as.character %>%
     .[!is.na(.)] %>%
     file.path(resFolder, .) %>%
@@ -184,5 +184,7 @@ for (i in seq_len(nrow(anno))) {
 
   system(mergeC)
 }
+
+system('rm `ls | grep "4296\\|4397"`')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ####################################################################
