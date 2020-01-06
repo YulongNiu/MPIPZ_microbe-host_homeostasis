@@ -5,8 +5,8 @@ library('foreach')
 library('readr')
 library('dplyr')
 
-rawfqPath <- '/biodata/dep_psl/grp_rgo/yniu/KaWai_raw_data_1stadd'
-resFolder <- '/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data_1stadd'
+rawfqPath <- '/biodata/dep_psl/grp_rgo/yniu/KaWai_soil_Syncom'
+resFolder <- '/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data_soil'
 catPath <- '/bin/cat'
 mvPath <- '/bin/mv'
 ncore <- 40
