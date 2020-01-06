@@ -118,20 +118,45 @@ design(degres) <- ~sv1 + sv2 + sv3 + sv4 + condition
 
 degres <- DESeq(degres)
 
-cond <- degres %>%
-  resultsNames %>%
-  str_extract('(?<=condition_).*') %>%
-  .[!is.na(.)]
+## flg22 treatment effect
+cond1 <- list(c('Mock_Flg22', 'Mock'),
+             c('HKSynCom33_Flg22', 'HKSynCom33'),
+             c('HKSynCom35_Flg22', 'HKSynCom35'),
+             c('SynCom33_Flg22', 'SynCom33'),
+             c('SynCom35_Flg22', 'SynCom35'))
+
+## bacteria effect
+cond2 <- list(c('HKSynCom33', 'Mock'),
+              c('HKSynCom35', 'Mock'),
+              c('SynCom33', 'Mock'),
+              c('SynCom35', 'Mock'),
+              c('SynCom33', 'SynCom35'),
+              c('HKSynCom33', 'HKSynCom35'))
+
+## bacteria x flg22 effect
+cond3 <- list(c('HKSynCom33_Flg22', 'Mock'),
+              c('HKSynCom35_Flg22', 'Mock'),
+              c('SynCom33_Flg22', 'Mock'),
+              c('SynCom35_Flg22', 'Mock'),
+              c('SynCom33_Flg22', 'SynCom35_Flg22'),
+              c('HKSynCom33_Flg22', 'HKSynCom35_Flg22'))
+
+## heat kill effect
+cond4 <- list(c('SynCom33', 'HKSynCom33'),
+              c('SynCom35', 'HKSynCom35'))
+
+cond <- c(cond1, cond2, cond3, cond4) %>%
+  unique
 
 resRaw <- lapply(cond,
                  function(x) {
                    degres %>%
-                     results(name = paste0('condition_', x)) %T>%
+                     results(contrast = c('condition', x)) %T>%
                      ## lfcShrink(coef = paste0('condition_', x), type = 'apeglm') %T>%
                      summary %>%
                      as_tibble %>%
                      select(pvalue, padj, log2FoldChange) %>%
-                     rename_all(.funs = list(~paste0(x, '_', .)))
+                     rename_all(.funs =  list(~paste0(paste(x, collapse = '_vs_'), '_', .)))
                  }) %>%
   bind_cols
 
@@ -140,7 +165,7 @@ res <- cbind.data.frame(as.matrix(mcols(degres)[, 1:10]), counts(degres, normali
   as_tibble %>%
   bind_cols(resRaw) %>%
   inner_join(anno, by = 'ID') %>%
-  select(ID, Gene : Description, Mock_1 : SynCom35_Flg22_vs_Mock_log2FoldChange) %>%
+  select(ID, Gene : Description, Mock_1 : SynCom35_vs_HKSynCom35_log2FoldChange) %>%
   arrange(Mock_Flg22_vs_Mock_padj)
 
 write_csv(res, 'eachGroup_vs_Mock_k_1stadd.csv')
