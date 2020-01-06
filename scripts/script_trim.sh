@@ -1,7 +1,7 @@
 date
 
-RAW_PATH=/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data_1stadd
-CLEAN_PATH=/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_1stadd
+RAW_PATH=/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data_soil
+CLEAN_PATH=/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil
 
 FASTP_PATH=/home/yniu/Biotools
 FASTQC_PATH=/opt/share/software/bin
@@ -33,24 +33,7 @@ cd ${RAW_PATH}
 # done
 # ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-##~~~~~~~~~~~~~~~~~~~~~1stadd~~~~~~~~~~~~~~~~~~~~~~~~~~
-fq=($(ls | grep fq.gz))
-fqnames=($(echo "${fq[@]%_*}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
-
-for i in ${fqnames[@]}
-do
-    echo "Trimming ${i}_R1.fq.gz ${i}_R2.fq.gz."
-
-    ${FASTP_PATH}/fastp -w ${CORENUM} \
-                 -z 6 \
-                 -p -c \
-                 -h ${i}.html \
-                 -i ${i}_R1.fq.gz -I ${i}_R2.fq.gz \
-                 -o ${CLEAN_PATH}/${i}_R1.fq.gz -O ${CLEAN_PATH}/${i}_R2.fq.gz
-done
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# ##~~~~~~~~~~~~~~~~~~~~~soil~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ##~~~~~~~~~~~~~~~~~~~~~1stadd~~~~~~~~~~~~~~~~~~~~~~~~~~
 # fq=($(ls | grep fq.gz))
 # fqnames=($(echo "${fq[@]%_*}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
 
@@ -66,5 +49,22 @@ done
 #                  -o ${CLEAN_PATH}/${i}_R1.fq.gz -O ${CLEAN_PATH}/${i}_R2.fq.gz
 # done
 # ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+##~~~~~~~~~~~~~~~~~~~~~soil~~~~~~~~~~~~~~~~~~~~~~~~~~
+fq=($(ls | grep fq.gz))
+fqnames=($(echo "${fq[@]%_*}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
+
+for i in ${fqnames[@]}
+do
+    echo "Trimming ${i}_R1.fq.gz ${i}_R2.fq.gz."
+
+    ${FASTP_PATH}/fastp -w ${CORENUM} \
+                 -z 6 \
+                 -p -c \
+                 -h ${i}.html \
+                 -i ${i}_R1.fq.gz -I ${i}_R2.fq.gz \
+                 -o ${CLEAN_PATH}/${i}_R1.fq.gz -O ${CLEAN_PATH}/${i}_R2.fq.gz
+done
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 date

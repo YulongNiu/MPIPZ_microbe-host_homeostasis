@@ -1,4 +1,4 @@
-Fri Oct 11 11:34:32 CEST 2019
+Mon Jan  6 11:29:15 CET 2020
 Trimming Mock_1_R1.fq.gz Mock_1_R2.fq.gz.
 Read1 before filtering:
 total reads: 8146907
@@ -34,7 +34,7 @@ bases trimmed due to adapters: 5261147
 reads corrected by overlap analysis: 148580
 bases corrected by overlap analysis: 351761
 
-Duplication rate: 9.96714%
+Duplication rate: 9.9671%
 
 Insert size peak (evaluated by paired-end reads): 271
 
@@ -42,87 +42,87 @@ JSON report: fastp.json
 HTML report: Mock_1.html
 
 /home/yniu/Biotools/fastp -w 16 -z 6 -p -c -h Mock_1.html -i Mock_1_R1.fq.gz -I Mock_1_R2.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/Mock_1_R1.fq.gz -O /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/Mock_1_R2.fq.gz 
-fastp v0.20.0, time used: 635 seconds
+fastp v0.20.0, time used: 448 seconds
 Trimming Mock_2_R1.fq.gz Mock_2_R2.fq.gz.
 Read1 before filtering:
-total reads: 8309895
-total bases: 1254376902
-Q20 bases: 1235523510(98.497%)
-Q30 bases: 1200502779(95.7051%)
+total reads: 18083448
+total bases: 2729638114
+Q20 bases: 2693264711(98.6675%)
+Q30 bases: 2624899504(96.1629%)
 
 Read2 before filtering:
-total reads: 8309895
-total bases: 1254226438
-Q20 bases: 1167113132(93.0544%)
-Q30 bases: 1064783039(84.8956%)
+total reads: 18083448
+total bases: 2729375743
+Q20 bases: 2519077792(92.295%)
+Q30 bases: 2274334058(83.328%)
 
 Read1 after filtering:
-total reads: 8060175
-total bases: 1215510403
-Q20 bases: 1200778334(98.788%)
-Q30 bases: 1171019248(96.3397%)
+total reads: 17391986
+total bases: 2622854380
+Q20 bases: 2596218136(98.9845%)
+Q30 bases: 2541097809(96.8829%)
 
 Read2 aftering filtering:
-total reads: 8060175
-total bases: 1215371683
-Q20 bases: 1147723143(94.4339%)
-Q30 bases: 1055330449(86.8319%)
+total reads: 17391986
+total bases: 2622598190
+Q20 bases: 2466192081(94.0362%)
+Q30 bases: 2249132577(85.7597%)
 
 Filtering result:
-reads passed filter: 16120350
-reads failed due to low quality: 497870
-reads failed due to too many N: 1570
+reads passed filter: 34783972
+reads failed due to low quality: 1379796
+reads failed due to too many N: 3128
 reads failed due to too short: 0
-reads with adapter trimmed: 49348
-bases trimmed due to adapters: 2352861
-reads corrected by overlap analysis: 96206
-bases corrected by overlap analysis: 215092
+reads with adapter trimmed: 103862
+bases trimmed due to adapters: 4824898
+reads corrected by overlap analysis: 209107
+bases corrected by overlap analysis: 470250
 
-Duplication rate: 10.1451%
+Duplication rate: 9.34198%
 
-Insert size peak (evaluated by paired-end reads): 268
+Insert size peak (evaluated by paired-end reads): 270
 
 JSON report: fastp.json
 HTML report: Mock_2.html
 
 /home/yniu/Biotools/fastp -w 16 -z 6 -p -c -h Mock_2.html -i Mock_2_R1.fq.gz -I Mock_2_R2.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/Mock_2_R1.fq.gz -O /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/Mock_2_R2.fq.gz 
-fastp v0.20.0, time used: 515 seconds
+fastp v0.20.0, time used: 740 seconds
 Trimming Mock_3_R1.fq.gz Mock_3_R2.fq.gz.
 Read1 before filtering:
-total reads: 8270999
-total bases: 1248545692
-Q20 bases: 1222289319(97.897%)
-Q30 bases: 1176842745(94.2571%)
+total reads: 12919098
+total bases: 1950174859
+Q20 bases: 1908282144(97.8518%)
+Q30 bases: 1835455487(94.1175%)
 
 Read2 before filtering:
-total reads: 8270999
-total bases: 1248419707
-Q20 bases: 1150766915(92.1779%)
-Q30 bases: 1039586087(83.2722%)
+total reads: 12919098
+total bases: 1950012177
+Q20 bases: 1786160137(91.5974%)
+Q30 bases: 1600500719(82.0764%)
 
 Read1 after filtering:
-total reads: 7970040
-total bases: 1201223036
-Q20 bases: 1180936667(98.3112%)
-Q30 bases: 1142398617(95.103%)
+total reads: 12363313
+total bases: 1863468662
+Q20 bases: 1832120837(98.3178%)
+Q30 bases: 1771724444(95.0767%)
 
 Read2 aftering filtering:
-total reads: 7970040
-total bases: 1201102099
-Q20 bases: 1127021673(93.8323%)
-Q30 bases: 1027977118(85.5862%)
+total reads: 12363313
+total bases: 1863306864
+Q20 bases: 1742908944(93.5385%)
+Q30 bases: 1579749825(84.7821%)
 
 Filtering result:
-reads passed filter: 15940080
-reads failed due to low quality: 600358
-reads failed due to too many N: 1560
+reads passed filter: 24726626
+reads failed due to low quality: 1109418
+reads failed due to too many N: 2152
 reads failed due to too short: 0
-reads with adapter trimmed: 72702
-bases trimmed due to adapters: 3905893
-reads corrected by overlap analysis: 130200
-bases corrected by overlap analysis: 296242
+reads with adapter trimmed: 109236
+bases trimmed due to adapters: 5811734
+reads corrected by overlap analysis: 202985
+bases corrected by overlap analysis: 458877
 
-Duplication rate: 8.93837%
+Duplication rate: 9.06891%
 
 Insert size peak (evaluated by paired-end reads): 271
 
@@ -130,43 +130,43 @@ JSON report: fastp.json
 HTML report: Mock_3.html
 
 /home/yniu/Biotools/fastp -w 16 -z 6 -p -c -h Mock_3.html -i Mock_3_R1.fq.gz -I Mock_3_R2.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/Mock_3_R1.fq.gz -O /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/Mock_3_R2.fq.gz 
-fastp v0.20.0, time used: 582 seconds
+fastp v0.20.0, time used: 623 seconds
 Trimming SynCom33_1_R1.fq.gz SynCom33_1_R2.fq.gz.
 Read1 before filtering:
-total reads: 7729411
-total bases: 1166770004
-Q20 bases: 1147564327(98.3539%)
-Q30 bases: 1112338570(95.3349%)
+total reads: 13209898
+total bases: 1994047410
+Q20 bases: 1963354769(98.4608%)
+Q30 bases: 1907182431(95.6438%)
 
 Read2 before filtering:
-total reads: 7729411
-total bases: 1166648977
-Q20 bases: 1079221050(92.5061%)
-Q30 bases: 978845855(83.9023%)
+total reads: 13209898
+total bases: 1993861261
+Q20 bases: 1830713930(91.8175%)
+Q30 bases: 1645077970(82.5071%)
 
 Read1 after filtering:
-total reads: 7457972
-total bases: 1124584454
-Q20 bases: 1109940654(98.6978%)
-Q30 bases: 1080510558(96.0809%)
+total reads: 12648097
+total bases: 1907260280
+Q20 bases: 1885029217(98.8344%)
+Q30 bases: 1839998670(96.4734%)
 
 Read2 aftering filtering:
-total reads: 7457972
-total bases: 1124466601
-Q20 bases: 1058147420(94.1022%)
-Q30 bases: 968572238(86.1361%)
+total reads: 12648097
+total bases: 1907074388
+Q20 bases: 1787611929(93.7358%)
+Q30 bases: 1624483008(85.1819%)
 
 Filtering result:
-reads passed filter: 14915944
-reads failed due to low quality: 540958
-reads failed due to too many N: 1920
+reads passed filter: 25296194
+reads failed due to low quality: 1120792
+reads failed due to too many N: 2810
 reads failed due to too short: 0
-reads with adapter trimmed: 49706
-bases trimmed due to adapters: 2466663
-reads corrected by overlap analysis: 94739
-bases corrected by overlap analysis: 214856
+reads with adapter trimmed: 82008
+bases trimmed due to adapters: 4016377
+reads corrected by overlap analysis: 156828
+bases corrected by overlap analysis: 357597
 
-Duplication rate: 9.29885%
+Duplication rate: 9.39506%
 
 Insert size peak (evaluated by paired-end reads): 270
 
@@ -174,43 +174,43 @@ JSON report: fastp.json
 HTML report: SynCom33_1.html
 
 /home/yniu/Biotools/fastp -w 16 -z 6 -p -c -h SynCom33_1.html -i SynCom33_1_R1.fq.gz -I SynCom33_1_R2.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom33_1_R1.fq.gz -O /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom33_1_R2.fq.gz 
-fastp v0.20.0, time used: 528 seconds
+fastp v0.20.0, time used: 607 seconds
 Trimming SynCom33_2_R1.fq.gz SynCom33_2_R2.fq.gz.
 Read1 before filtering:
-total reads: 6428754
-total bases: 970442738
-Q20 bases: 955204083(98.4297%)
-Q30 bases: 926855248(95.5085%)
+total reads: 15867598
+total bases: 2395269617
+Q20 bases: 2361638393(98.5959%)
+Q30 bases: 2299170302(95.988%)
 
 Read2 before filtering:
-total reads: 6428754
-total bases: 970347733
-Q20 bases: 902179525(92.9749%)
-Q30 bases: 823434203(84.8597%)
+total reads: 15867598
+total bases: 2395083305
+Q20 bases: 2206192767(92.1134%)
+Q30 bases: 1988799586(83.0368%)
 
 Read1 after filtering:
-total reads: 6218020
-total bases: 937799057
-Q20 bases: 926078732(98.7502%)
-Q30 bases: 902280791(96.2126%)
+total reads: 15210307
+total bases: 2294081546
+Q20 bases: 2269966952(98.9488%)
+Q30 bases: 2220367496(96.7868%)
 
 Read2 aftering filtering:
-total reads: 6218020
-total bases: 937706538
-Q20 bases: 885969905(94.4826%)
-Q30 bases: 815532707(86.971%)
+total reads: 15210307
+total bases: 2293893338
+Q20 bases: 2156234400(93.9989%)
+Q30 bases: 1965071107(85.6653%)
 
 Filtering result:
-reads passed filter: 12436040
-reads failed due to low quality: 419754
-reads failed due to too many N: 1714
+reads passed filter: 30420614
+reads failed due to low quality: 1311424
+reads failed due to too many N: 3158
 reads failed due to too short: 0
-reads with adapter trimmed: 35176
-bases trimmed due to adapters: 1693163
-reads corrected by overlap analysis: 71696
-bases corrected by overlap analysis: 158982
+reads with adapter trimmed: 83414
+bases trimmed due to adapters: 3972391
+reads corrected by overlap analysis: 168056
+bases corrected by overlap analysis: 379134
 
-Duplication rate: 8.30344%
+Duplication rate: 7.80896%
 
 Insert size peak (evaluated by paired-end reads): 271
 
@@ -218,43 +218,43 @@ JSON report: fastp.json
 HTML report: SynCom33_2.html
 
 /home/yniu/Biotools/fastp -w 16 -z 6 -p -c -h SynCom33_2.html -i SynCom33_2_R1.fq.gz -I SynCom33_2_R2.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom33_2_R1.fq.gz -O /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom33_2_R2.fq.gz 
-fastp v0.20.0, time used: 415 seconds
+fastp v0.20.0, time used: 660 seconds
 Trimming SynCom33_3_R1.fq.gz SynCom33_3_R2.fq.gz.
 Read1 before filtering:
-total reads: 8165040
-total bases: 1232493358
-Q20 bases: 1213450022(98.4549%)
-Q30 bases: 1178615487(95.6285%)
+total reads: 12568370
+total bases: 1897147397
+Q20 bases: 1869423593(98.5387%)
+Q30 bases: 1818689506(95.8644%)
 
 Read2 before filtering:
-total reads: 8165040
-total bases: 1232297254
-Q20 bases: 1143695799(92.8101%)
-Q30 bases: 1040142331(84.4068%)
+total reads: 12568370
+total bases: 1896878785
+Q20 bases: 1750084332(92.2613%)
+Q30 bases: 1580021148(83.2958%)
 
 Read1 after filtering:
-total reads: 7914251
-total bases: 1192829345
-Q20 bases: 1178001213(98.7569%)
-Q30 bases: 1148425190(96.2774%)
+total reads: 12105344
+total bases: 1824573198
+Q20 bases: 1803929442(98.8686%)
+Q30 bases: 1762383661(96.5916%)
 
 Read2 aftering filtering:
-total reads: 7914251
-total bases: 1192648653
-Q20 bases: 1123860631(94.2323%)
-Q30 bases: 1030415788(86.3973%)
+total reads: 12105344
+total bases: 1824319899
+Q20 bases: 1714014766(93.9536%)
+Q30 bases: 1562654274(85.6568%)
 
 Filtering result:
-reads passed filter: 15828502
-reads failed due to low quality: 500030
-reads failed due to too many N: 1548
+reads passed filter: 24210688
+reads failed due to low quality: 923848
+reads failed due to too many N: 2204
 reads failed due to too short: 0
-reads with adapter trimmed: 69972
-bases trimmed due to adapters: 3632099
-reads corrected by overlap analysis: 110928
-bases corrected by overlap analysis: 258766
+reads with adapter trimmed: 104706
+bases trimmed due to adapters: 5379087
+reads corrected by overlap analysis: 169093
+bases corrected by overlap analysis: 396328
 
-Duplication rate: 10.2452%
+Duplication rate: 10.034%
 
 Insert size peak (evaluated by paired-end reads): 271
 
@@ -262,131 +262,131 @@ JSON report: fastp.json
 HTML report: SynCom33_3.html
 
 /home/yniu/Biotools/fastp -w 16 -z 6 -p -c -h SynCom33_3.html -i SynCom33_3_R1.fq.gz -I SynCom33_3_R2.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom33_3_R1.fq.gz -O /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom33_3_R2.fq.gz 
-fastp v0.20.0, time used: 567 seconds
+fastp v0.20.0, time used: 588 seconds
 Trimming SynCom35_1_R1.fq.gz SynCom35_1_R2.fq.gz.
 Read1 before filtering:
-total reads: 5889076
-total bases: 888959147
-Q20 bases: 874188899(98.3385%)
-Q30 bases: 847376955(95.3224%)
+total reads: 10898141
+total bases: 1645057477
+Q20 bases: 1619980587(98.4756%)
+Q30 bases: 1574530763(95.7128%)
 
 Read2 before filtering:
-total reads: 5889076
-total bases: 888734090
-Q20 bases: 824937161(92.8216%)
-Q30 bases: 751751577(84.5868%)
+total reads: 10898141
+total bases: 1644695234
+Q20 bases: 1516507635(92.206%)
+Q30 bases: 1369392502(83.2612%)
 
 Read1 after filtering:
-total reads: 5700937
-total bases: 858821615
-Q20 bases: 847380045(98.6678%)
-Q30 bases: 824621470(96.0178%)
+total reads: 10483412
+total bases: 1579391521
+Q20 bases: 1560825084(98.8245%)
+Q30 bases: 1523628336(96.4693%)
 
 Read2 aftering filtering:
-total reads: 5700937
-total bases: 858617975
-Q20 bases: 809892290(94.3251%)
-Q30 bases: 744286954(86.6843%)
+total reads: 10483412
+total bases: 1579055823
+Q20 bases: 1483819259(93.9688%)
+Q30 bases: 1353483701(85.7147%)
 
 Filtering result:
-reads passed filter: 11401874
-reads failed due to low quality: 374824
-reads failed due to too many N: 1454
+reads passed filter: 20966824
+reads failed due to low quality: 827226
+reads failed due to too many N: 2232
 reads failed due to too short: 0
-reads with adapter trimmed: 65856
-bases trimmed due to adapters: 3501665
-reads corrected by overlap analysis: 105623
-bases corrected by overlap analysis: 245560
+reads with adapter trimmed: 116774
+bases trimmed due to adapters: 6153210
+reads corrected by overlap analysis: 189394
+bases corrected by overlap analysis: 442313
 
-Duplication rate: 9.02676%
+Duplication rate: 9.04091%
 
-Insert size peak (evaluated by paired-end reads): 271
+Insert size peak (evaluated by paired-end reads): 268
 
 JSON report: fastp.json
 HTML report: SynCom35_1.html
 
 /home/yniu/Biotools/fastp -w 16 -z 6 -p -c -h SynCom35_1.html -i SynCom35_1_R1.fq.gz -I SynCom35_1_R2.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom35_1_R1.fq.gz -O /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom35_1_R2.fq.gz 
-fastp v0.20.0, time used: 470 seconds
+fastp v0.20.0, time used: 569 seconds
 Trimming SynCom35_2_R1.fq.gz SynCom35_2_R2.fq.gz.
 Read1 before filtering:
-total reads: 8231172
-total bases: 1242562664
-Q20 bases: 1223902043(98.4982%)
-Q30 bases: 1189355009(95.7179%)
+total reads: 16818587
+total bases: 2538853395
+Q20 bases: 2504785491(98.6581%)
+Q30 bases: 2440946905(96.1437%)
 
 Read2 before filtering:
-total reads: 8231172
-total bases: 1242389333
-Q20 bases: 1157161719(93.14%)
-Q30 bases: 1055954289(84.9938%)
+total reads: 16818587
+total bases: 2538553926
+Q20 bases: 2346602225(92.4385%)
+Q30 bases: 2120537593(83.5333%)
 
 Read1 after filtering:
-total reads: 7997360
-total bases: 1205843963
-Q20 bases: 1191058784(98.7739%)
-Q30 bases: 1161384476(96.313%)
+total reads: 16215582
+total bases: 2445079465
+Q20 bases: 2419554919(98.9561%)
+Q30 bases: 2367163310(96.8133%)
 
 Read2 aftering filtering:
-total reads: 7997360
-total bases: 1205690757
-Q20 bases: 1138704685(94.4442%)
-Q30 bases: 1046857841(86.8264%)
+total reads: 16215582
+total bases: 2444805353
+Q20 bases: 2299911954(94.0734%)
+Q30 bases: 2098058254(85.817%)
 
 Filtering result:
-reads passed filter: 15994720
-reads failed due to low quality: 466154
-reads failed due to too many N: 1470
+reads passed filter: 32431164
+reads failed due to low quality: 1203292
+reads failed due to too many N: 2718
 reads failed due to too short: 0
-reads with adapter trimmed: 54816
-bases trimmed due to adapters: 2848465
-reads corrected by overlap analysis: 83950
-bases corrected by overlap analysis: 199390
+reads with adapter trimmed: 107394
+bases trimmed due to adapters: 5489940
+reads corrected by overlap analysis: 169446
+bases corrected by overlap analysis: 402682
 
-Duplication rate: 8.55659%
+Duplication rate: 7.95556%
 
-Insert size peak (evaluated by paired-end reads): 270
+Insert size peak (evaluated by paired-end reads): 271
 
 JSON report: fastp.json
 HTML report: SynCom35_2.html
 
 /home/yniu/Biotools/fastp -w 16 -z 6 -p -c -h SynCom35_2.html -i SynCom35_2_R1.fq.gz -I SynCom35_2_R2.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom35_2_R1.fq.gz -O /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom35_2_R2.fq.gz 
-fastp v0.20.0, time used: 536 seconds
+fastp v0.20.0, time used: 736 seconds
 Trimming SynCom35_3_R1.fq.gz SynCom35_3_R2.fq.gz.
 Read1 before filtering:
-total reads: 6797977
-total bases: 1026180043
-Q20 bases: 1009820738(98.4058%)
-Q30 bases: 979781566(95.4785%)
+total reads: 11391744
+total bases: 1719633443
+Q20 bases: 1694258108(98.5244%)
+Q30 bases: 1647762082(95.8205%)
 
 Read2 before filtering:
-total reads: 6797977
-total bases: 1025979975
-Q20 bases: 951460422(92.7367%)
-Q30 bases: 865029581(84.3125%)
+total reads: 11391744
+total bases: 1719335426
+Q20 bases: 1584449926(92.1548%)
+Q30 bases: 1428287288(83.0721%)
 
 Read1 after filtering:
-total reads: 6587690
-total bases: 992726184
-Q20 bases: 979934456(98.7115%)
-Q30 bases: 954308680(96.1301%)
+total reads: 10974092
+total bases: 1653869254
+Q20 bases: 1634866911(98.851%)
+Q30 bases: 1596523398(96.5326%)
 
 Read2 aftering filtering:
-total reads: 6587690
-total bases: 992556571
-Q20 bases: 934702246(94.1712%)
-Q30 bases: 856723609(86.3148%)
+total reads: 10974092
+total bases: 1653610387
+Q20 bases: 1551573753(93.8295%)
+Q30 bases: 1412287429(85.4063%)
 
 Filtering result:
-reads passed filter: 13175380
-reads failed due to low quality: 418892
-reads failed due to too many N: 1682
+reads passed filter: 21948184
+reads failed due to low quality: 832884
+reads failed due to too many N: 2420
 reads failed due to too short: 0
-reads with adapter trimmed: 63840
-bases trimmed due to adapters: 3433707
-reads corrected by overlap analysis: 96144
-bases corrected by overlap analysis: 228487
+reads with adapter trimmed: 101728
+bases trimmed due to adapters: 5446812
+reads corrected by overlap analysis: 154912
+bases corrected by overlap analysis: 369742
 
-Duplication rate: 9.4962%
+Duplication rate: 9.49457%
 
 Insert size peak (evaluated by paired-end reads): 271
 
@@ -394,5 +394,5 @@ JSON report: fastp.json
 HTML report: SynCom35_3.html
 
 /home/yniu/Biotools/fastp -w 16 -z 6 -p -c -h SynCom35_3.html -i SynCom35_3_R1.fq.gz -I SynCom35_3_R2.fq.gz -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom35_3_R1.fq.gz -O /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/SynCom35_3_R2.fq.gz 
-fastp v0.20.0, time used: 517 seconds
-Fri Oct 11 12:53:59 CEST 2019
+fastp v0.20.0, time used: 577 seconds
+Mon Jan  6 13:01:44 CET 2020
