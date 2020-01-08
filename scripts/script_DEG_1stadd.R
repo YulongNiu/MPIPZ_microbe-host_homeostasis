@@ -139,7 +139,11 @@ cond3 <- list(c('HKSynCom33_Flg22', 'Mock'),
               c('SynCom33_Flg22', 'Mock'),
               c('SynCom35_Flg22', 'Mock'),
               c('SynCom33_Flg22', 'SynCom35_Flg22'),
-              c('HKSynCom33_Flg22', 'HKSynCom35_Flg22'))
+              c('HKSynCom33_Flg22', 'HKSynCom35_Flg22'),
+              c('HKSynCom33_Flg22', 'Mock_Flg22'),
+              c('HKSynCom35_Flg22', 'Mock_Flg22'),
+              c('SynCom33_Flg22', 'Mock_Flg22'),
+              c('SynCom35_Flg22', 'Mock_Flg22'))
 
 ## heat kill effect
 cond4 <- list(c('SynCom33', 'HKSynCom33'),
