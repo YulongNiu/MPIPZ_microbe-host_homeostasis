@@ -202,7 +202,7 @@ percentVar <- round(100 * percentVar)
 pca1 <- pca$x[,1]
 pca2 <- pca$x[,2]
 pcaData <- tibble(PC1 = pca1, PC2 = pca2, Group = colData(rld)[, 1], ID = rownames(colData(rld))) %>%
-  mutate(SynCom = rep(c('Mock', 'Non-suppressive', 'suppressive'), c(8, 16, 16))) %>%
+  mutate(SynCom = rep(c('Mock', 'Non-suppressive', 'Suppressive'), c(8, 16, 16))) %>%
   mutate(Treatment = rep(c('Mock', 'Mock+flg22', 'HK', 'HK+flg22', 'Live', 'Live+flg22', 'HK', 'HK+flg22', 'Live', 'Live+flg22'), each = 4) %>% factor) %>%
   mutate(Cluster = rep(c('Mock', 'Mock+flg22', 'HK', 'HK+flg22', 'Non-suppressive', 'Non-suppressive+flg22', 'HK', 'HK+flg22', 'suppressive', 'suppressive+flg22'), each = 4) %>% factor) %>%
   mutate(flg22 = c('without', 'with') %>% rep(each = 4) %>% rep(5) %>% factor)
