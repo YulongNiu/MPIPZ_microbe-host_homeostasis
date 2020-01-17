@@ -69,14 +69,14 @@ scaleC <- rawC %>%
   as_tibble %>%
   bind_cols(rawC %>% select(ID, cl))
 
-cairo_pdf('kmeans10_heatmap_all_1stadd.pdf')
+cairo_pdf('kmeans10_heatmap_1stadd_sig.pdf')
 flg22 <- HeatmapAnnotation(Flg22 = c(rep(c('No', 'Yes'), each = 12),
                                      rep(c('No', 'Yes', 'No', 'Yes'), each = 4)),
-                          ## col = list(Iron = c('Yes' = 'white', 'No' = 'grey70')),
+                          col = list(Flg22 = c('Yes' = 'grey', 'No' = 'white')),
                           gp = gpar(col = 'black'))
 syncom <- HeatmapAnnotation(SynCom = c(rep(c('Mock', 'HK', 'Mock', 'HK'), c(4, 8, 4, 8)),
                                        rep('Live', 16)),
-                            ## col = list(SynCom = c('Mock' = 'grey', 'HK' = 'white', 'Live' = 'grey70')),
+                            col = list(SynCom = c('Mock' = 'grey80', 'HK' = 'white', 'Live' = 'grey50')),
                             gp = gpar(col = 'black'))
 Heatmap(matrix = scaleC %>% select(contains('_')),
         name = 'Scaled Counts',
@@ -84,9 +84,9 @@ Heatmap(matrix = scaleC %>% select(contains('_')),
         row_split = scaleC$cl,
         row_gap = unit(2, "mm"),
         column_order = 1 : 40,
-        column_split = rep(c('Mock/HKSynCom', 'Non-suppressive', 'Suppressive'), c(24, 8, 8)),
+        column_split = rep(c('Mock/HKSynCom', 'Non-sup', 'Sup'), c(24, 8, 8)),
         show_column_names = FALSE,
-        col = colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral'))[c(-4, -7)])(10),
+        col = colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral'))[c(-3, -4, -6, -7)])(100),
         top_annotation = c(flg22, syncom))
 dev.off()
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
