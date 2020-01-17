@@ -293,7 +293,7 @@ ggplot(clusterGenePlot, aes(Sample, NorExpress, group = ID)) +
   geom_line(data = clusterCorePlot, aes(Sample, NorExpress, group = cl, col = cl)) +
   ylab('Scaled counts') +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  guides(colour = guide_legend(title = 'kmeans (k=16)'))
+  guides(colour = guide_legend(title = 'kmeans (k=10)'))
 ggsave(paste0(prefix, '_genes_1stadd.pdf'), width = 10, dpi = 320)
 ggsave(paste0(prefix, '_genes_1stadd.jpg'), width = 10, dpi = 320)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
