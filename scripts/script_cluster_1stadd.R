@@ -385,7 +385,7 @@ heatPlot <- rawC %>%
     inner_join(., cl)
   } %T>%
   {(sum(names(cl) == .$ID) == nrow(.)) %>% print} %>% ## check cl names and degresC row names
-  slice(cl %>% order)
+  dplyr::slice(cl %>% order)
 
 heatRawPlot <- heatPlot %>%
   select(ID, starts_with('Raw')) %>%
