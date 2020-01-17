@@ -80,7 +80,7 @@ syncom <- HeatmapAnnotation(SynCom = c(rep(c('Mock', 'HK', 'Mock', 'HK'), c(4, 8
                             gp = gpar(col = 'black'))
 Heatmap(matrix = scaleC %>% select(contains('_')),
         name = 'Scaled Counts',
-        row_order = order(scaleC$cl) %>% rev,
+        ## row_order = order(scaleC$cl) %>% rev,
         row_split = scaleC$cl,
         row_gap = unit(2, "mm"),
         column_order = 1 : 40,

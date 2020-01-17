@@ -190,7 +190,8 @@ ggsave('kmeans_AIC_1stadd.pdf')
 ggsave('kmeans_AIC_1stadd.jpg')
 
 ## execute
-kClust10 <- kmeans(scaleCount, centers = 10, algorithm= 'MacQueen', nstart = 1000, iter.max = 20)
+clNum <- 12
+kClust10 <- kmeans(scaleCount, centers = clNum, algorithm= 'MacQueen', nstart = 1000, iter.max = 20)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~cut trees by height ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -238,7 +239,7 @@ cl <- kmeansRes$clreal[match(names(kClust10$cluster), kmeansRes$ID)] %>%
   set_names(names(kClust10$cluster))
 
 cl <- kClust10$cluster
-prefix <- 'kmeans10'
+prefix <- paste0('kmeans', clNum)
 
 clusterGene <- scaleCount %>%
   as.data.frame %>%
@@ -264,7 +265,7 @@ ggplot(clusterCore, aes(Sample, NorExpress, col = cl, group = cl)) +
   geom_line() +
   facet_wrap(. ~ cl, ncol = 2) +
   ylab('Scaled counts') +
-  scale_color_manual(values = hue_pal()(10),
+  scale_color_manual(values = hue_pal()(clNum),
                      breaks = kClust10$cluster %>%
                        table %>%
                        names %>%
@@ -272,7 +273,7 @@ ggplot(clusterCore, aes(Sample, NorExpress, col = cl, group = cl)) +
                      labels = kClust10$cluster %>%
                        table %>%
                        {paste0('cluster_', names(.), ' ', .)},
-                     guide = guide_legend(title = 'kmeans (k = 10)')) +
+                     guide = guide_legend(title = paste0('kmeans (k = ',clNum, ')'))) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ggsave(paste0(prefix, '_1stadd.pdf'))
 ggsave(paste0(prefix, '_1stadd.jpg'))
@@ -293,7 +294,7 @@ ggplot(clusterGenePlot, aes(Sample, NorExpress, group = ID)) +
   geom_line(data = clusterCorePlot, aes(Sample, NorExpress, group = cl, col = cl)) +
   ylab('Scaled counts') +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  guides(colour = guide_legend(title = 'kmeans (k=10)'))
+  guides(colour = guide_legend(title = paste0('kmeans (k = ',clNum, ')')))
 ggsave(paste0(prefix, '_genes_1stadd.pdf'), width = 10, dpi = 320)
 ggsave(paste0(prefix, '_genes_1stadd.jpg'), width = 10, dpi = 320)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
