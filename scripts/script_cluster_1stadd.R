@@ -190,7 +190,7 @@ ggsave('kmeans_AIC_1stadd.pdf')
 ggsave('kmeans_AIC_1stadd.jpg')
 
 ## execute
-clNum <- 12
+clNum <- 16
 kClust10 <- kmeans(scaleCount, centers = clNum, algorithm= 'MacQueen', nstart = 1000, iter.max = 20)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -354,8 +354,8 @@ ggplot(traitCorPlot, aes(x = x, y = y, fill = correlation)) +
   xlab('Trait') +
   ylab('Cluster') +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
-ggsave(paste0(prefix, '_trait_1stadd.jpg'))
-ggsave(paste0(prefix, '_trait_1stadd.pdf'))
+ggsave(paste0(prefix, '_trait_1stadd.jpg'), height = 8)
+ggsave(paste0(prefix, '_trait_1stadd.pdf'), height = 8)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~heat map~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

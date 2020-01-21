@@ -1,5 +1,5 @@
 #######################GO analysis############################
-setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/geneset/')
+setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/geneset')
 
 library('goseq')
 library('GO.db')
@@ -19,9 +19,10 @@ load('athGO.RData')
 load('athKEGG.RData')
 load('athBioCyc.RData')
 
-kmeansRes <- read_csv('../results/cluster10_1stadd.csv',
-                      col_types = cols(Chromosome = col_character())) %>%
-  select(ID, Length, starts_with('Mock_Flg22'), starts_with('SynCom33_Flg22'), starts_with('SynCom35_Flg22'), cl)
+kmeansRes <- read_csv('../results/kmeans10_1stadd.csv',
+                      col_types = cols(Chromosome = col_character()))
+
+savepath <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/geneset_1stadd'
 
 ##~~~~~~~~~~~~~~~select genesets~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 athGO %<>%
@@ -58,6 +59,56 @@ BioCycMat <- foreach(i = 1:length(athBioCyc), .combine = rbind) %dopar% {
   return(eachMat)
 } %>% as.data.frame
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+##~~~~~~~~~~~~~~~~~~~whole cluster gene-set~~~~~~~~~~~~~~~~~
+for (i in kmeansRes$cl %>% unique) {
+
+  prefix <- 'kmeans10_1stadd'
+
+  degVec <- (kmeansRes$cl == i) %>%
+    as.integer %>%
+    set_names(kmeansRes$ID)
+
+  pwf <- nullp(degVec, bias.data = kmeansRes$Length)
+
+  ## GO
+  GOTestWithCat <- goseq(pwf, gene2cat = GOMat, use_genes_without_cat = FALSE) %>%
+    as_tibble %>%
+    filter(!is.na(ontology))
+
+  termCat <- c('BP', 'MF', 'CC')
+  for (j in termCat) {
+    write.csv(GOTestWithCat %>% filter(ontology == j),
+              paste0(prefix, '_cluster', i, '_', j, '.csv') %>% file.path(savepath, .))
+  }
+
+  ## KEGG
+  pathAnno <- getKEGGPathAnno('ath') %>%
+    as_tibble %>%
+    mutate(Annotation = Annotation %>% substr(., 1, nchar(.) - 37))
+
+  KEGGTestWithCat <- goseq(pwf, gene2cat = KEGGMat, use_genes_without_cat = FALSE) %>%
+    as_tibble %>%
+    inner_join(., pathAnno, by = c('category' = 'pathID')) %>%
+    mutate(ontology = 'KEGG')
+
+  write.csv(KEGGTestWithCat,
+            paste0(prefix, '_cluster', i, '_KEGG.csv') %>% file.path(savepath, .))
+
+  ## BioCyc
+  pathAnno <- getCycPathway('ARA') %>%
+    rename(Annotation = pathAnno) %>%
+    mutate(Annotation = Annotation %>% str_replace_all('<.*?>', ''))
+
+  BioCycTestWithCat <- goseq(pwf, gene2cat = BioCycMat, use_genes_without_cat = FALSE) %>%
+    as_tibble %>%
+    inner_join(., pathAnno, by = c('category' = 'pathID')) %>%
+    mutate(ontology = 'BioCyc')
+
+  write.csv(BioCycTestWithCat,
+            paste0(prefix, '_cluster', i, '_BioCyc.csv') %>% file.path(savepath, .))
+}
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~choose sig~~~~~~~~~~~~~~~~~~~~~
 ## padj < 0.05 & |log2FC| > log2(1.5)
