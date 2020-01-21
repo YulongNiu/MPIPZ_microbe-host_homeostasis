@@ -69,7 +69,7 @@ scaleC <- rawC %>%
   as_tibble %>%
   bind_cols(rawC %>% select(ID, cl))
 
-cairo_pdf('kmeans16_heatmap_1stadd_sig.pdf')
+cairo_pdf('kmeans16_heatmap_1stadd_sig2.pdf')
 flg22 <- HeatmapAnnotation(Flg22 = c(rep(c('No', 'Yes'), each = 12),
                                      rep(c('No', 'Yes', 'No', 'Yes'), each = 4)),
                           col = list(Flg22 = c('Yes' = 'grey', 'No' = 'white')),
@@ -80,7 +80,7 @@ syncom <- HeatmapAnnotation(SynCom = c(rep(c('Mock', 'HK', 'Mock', 'HK'), c(4, 8
                             gp = gpar(col = 'black'))
 Heatmap(matrix = scaleC %>% select(contains('_')),
         name = 'Scaled Counts',
-        row_order = order(scaleC$cl) %>% rev,
+        ## row_order = order(scaleC$cl) %>% rev,
         row_split = scaleC$cl,
         row_gap = unit(2, "mm"),
         column_order = 1 : 40,
