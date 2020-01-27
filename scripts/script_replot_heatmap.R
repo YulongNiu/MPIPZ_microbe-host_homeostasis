@@ -30,17 +30,17 @@ kmeansRes <- read_csv('kmeans10_1stadd.csv') %>%
 fcsig <- wholeDEG %>%
   select(ends_with('FoldChange')) %>%
   transmute_all(list(~ case_when(. > log2(1.5) ~ 1,
-                                 . < -log2(1.5) ~ 1,
+                                 . < -log2(1.5) ~ -1,
                                  TRUE ~ 0)))
 padjsig <- wholeDEG %>%
   select(ends_with('padj')) %>%
-  abs %>%
   `<`(0.05) %>%
   as_tibble %>%
   transmute_all(list(~ if_else(is.na(.), FALSE, .)))
 
 heatsig <- (padjsig * fcsig) %>%
   as_tibble %>%
+  abs %>%
   rowSums %>%
   {. >= 1} %>%
   which %>%
@@ -60,7 +60,9 @@ rawC <- rldData %>%
   as_tibble %>%
   dplyr::select(matches('Mock_\\d|HKSynCom33_\\d|HKSynCom35_\\d'), matches('Mock_Flg22_\\d|HKSynCom33_Flg22_\\d|HKSynCom35_Flg22_\\d'), everything()) %>%
   inner_join(heatsig %>% select(ID, cl))
+  ## inner_join(kmeansRes) ## all transcripts
 
+## scale counts
 scaleC <- rawC %>%
   select(contains('_')) %>%
   t %>%
@@ -69,25 +71,47 @@ scaleC <- rawC %>%
   as_tibble %>%
   bind_cols(rawC %>% select(ID, cl))
 
-cairo_pdf('kmeans16_heatmap_1stadd_sig2.pdf')
-flg22 <- HeatmapAnnotation(Flg22 = c(rep(c('No', 'Yes'), each = 12),
+cairo_pdf('kmeans10_heatmap_1stadd_sig_DEGs.pdf')
+
+## 1. sample annotation
+col_flg22 <- HeatmapAnnotation(Flg22 = c(rep(c('No', 'Yes'), each = 12),
                                      rep(c('No', 'Yes', 'No', 'Yes'), each = 4)),
                           col = list(Flg22 = c('Yes' = 'grey', 'No' = 'white')),
                           gp = gpar(col = 'black'))
-syncom <- HeatmapAnnotation(SynCom = c(rep(c('Mock', 'HK', 'Mock', 'HK'), c(4, 8, 4, 8)),
+
+col_syncom <- HeatmapAnnotation(SynCom = c(rep(c('Mock', 'HK', 'Mock', 'HK'), c(4, 8, 4, 8)),
                                        rep('Live', 16)),
                             col = list(SynCom = c('Mock' = 'grey80', 'HK' = 'white', 'Live' = 'grey50')),
                             gp = gpar(col = 'black'))
+
+## 2. DEG annotation
+sigMat <- (padjsig * fcsig) %>%
+  as_tibble %>%
+  setNames(names(.) %>% substr(., start = 1, stop = nchar(.) - 5)) %>%
+  mutate(ID = wholeDEG$ID) %>%
+  inner_join(scaleC %>% select(ID), .) %T>%
+  {(sum(.$ID == scaleC$ID) == nrow(.)) %>% print} %>%
+  transmute_at(.var = vars(contains('vs')),
+               list(~ case_when(. == -1 ~ 'down',
+                                 . == 0 ~'no',
+                                . == 1 ~ 'up'))) %>%
+  as.matrix
+
+row_DEGs <- rowAnnotation(DEGs = sigMat,
+                          col = list(DEGs = c('down' = 'blue', 'no' = 'white', 'up' = 'red')),
+                          annotation_width = unit(57.5, 'mm'))
+
 Heatmap(matrix = scaleC %>% select(contains('_')),
         name = 'Scaled Counts',
-        ## row_order = order(scaleC$cl) %>% rev,
+        row_order = order(scaleC$cl) %>% rev,
         row_split = scaleC$cl,
         row_gap = unit(2, "mm"),
         column_order = 1 : 40,
         column_split = rep(c('Mock/HKSynCom', 'Non-sup', 'Sup'), c(24, 8, 8)),
         show_column_names = FALSE,
         col = colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral'))[c(-3, -4, -6, -7)])(100),
-        top_annotation = c(flg22, syncom))
+        ## right_annotation = row_DEGs,
+        top_annotation = c(col_flg22, col_syncom))
 dev.off()
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #######################################################################
