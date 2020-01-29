@@ -49,7 +49,7 @@ heatsig <- (padjsig * fcsig) %>%
 
 heatsig %>%
   mutate_at(c('Gene', 'Description'), .funs = list(~if_else(is.na(.), '', .))) %>%
-  write_csv('eachGroup_vs_Mock_k_1stadd_sig.csv')
+  write_csv('kmeans10_1stadd_sig.csv')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~heatmap~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -70,8 +70,6 @@ scaleC <- rawC %>%
   t %>%
   as_tibble %>%
   bind_cols(rawC %>% select(ID, cl))
-
-cairo_pdf('kmeans10_heatmap_1stadd_sig_DEGs.pdf')
 
 ## 1. sample annotation
 col_flg22 <- HeatmapAnnotation(Flg22 = c(rep(c('No', 'Yes'), each = 12),
@@ -97,21 +95,35 @@ sigMat <- (padjsig * fcsig) %>%
                                 . == 1 ~ 'up'))) %>%
   as.matrix
 
-row_DEGs <- rowAnnotation(DEGs = sigMat,
-                          col = list(DEGs = c('down' = 'blue', 'no' = 'white', 'up' = 'red')),
-                          annotation_width = unit(57.5, 'mm'))
+## flg22 matrix
+flg22Mat <- sigMat[, 1:5]
+colnames(flg22Mat) <- c('Mock+flg22 vs. Mock',
+                        'HKSynCom33+flg22 vs. HKSynCom33',
+                        'HKSynCom35+flg22 vs. HKSynCom35',
+                        'SynCom33+flg22 vs. SynCom33',
+                        'SynCom35+flg22 vs. SynCom35')
 
-Heatmap(matrix = scaleC %>% select(contains('_')),
-        name = 'Scaled Counts',
-        row_order = order(scaleC$cl) %>% rev,
-        row_split = scaleC$cl,
-        row_gap = unit(2, "mm"),
-        column_order = 1 : 40,
-        column_split = rep(c('Mock/HKSynCom', 'Non-sup', 'Sup'), c(24, 8, 8)),
-        show_column_names = FALSE,
-        col = colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral'))[c(-3, -4, -6, -7)])(100),
-        ## right_annotation = row_DEGs,
-        top_annotation = c(col_flg22, col_syncom))
+ht_list <- Heatmap(matrix = scaleC %>% select(contains('_')),
+                   name = 'Scaled Counts',
+                   row_order = order(scaleC$cl) %>% rev,
+                   row_split = scaleC$cl,
+                   row_gap = unit(2, "mm"),
+                   column_order = 1 : 40,
+                   column_split = rep(c('Mock/HKSynCom', 'Non-sup', 'Sup'), c(24, 8, 8)),
+                   show_column_names = FALSE,
+                   col = colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral'))[c(-3, -4, -6, -7)])(100),
+                   top_annotation = c(col_flg22, col_syncom),
+                   use_raster = FALSE) +
+  Heatmap(flg22Mat,
+          col = c('down' = 'blue', 'no' = 'white', 'up' = 'red'),
+          column_names_gp = gpar(fontsize = 7),
+          cluster_columns = FALSE,
+          use_raster = FALSE)
+
+pdf('kmeans10_heatmap_1stadd_sig_DEGs.pdf')
+draw(ht_list)
 dev.off()
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #######################################################################
+
+
