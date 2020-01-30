@@ -103,9 +103,33 @@ colnames(flg22Mat) <- c('Mock+flg22 vs. Mock',
                         'SynCom33+flg22 vs. SynCom33',
                         'SynCom35+flg22 vs. SynCom35')
 
+bacMat <- sigMat[, 6:11]
+colnames(bacMat) <- c('HKSynCom33 vs. Mock',
+                      'HKSynCom35 vs. Mock',
+                      'SynCom33 vs. Mock',
+                      'SynCom35 vs. Mock',
+                      'SynCom33 vs. SynCom35',
+                      'HKSynCom33 vs. HkSynCom35')
+
+mixMat <- sigMat[, 12:21]
+colnames(mixMat) <- c('HKSynCom33+flg22 vs. Mock',
+                      'HKSynCom33+flg22 vs. Mock',
+                      'SynCom33+flg22 vs. Mock',
+                      'SynCom35+flg22 vs. Mock',
+                      'SynCom33+flg22 vs. SynCom35+flg22',
+                      'HKSynCom33+flg22 vs. HKSynCom35+flg22',
+                      'HKSynCom35+flg22 vs. Mock+flg22',
+                      'HKSynCom33+flg22 vs. Mock+flg22',
+                      'SynCom33+flg22 vs. Mock+flg22',
+                      'SynCom35+flg22 vs. Mock+flg22')
+
+hkMat <- sigMat[, 22:23]
+colnames(hkMat) <- c('SynCom33 vs. HKSynCom33',
+                     'SynCom35 vs. HKSynCom35')
+
 ht_list <- Heatmap(matrix = scaleC %>% select(contains('_')),
                    name = 'Scaled Counts',
-                   row_order = order(scaleC$cl) %>% rev,
+                   ## row_order = order(scaleC$cl) %>% rev,
                    row_split = scaleC$cl,
                    row_gap = unit(2, "mm"),
                    column_order = 1 : 40,
@@ -116,12 +140,33 @@ ht_list <- Heatmap(matrix = scaleC %>% select(contains('_')),
                    use_raster = FALSE) +
   Heatmap(flg22Mat,
           col = c('down' = 'blue', 'no' = 'white', 'up' = 'red'),
-          column_names_gp = gpar(fontsize = 7),
+          column_names_gp = gpar(fontsize = 5),
+          heatmap_legend_param = list(title = 'DEGs'),
           cluster_columns = FALSE,
-          use_raster = FALSE)
+          use_raster = FALSE) +
+  Heatmap(bacMat,
+        col = c('down' = 'blue', 'no' = 'white', 'up' = 'red'),
+        column_names_gp = gpar(fontsize = 5),
+        cluster_columns = FALSE,
+        use_raster = FALSE,
+        show_heatmap_legend = FALSE) +
+  Heatmap(mixMat,
+          col = c('down' = 'blue', 'no' = 'white', 'up' = 'red'),
+          column_names_gp = gpar(fontsize = 5),
+          cluster_columns = FALSE,
+          use_raster = FALSE,
+          show_heatmap_legend = FALSE) +
+  Heatmap(hkMat,
+          col = c('down' = 'blue', 'no' = 'white', 'up' = 'red'),
+          column_names_gp = gpar(fontsize = 5),
+          cluster_columns = FALSE,
+          use_raster = FALSE,
+          show_heatmap_legend = FALSE)
+
 
 pdf('kmeans10_heatmap_1stadd_sig_DEGs.pdf')
-draw(ht_list)
+draw(ht_list,
+     heatmap_legend_side = 'bottom')
 dev.off()
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #######################################################################

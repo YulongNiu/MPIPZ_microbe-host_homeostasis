@@ -58,7 +58,7 @@ athAnno <- inner_join(geneTable, cDNATable, by = 'ID') %>%
 write_csv(athAnno, '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno.csv')
 
 ##~~~~~~~~~~~~~~~~~~check cDNA in k~~~~~~~~~~~~~~~~~~~~~~~~~~~
-kcDNA <- read_tsv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/bamfiles/Flg22_1_ath_kallisto/abundance.tsv')
+kcDNA <- read_tsv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/align_data/Mock_Flg22_1_ath_kallisto/abundance.tsv')
 
 ## kcDNA 48359
 ## athAnno 54013
