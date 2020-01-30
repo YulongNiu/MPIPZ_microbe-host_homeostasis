@@ -164,9 +164,8 @@ ht_list <- Heatmap(matrix = scaleC %>% select(contains('_')),
           show_heatmap_legend = FALSE)
 
 
-pdf('kmeans10_heatmap_1stadd_sig_DEGs.pdf')
-draw(ht_list,
-     heatmap_legend_side = 'bottom')
+pdf('kmeans10_heatmap_1stadd_sig2.pdf')
+draw(ht_list)
 dev.off()
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #######################################################################
