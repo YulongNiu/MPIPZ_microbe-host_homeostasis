@@ -161,22 +161,39 @@ rldData <- dat %>%
                     design = design)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-cols <- colData(rld)[, 1] %>% factor(levels = c('#a6cee3', '#1f78b4', '#e31a1c', '#6a3d9a'))
+cols <- colData(rldData)[, 1] %>% factor(levels = c('#a6cee3', '#1f78b4', '#e31a1c', '#6a3d9a'))
 
-pca <- prcomp(t(dat))
+pca <- prcomp(t(rldData))
 percentVar <- pca$sdev^2/sum(pca$sdev^2)
 percentVar <- round(100 * percentVar)
 pca1 <- pca$x[,1]
 pca2 <- pca$x[,2]
-pcaData <- data.frame(PC1 = pca1, PC2 = pca2, Group = colData(rld)[, 1], ID = rownames(colData(rld)))
-ggplot(pcaData, aes(x = PC1, y = PC2, colour = Group, label = ID)) +
-  geom_point(size = 3) +
-  scale_colour_manual(values = levels(cols)) +
+pcaData <- data.frame(PC1 = pca1, PC2 = pca2, Group = colData(rld)[, 1], ID = rownames(colData(rld))) %>%
+  mutate(SynCom = rep(c('Mock', 'Non-suppressive', 'Suppressive'), c(6, 3, 3))) %>%
+  mutate(Treatment = rep(c('Mock', 'Mock+flg22', 'Live+flg22', 'Live+flg22'), each = 3) %>% factor) %>%
+  mutate(Cluster = rep(c('Mock', 'Mock+flg22', 'Non-suppressive+flg22', 'suppressive+flg22'), each = 3) %>% factor) %>%
+  mutate(flg22 = c('without', 'with') %>% rep(c(3, 9)) %>% factor)
+
+ggplot(pcaData, aes(x = PC1, y = PC2, colour = SynCom)) +
+  geom_point(aes(shape = Treatment), size = 4) +
   xlab(paste0("PC1: ",percentVar[1],"% variance")) +
   ylab(paste0("PC2: ",percentVar[2],"% variance")) +
-  geom_text_repel(force = 5)
-ggsave('PCA_raw.pdf', width = 15, height = 12)
-ggsave('PCA_raw.jpg', width = 15, height = 12)
+  scale_colour_manual(values = c('#000000', '#377eb8', '#e41a1c')) +
+  scale_shape_manual(values = c(17, 1, 16),
+                     name = 'Experimental\nConditions') +
+  stat_ellipse(aes(x = PC1, y = PC2, group = Group, linetype = flg22), type = 't', level = 0.7) +
+  scale_linetype_manual(values = c(1, 2), guide = FALSE) +
+  coord_fixed(1) +
+  theme_classic() +
+  theme(plot.title = element_text(hjust = 0.5, size = 12, face = 'bold'),
+        legend.text.align = 0,
+        axis.text = element_text(size = 13),
+        axis.title = element_text(size = 14),
+        legend.text=element_text(size= 13),
+        legend.title = element_text(size = 14))
+
+ggsave('PCA_sva.pdf', width = 13)
+ggsave('PCA_sva.jpg', width = 13)
 
 save(degres, rldData, file = 'degres_condi_Mock.RData')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
