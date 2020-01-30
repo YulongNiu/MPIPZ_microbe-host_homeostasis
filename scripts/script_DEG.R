@@ -114,19 +114,21 @@ degres$sv2 <- svobj$sv[, 2]
 degres$sv3 <- svobj$sv[, 3]
 design(degres) <- ~sv1 + sv2 + sv3 + condition
 
-cond <- degres %>%
-  resultsNames %>%
-  str_extract('(?<=condition_).*') %>%
-  .[!is.na(.)]
+degres <- DESeq(degres)
+
+cond <- list(c('Mock_Flg22', 'Mock'),
+             c('SynCom33_Flg22', 'Mock'),
+             c('SynCom35_Flg22', 'Mock'),
+             c('SynCom33_Flg22', 'SynCom35_Flg22'))
 
 resRaw <- lapply(cond,
                  function(x) {
                    degres %>%
-                     results(name = paste0('condition_', x)) %T>%
+                     results(contrast = c('condition', x)) %T>%
                      summary %>%
                      as_tibble %>%
                      select(pvalue, padj, log2FoldChange) %>%
-                     rename_all(.funs = list(~paste0(x, '_', .)))
+                     rename_all(.funs = list(~paste0(paste(x, collapse = '_vs_'), '_', .)))
                  }) %>%
   bind_cols
 
