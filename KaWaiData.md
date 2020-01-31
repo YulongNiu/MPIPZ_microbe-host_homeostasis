@@ -227,6 +227,8 @@ AT1G14550.1 AT2G30750.1 AT2G19190.1 AT5G24110.1
 * heatmaps
   
 ![kmeans10_heatmap_sig](results/kmeans10_heatmap_sig.jpg)
+
+![kmeans10_heatmap_sig2](results/kmeans10_heatmap_sig2.jpg)
   
 ### 4.4 Gene-set analysis ###
 
