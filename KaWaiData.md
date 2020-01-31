@@ -210,7 +210,7 @@ Choose k (group number) by the sum of squared error (SSE) and Akaike information
 
 ```
 AT1G14550.1 AT2G30750.1 AT2G19190.1 AT5G24110.1 
-          7           7           6           7 
+          4           4           2           4 
 ```
 * correlation of traits (phenotype) and clusters
   

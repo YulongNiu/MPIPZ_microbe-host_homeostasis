@@ -119,6 +119,8 @@ degres <- DESeq(degres)
 cond <- list(c('Mock_Flg22', 'Mock'),
              c('SynCom33_Flg22', 'Mock'),
              c('SynCom35_Flg22', 'Mock'),
+             c('SynCom33_Flg22', 'Mock_Flg22'),
+             c('SynCom35_Flg22', 'Mock_Flg22'),
              c('SynCom33_Flg22', 'SynCom35_Flg22'))
 
 resRaw <- lapply(cond,
@@ -137,7 +139,7 @@ res <- cbind.data.frame(as.matrix(mcols(degres)[, 1:10]), counts(degres, normali
   as_tibble %>%
   bind_cols(resRaw) %>%
   inner_join(anno, by = 'ID') %>%
-  select(ID, Gene : Description, Mock_1 : SynCom35_Flg22_vs_Mock_log2FoldChange) %>%
+  select(ID, Gene : Description, Mock_1 : SynCom33_Flg22_vs_SynCom35_Flg22_log2FoldChange) %>%
   arrange(Mock_Flg22_vs_Mock_padj)
 
 write_csv(res, 'eachGroup_vs_Mock_k.csv')
