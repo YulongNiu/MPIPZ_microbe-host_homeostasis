@@ -204,9 +204,9 @@ Choose k (group number) by the sum of squared error (SSE) and Akaike information
 
 ![kmeans_AIC](results/kmeans_AIC.jpg)
 
-![kmeans_1d5](results/kmeans_10.jpg)
+![kmeans_1d5](results/kmeans10.jpg)
   
-![kmeans_gene_1d5](results/kmeans_10_genes.jpg)
+![kmeans_gene_1d5](results/kmeans10_genes.jpg)
 
 ```
 AT1G14550.1 AT2G30750.1 AT2G19190.1 AT5G24110.1 
@@ -222,7 +222,7 @@ AT1G14550.1 AT2G30750.1 AT2G19190.1 AT5G24110.1
       1        0        1        1     4.9
 ```
   
-![kmeans_10_trait](results/kmeans_10_trait.jpg)
+![kmeans_10_trait](results/kmeans10_trait.jpg)
   
 * heatmaps
   
