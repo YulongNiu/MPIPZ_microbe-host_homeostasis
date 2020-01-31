@@ -129,7 +129,7 @@ colnames(hkMat) <- c('SynCom33 vs. HKSynCom33',
 
 ht_list <- Heatmap(matrix = scaleC %>% select(contains('_')),
                    name = 'Scaled Counts',
-                   ## row_order = order(scaleC$cl) %>% rev,
+                   row_order = order(scaleC$cl) %>% rev,
                    row_split = scaleC$cl,
                    row_gap = unit(2, "mm"),
                    column_order = 1 : 40,
@@ -169,5 +169,3 @@ draw(ht_list)
 dev.off()
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #######################################################################
-
-
