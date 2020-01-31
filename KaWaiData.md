@@ -226,14 +226,14 @@ AT1G14550.1 AT2G30750.1 AT2G19190.1 AT5G24110.1
   
 * heatmaps
   
-![kmeans_10_heatmap_all_900den](results/kmeans_10_heatmap_all_900den.jpg)
+![kmeans10_heatmap_sig](results/kmeans10_heatmap_sig.jpg)
   
 ### 4.4 Gene-set analysis ###
 
 Find significantly changed gene ontology, KEGG, and BioCyc gene-sets in each k-means cluster.
 
 ![means10_cluster9_BP](results/pathway/kmeans10_cluster9_BP.jpg)
-
+    
 ![means10_cluster9_MF](results/pathway/kmeans10_cluster9_MF.jpg)
 
 ![means10_cluster9_CC](results/pathway/kmeans10_cluster9_CC.jpg)

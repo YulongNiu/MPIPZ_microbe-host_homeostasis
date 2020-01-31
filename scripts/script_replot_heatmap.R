@@ -79,7 +79,7 @@ sigMat <- (padjsig * fcsig) %>%
   {(sum(.$ID == scaleC$ID) == nrow(.)) %>% print} %>%
   transmute_at(.var = vars(contains('vs')),
                list(~ case_when(. == -1 ~ 'down',
-                                 . == 0 ~'no',
+                                . == 0 ~'no',
                                 . == 1 ~ 'up'))) %>%
   as.matrix
 
@@ -92,14 +92,14 @@ colnames(sigMat) <- c('Mock+flg22 vs. Mock',
 
 ht_list <- Heatmap(matrix = scaleC %>% select(contains('_')),
                    name = 'Scaled Counts',
-                   row_order = order(scaleC$cl) %>% rev,
+                   ## row_order = order(scaleC$cl) %>% rev,
                    row_split = scaleC$cl,
                    row_gap = unit(2, "mm"),
                    column_order = 1 : 12,
                    column_split = rep(c('Mock', 'Mock+flg22', 'Non-sup+flg22', 'Sup+flg22'), each = 3),
                    show_column_names = FALSE,
                    col = colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral'))[c(-3, -4, -6, -7)])(100),
-                   column_names_gp = gpar(fontsize = 5),
+                   column_title_gp = gpar(fontsize = 7),
                    use_raster = FALSE) +
   Heatmap(sigMat,
           col = c('down' = 'blue', 'no' = 'white', 'up' = 'red'),
@@ -108,7 +108,7 @@ ht_list <- Heatmap(matrix = scaleC %>% select(contains('_')),
           cluster_columns = FALSE,
           use_raster = FALSE)
 
-pdf('kmeans10_heatmap.pdf')
+pdf('kmeans10_heatmap2.pdf')
 draw(ht_list)
 dev.off()
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
