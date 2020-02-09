@@ -70,8 +70,6 @@ cond <- list(c('Mock_Flg22', 'Mock'),
 
 * Heatmap
 
-<!-- ![](results/removeZero/) -->
-
 ![kmeans10_heatmap_sig](results/removeZero/kmeans10_heatmap_sig.jpg)
 
 ![kmeans10_heatmap_sig_DEG.jpg](results/removeZero/kmeans10_heatmap_sig_DEG.jpg)
@@ -127,7 +125,18 @@ cond <- list(c('Mock_Flg22', 'Mock'),
 
 ### 2.2 DEGs
 
+Remove `0|0|0|0` or `0|0|0|x`, then `27592` transcripts were kept.
+
 * PCA plot
+
+PCA plot of raw data
+
+![PCA_1stadd_raw](results/removeZero/PCA_1stadd_raw.jpg)
+
+PCA plot of SVA corrected data (3 hidden variables)
+
+![PCA_1stadd_sva](results/removeZero/PCA_1stadd_sva.jpg)
+
 
 * Cluster
 
@@ -156,6 +165,7 @@ cond <- list(c('Mock_Flg22', 'Mock'),
 ### 3.2 DEGs
 
 * PCA plot
+
 
 * Cluster
 
