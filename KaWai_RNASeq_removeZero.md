@@ -137,10 +137,46 @@ PCA plot of SVA corrected data (3 hidden variables)
 
 ![PCA_1stadd_sva](results/removeZero/PCA_1stadd_sva.jpg)
 
-
 * Cluster
 
+![kmeans10_1stadd](results/removeZero/kmeans10_1stadd.jpg)
+
+![kmeans10_trait_1stadd](results/removeZero/kmeans10_trait_1stadd.jpg)
+
 * DEGs groups
+
+```r
+## flg22 treatment effect
+cond1 <- list(c('Mock_Flg22', 'Mock'),
+             c('HKSynCom33_Flg22', 'HKSynCom33'),
+             c('HKSynCom35_Flg22', 'HKSynCom35'),
+             c('SynCom33_Flg22', 'SynCom33'),
+             c('SynCom35_Flg22', 'SynCom35'))
+
+## bacteria effect
+cond2 <- list(c('HKSynCom33', 'Mock'),
+              c('HKSynCom35', 'Mock'),
+              c('SynCom33', 'Mock'),
+              c('SynCom35', 'Mock'),
+              c('SynCom33', 'SynCom35'),
+              c('HKSynCom33', 'HKSynCom35'))
+
+## bacteria x flg22 effect
+cond3 <- list(c('HKSynCom33_Flg22', 'Mock'),
+              c('HKSynCom35_Flg22', 'Mock'),
+              c('SynCom33_Flg22', 'Mock'),
+              c('SynCom35_Flg22', 'Mock'),
+              c('SynCom33_Flg22', 'SynCom35_Flg22'),
+              c('HKSynCom33_Flg22', 'HKSynCom35_Flg22'),
+              c('HKSynCom33_Flg22', 'Mock_Flg22'),
+              c('HKSynCom35_Flg22', 'Mock_Flg22'),
+              c('SynCom33_Flg22', 'Mock_Flg22'),
+              c('SynCom35_Flg22', 'Mock_Flg22'))
+
+## heat kill effect
+cond4 <- list(c('SynCom33', 'HKSynCom33'),
+              c('SynCom35', 'HKSynCom35'))
+```
 
 * Heatmap
 
