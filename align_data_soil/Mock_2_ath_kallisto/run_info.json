@@ -1,13 +1,13 @@
 {
 	"n_targets": 48359,
 	"n_bootstraps": 0,
-	"n_processed": 8060175,
-	"n_pseudoaligned": 1950392,
-	"n_unique": 1114961,
-	"p_pseudoaligned": 24.2,
+	"n_processed": 17391986,
+	"n_pseudoaligned": 4199992,
+	"n_unique": 2401911,
+	"p_pseudoaligned": 24.1,
 	"p_unique": 13.8,
-	"kallisto_version": "0.45.1",
+	"kallisto_version": "0.46.1",
 	"index_version": 10,
-	"start_time": "Fri Oct 11 14:21:22 2019",
-	"call": "/home/yniu/Biotools/kallisto_v0.45.1/kallisto quant -t 45 -i /netscratch/dep_psl/grp_rgo/yniu/ref/ath/ath.kindex -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/align_data_soil/Mock_2_ath_kallisto /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/Mock_2_R1.fq.gz /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/Mock_2_R2.fq.gz"
+	"start_time": "Mon Jan  6 14:10:49 2020",
+	"call": "/home/yniu/Biotools/kallisto_v0.46.1/kallisto quant -t 130 -i /netscratch/dep_psl/grp_rgo/yniu/ref/ath/ath.kindex -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/align_data_soil/Mock_2_ath_kallisto /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/Mock_2_R1.fq.gz /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data_soil/Mock_2_R2.fq.gz"
 }
