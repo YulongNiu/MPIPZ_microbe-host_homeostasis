@@ -45,7 +45,7 @@ kres <- tximport(files, type = 'kallisto', txOut = TRUE)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~normalization~~~~~~~~~~~~~~~~~~~~~~~~~~
-setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/')
+setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/')
 
 condi <- c('Mock', 'Mock_Flg22', 'SynCom33_Flg22', 'SynCom35_Flg22')
 
@@ -64,7 +64,6 @@ degres %<>%
   apply(1, checkFlg22, 1) %>%
   degres[., ]
 
-## save(degres, file = 'degres_condi_Mock.RData')
 degres <- DESeq(degres)
 
 ## count transformation
@@ -82,9 +81,9 @@ dat <- rld %>%
 mod <- model.matrix(~ condition, colData(degres))
 mod0 <- model.matrix(~ 1, colData(degres))
 
-## manual detect surrogate variance
-svnum <- 4
-svseq <- svaseq(dat, mod, mod0, n.sv = svnum)
+## ## manual detect surrogate variance
+## svnum <- 4
+## svseq <- svaseq(dat, mod, mod0, n.sv = svnum)
 
 ## auto detect sv
 svobj <- sva(dat, mod, mod0)

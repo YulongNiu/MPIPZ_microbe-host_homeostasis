@@ -39,6 +39,8 @@
 
 ### 1.2 DEGs
 
+Remove `0|0|0` or `0|0|x`, then `29163` transcripts were kept.
+
 * PCA plot
 
 PCA plot of raw data
@@ -50,8 +52,6 @@ PCA plot of SVA corrected data (3 hidden variables)
 ![PCA_sva](results/removeZero/PCA_sva.jpg)
 
 * Cluster
-
-<!-- ![](results/removeZero/) -->
 
 ![kmeans10](results/removeZero/kmeans10.jpg)
 
@@ -70,7 +70,11 @@ cond <- list(c('Mock_Flg22', 'Mock'),
 
 * Heatmap
 
+<!-- ![](results/removeZero/) -->
 
+![kmeans10_heatmap_sig](results/removeZero/kmeans10_heatmap_sig.jpg)
+
+![kmeans10_heatmap_sig_DEG.jpg](results/removeZero/kmeans10_heatmap_sig_DEG.jpg)
 
 ### 1.3 Gene-set
 

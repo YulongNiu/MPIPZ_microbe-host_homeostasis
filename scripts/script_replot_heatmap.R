@@ -5,22 +5,9 @@ library('limma')
 library('DESeq2')
 library('RColorBrewer')
 
-setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/')
+setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero')
 
 load('degres_condi_Mock.RData')
-
-##~~~~~~~~~~~~~~~~~~~~~~useful funcs~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-meanFlg22 <- function(v) {
-
-  require('magrittr')
-
-  res <- v %>%
-    split(rep(1 : 4, each = 3)) %>%
-    sapply(mean, na.rm = TRUE)
-
-  return(res)
-}
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~select DEGs~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wholeDEG <- read_csv('eachGroup_vs_Mock_k.csv')
@@ -108,9 +95,13 @@ ht_list <- Heatmap(matrix = scaleC %>% select(contains('_')),
           cluster_columns = FALSE,
           use_raster = FALSE)
 
-pdf('kmeans10_heatmap2.pdf')
+filePrefix <- 'kmeans10_heatmap_sig_DEG2'
+
+pdf(paste0(filePrefix, '.pdf'))
 draw(ht_list)
 dev.off()
+
+system(paste0('convert -density 1200 ', paste0(filePrefix, '.pdf'), ' ', paste0(filePrefix, '.jpg')))
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #######################################################################
 
