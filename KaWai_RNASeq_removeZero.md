@@ -41,6 +41,14 @@
 
 * PCA plot
 
+PCA plot of raw data
+
+![PCA_raw](results/removeZero/PCA_raw.jpg)
+
+PCA plot of SVA corrected data (3 hidden variables)
+
+![PCA_sva](results/removeZero/PCA_sva.jpg)
+
 * Cluster
 
 * DEGs groups
