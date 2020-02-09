@@ -59,9 +59,18 @@ PCA plot of SVA corrected data (3 hidden variables)
 
 * DEGs groups
 
-
+```r
+cond <- list(c('Mock_Flg22', 'Mock'),
+             c('SynCom33_Flg22', 'Mock'),
+             c('SynCom35_Flg22', 'Mock'),
+             c('SynCom33_Flg22', 'Mock_Flg22'),
+             c('SynCom35_Flg22', 'Mock_Flg22'),
+             c('SynCom33_Flg22', 'SynCom35_Flg22'))
+```
 
 * Heatmap
+
+
 
 ### 1.3 Gene-set
 
