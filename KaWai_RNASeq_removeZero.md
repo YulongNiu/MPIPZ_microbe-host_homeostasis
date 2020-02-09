@@ -51,7 +51,15 @@ PCA plot of SVA corrected data (3 hidden variables)
 
 * Cluster
 
+<!-- ![](results/removeZero/) -->
+
+![kmeans10](results/removeZero/kmeans10.jpg)
+
+![kmeans10_trait](results/removeZero/kmeans10_trait.jpg)
+
 * DEGs groups
+
+
 
 * Heatmap
 
