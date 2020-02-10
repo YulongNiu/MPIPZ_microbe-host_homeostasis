@@ -72,7 +72,11 @@ cond <- list(c('Mock_Flg22', 'Mock'),
 
 ![kmeans10_heatmap_sig](results/removeZero/kmeans10_heatmap_sig.jpg)
 
+![kmeans10_heatmap_sig2](results/removeZero/kmeans10_heatmap_sig2.jpg)
+
 ![kmeans10_heatmap_sig_DEG.jpg](results/removeZero/kmeans10_heatmap_sig_DEG.jpg)
+
+![kmeans10_heatmap_sig_DEG.jpg2](results/removeZero/kmeans10_heatmap_sig_DEG2.jpg)
 
 ### 1.3 Gene-set
 
