@@ -216,8 +216,17 @@ DEGs threshold: `|log2FC| > log2(1.5)` and `adj-pvalue < 0.05`
 
 ### 3.2 DEGs
 
+Remove `0|0|0` or `0|0|x`, then `27105` transcripts were kept.
+
 * PCA plot
 
+PCA plot of raw data
+
+![PCA_soil_raw](results/removeZero/PCA_soil_raw.jpg)
+
+PCA plot of SVA corrected data (3 hidden variables)
+
+![PCA_soil_sva](results/removeZero/PCA_soil_sva.jpg)
 
 * Cluster
 
