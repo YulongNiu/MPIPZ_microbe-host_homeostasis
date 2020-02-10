@@ -68,6 +68,8 @@ cond <- list(c('Mock_Flg22', 'Mock'),
              c('SynCom33_Flg22', 'SynCom35_Flg22'))
 ```
 
+DEGs threshold: `|log2FC| > log2(1.5)` and `adj-pvalue < 0.05`
+
 * Heatmap
 
 ![kmeans10_heatmap_sig](results/removeZero/kmeans10_heatmap_sig.jpg)
@@ -182,7 +184,17 @@ cond4 <- list(c('SynCom33', 'HKSynCom33'),
               c('SynCom35', 'HKSynCom35'))
 ```
 
+DEGs threshold: `|log2FC| > log2(1.5)` and `adj-pvalue < 0.05`
+
 * Heatmap
+
+![kmeans10_heatmap_1stadd_sig](results/removeZero/kmeans10_heatmap_1stadd_sig.jpg)
+
+![kmeans10_heatmap_1stadd_sig2](results/removeZero/kmeans10_heatmap_1stadd_sig2.jpg)
+
+![kmeans10_heatmap_1stadd_sig_DEG.jpg](results/removeZero/kmeans10_heatmap_1stadd_sig_DEG.jpg)
+
+![kmeans10_heatmap_1stadd_sig_DEG.jpg2](results/removeZero/kmeans10_heatmap_1stadd_sig_DEG2.jpg)
 
 ### 2.3 Gene-set
 

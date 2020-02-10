@@ -50,7 +50,7 @@ kres <- tximport(files, type = 'kallisto', txOut = TRUE)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~normalization~~~~~~~~~~~~~~~~~~~~~~~
-setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/')
+setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero')
 
 ## sampleTable
 condi <- c('Mock', 'Mock_Flg22', 'HKSynCom33', 'HKSynCom33_Flg22', 'SynCom33', 'SynCom33_Flg22', 'HKSynCom35', 'HKSynCom35_Flg22', 'SynCom35', 'SynCom35_Flg22')
