@@ -201,6 +201,8 @@ DEGs threshold: `|log2FC| > log2(1.5)` and `adj-pvalue < 0.05`
 
 ### 2.3 Gene-set
 
+[GO analysis](results/removeZero/geneset_1stadd)
+
 ## 3. Col0 flow pot
 
 ### 3.1 Alignment
