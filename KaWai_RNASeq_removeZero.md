@@ -87,6 +87,8 @@ DEGs threshold: `|log2FC| > log2(1.5)` and `adj-pvalue < 0.05`
 
 ### 1.3 Gene-set
 
+[GO analysis](results/removeZero/geneset_1stadd)
+
 ## 2. Col0 flowpot plate
 
 ### 2.1 Alignment
@@ -227,6 +229,8 @@ DEGs threshold: `|log2FC| > log2(1.5)` and `adj-pvalue < 0.05`
 
 Remove `0|0|0` or `0|0|x`, then `27105` transcripts were kept.
 
+[DEGs table](results/removeZero/kmeans10_soil_sig.csv)
+
 * PCA plot
 
 PCA plot of raw data
@@ -239,9 +243,28 @@ PCA plot of SVA corrected data (3 hidden variables)
 
 * Cluster
 
+![kmeans10_soil](results/removeZero/kmeans10_soil.jpg)
+
+![kmeans10_trait_soil](results/removeZero/kmeans10_trait_soil.jpg)
+
 * DEGs groups
 
+```r
+cond <- list(c('SynCom33', 'Mock'),
+             c('SynCom35', 'Mock'),
+             c('SynCom33', 'SynCom35'))
+```
+
 * Heatmap
+
+![kmeans10_heatmap_soil_sig](results/removeZero/kmeans10_heatmap_soil_sig.jpg)
+
+![kmeans10_heatmap_soil_sig2](results/removeZero/kmeans10_heatmap_soil_sig2.jpg)
+
+![kmeans10_heatmap_soil_sig_DEG.jpg](results/removeZero/kmeans10_heatmap_soil_sig_DEG.jpg)
+
+![kmeans10_heatmap_soil_sig_DEG.jpg2](results/removeZero/kmeans10_heatmap_soil_sig_DEG2.jpg)
+
 
 ### 3.3 Gene-set
 
