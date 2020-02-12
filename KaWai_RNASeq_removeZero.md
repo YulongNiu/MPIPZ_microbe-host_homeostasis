@@ -73,6 +73,8 @@ cond <- list(c('Mock_Flg22', 'Mock'),
 
 DEGs threshold: `|log2FC| > log2(1.5)` and `adj-pvalue < 0.05`
 
+[DEGs table](results/removeZero/kmeans10_sig.csv)
+
 * Heatmap
 
 ![kmeans10_heatmap_sig](results/removeZero/kmeans10_heatmap_sig.jpg)
@@ -135,6 +137,8 @@ DEGs threshold: `|log2FC| > log2(1.5)` and `adj-pvalue < 0.05`
 ### 2.2 DEGs
 
 Remove `0|0|0|0` or `0|0|0|x`, then `27592` transcripts were kept.
+
+[DEGs table](results/removeZero/kmeans10_1stadd_sig.csv)
 
 * PCA plot
 
