@@ -14,6 +14,9 @@
     - [3.1 Alignment](#31-alignment)
     - [3.2 DEGs](#32-degs)
     - [3.3 Gene-set](#33-gene-set)
+- [4. Merge](#4-merge)
+    - [4.1 WER Col0 agar plate](#41-wer-col0-agar-plate)
+    - [4.2 Col0 agar flowpot](#42-col0-agar-flowpot)
 - [References](#references)
 
 <!-- content end -->
@@ -236,6 +239,19 @@ PCA plot of SVA corrected data (3 hidden variables)
 
 ### 3.3 Gene-set
 
+## 4. Merge
+
+### 4.1 WER Col0 agar plate
+
+![kmeans10_heatmap_WER_Col0](results/removeZero/kmeans10_heatmap_WER_Col0.jpg)
+
+![kmeans10_heatmap_WER_Col02](results/removeZero/kmeans10_heatmap_WER_Col02.jpg)
+
+### 4.2 Col0 agar flowpot
+
+![kmeans10_heatmap_soil_agar](results/removeZero/kmeans10_heatmap_soil_agar.jpg)
+
+![kmeans10_heatmap_soil_agar2](results/removeZero/kmeans10_heatmap_soil_agar2.jpg)
 
 ## References
 

@@ -82,9 +82,9 @@ dat <- rld %>%
 mod <- model.matrix(~ condition, colData(degres))
 mod0 <- model.matrix(~ 1, colData(degres))
 
-## manual detect surrogate variance
-svnum <- 4
-svseq <- svaseq(dat, mod, mod0, n.sv = svnum)
+## ## manual detect surrogate variance
+## svnum <- 4
+## svseq <- svaseq(dat, mod, mod0, n.sv = svnum)
 
 ## auto detect sv
 svobj <- sva(dat, mod, mod0)
