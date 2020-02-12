@@ -268,6 +268,8 @@ cond <- list(c('SynCom33', 'Mock'),
 
 ### 3.3 Gene-set
 
+[GO analysis](results/removeZero/geneset_soil)
+
 ## 4. Merge
 
 ### 4.1 WER Col0 agar plate
