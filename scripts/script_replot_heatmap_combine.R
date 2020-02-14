@@ -89,9 +89,8 @@ ironRespSig <- read_csv('/extDisk1/RESEARCH/MPIPZ_CJ_RNASeq/results/eachGroup_me
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~Castrillo flg22 longtime~~~~~~~~~~~~~~~~
 CastrilloSig <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/flg22_crossref/Castrillo_2017/DEGsflg22_singleend.csv') %>%
-  select(ID, Col0_vs_flg22_log2FoldChange) %>%
-  dplyr::rename(Castrillo_log2FC = Col0_vs_flg22_log2FoldChange) %>%
-  mutate(Castrillo_log2FC = -Castrillo_log2FC)
+  select(ID, flg22_vs_Col0_log2FoldChange) %>%
+  dplyr::rename(Castrillo_log2FC = flg22_vs_Col0_log2FoldChange)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~Volz flg22 shorttime~~~~~~~~~~~~~~~~
@@ -145,14 +144,14 @@ VolzCol0Sig <- sigCol0 %>%
 
 all.equal(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
           sum(scaleCCol0sig$ID == flg22Col0Sig$ID),
-          sum(scaleCCol0sig$ID == ironBacCol0Sig$ID),
+          sum(scaleCCol0sig$ID == ironCol0Sig$ID),
           sum(scaleCCol0sig$ID == CastrilloCol0Sig$ID),
           sum(scaleCCol0sig$ID == VolzCol0Sig$ID),
           nrow(scaleCCol0sig))
 
 ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
         name = 'Scaled Counts',
-        ## row_order = order(scaleCCol0sig$cl) %>% rev,
+        row_order = order(scaleCCol0sig$cl) %>% rev,
         row_split = scaleCCol0sig$cl,
         row_gap = unit(2, "mm"),
         column_order = 1 : 40,
@@ -202,7 +201,7 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
 
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02'
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02_Iron2'
-filePrefix <- 'kmeans10_heatmap_WER_Col02_flg222'
+filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22'
 
 pdf(paste0(filePrefix, '.pdf'))
 draw(ht_list)
