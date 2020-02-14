@@ -17,7 +17,7 @@
 - [4. Merge](#4-merge)
     - [4.1 WER Col0 agar plate](#41-wer-col0-agar-plate)
     - [4.2 Col0 agar flowpot](#42-col0-agar-flowpot)
-    - [4.3 Col0 agar flowpot iron](#42-col0-agar-flowpot-iron)
+    - [4.3 Col0 agar flowpot iron](#43-col0-agar-flowpot-iron)
 - [References](#references)
 
 <!-- content end -->
