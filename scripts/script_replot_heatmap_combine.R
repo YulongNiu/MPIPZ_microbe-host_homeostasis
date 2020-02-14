@@ -81,6 +81,10 @@ colnames(flg22Col)[1:3] <- c('Mock+flg22 vs. Mock',
 ironBacSig <- read_csv('/extDisk1/RESEARCH/MPIPZ_CJ_RNASeq/results/eachGroup_mergeDay8_deg_sig.csv') %>%
   select(ID, cl) %>%
   filter(cl %in% c(10, 3))
+
+ironRespSig <- read_csv('/extDisk1/RESEARCH/MPIPZ_CJ_RNASeq/results/eachGroup_mergeDay8_deg_sig.csv') %>%
+  select(ID, cl) %>%
+  filter(cl %in% c(4, 8))
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~combine heatmap~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -98,13 +102,18 @@ scaleCWERSig <- scaleCWER %>%
 flg22Col0Sig <- flg22Col %>%
   inner_join(sigCol0)
 
-ironBacCol0Sig <- sigCol0 %>%
+ironCol0Sig <- sigCol0 %>%
   left_join(., ironBacSig) %>%
   dplyr::rename(ironbac = cl) %>%
   mutate(ironbac = case_when(ironbac == 10 ~ 'bacup',
-                        ironbac == 3 ~ 'bacdown',
-                        is.na(ironbac) ~ 'no')) %>%
-  inner_join(scaleCCol0sig %>% select(ID, cl), .)
+                             ironbac == 3 ~ 'bacdown',
+                             is.na(ironbac) ~ 'bacno')) %>%
+  left_join(., ironRespSig) %>%
+  dplyr::rename(ironresp = cl) %>%
+  mutate(ironresp = case_when(ironresp == 8 ~ 'respup',
+                              ironresp == 4 ~ 'respdown',
+                              is.na(ironresp) ~ 'respno')) %>%
+  inner_join(scaleCCol0sig %>% select(ID), .)
 
 all.equal(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
           sum(scaleCCol0sig$ID == flg22Col0Sig$ID),
@@ -113,7 +122,7 @@ all.equal(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
 
 ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
         name = 'Scaled Counts',
-        row_order = order(scaleCCol0sig$cl) %>% rev,
+        ## row_order = order(scaleCCol0sig$cl) %>% rev,
         row_split = scaleCCol0sig$cl,
         row_gap = unit(2, "mm"),
         column_order = 1 : 40,
@@ -136,15 +145,21 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
           heatmap_legend_param = list(title = 'DEGs'),
           cluster_columns = FALSE,
           use_raster = FALSE) +
-  Heatmap(ironBacCol0Sig %>% select(-ID),
-          col = c('bacup' = 'purple', 'no' = 'white', 'bacdown' = 'green3'),
+  Heatmap(ironCol0Sig %>% select(ironbac),
+          col = c('bacup' = 'purple', 'bacno' = 'white', 'bacdown' = 'green3'),
           column_names_gp = gpar(fontsize = 5),
           heatmap_legend_param = list(title = 'IronBac'),
+          cluster_columns = FALSE,
+          use_raster = FALSE) +
+  Heatmap(ironCol0Sig %>% select(ironresp),
+          col = c('respup' = 'purple', 'respno' = 'white', 'respdown' = 'green3'),
+          column_names_gp = gpar(fontsize = 5),
+          heatmap_legend_param = list(title = 'IronResp'),
           cluster_columns = FALSE,
           use_raster = FALSE)
 
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02'
-filePrefix <- 'test'
+filePrefix <- 'kmeans10_heatmap_WER_Col02_Iron2'
 
 pdf(paste0(filePrefix, '.pdf'))
 draw(ht_list)

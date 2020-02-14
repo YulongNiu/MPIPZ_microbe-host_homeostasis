@@ -17,6 +17,7 @@
 - [4. Merge](#4-merge)
     - [4.1 WER Col0 agar plate](#41-wer-col0-agar-plate)
     - [4.2 Col0 agar flowpot](#42-col0-agar-flowpot)
+    - [4.3 Col0 agar flowpot iron](#42-col0-agar-flowpot-iron)
 - [References](#references)
 
 <!-- content end -->
@@ -283,6 +284,12 @@ cond <- list(c('SynCom33', 'Mock'),
 ![kmeans10_heatmap_soil_agar](results/removeZero/kmeans10_heatmap_soil_agar.jpg)
 
 ![kmeans10_heatmap_soil_agar2](results/removeZero/kmeans10_heatmap_soil_agar2.jpg)
+
+### 4.3 Col0 agar flowpot iron
+
+![kmeans10_heatmap_WER_Col02_Iron](results/removeZero/kmeans10_heatmap_WER_Col02_Iron.jpg)
+
+![kmeans10_heatmap_WER_Col02_Iron2.jpg](results/removeZero/kmeans10_heatmap_WER_Col02_Iron2.jpg)
 
 ## References
 
