@@ -87,6 +87,20 @@ ironRespSig <- read_csv('/extDisk1/RESEARCH/MPIPZ_CJ_RNASeq/results/eachGroup_me
   filter(cl %in% c(4, 8))
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~Castrillo flg22 longtime~~~~~~~~~~~~~~~~
+CastrilloSig <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/flg22_crossref/Castrillo_2017/DEGsflg22_singleend.csv') %>%
+  select(ID, Col0_vs_flg22_log2FoldChange) %>%
+  dplyr::rename(Castrillo_log2FC = Col0_vs_flg22_log2FoldChange) %>%
+  mutate(Castrillo_log2FC = -Castrillo_log2FC)
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~Volz flg22 shorttime~~~~~~~~~~~~~~~~
+VolzSig <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/flg22_crossref/Volz_2019/DEGs_pairend.csv') %>%
+  select(ID, Col0_vs_flg22_log2FoldChange) %>%
+  dplyr::rename(Volz_log2FC = Col0_vs_flg22_log2FoldChange) %>%
+  mutate(Volz_log2FC = -Volz_log2FC)
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~combine heatmap~~~~~~~~~~~~~~~~~~~~~~~~~~~
 sigCol0 <- read_csv('kmeans10_1stadd_sig.csv') %>%
   select(ID) %>%
@@ -115,9 +129,25 @@ ironCol0Sig <- sigCol0 %>%
                               is.na(ironresp) ~ 'respno')) %>%
   inner_join(scaleCCol0sig %>% select(ID), .)
 
+CastrilloCol0Sig <- sigCol0 %>%
+  left_join(., CastrilloSig) %>%
+  mutate(Castrillo_log2FC = case_when(Castrillo_log2FC > 0 ~ 'up',
+                                      Castrillo_log2FC < 0 ~ 'down',
+                                      is.na(Castrillo_log2FC) ~ 'no')) %>%
+  inner_join(scaleCCol0sig %>% select(ID), .)
+
+VolzCol0Sig <- sigCol0 %>%
+  left_join(., VolzSig) %>%
+  mutate(Volz_log2FC = case_when(Volz_log2FC > 0 ~ 'up',
+                                      Volz_log2FC < 0 ~ 'down',
+                                      is.na(Volz_log2FC) ~ 'no')) %>%
+  inner_join(scaleCCol0sig %>% select(ID), .)
+
 all.equal(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
           sum(scaleCCol0sig$ID == flg22Col0Sig$ID),
           sum(scaleCCol0sig$ID == ironBacCol0Sig$ID),
+          sum(scaleCCol0sig$ID == CastrilloCol0Sig$ID),
+          sum(scaleCCol0sig$ID == VolzCol0Sig$ID),
           nrow(scaleCCol0sig))
 
 ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
@@ -145,6 +175,18 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
           heatmap_legend_param = list(title = 'DEGs'),
           cluster_columns = FALSE,
           use_raster = FALSE) +
+  Heatmap(CastrilloCol0Sig %>% select(-ID),
+          col = c('down' = 'blue', 'no' = 'white', 'up' = 'red'),
+          column_names_gp = gpar(fontsize = 5),
+          heatmap_legend_param = list(title = 'Castrillo'),
+          cluster_columns = FALSE,
+          use_raster = FALSE) +
+  Heatmap(VolzCol0Sig %>% select(-ID),
+          col = c('down' = 'blue', 'no' = 'white', 'up' = 'red'),
+          column_names_gp = gpar(fontsize = 5),
+          heatmap_legend_param = list(title = 'Volz'),
+          cluster_columns = FALSE,
+          use_raster = FALSE) +
   Heatmap(ironCol0Sig %>% select(ironbac),
           col = c('bacup' = 'purple', 'bacno' = 'white', 'bacdown' = 'green3'),
           column_names_gp = gpar(fontsize = 5),
@@ -159,7 +201,8 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
           use_raster = FALSE)
 
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02'
-filePrefix <- 'kmeans10_heatmap_WER_Col02_Iron2'
+## filePrefix <- 'kmeans10_heatmap_WER_Col02_Iron2'
+filePrefix <- 'kmeans10_heatmap_WER_Col02_flg222'
 
 pdf(paste0(filePrefix, '.pdf'))
 draw(ht_list)

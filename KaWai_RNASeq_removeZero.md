@@ -18,6 +18,7 @@
     - [4.1 WER Col0 agar plate](#41-wer-col0-agar-plate)
     - [4.2 Col0 agar flowpot](#42-col0-agar-flowpot)
     - [4.3 Col0 agar flowpot iron](#43-col0-agar-flowpot-iron)
+    - [4.4 Col0 agar flowpot flg22](#44-col0-agar-flowpot-flg22)
 - [References](#references)
 
 <!-- content end -->
@@ -290,6 +291,12 @@ cond <- list(c('SynCom33', 'Mock'),
 ![kmeans10_heatmap_WER_Col02_Iron](results/removeZero/kmeans10_heatmap_WER_Col02_Iron.jpg)
 
 ![kmeans10_heatmap_WER_Col02_Iron2.jpg](results/removeZero/kmeans10_heatmap_WER_Col02_Iron2.jpg)
+
+### 4.4 Col0 agar flowpot flg22
+
+![kmeans10_heatmap_WER_Col02_flg22](results/removeZero/kmeans10_heatmap_WER_Col02_flg22.jpg)
+
+![kmeans10_heatmap_WER_Col02_flg222.jpg](results/removeZero/kmeans10_heatmap_WER_Col02_flg222.jpg)
 
 ## References
 
