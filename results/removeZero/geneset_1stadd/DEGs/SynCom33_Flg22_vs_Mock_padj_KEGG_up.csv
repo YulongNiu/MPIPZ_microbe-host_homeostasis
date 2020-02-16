@@ -1,0 +1,136 @@
+category,over_represented_pvalue,under_represented_pvalue,numDEInCat,numInCat,Annotation,ontology
+path:ath00940,8.18649023618482e-18,1,33,168,Phenylpropanoid biosynthesis,KEGG
+path:ath01110,8.443513756843239e-11,1,76,1292,Biosynthesis of secondary metabolites,KEGG
+path:ath04626,9.397383906625456e-10,0.9999999998188209,27,217,Plant-pathogen interaction,KEGG
+path:ath01100,2.472175085290883e-7,0.999999889142014,113,2631,Metabolic pathways,KEGG
+path:ath00966,9.62863021359328e-6,0.9999993107283318,7,25,Glucosinolate biosynthesis,KEGG
+path:ath00040,7.419311926173073e-5,0.9999872101355286,10,76,Pentose and glucuronate interconversions,KEGG
+path:ath01210,9.406650743599387e-4,0.9997922495409828,9,90,2-Oxocarboxylic acid metabolism,KEGG
+path:ath04016,0.0014482625442602992,0.9995457989770861,13,158,MAPK signaling pathway - plant,KEGG
+path:ath04075,0.005877237745093645,0.9974286259737923,18,286,Plant hormone signal transduction,KEGG
+path:ath00250,0.012204477866826685,0.997040647518638,6,72,"Alanine, aspartate and glutamate metabolism",KEGG
+path:ath00280,0.020541112060381186,0.9943944517922516,6,78,"Valine, leucine and isoleucine degradation",KEGG
+path:ath00270,0.020926867298718115,0.9919244938064556,10,162,Cysteine and methionine metabolism,KEGG
+path:ath00945,0.03989372393911123,0.9966363183293722,2,9,"Stilbenoid, diarylheptanoid and gingerol biosynthesis",KEGG
+path:ath00400,0.04915953365610445,0.9855014447196119,5,69,"Phenylalanine, tyrosine and tryptophan biosynthesis",KEGG
+path:ath00640,0.05884611504610755,0.9846734257212372,4,55,Propanoate metabolism,KEGG
+path:ath00360,0.07125650743762504,0.9802465185218046,4,54,Phenylalanine metabolism,KEGG
+path:ath00052,0.08097343875115146,0.9764680579403003,4,61,Galactose metabolism,KEGG
+path:ath00480,0.08284622672134687,0.9631888925227594,8,129,Glutathione metabolism,KEGG
+path:ath00960,0.08531693754259212,0.9804482824465757,3,36,"Tropane, piperidine and pyridine alkaloid biosynthesis",KEGG
+path:ath00909,0.10892722154893629,0.9819526428814311,2,22,Sesquiterpenoid and triterpenoid biosynthesis,KEGG
+path:ath00430,0.10970527133982412,0.9818694690008777,2,20,Taurine and hypotaurine metabolism,KEGG
+path:ath00511,0.14310160289994134,0.9717139354350409,2,29,Other glycan degradation,KEGG
+path:ath00260,0.14488548999278494,0.9409211611278622,5,94,"Glycine, serine and threonine metabolism",KEGG
+path:ath00520,0.17522087650422952,0.9117392713376851,7,152,Amino sugar and nucleotide sugar metabolism,KEGG
+path:ath00941,0.18083433116350123,0.95953839038822,2,21,Flavonoid biosynthesis,KEGG
+path:ath00380,0.18908591946992098,0.9252047139200017,4,76,Tryptophan metabolism,KEGG
+path:ath00130,0.20180702759764005,0.9315364730606277,3,51,Ubiquinone and other terpenoid-quinone biosynthesis,KEGG
+path:ath00910,0.2129407722374456,0.9257171192715579,3,56,Nitrogen metabolism,KEGG
+path:ath00460,0.2346758494459657,0.8987717576119978,4,87,Cyanoamino acid metabolism,KEGG
+path:ath00565,0.2600102939988945,0.9246401047840552,2,39,Ether lipid metabolism,KEGG
+path:ath04130,0.2628470003668687,0.8987247783858477,3,52,SNARE interactions in vesicular transport,KEGG
+path:ath00600,0.2681261051517779,0.9206506736970864,2,40,Sphingolipid metabolism,KEGG
+path:ath00920,0.29448187226175204,0.8794791387695634,3,60,Sulfur metabolism,KEGG
+path:ath00261,0.38536285570943996,0.9185057420656475,1,17,Monobactam biosynthesis,KEGG
+path:ath00300,0.39425292857642136,0.9140772656288736,1,18,Lysine biosynthesis,KEGG
+path:ath00904,0.39691793823796223,0.9133407340289065,1,16,Diterpenoid biosynthesis,KEGG
+path:ath00410,0.3974804133972086,0.8450489742512246,2,51,beta-Alanine metabolism,KEGG
+path:ath00514,0.4083781890524261,0.9069217267967569,1,19,Other types of O-glycan biosynthesis,KEGG
+path:ath02010,0.42946475104656606,0.89467625797285,1,26,ABC transporters,KEGG
+path:ath00620,0.4454806756212202,0.7452713080375651,4,126,Pyruvate metabolism,KEGG
+path:ath01230,0.45402559697925937,0.6731183512255802,10,323,Biosynthesis of amino acids,KEGG
+path:ath00908,0.45863053589562425,0.8792783970345706,1,20,Zeatin biosynthesis,KEGG
+path:ath00590,0.4821702729368458,0.8648883744955773,1,20,Arachidonic acid metabolism,KEGG
+path:ath00500,0.5329393332527617,0.6469034903312431,5,182,Starch and sucrose metabolism,KEGG
+path:ath00740,0.5537085113748539,0.8132582132062712,1,24,Riboflavin metabolism,KEGG
+path:ath00906,0.558458970625325,0.8084339805024312,1,29,Carotenoid biosynthesis,KEGG
+path:ath00650,0.5700700985667995,0.7988382931993001,1,30,Butanoate metabolism,KEGG
+path:ath00290,0.5779899744413145,0.7924151850290988,1,29,"Valine, leucine and isoleucine biosynthesis",KEGG
+path:ath00010,0.5818014500562092,0.6184495777561402,4,145,Glycolysis / Gluconeogenesis,KEGG
+path:ath00190,0.5821907154122418,0.5986386651350735,5,147,Oxidative phosphorylation,KEGG
+path:ath00020,0.6524699930961926,0.6204557018075397,2,78,Citrate cycle (TCA cycle),KEGG
+path:ath00051,0.6676867215691225,0.6035868428965704,2,74,Fructose and mannose metabolism,KEGG
+path:ath00630,0.6735820194622459,0.5484245068652134,3,119,Glyoxylate and dicarboxylate metabolism,KEGG
+path:ath00900,0.6790657361607464,0.5907281579450692,2,70,Terpenoid backbone biosynthesis,KEGG
+path:ath00100,0.6846505639422882,0.6857440750252586,1,40,Steroid biosynthesis,KEGG
+path:ath00770,0.6962274504635235,0.6724830632475951,1,39,Pantothenate and CoA biosynthesis,KEGG
+path:ath00564,0.7404767938480661,0.4665800523207537,3,138,Glycerophospholipid metabolism,KEGG
+path:ath00220,0.7421666096900137,0.613603731630618,1,48,Arginine biosynthesis,KEGG
+path:ath00061,0.7643918225291405,0.582343413694202,1,52,Fatty acid biosynthesis,KEGG
+path:ath00071,0.8165017173528729,0.5004609324303897,1,61,Fatty acid degradation,KEGG
+path:ath01200,0.8328246527014321,0.2688775681886061,8,362,Carbon metabolism,KEGG
+path:ath03410,0.8373916740261074,0.463906396856291,1,61,Base excision repair,KEGG
+path:ath00053,0.8448673346747366,0.4500364182066018,1,63,Ascorbate and aldarate metabolism,KEGG
+path:ath00510,0.8471894154983537,0.44576829241093097,1,62,N-Glycan biosynthesis,KEGG
+path:ath04146,0.8686239298213432,0.3173589501518279,2,123,Peroxisome,KEGG
+path:ath01212,0.9059577110880084,0.32102617787323606,1,83,Fatty acid metabolism,KEGG
+path:ath00710,0.9126241111047296,0.3049688952448416,1,83,Carbon fixation in photosynthetic organisms,KEGG
+path:ath03060,0.9139491991432196,0.30220023605014595,1,72,Protein export,KEGG
+path:ath03018,0.9220689329174299,0.21366016915191766,2,144,RNA degradation,KEGG
+path:ath00562,0.9239524892277536,0.27596369894659284,1,99,Inositol phosphate metabolism,KEGG
+path:ath04070,0.9472650680375999,0.2113833025001684,1,105,Phosphatidylinositol signaling system,KEGG
+path:ath04145,0.9735249226316649,0.12520770968329614,1,110,Phagosome,KEGG
+path:ath00230,0.9776433521363868,0.10955143541810972,1,124,Purine metabolism,KEGG
+path:ath04144,0.9812872656171117,0.06751343824387052,2,203,Endocytosis,KEGG
+path:ath03015,0.9941279259623995,0.03690194575920055,1,185,mRNA surveillance pathway,KEGG
+path:ath04120,0.9951831886705959,0.03130184522367425,1,175,Ubiquitin mediated proteolysis,KEGG
+path:ath04141,0.9975058505674139,0.011989694121449719,2,255,Protein processing in endoplasmic reticulum,KEGG
+path:ath00030,1,0.08869420805353503,0,77,Pentose phosphate pathway,KEGG
+path:ath00062,1,0.3980213466064679,0,29,Fatty acid elongation,KEGG
+path:ath00072,1,0.786453576255873,0,9,Synthesis and degradation of ketone bodies,KEGG
+path:ath00073,1,0.5554732204529562,0,20,"Cutin, suberine and wax biosynthesis",KEGG
+path:ath00195,1,0.1512527058538675,0,42,Photosynthesis,KEGG
+path:ath00196,1,0.4172992105777609,0,20,Photosynthesis - antenna proteins,KEGG
+path:ath00232,1,0.9343859148725395,0,3,Caffeine metabolism,KEGG
+path:ath00240,1,0.10891701123045625,0,72,Pyrimidine metabolism,KEGG
+path:ath00310,1,0.24864653120122232,0,51,Lysine degradation,KEGG
+path:ath00330,1,0.1415837968650509,0,68,Arginine and proline metabolism,KEGG
+path:ath00340,1,0.4632443084023641,0,27,Histidine metabolism,KEGG
+path:ath00350,1,0.22061362678761287,0,52,Tyrosine metabolism,KEGG
+path:ath00440,1,0.6875179354642827,0,13,Phosphonate and phosphinate metabolism,KEGG
+path:ath00450,1,0.5028262942020372,0,25,Selenocompound metabolism,KEGG
+path:ath00531,1,0.7594190988849893,0,11,Glycosaminoglycan degradation,KEGG
+path:ath00561,1,0.08850616666761828,0,88,Glycerolipid metabolism,KEGG
+path:ath00563,1,0.3147193883254993,0,38,Glycosylphosphatidylinositol (GPI)-anchor biosynthesis,KEGG
+path:ath00591,1,0.8012736191124213,0,8,Linoleic acid metabolism,KEGG
+path:ath00592,1,0.27180936879140416,0,44,alpha-Linolenic acid metabolism,KEGG
+path:ath00601,1,0.9174157601621399,0,2,Glycosphingolipid biosynthesis - lacto and neolacto series,KEGG
+path:ath00603,1,0.7840506019322651,0,8,Glycosphingolipid biosynthesis - globo and isoglobo series,KEGG
+path:ath00604,1,0.8647131345416669,0,6,Glycosphingolipid biosynthesis - ganglio series,KEGG
+path:ath00660,1,0.7698426341957153,0,9,C5-Branched dibasic acid metabolism,KEGG
+path:ath00670,1,0.414669917585626,0,30,One carbon pool by folate,KEGG
+path:ath00730,1,0.39193679964325834,0,27,Thiamine metabolism,KEGG
+path:ath00750,1,0.5437569123550229,0,17,Vitamin B6 metabolism,KEGG
+path:ath00760,1,0.5291807553311773,0,22,Nicotinate and nicotinamide metabolism,KEGG
+path:ath00780,1,0.48373004680550025,0,23,Biotin metabolism,KEGG
+path:ath00785,1,0.7863418037923298,0,6,Lipoic acid metabolism,KEGG
+path:ath00790,1,0.28967514101203307,0,42,Folate biosynthesis,KEGG
+path:ath00860,1,0.1265970250730359,0,65,Porphyrin and chlorophyll metabolism,KEGG
+path:ath00901,1,0.8863975457086405,0,4,Indole alkaloid biosynthesis,KEGG
+path:ath00902,1,0.8167098579697485,0,6,Monoterpenoid biosynthesis,KEGG
+path:ath00903,1,0.7768975329609573,0,9,Limonene and pinene degradation,KEGG
+path:ath00905,1,0.7179963782794571,0,12,Brassinosteroid biosynthesis,KEGG
+path:ath00942,1,0.9225287513122471,0,2,Anthocyanin biosynthesis,KEGG
+path:ath00944,1,0.9047252746000933,0,3,Flavone and flavonol biosynthesis,KEGG
+path:ath00950,1,0.5261431327760505,0,24,Isoquinoline alkaloid biosynthesis,KEGG
+path:ath00965,1,0.9310701128241822,0,2,Betalain biosynthesis,KEGG
+path:ath00970,1,0.18859299636893007,0,64,Aminoacyl-tRNA biosynthesis,KEGG
+path:ath01040,1,0.46297149022896483,0,27,Biosynthesis of unsaturated fatty acids,KEGG
+path:ath01502,1,0.9695276300082656,0,1,Vancomycin resistance,KEGG
+path:ath03008,1,0.039880512383364125,0,108,Ribosome biogenesis in eukaryotes,KEGG
+path:ath03010,1,3.371741230121489e-8,0,374,Ribosome,KEGG
+path:ath03013,1,0.002261356597283415,0,208,RNA transport,KEGG
+path:ath03020,1,0.21579886757399033,0,44,RNA polymerase,KEGG
+path:ath03022,1,0.14467394206027898,0,66,Basal transcription factors,KEGG
+path:ath03030,1,0.18042440274035315,0,57,DNA replication,KEGG
+path:ath03040,1,7.790372246998354e-5,0,310,Spliceosome,KEGG
+path:ath03050,1,0.08683604833261876,0,80,Proteasome,KEGG
+path:ath03420,1,0.08445035708657674,0,84,Nucleotide excision repair,KEGG
+path:ath03430,1,0.25017705638130494,0,44,Mismatch repair,KEGG
+path:ath03440,1,0.10780030999231555,0,77,Homologous recombination,KEGG
+path:ath03450,1,0.6568312115877396,0,17,Non-homologous end-joining,KEGG
+path:ath04122,1,0.40103555229843496,0,25,Sulfur relay system,KEGG
+path:ath04136,1,0.14699228890644397,0,63,Autophagy - other,KEGG
+path:ath04712,1,0.23118834926754908,0,48,Circadian rhythm - plant,KEGG
+path:ath04933,1,0.4368396441208769,0,26,AGE-RAGE signaling pathway in diabetic complications,KEGG

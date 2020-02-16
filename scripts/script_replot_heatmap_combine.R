@@ -140,7 +140,7 @@ VolzCol0Sig <- sigCol0 %>%
   mutate(Volz_log2FC = case_when(Volz_log2FC > 0 ~ 'up',
                                       Volz_log2FC < 0 ~ 'down',
                                       is.na(Volz_log2FC) ~ 'no')) %>%
-  inner_join(scaleCCol0sig %>% select(ID), .)
+  inner_join(scaleCCol0sig %>% select(ID, cl), .)
 
 all.equal(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
           sum(scaleCCol0sig$ID == flg22Col0Sig$ID),
