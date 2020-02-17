@@ -218,7 +218,7 @@ dev.off()
 
 system(paste0('convert -density 1200 ', paste0(filePrefix, '.pdf'), ' ', paste0(filePrefix, '.jpg')))
 
-write_csv(gsResP, 'DEGs_BP_up')
+write_csv(gsResP, 'DEGs_BP_up.csv')
 
 ## down
 gsRes <- foreach (i = seq_along(cond), .combine = inner_join) %do% {
@@ -228,10 +228,10 @@ gsRes <- foreach (i = seq_along(cond), .combine = inner_join) %do% {
     rename(!!paste0(cond[i], '_pvalue') := over_represented_pvalue,
            !!paste0(cond[i], '_in') := numDEInCat,
            size = numInCat)
-}
+} %>%
+  filter(size > 5) ## filter size < 5
 
 gsResP <- gsRes %>%
-  filter(size > 5) %>%
   select(ends_with('pvalue')) %>%
   mutate_all(~ifelse(. > 1, 1, .)) %>%
   mutate_all(~ -log2(.)) %>%
@@ -265,5 +265,5 @@ dev.off()
 
 system(paste0('convert -density 1200 ', paste0(filePrefix, '.pdf'), ' ', paste0(filePrefix, '.jpg')))
 
-write_csv(gsResP, 'DEGs_BP_down')
+write_csv(gsResP, 'DEGs_BP_down.csv')
 ##################################################################
