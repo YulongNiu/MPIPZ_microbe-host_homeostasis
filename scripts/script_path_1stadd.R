@@ -24,7 +24,7 @@ kmeansRes <- read_csv('../results/kmeans10_1stadd_sig.csv',
 kmeansBkg <- read_csv('../results/kmeans10_1stadd.csv',
                       col_types = cols(Chromosome = col_character()))
 
-savepath <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/geneset_1stadd/clusterbc'
+savepath <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/clusterbc'
 
 ##~~~~~~~~~~~~~~~select genesets~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 athGO %<>%
@@ -115,7 +115,7 @@ for (i in kmeansRes$cl %>% unique) {
 ##~~~~~~~~~~~~~~~~~~~whole cluster gene-set with background~~~~~~~~~~
 for (i in kmeansRes$cl %>% unique) {
 
-  prefix <- 'kmeans_10_mergeDay8'
+  prefix <- 'kmeans_10_1stadd'
 
   eachRes <- kmeansRes %>%
     filter(cl == i) %>%
@@ -199,24 +199,27 @@ gsRes <- foreach (i = seq_along(cond), .combine = inner_join) %do% {
     rename(!!paste0(cond[i], '_pvalue') := over_represented_pvalue,
            !!paste0(cond[i], '_in') := numDEInCat,
            size = numInCat)
-}
+} %>%
+  filter(size > 5) ## filter geneset < 5
 
 gsResP <- gsRes %>%
-  filter(size > 5) %>%
   select(ends_with('pvalue')) %>%
   mutate_all(~ifelse(. > 1, 1, .)) %>%
   mutate_all(~ -log2(.)) %>%
   mutate_all(~ifelse(is.infinite(.), -log2(1e-10), .)) %>%
+  mutate_all(~ifelse(. < -log2(0.05), 0, .)) %>%
   setNames(., substring(colnames(.), first = 1, last = nchar(colnames(.)) - 7)) %>%
   {
-    sigIdx <- which(rowSums(.) >= (-log2(0.05))) ## as least 1 sig
+    sigIdx <- apply(., 1, function(x) {any(x > -log2(0.05))}) %>%
+      which ## as least 1 sig
+
     slice(., sigIdx) %>%
       bind_cols(gsRes %>%
-                select(category, term) %>%
+                select(category : size) %>%
                 slice(sigIdx))
   }
 
-ht_list <- Heatmap(matrix = gsResP %>% select(-category, -term),
+ht_list <- Heatmap(matrix = gsResP %>% select(-category : -size),
                    name = 'BP',
                    cluster_columns = FALSE,
                    ## row_order = order(scaleC$cl) %>% rev,
@@ -233,5 +236,7 @@ draw(ht_list)
 dev.off()
 
 system(paste0('convert -density 1200 ', paste0(filePrefix, '.pdf'), ' ', paste0(filePrefix, '.jpg')))
+
+write_csv(gsResP, 'kmeans10_1stadd_BP.csv')
 ####################################################################
 

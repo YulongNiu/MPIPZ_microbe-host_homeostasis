@@ -189,16 +189,18 @@ gsResP <- gsRes %>%
   mutate_all(~ifelse(. > 1, 1, .)) %>%
   mutate_all(~ -log2(.)) %>%
   mutate_all(~ifelse(is.infinite(.), -log2(1e-10), .)) %>%
+  mutate_all(~ifelse(. < -log2(0.05), 0, .)) %>% ## no sig --> 0
   setNames(., substring(colnames(.), first = 1, last = nchar(colnames(.)) - 7)) %>%
   {
-    sigIdx <- which(rowSums(.) >= (-log2(0.05))) ## as least 1 sig
+    sigIdx <- apply(., 1, function(x) {any(x > -log2(0.05))}) %>%
+      which ## as least 1 sig
     slice(., sigIdx) %>%
       bind_cols(gsRes %>%
-              select(category, term) %>%
+              select(category : size) %>%
               slice(sigIdx))
   }
 
-ht_list <- Heatmap(matrix = gsResP %>% select(-category, -term),
+ht_list <- Heatmap(matrix = gsResP %>% select(-category : -size),
                    name = 'BP',
                    cluster_columns = FALSE,
                    ## row_order = order(scaleC$cl) %>% rev,
@@ -216,6 +218,7 @@ dev.off()
 
 system(paste0('convert -density 1200 ', paste0(filePrefix, '.pdf'), ' ', paste0(filePrefix, '.jpg')))
 
+write_csv(gsResP, 'DEGs_BP_up')
 
 ## down
 gsRes <- foreach (i = seq_along(cond), .combine = inner_join) %do% {
@@ -233,16 +236,18 @@ gsResP <- gsRes %>%
   mutate_all(~ifelse(. > 1, 1, .)) %>%
   mutate_all(~ -log2(.)) %>%
   mutate_all(~ifelse(is.infinite(.), -log2(1e-10), .)) %>%
+  mutate_all(~ifelse(. < -log2(0.05), 0, .)) %>%
   setNames(., substring(colnames(.), first = 1, last = nchar(colnames(.)) - 7)) %>%
   {
-    sigIdx <- which(rowSums(.) >= (-log2(0.05))) ## as least 1 sig
+    sigIdx <- apply(., 1, function(x) {any(x > -log2(0.05))}) %>%
+      which ## as least 1 sig
     slice(., sigIdx) %>%
       bind_cols(gsRes %>%
-              select(category, term) %>%
+              select(category : size) %>%
               slice(sigIdx))
   }
 
-ht_list <- Heatmap(matrix = gsResP %>% select(-category, -term),
+ht_list <- Heatmap(matrix = gsResP %>% select(-category : -size),
                    name = 'BP',
                    cluster_columns = FALSE,
                    ## row_order = order(scaleC$cl) %>% rev,
@@ -259,4 +264,6 @@ draw(ht_list)
 dev.off()
 
 system(paste0('convert -density 1200 ', paste0(filePrefix, '.pdf'), ' ', paste0(filePrefix, '.jpg')))
+
+write_csv(gsResP, 'DEGs_BP_down')
 ##################################################################
