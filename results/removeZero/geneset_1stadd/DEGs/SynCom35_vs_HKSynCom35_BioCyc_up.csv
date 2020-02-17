@@ -1,0 +1,585 @@
+category,over_represented_pvalue,under_represented_pvalue,numDEInCat,numInCat,Annotation,ontology
+ARA:PWY-2021,1.3537284953257325e-4,0.9999952386275729,4,10,indole-3-acetate degradation IV,BioCyc
+ARA:PWY-5788,1.3537284953257325e-4,0.9999952386275729,4,10,indole-3-acetate degradation V,BioCyc
+ARA:PWY-6219,1.3537284953257325e-4,0.9999952386275729,4,10,indole-3-acetyl-amide conjugate biosynthesis,BioCyc
+ARA:PWY-1782,9.996468838609416e-4,0.9999314212749537,4,15,superpathway of indole-3-acetate conjugate biosynthesis,BioCyc
+ARA:PWY-5986,0.0013036714603634715,1,2,2,ammonium transport,BioCyc
+ARA:PWY-6199,0.003295638448181223,0.9998405817991811,3,7,quercetin sulfate biosynthesis,BioCyc
+ARA:PWY-6303,0.008808409862238187,0.999729543125808,2,5,methyl indole-3-acetate interconversion,BioCyc
+ARA:PWY-1001,0.012877185023163335,0.9986592688583393,3,20,cellulose biosynthesis,BioCyc
+ARA:PWY-6443,0.014645412189701182,0.9963844425913189,6,54,"benzoate biosynthesis I (CoA-dependent, &beta;-oxidative)",BioCyc
+ARA:ETHYL-PWY,0.017227376946100877,0.9970579351234085,4,31,ethylene biosynthesis I (plants),BioCyc
+ARA:PWY-6773,0.02062016871914236,0.9986566528431725,2,19,"1,3-&beta;-D-glucan biosynthesis",BioCyc
+ARA:ALANINE-DEG3-PWY,0.02282611148377708,0.9986213052323952,2,8,L-alanine degradation III,BioCyc
+ARA:ALANINE-SYN2-PWY,0.02282611148377708,0.9986213052323952,2,8,L-alanine biosynthesis II,BioCyc
+ARA:PWY-5342,0.02635267897915839,1,1,1,ajugose biosynthesis I (galactinol-dependent),BioCyc
+ARA:PWY-7325,0.032761352804517516,1,1,1,salvigenin biosynthesis,BioCyc
+ARA:PWY-5267,0.0332300522963304,0.997474317689333,2,9,glucosinolate activation,BioCyc
+ARA:GLYSYN-ALA-PWY,0.045270708352244275,0.9957156473618428,2,12,glycine biosynthesis III,BioCyc
+ARA:PWY-5340,0.047831280618270744,0.995468209169094,2,10,sulfate activation for sulfonation,BioCyc
+ARA:ALACAT2-PWY,0.05075551013182994,0.9948832258025068,2,12,L-alanine degradation II (to D-lactate),BioCyc
+ARA:PWY-5337,0.05211036450218878,0.994669290099394,2,12,stachyose biosynthesis,BioCyc
+ARA:PWY-6792,0.06425427459325381,0.9928202292780989,2,10,scopoletin biosynthesis,BioCyc
+ARA:PWY-5934,0.06773230509119818,0.9918162718284346,2,14,iron reduction and absorption,BioCyc
+ARA:PWY-6040,0.06945803276537121,0.9916532245201646,2,12,chlorogenic acid biosynthesis II,BioCyc
+ARA:PWY0A-6303,0.07873867617601671,0.9897307600453783,2,13,methyl indole-3-acetate interconversion,BioCyc
+ARA:PWY-6624,0.08111098128030074,0.9982987902948609,1,2,salicylate glucosides biosynthesis III,BioCyc
+ARA:PWY-6762,0.08111098128030074,0.9982987902948609,1,2,salicylate glucosides biosynthesis IV,BioCyc
+ARA:PWY-7468,0.08111098128030074,0.9982987902948609,1,2,benzoyl-&beta;-D-glucopyranose biosynthesis,BioCyc
+ARA:PWY-6549,0.08516991512027672,0.980557816142143,3,37,L-glutamine biosynthesis III,BioCyc
+ARA:PWY0-541,0.09207789171498348,0.9967186433213652,1,4,cyclopropane fatty acid (CFA) biosynthesis,BioCyc
+ARA:PROSYN-PWY,0.09503046903446004,0.9968803697648723,1,3,L-proline biosynthesis I,BioCyc
+ARA:PWY-561,0.10368806641059071,0.9744703015532512,3,32,superpathway of glyoxylate cycle and fatty acid degradation,BioCyc
+ARA:GLUCOSE1PMETAB-PWY,0.10547262654752336,0.982965820120029,2,21,glucose and glucose-1-phosphate degradation,BioCyc
+ARA:PWY-5886,0.11431800365324098,0.9948907900884771,1,4,4-hydroxyphenylpyruvate biosynthesis,BioCyc
+ARA:PWY-3341,0.11935153362102625,0.9944180895134417,1,4,L-proline biosynthesis III,BioCyc
+ARA:PWY-1081,0.12045507619564397,0.9680872824850478,3,38,homogalacturonan degradation,BioCyc
+ARA:PWY-5441,0.1303277888682109,0.9928810253831262,1,5,S-methyl-L-methionine cycle,BioCyc
+ARA:PWY-7625,0.14260831000338708,0.9914293245600376,1,5,phosphatidylinositol biosynthesis II (eukaryotes),BioCyc
+ARA:PWY-6902,0.14417166777937737,0.9727666508330773,2,15,chitin degradation II (Vibrio),BioCyc
+ARA:PWY-7398,0.1594005500526025,0.9673342161442829,2,19,coumarins biosynthesis (engineered),BioCyc
+ARA:ARGININE-SYN4-PWY,0.16413150533372967,0.988081908833487,1,6,L-ornithine biosynthesis II,BioCyc
+ARA:PHOSLIPSYN2-PWY,0.16560398552333677,0.9878591745253738,1,6,superpathway of phospholipid biosynthesis II (plants),BioCyc
+ARA:PWYQT-4429,0.16562023931878975,0.9875276340943655,1,7,CO2 fixation into oxaloacetate (anaplerotic),BioCyc
+ARA:PWY-7067,0.1701922590786017,0.9883758207084008,1,4,betulinate biosynthesis,BioCyc
+ARA:PWY-7068,0.1701922590786017,0.9883758207084008,1,4,ursolate biosynthesis,BioCyc
+ARA:TRESYN-PWY,0.1703336266619081,0.962786900341798,2,28,trehalose biosynthesis I,BioCyc
+ARA:PWY-5690,0.17054696779614267,0.9470846700549975,3,41,TCA cycle II (plants and fungi),BioCyc
+ARA:PWY-6039,0.17549064448535642,0.9615850471540016,2,21,chlorogenic acid biosynthesis I,BioCyc
+ARA:PWY-5670,0.17608234007532805,0.9858375798479834,1,7,epoxysqualene biosynthesis,BioCyc
+ARA:PWY-6351,0.17905603357745764,0.9427252978481829,3,52,"D-myo-inositol (1,4,5)-trisphosphate biosynthesis",BioCyc
+ARA:PWY-5381,0.18070154009686645,0.9424836723417602,3,40,pyridine nucleotide cycling (plants),BioCyc
+ARA:PWY-5123,0.19294803416578754,0.9552060378452439,2,21,"trans, trans-farnesyl diphosphate biosynthesis",BioCyc
+ARA:PWYQT-4481,0.1963668729952903,0.9348060828401688,3,44,TCA cycle variation V (plant),BioCyc
+ARA:PWY0-1182,0.19672727879689506,0.9818116929764608,1,8,trehalose degradation II (trehalase),BioCyc
+ARA:PWY-6922,0.20047214066690983,0.9814430879577392,1,7,L-N&delta;-acetylornithine biosynthesis,BioCyc
+ARA:PWY-6614,0.20258930230394204,0.9806618028106138,1,8,tetrahydrofolate biosynthesis,BioCyc
+ARA:PWY-1186,0.21391468035292602,0.9783307733504182,1,8,L-homomethionine biosynthesis,BioCyc
+ARA:PWYDQC-4,0.214060455608231,0.9787124148636714,1,7,indole-3-acetate biosynthesis I,BioCyc
+ARA:PWY-5936,0.21562001074329623,0.945655958163575,2,26,xyloglucan biosynthesis,BioCyc
+ARA:PWY-5079,0.2201161854499186,0.9769925542652688,1,8,L-phenylalanine degradation III,BioCyc
+ARA:PWY-2881,0.22849076327767429,0.9755856479687844,1,7,cytokinins 7-N-glucoside biosynthesis,BioCyc
+ARA:PWY-2901,0.22849076327767429,0.9755856479687844,1,7,cytokinins 9-N-glucoside biosynthesis,BioCyc
+ARA:HOMOSERSYN-PWY,0.23222469102936041,0.9735737899934241,1,10,L-homoserine biosynthesis,BioCyc
+ARA:PWY-5147,0.23299903232328914,0.9378919423952233,2,30,oleate biosynthesis I (plants),BioCyc
+ARA:PWY-66,0.2384294888767923,0.9739797926665232,1,6,GDP-L-fucose biosynthesis I (from GDP-D-mannose),BioCyc
+ARA:PWY66-21,0.24364872645816918,0.9328276280294145,2,34,ethanol degradation II,BioCyc
+ARA:PWY-5868,0.2468467575545579,0.9319157579629532,2,28,simple coumarins biosynthesis,BioCyc
+ARA:PWY-782,0.25423395191294107,0.9683758484420677,1,9,glycolipid desaturation,BioCyc
+ARA:PWY-6673,0.2543626962964654,0.9683419564251197,1,9,caffeoylglucarate biosynthesis,BioCyc
+ARA:LEU-DEG2-PWY,0.25611870728377784,0.9272371560139525,2,32,L-leucine degradation I,BioCyc
+ARA:GLNSYN-PWY,0.2608643665833653,0.966223794197441,1,10,L-glutamine biosynthesis I,BioCyc
+ARA:PWY-102,0.2610291218124084,0.9665591903497658,1,9,gibberellin inactivation I (2&beta;-hydroxylation),BioCyc
+ARA:PWY0-1507,0.2683395179625209,0.9641387033023792,1,10,biotin biosynthesis from 8-amino-7-oxononanoate I,BioCyc
+ARA:PWY-5791,0.2719213887320103,0.9635277920154806,1,9,"1,4-dihydroxy-2-naphthoate biosynthesis II (plants)",BioCyc
+ARA:PWY-5837,0.2719213887320103,0.9635277920154806,1,9,"1,4-dihydroxy-2-naphthoate biosynthesis",BioCyc
+ARA:CITRULBIO-PWY,0.27373767508658553,0.9184980201978845,2,35,L-citrulline biosynthesis,BioCyc
+ARA:PWY-63,0.2751693693981524,0.9618265597615261,1,11,UDP-L-arabinose biosynthesis I (from UDP-xylose),BioCyc
+ARA:PWY-4541,0.2784478207739533,0.9616401092652905,1,9,"lipid-dependent phytate biosynthesis I (via Ins(1,4,5)P3)",BioCyc
+ARA:PWY-6964,0.27925017847006656,0.9603168356640102,1,12,ammonia assimilation cycle II,BioCyc
+ARA:PWY-2724,0.28040368068589766,0.9599673897415625,1,12,alkane oxidation,BioCyc
+ARA:PWY-7238,0.280512481730305,0.9148185636783458,2,39,sucrose biosynthesis II,BioCyc
+ARA:PWY-6825,0.28720342064334625,0.9603463155032925,1,7,phosphatidylcholine biosynthesis V,BioCyc
+ARA:PWY-6963,0.28832100872402433,0.9572554588997438,1,13,ammonia assimilation cycle I,BioCyc
+ARA:PWY-6546,0.30466925103141673,0.9535047947950128,1,9,brassinosteroids inactivation,BioCyc
+ARA:PWY-5148,0.3083212305161824,0.9529668674896301,1,8,acyl-CoA hydrolysis,BioCyc
+ARA:BRANCHED-CHAIN-AA-SYN-PWY,0.308625562372399,0.9002679333272093,2,37,superpathway of branched chain amino acid biosynthesis,BioCyc
+ARA:ETOH-ACETYLCOA-ANA-PWY,0.31016290681868997,0.9503442603650166,1,12,ethanol degradation I,BioCyc
+ARA:PWY-6333,0.31016290681868997,0.9503442603650166,1,12,acetaldehyde biosynthesis I,BioCyc
+ARA:PWY-5152,0.3132989848067436,0.9500812176999031,1,10,leucodelphinidin biosynthesis,BioCyc
+ARA:PWY-7432,0.31971494301085024,0.9473899994859818,1,11,"L-phenylalanine biosynthesis III (cytosolic, plants)",BioCyc
+ARA:PWY0-1319,0.3201559381442831,0.9465162581890393,1,13,CDP-diacylglycerol biosynthesis II,BioCyc
+ARA:PWY-381,0.32098905349604245,0.9462165823442154,1,13,nitrate reduction II (assimilatory),BioCyc
+ARA:PWY-7199,0.32966104882320446,0.943800164500556,1,11,pyrimidine deoxyribonucleosides salvage,BioCyc
+ARA:PWY-6605,0.3311358716061718,0.9424887062229252,1,13,adenine and adenosine salvage II,BioCyc
+ARA:PWY-2501,0.33672166114596974,0.9397945160285046,1,15,fatty acid &alpha;-oxidation I,BioCyc
+ARA:PWY-6444,0.33682629257721514,0.9397541292122561,1,15,"benzoate biosynthesis II (CoA-independent, non-&beta;-oxidative)",BioCyc
+ARA:PWY-6607,0.3396218109338225,0.9386692400628271,1,15,guanosine nucleotides degradation I,BioCyc
+ARA:PWY-321,0.3402214358160629,0.8826908039573174,2,35,cutin biosynthesis,BioCyc
+ARA:LIPAS-PWY,0.3402895282512346,0.8292305518265215,4,93,triacylglycerol degradation,BioCyc
+ARA:PWY-5661,0.34603838271390996,0.9358880430210618,1,16,GDP-glucose biosynthesis,BioCyc
+ARA:PWY-695,0.34803162469150745,0.9363445066438009,1,12,abscisic acid biosynthesis,BioCyc
+ARA:PWY-724,0.35020352778813313,0.8762048803579041,2,41,"superpathway of L-lysine, L-threonine and L-methionine biosynthesis II",BioCyc
+ARA:PWY-6367,0.3554001168998999,0.9326320896719447,1,14,D-myo-inositol-5-phosphate metabolism,BioCyc
+ARA:PWY-5121,0.3559533420023441,0.8734617486245775,2,34,superpathway of geranylgeranyl diphosphate biosynthesis II (via MEP),BioCyc
+ARA:PWY-5800,0.35687244858204387,0.9320245618627246,1,14,xylan biosynthesis,BioCyc
+ARA:PWY-6606,0.36817990262424527,0.9266490271895074,1,16,guanosine nucleotides degradation II,BioCyc
+ARA:PWY-7177,0.3798021173397661,0.9210062053314706,1,18,UTP and CTP dephosphorylation II,BioCyc
+ARA:TYRFUMCAT-PWY,0.3840041559399712,0.9202451967018708,1,14,L-tyrosine degradation I,BioCyc
+ARA:NONMEVIPP-PWY,0.3843587463215429,0.9197339666514783,1,15,methylerythritol phosphate pathway I,BioCyc
+ARA:PWY-6733,0.38811370678305834,0.8526742414453138,2,39,sporopollenin precursors biosynthesis,BioCyc
+ARA:PWY-5486,0.39200907989000583,0.9158721456846484,1,16,pyruvate fermentation to ethanol II,BioCyc
+ARA:PWY-7186,0.3923480539165951,0.9160307733480323,1,15,superpathway of scopolin and esculin biosynthesis,BioCyc
+ARA:PWY-5043,0.39415403376149544,0.9151797318579432,1,15,purine nucleosides salvage II (plant),BioCyc
+ARA:PWY-4562,0.3963895868423314,0.9141190919505047,1,15,"lipid-dependent phytate biosynthesis II (via Ins(1,3,4)P3)",BioCyc
+ARA:PWY-4765,0.3963895868423314,0.9141190919505047,1,15,superpathway of lipid-dependent phytate biosynthesis,BioCyc
+ARA:PWY-6554,0.3963895868423314,0.9141190919505047,1,15,"1D-myo-inositol hexakisphosphate biosynthesis V (from Ins(1,3,4)P3)",BioCyc
+ARA:PWY-5035,0.4011176856418589,0.912230241559459,1,14,gibberellin biosynthesis III (early C-13 hydroxylation),BioCyc
+ARA:PWY-2541,0.4025899394912812,0.8425883816871456,2,44,plant sterol biosynthesis,BioCyc
+ARA:PWY-5143,0.4041941944853788,0.9097186255356413,1,17,long-chain fatty acid activation,BioCyc
+ARA:PWY-6952,0.409497128082462,0.9068166490806773,1,18,glycerophosphodiester degradation,BioCyc
+ARA:PWY-7270,0.4096377573721597,0.8380915369640844,2,41,L-methionine salvage cycle II (plants),BioCyc
+ARA:GLYOXYLATE-BYPASS,0.41366247420920255,0.9049886913179023,1,17,glyoxylate cycle,BioCyc
+ARA:PWY-7560,0.41536944327676417,0.904120300479129,1,17,methylerythritol phosphate pathway II,BioCyc
+ARA:PWY4FS-7,0.41807099651853774,0.9027360697073479,1,17,phosphatidylglycerol biosynthesis I (plastidic),BioCyc
+ARA:PWY-6663,0.4183994765430894,0.9020317072154844,1,19,plant sterol biosynthesis II,BioCyc
+ARA:PWY-5046,0.4222170287747431,0.9005880789053556,1,17,2-oxoisovalerate decarboxylation to isobutanoyl-CoA,BioCyc
+ARA:PWY-922,0.4292132136659459,0.8960966010062141,1,20,mevalonate pathway I,BioCyc
+ARA:PWY-5097,0.4300076734053226,0.8959090384198709,1,19,L-lysine biosynthesis VI,BioCyc
+ARA:PWY-702,0.43355483273097,0.894263316143713,1,18,L-methionine biosynthesis II,BioCyc
+ARA:PWY-6363,0.43909213257074414,0.8907078123662726,1,20,"D-myo-inositol (1,4,5)-trisphosphate degradation",BioCyc
+ARA:PWY-7039,0.43984598339791564,0.8157872364608145,2,52,"phosphatidate metabolism, as a signaling molecule",BioCyc
+ARA:PWY-6352,0.44544826146319383,0.8110184031242875,2,63,3-phosphoinositide biosynthesis,BioCyc
+ARA:PWY-6446,0.4466979804569243,0.8864435878349207,1,20,"benzoate biosynthesis III (CoA-dependent, non-&beta;-oxidative)",BioCyc
+ARA:PWY-4101,0.4556666683228391,0.8821848396249479,1,17,D-sorbitol degradation I,BioCyc
+ARA:PWY-6596,0.46896780557007145,0.8726643291850658,1,23,adenosine nucleotides degradation I,BioCyc
+ARA:PWY-5120,0.471446837077076,0.8741977654861921,1,14,geranylgeranyl diphosphate biosynthesis,BioCyc
+ARA:PWY-4361,0.4936665749523343,0.8577922161848828,1,20,S-methyl-5-thio-&alpha;-D-ribose 1-phosphate degradation,BioCyc
+ARA:TRPSYN-PWY,0.4950580602350268,0.8563371103287508,1,22,L-tryptophan biosynthesis,BioCyc
+ARA:PWY-5122,0.4952710672149218,0.858240981534931,1,16,geranyl diphosphate biosynthesis,BioCyc
+ARA:PWY-7221,0.49576246999859586,0.8567329395362995,1,19,guanosine ribonucleotides de novo biosynthesis,BioCyc
+ARA:OXIDATIVEPENT-PWY,0.49947339979475963,0.8539614415736074,1,20,pentose phosphate pathway (oxidative branch) I,BioCyc
+ARA:PWYQT-4449,0.499566276641621,0.8554254790688425,1,16,polyisoprenoid biosynthesis,BioCyc
+ARA:PWY-2821,0.5050594617568038,0.8509053655402625,1,18,glucosinolate biosynthesis from phenylalanine,BioCyc
+ARA:PWY-5321,0.5192789754795357,0.7537224614913488,2,44,quercetin glycoside biosynthesis (Arabidopsis),BioCyc
+ARA:PWY-6266,0.5192789754795357,0.7537224614913488,2,44,superpathway of flavones and derivatives biosynthesis,BioCyc
+ARA:PWY-6266-ARA,0.5192789754795357,0.7537224614913488,2,44,superpathway of flavones and derivatives biosynthesis,BioCyc
+ARA:PWY-5667,0.5285089648138797,0.8324466293335604,1,25,CDP-diacylglycerol biosynthesis I,BioCyc
+ARA:PWY-361,0.5460267899412441,0.7292434707103181,2,54,phenylpropanoid biosynthesis,BioCyc
+ARA:PWY-7185,0.5486842133006046,0.8165102455077433,1,29,UTP and CTP dephosphorylation I,BioCyc
+ARA:PWY-1121,0.5520706195348494,0.7237703822902649,2,54,suberin monomers biosynthesis,BioCyc
+ARA:GLUTAMINDEG-PWY,0.566396373026611,0.8026248694468019,1,28,L-glutamine degradation I,BioCyc
+ARA:THRESYN-PWY,0.5681878490625485,0.8011629994625544,1,28,superpathway of L-threonine biosynthesis,BioCyc
+ARA:MANNOSYL-CHITO-DOLICHOL-BIOSYNTHESIS,0.5750215946832378,0.7961943650183229,1,25,"protein N-glycosylation (eukaryotic, high mannose)",BioCyc
+ARA:LEUSYN-PWY,0.5790813418373437,0.792324917847318,1,27,L-leucine biosynthesis,BioCyc
+ARA:PWY-5884,0.5803746133279186,0.7925858649554509,1,22,wax esters biosynthesis I,BioCyc
+ARA:PWY-7187,0.5919439883989406,0.7823601162806453,1,23,pyrimidine deoxyribonucleotides de novo biosynthesis II,BioCyc
+ARA:PWY-621,0.5994959929570045,0.77418575986974425,1,29,sucrose degradation III (sucrose invertase),BioCyc
+ARA:PWYQT-4472,0.5995927783756824,0.7750381032335293,1,25,glucosinolate biosynthesis from trihomomethionine,BioCyc
+ARA:PWYQT-4473,0.5995927783756824,0.7750381032335293,1,25,glucosinolate biosynthesis from tetrahomomethionine,BioCyc
+ARA:PWYQT-4474,0.5995927783756824,0.7750381032335293,1,25,glucosinolate biosynthesis from pentahomomethionine,BioCyc
+ARA:PWY-7416,0.5998473474267474,0.7743062480561906,1,27,"phospholipid remodeling (phosphatidylcholine, yeast)",BioCyc
+ARA:PWY-7211,0.6031976085346547,0.6742669501135161,2,61,superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis,BioCyc
+ARA:PWY0-166,0.6291601136722116,0.7472949152464637,1,26,superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis (E. coli),BioCyc
+ARA:PWY-7176,0.6300244653170555,0.745717657519904,1,29,UTP and CTP de novo biosynthesis,BioCyc
+ARA:PWY-6803,0.6309466633573872,0.6453405755305741,2,65,phosphatidylcholine acyl editing,BioCyc
+ARA:PWY4FS-8,0.633520846514612,0.7416953725190317,1,32,phosphatidylglycerol biosynthesis II (non-plastidic),BioCyc
+ARA:PWY-3742,0.6369243001937424,0.7387248524455712,1,30,tetrahydrofolate biosynthesis II,BioCyc
+ARA:PWY-7200,0.6396368794259504,0.7370020670918391,1,26,superpathway of pyrimidine deoxyribonucleoside salvage,BioCyc
+ARA:PWY-581,0.6422388844818174,0.7332075063978944,1,31,indole-3-acetate biosynthesis II,BioCyc
+ARA:CAMALEXIN-SYN,0.6457048900953593,0.7301299460690989,1,29,camalexin biosynthesis,BioCyc
+ARA:PWY-6787,0.6505485396713203,0.725677693367013,1,27,flavonoid biosynthesis (in equisetum),BioCyc
+ARA:PWY-5980,0.6578924642547901,0.7167012039553062,1,33,xylogalacturonan biosynthesis,BioCyc
+ARA:LIPASYN-PWY,0.6622230975200393,0.610726500862833,2,72,phospholipases,BioCyc
+ARA:PWYQT-4475,0.6680911407267021,0.7062071987598224,1,31,glucosinolate biosynthesis from hexahomomethionine,BioCyc
+ARA:PWY-601,0.6765167926830999,0.6972035363954167,1,30,glucosinolate biosynthesis from tryptophan,BioCyc
+ARA:PWY0-162,0.6901242095845364,0.6808091782973003,1,35,superpathway of pyrimidine ribonucleotides de novo biosynthesis,BioCyc
+ARA:PWY1F-FLAVSYN,0.6943776518021625,0.6762512955903186,1,33,flavonoid biosynthesis,BioCyc
+ARA:PWY-3841,0.6979940468924682,0.6711358825200799,1,38,folate transformations II,BioCyc
+ARA:PWY-3801,0.7000186613035908,0.668315420021061,1,41,sucrose degradation II (sucrose synthase),BioCyc
+ARA:PWY-181,0.7020484827870207,0.6666462040374292,1,36,photorespiration,BioCyc
+ARA:PWY-3001,0.702803627930205,0.664993483879993,1,41,superpathway of L-isoleucine biosynthesis I,BioCyc
+ARA:PWY-3301,0.70297253367317,0.6650681971528062,1,39,sinapate ester biosynthesis,BioCyc
+ARA:PWY-1187,0.7069809450203192,0.6617244262195752,1,31,glucosinolate biosynthesis from homomethionine,BioCyc
+ARA:COMPLETE-ARO-ARA-PWY,0.7076789466748866,0.6595458262649673,1,38,"superpathway of phenylalanine, tyrosine and tryptophan biosynthesis",BioCyc
+ARA:PWY-7184,0.7163334379670079,0.6494310729072417,1,35,pyrimidine deoxyribonucleotides de novo biosynthesis I,BioCyc
+ARA:PWY-5687,0.7169970973022335,0.6480895738688948,1,38,pyrimidine ribonucleotides interconversion,BioCyc
+ARA:PWY-5114,0.7189238732177965,0.6455275687103225,1,39,UDP-sugars interconversion,BioCyc
+ARA:PENTOSE-P-PWY,0.7196601694994563,0.6450953731379891,1,36,pentose phosphate pathway,BioCyc
+ARA:SUCSYN-PWY,0.7258139575705905,0.6366585750661682,1,40,sucrose biosynthesis I (from photosynthesis),BioCyc
+ARA:PWY-7208,0.726401054676598,0.6359073672652578,1,40,superpathway of pyrimidine nucleobases salvage,BioCyc
+ARA:PWY-5989,0.76117385841165075,0.5888901188103439,1,41,stearate biosynthesis II (bacteria and plants),BioCyc
+ARA:PWY-5992,0.7652201804765737,0.5829705349575809,1,42,thalianol and derivatives biosynthesis,BioCyc
+ARA:PWY-5971,0.7743937861554433,0.5694726349965089,1,43,palmitate biosynthesis II (bacteria and plants),BioCyc
+ARA:PWY-7196,0.7860600394243009,0.55142306989928,1,47,superpathway of pyrimidine ribonucleosides salvage,BioCyc
+ARA:PWYQT-4466,0.7997799515634224,0.5292326710845423,1,54,superpathway of sucrose and starch metabolism I (non-photosynthetic tissue),BioCyc
+ARA:PWY-6842,0.8402634924621958,0.36884049434893357,2,71,glutathione-mediated detoxification II,BioCyc
+ARA:GLUCONEO-PWY,0.8514511592916738,0.43860288709955597,1,60,gluconeogenesis I,BioCyc
+ARA:PWY66-399,0.8686912115772114,0.4045574251438081,1,62,gluconeogenesis III,BioCyc
+ARA:PWYQT-4471,0.8851948384676838,0.37058446719109867,1,54,glucosinolate biosynthesis from dihomomethionine,BioCyc
+ARA:PWY-3781,0.9431217794602915,0.16846639363319635,2,104,aerobic respiration I (cytochrome c),BioCyc
+ARA:PWY-4302,0.977382733628705,0.1116411657603407,1,84,aerobic respiration III (alternative oxidase pathway),BioCyc
+ARA:PWY-4821,0.9999999999999938,0.550624716673419,0,18,UDP-D-xylose biosynthesis,BioCyc
+ARA:ARG-PRO-PWY,1,0.870608114111845,0,4,L-arginine degradation VI (arginase 2 pathway),BioCyc
+ARA:ARGASEDEG-PWY,1,0.914932908259026,0,3,L-arginine degradation I (arginase pathway),BioCyc
+ARA:ARGDEG-V-PWY,1,0.9185251466766697,0,3,L-arginine degradation X (arginine monooxygenase pathway),BioCyc
+ARA:ARGSPECAT-PWY,1,0.6646440102770635,0,11,spermine biosynthesis,BioCyc
+ARA:ARGSYN-PWY,1,0.5852600221627977,0,16,L-arginine biosynthesis I (via L-ornithine),BioCyc
+ARA:ARGSYNBSUB-PWY,1,0.6043500317600637,0,15,L-arginine biosynthesis II (acetyl cycle),BioCyc
+ARA:ASPARAGINE-BIOSYNTHESIS,1,0.850090593222528,0,6,L-asparagine biosynthesis I,BioCyc
+ARA:ASPARAGINE-DEG1-PWY,1,0.7988344896686155,0,6,L-asparagine degradation I,BioCyc
+ARA:ASPARAGINESYN-PWY,1,0.850090593222528,0,6,L-asparagine biosynthesis II,BioCyc
+ARA:ASPARTATE-DEG1-PWY,1,0.675413734134029,0,14,L-aspartate degradation I,BioCyc
+ARA:ASPARTATESYN-PWY,1,0.675413734134029,0,14,L-aspartate biosynthesis,BioCyc
+ARA:ASPASN-ARA-PWY,1,0.4579538667827019,0,26,superpathway of aspartate and asparagine biosynthesis,BioCyc
+ARA:ASPSYNII-PWY,1,0.7298104144733414,0,10,cyanide detoxification I,BioCyc
+ARA:BSUBPOLYAMSYN-PWY,1,0.643565738348266,0,12,spermidine biosynthesis I,BioCyc
+ARA:CALVIN-PWY,1,0.2397092793840539,0,39,Calvin-Benson-Bassham cycle,BioCyc
+ARA:CHLOROPHYLL-SYN,1,0.4643180192570886,0,22,"3,8-divinyl-chlorophyllide a biosynthesis I (aerobic, light-dependent)",BioCyc
+ARA:CITRULLINE-DEG-PWY,1,0.9656538688027834,0,1,L-citrulline degradation,BioCyc
+ARA:COA-PWY,1,0.6896612822850243,0,9,coenzyme A biosynthesis I,BioCyc
+ARA:CYANCAT-PWY,1,0.8887929495293073,0,3,cyanate degradation,BioCyc
+ARA:CYSTSYN-PWY,1,0.4259240792256027,0,25,L-cysteine biosynthesis I,BioCyc
+ARA:DETOX1-PWY,1,0.5088574495519075,0,21,superoxide radicals degradation,BioCyc
+ARA:DETOX1-PWY-1,1,0.3728553638437008,0,28,reactive oxygen species degradation,BioCyc
+ARA:FASYN-ELONG-PWY,1,0.549140845251653,0,15,fatty acid elongation -- saturated,BioCyc
+ARA:GLUGLNSYN-PWY,1,0.962945250822401,0,3,L-glutamate biosynthesis IV,BioCyc
+ARA:GLUT-REDOX-PWY,1,0.9043375407933878,0,4,glutathione-glutaredoxin redox reactions,BioCyc
+ARA:GLUTAMATE-DEG1-PWY,1,0.879750364256799,0,4,L-glutamate degradation I,BioCyc
+ARA:GLUTAMATE-SYN2-PWY,1,0.879750364256799,0,4,L-glutamate biosynthesis II,BioCyc
+ARA:GLUTATHIONESYN-PWY,1,0.922825845576892,0,3,glutathione biosynthesis,BioCyc
+ARA:GLUTORN-PWY,1,0.6798870051389568,0,11,L-ornithine biosynthesis I,BioCyc
+ARA:GLUTSYNIII-PWY,1,0.8412164853474401,0,6,L-glutamate biosynthesis III,BioCyc
+ARA:GLYCLEAV-PWY,1,0.5606091736868482,0,17,glycine cleavage,BioCyc
+ARA:GLYCOLYSIS,1,0.16688629569051566,0,57,glycolysis I (from glucose 6-phosphate),BioCyc
+ARA:GLYOXDEG-PWY,1,0.9490447484064234,0,2,glycolate and glyoxylate degradation II,BioCyc
+ARA:GLYSYN-PWY,1,0.7168842464425395,0,11,glycine biosynthesis I,BioCyc
+ARA:GLYSYN2-PWY,1,0.5505472264689767,0,20,glycine biosynthesis,BioCyc
+ARA:HEME-BIOSYNTHESIS-II,1,0.6548029236434525,0,14,heme biosynthesis I (aerobic),BioCyc
+ARA:HEXPPSYN-PWY,1,0.9386647078868344,0,2,hexaprenyl diphosphate biosynthesis,BioCyc
+ARA:HISTSYN-PWY,1,0.6058282405464605,0,16,L-histidine biosynthesis,BioCyc
+ARA:HOMOCYSDEGR-PWY,1,0.9689377956121873,0,1,L-cysteine biosynthesis III (from L-homocysteine),BioCyc
+ARA:HOMOSER-THRESYN-PWY,1,0.8342251725695108,0,4,L-threonine biosynthesis,BioCyc
+ARA:ILE-VAL-PWY,1,0.5881114961120587,0,19,superpathway of isoleucine and valine biosynthesis,BioCyc
+ARA:ILEUDEG-PWY,1,0.526549451408858,0,20,L-isoleucine degradation I,BioCyc
+ARA:ILEUSYN-PWY,1,0.7095789734295346,0,12,L-isoleucine biosynthesis I (from threonine),BioCyc
+ARA:KDOSYN-PWY,1,0.9432160541509178,0,2,Kdo transfer to lipid IVA I,BioCyc
+ARA:LCYSDEG-PWY,1,0.9629973615571766,0,1,L-cysteine degradation II,BioCyc
+ARA:LYSINE-DEG2-PWY,1,0.7212097727305561,0,12,lysine degradation II,BioCyc
+ARA:MALATE-ASPARTATE-SHUTTLE-PWY,1,0.5323995718843195,0,21,L-aspartate degradation II,BioCyc
+ARA:MANNCAT-PWY,1,0.8773019172359365,0,4,D-mannose degradation,BioCyc
+ARA:METHIONINE-DEG1-PWY,1,0.7300914629983071,0,9,L-methionine degradation I (to L-homocysteine),BioCyc
+ARA:NAGLIPASYN-PWY,1,0.6801201867097484,0,11,lipid IVA biosynthesis,BioCyc
+ARA:NONOXIPENT-PWY,1,0.5619165668299375,0,16,pentose phosphate pathway (non-oxidative branch),BioCyc
+ARA:P401-PWY,1,0.7511504561716419,0,9,cyanide degradation,BioCyc
+ARA:PANTO-PWY,1,0.8070048871233945,0,7,phosphopantothenate biosynthesis I,BioCyc
+ARA:PHOTOALL-PWY,1,0.02603939738130177,0,85,oxygenic photosynthesis,BioCyc
+ARA:PLPSAL-PWY,1,0.8567177600908067,0,5,pyridoxal 5'-phosphate salvage I,BioCyc
+ARA:POLYAMINSYN3-PWY,1,0.9137363712758748,0,3,superpathway of polyamine biosynthesis II,BioCyc
+ARA:PROUT-PWY,1,0.8932169857230925,0,4,L-proline degradation,BioCyc
+ARA:PWY-101,1,0.11145752878069412,0,46,photosynthesis light reactions,BioCyc
+ARA:PWY-1042,1,0.18056910032899662,0,55,glycolysis IV (plant cytosol),BioCyc
+ARA:PWY-1061,1,0.3865385285346507,0,29,homogalacturonan biosynthesis,BioCyc
+ARA:PWY-112,1,0.8467786294223183,0,5,lupeol biosynthesis,BioCyc
+ARA:PWY-116,1,0.8714360463989842,0,4,coniferin metabolism,BioCyc
+ARA:PWY-1269,1,0.7619080887832164,0,9,CMP-3-deoxy-D-manno-octulosonate biosynthesis,BioCyc
+ARA:PWY-1422,1,0.7314585838735735,0,9,vitamin E biosynthesis (tocopherols),BioCyc
+ARA:PWY-1581,1,0.79709583568159,0,6,plastoquinol-9 biosynthesis I,BioCyc
+ARA:PWY-1722,1,0.7626223060075639,0,8,"formate assimilation into 5,10-methylenetetrahydrofolate",BioCyc
+ARA:PWY-1801,1,0.9368752076913348,0,2,formaldehyde oxidation II (glutathione-dependent),BioCyc
+ARA:PWY-1822,1,0.7851160173716487,0,7,indole-3-acetate activation I,BioCyc
+ARA:PWY-1881,1,0.971418583573122,0,1,formate oxidation to CO2,BioCyc
+ARA:PWY-2,1,0.9203368033292566,0,3,putrescine degradation IV,BioCyc
+ARA:PWY-2161,1,0.6283295283116304,0,16,folate polyglutamylation,BioCyc
+ARA:PWY-2161B,1,0.831176090254002,0,6,glutamate removal from folates,BioCyc
+ARA:PWY-2161B-PMN,1,0.7492434637791886,0,10,folate polyglutamylation II,BioCyc
+ARA:PWY-2181,1,0.8355232966487278,0,5,free phenylpropanoid acid biosynthesis,BioCyc
+ARA:PWY-2261,1,0.3702304418770344,0,26,ascorbate glutathione cycle,BioCyc
+ARA:PWY-2301,1,0.8326651482490709,0,6,myo-inositol biosynthesis,BioCyc
+ARA:PWY-2582,1,0.7856102641216799,0,8,brassinosteroid biosynthesis II,BioCyc
+ARA:PWY-2602,1,0.9464144587989538,0,1,brassinosteroid biosynthesis III,BioCyc
+ARA:PWY-2681,1,0.5547965622251643,0,17,trans-zeatin biosynthesis,BioCyc
+ARA:PWY-2781,1,0.9457169002753446,0,2,cis-zeatin biosynthesis,BioCyc
+ARA:PWY-282,1,0.7342591453524839,0,8,cuticular wax biosynthesis,BioCyc
+ARA:PWY-2841,1,0.8205994652075168,0,7,cytokinins degradation,BioCyc
+ARA:PWY-2902,1,0.7569174476060417,0,8,cytokinin-O-glucosides biosynthesis,BioCyc
+ARA:PWY-3041,1,0.8818079476415751,0,4,monoterpene biosynthesis,BioCyc
+ARA:PWY-3101,1,0.6527694452616717,0,11,flavonol biosynthesis,BioCyc
+ARA:PWY-3181,1,0.8945234604895542,0,5,L-tryptophan degradation VI (via tryptamine),BioCyc
+ARA:PWY-3221,1,0.9620263193015026,0,1,dTDP-L-rhamnose biosynthesis II,BioCyc
+ARA:PWY-3261,1,0.883138255861509,0,4,UDP-L-rhamnose biosynthesis,BioCyc
+ARA:PWY-3385,1,0.6598143752155027,0,14,choline biosynthesis I,BioCyc
+ARA:PWY-3461,1,0.7416348372729732,0,9,L-tyrosine biosynthesis II,BioCyc
+ARA:PWY-3462,1,0.6462363305390912,0,13,L-phenylalanine biosynthesis II,BioCyc
+ARA:PWY-3481,1,0.5806826867474666,0,16,superpathway of L-phenylalanine and L-tyrosine biosynthesis,BioCyc
+ARA:PWY-3561,1,0.512549828107081,0,26,choline biosynthesis III,BioCyc
+ARA:PWY-3821,1,0.7832481242190693,0,8,D-galactose degradation III,BioCyc
+ARA:PWY-3881,1,0.793294330518835,0,7,mannitol biosynthesis,BioCyc
+ARA:PWY-3941,1,0.8363763153617675,0,5,&beta;-alanine biosynthesis II,BioCyc
+ARA:PWY-3982,1,0.9114889320417398,0,3,uracil degradation I (reductive),BioCyc
+ARA:PWY-4,1,0.9237696873104586,0,3,UDP-D-galacturonate biosynthesis II (from D-galacturonate),BioCyc
+ARA:PWY-40,1,0.9185251466766697,0,3,putrescine biosynthesis I,BioCyc
+ARA:PWY-401,1,0.7761132776620886,0,9,galactolipid biosynthesis I,BioCyc
+ARA:PWY-4041,1,0.6838389885843534,0,11,&gamma;-glutamyl cycle,BioCyc
+ARA:PWY-4081,1,0.5719938382601829,0,15,glutathione-peroxide redox reactions,BioCyc
+ARA:PWY-4203,1,0.8961034127144654,0,3,volatile benzenoid biosynthesis I (ester formation),BioCyc
+ARA:PWY-4221ARA,1,0.5561991741966952,0,16,superpathway of pantothenate and coenzymeA biosynthesis,BioCyc
+ARA:PWY-4261,1,0.9434525115172977,0,2,glycerol degradation I,BioCyc
+ARA:PWY-43,1,0.8354266428250292,0,6,putrescine biosynthesis II,BioCyc
+ARA:PWY-4321,1,0.7031725159378879,0,12,L-glutamate degradation IV,BioCyc
+ARA:PWY-4341,1,0.9751873948592805,0,2,L-glutamate biosynthesis V,BioCyc
+ARA:PWY-4381,1,0.6668322505652251,0,14,fatty acid biosynthesis initiation I,BioCyc
+ARA:PWY-4661,1,0.6508002274642591,0,14,1D-myo-inositol hexakisphosphate biosynthesis III (Spirodela polyrrhiza),BioCyc
+ARA:PWY-4702,1,0.8832167693048129,0,4,phytate degradation I,BioCyc
+ARA:PWY-4841,1,0.7951554023020683,0,7,UDP-&alpha;-D-glucuronate biosynthesis (from myo-inositol),BioCyc
+ARA:PWY-4861,1,0.8009690265765166,0,6,UDP-D-galacturonate biosynthesis I (from UDP-D-glucuronate),BioCyc
+ARA:PWY-4983,1,0.8614939392488205,0,5,L-citrulline-nitric oxide cycle,BioCyc
+ARA:PWY-4984,1,0.8312809909820102,0,6,urea cycle,BioCyc
+ARA:PWY-5027,1,0.8519212458859133,0,4,phylloquinol biosynthesis,BioCyc
+ARA:PWY-5032,1,0.9739772880253186,0,1,ent-kaurene biosynthesis I,BioCyc
+ARA:PWY-5034,1,0.8904223253228611,0,4,GA12 biosynthesis,BioCyc
+ARA:PWY-5036,1,0.9232082440668092,0,2,gibberellin biosynthesis II (early C-3 hydroxylation),BioCyc
+ARA:PWY-5041,1,0.6254409914013322,0,15,S-adenosyl-L-methionine cycle II,BioCyc
+ARA:PWY-5049,1,0.9582330077292178,0,1,rosmarinic acid biosynthesis II,BioCyc
+ARA:PWY-5060,1,0.8686793598270394,0,4,luteolin biosynthesis,BioCyc
+ARA:PWY-5063,1,0.9671481645585689,0,1,phytyl diphosphate biosynthesis,BioCyc
+ARA:PWY-5064,1,0.9409434582590416,0,2,chlorophyll a biosynthesis II,BioCyc
+ARA:PWY-5068,1,0.8434111832966356,0,6,chlorophyll cycle,BioCyc
+ARA:PWY-5070,1,0.700746006602305,0,9,"gibberellin biosynthesis I (non C-3, non C-13 hydroxylation)",BioCyc
+ARA:PWY-5080,1,0.24752307546913652,0,41,very long chain fatty acid biosynthesis I,BioCyc
+ARA:PWY-5083,1,0.04399286854707813,0,70,NAD/NADH phosphorylation and dephosphorylation,BioCyc
+ARA:PWY-5084,1,0.6215242030535014,0,15,2-oxoglutarate decarboxylation to succinyl-CoA,BioCyc
+ARA:PWY-5086,1,0.9729124675760432,0,1,chlorophyll a biosynthesis I,BioCyc
+ARA:PWY-5098,1,0.7829309684679302,0,7,chlorophyll a degradation I,BioCyc
+ARA:PWY-5107,1,0.9310052066337147,0,2,phytol salvage pathway,BioCyc
+ARA:PWY-5111,1,0.7959897171793944,0,8,CMP-KDO biosynthesis II (from D-arabinose 5-phosphate),BioCyc
+ARA:PWY-5113,1,0.9442294196429948,0,2,UDP-D-apiose biosynthesis (from UDP-D-glucuronate),BioCyc
+ARA:PWY-5115,1,0.9720787847675046,0,1,GDP-L-galactose biosynthesis,BioCyc
+ARA:PWY-5125,1,0.7443977313531257,0,8,anthocyanin biosynthesis,BioCyc
+ARA:PWY-5129,1,0.36155766162870695,0,32,sphingolipid biosynthesis (plants),BioCyc
+ARA:PWY-5136,1,0.6488585628542954,0,14,fatty acid &beta;-oxidation II (peroxisome),BioCyc
+ARA:PWY-5138,1,0.6829301401961434,0,10,"unsaturated, even numbered fatty acid &beta;-oxidation",BioCyc
+ARA:PWY-5142,1,0.8198665879158984,0,6,acyl-ACP thioesterase pathway,BioCyc
+ARA:PWY-5168,1,0.8796047492080418,0,4,ferulate and sinapate biosynthesis,BioCyc
+ARA:PWY-5172,1,0.7987388682123131,0,8,acetyl-CoA biosynthesis III (from citrate),BioCyc
+ARA:PWY-5175,1,0.9722616242890848,0,1,lactucaxanthin biosynthesis,BioCyc
+ARA:PWY-5176,1,0.9733874698823415,0,1,coumarin biosynthesis (via 2-coumarate),BioCyc
+ARA:PWY-5188,1,0.6671314641802584,0,13,tetrapyrrole biosynthesis I (from glutamate),BioCyc
+ARA:PWY-5194,1,0.8447197742832723,0,5,siroheme biosynthesis,BioCyc
+ARA:PWY-5203,1,0.7411122691257496,0,9,soybean saponin I biosynthesis,BioCyc
+ARA:PWY-5269,1,0.8002383965355286,0,6,cardiolipin biosynthesis II,BioCyc
+ARA:PWY-5271,1,0.9410178192893285,0,2,phaseic acid biosynthesis,BioCyc
+ARA:PWY-5272,1,0.6927411335623438,0,9,abscisic acid glucose ester metabolism,BioCyc
+ARA:PWY-5285,1,0.9315596720803366,0,2,sulfide oxidation III (persulfide dioxygenase),BioCyc
+ARA:PWY-5287,1,0.9648942856202335,0,1,sanguinarine and macarpine biosynthesis,BioCyc
+ARA:PWY-5313,1,0.8507568754827942,0,4,superpathway of anthocyanin biosynthesis (from cyanidin and cyanidin 3-O-glucoside),BioCyc
+ARA:PWY-5320,1,0.5476478920507499,0,16,kaempferol glycoside biosynthesis (Arabidopsis),BioCyc
+ARA:PWY-5326,1,0.9358368722110285,0,2,sulfite oxidation IV,BioCyc
+ARA:PWY-5343,1,0.9727020554504759,0,1,ajugose biosynthesis II (galactinol-independent),BioCyc
+ARA:PWY-5350,1,0.6509372157883948,0,8,thiosulfate disproportionation IV (rhodanese),BioCyc
+ARA:PWY-5366,1,0.8198665879158984,0,6,palmitoleate biosynthesis II (plants and bacteria),BioCyc
+ARA:PWY-5377,1,0.8684784375869782,0,4,&alpha;-amyrin biosynthesis,BioCyc
+ARA:PWY-5386,1,0.5126227064524237,0,22,methylglyoxal degradation I,BioCyc
+ARA:PWY-5389,1,0.8779792564861343,0,3,3-methylthiopropanoate biosynthesis,BioCyc
+ARA:PWY-5391,1,0.7077701408797045,0,9,syringetin biosynthesis,BioCyc
+ARA:PWY-5410,1,0.7450495684905487,0,8,traumatin and (Z)-3-hexen-1-yl acetate biosynthesis,BioCyc
+ARA:PWY-5453,1,0.5715745741356076,0,13,methylglyoxal degradation III,BioCyc
+ARA:PWY-5466,1,0.904760166402299,0,3,matairesinol biosynthesis,BioCyc
+ARA:PWY-5469,1,0.9207171227689506,0,2,sesamin biosynthesis,BioCyc
+ARA:PWY-5481,1,0.95715968902423465,0,1,pyruvate fermentation to lactate,BioCyc
+ARA:PWY-5484,1,0.13234221365665216,0,63,glycolysis II (from fructose 6-phosphate),BioCyc
+ARA:PWY-5530,1,0.7890687434027984,0,5,sorbitol biosynthesis II,BioCyc
+ARA:PWY-5640,1,0.9567920063183277,0,1,nitrobenzene degradation II,BioCyc
+ARA:PWY-5659,1,0.5534334932904027,0,20,GDP-mannose biosynthesis,BioCyc
+ARA:PWY-5669,1,0.8756117950554155,0,5,phosphatidylethanolamine biosynthesis I,BioCyc
+ARA:PWY-5686,1,0.8387577335167742,0,6,UMP biosynthesis I,BioCyc
+ARA:PWY-5691,1,0.8885633991740739,0,3,urate degradation to allantoin I,BioCyc
+ARA:PWY-5692,1,0.9459714734192004,0,2,allantoin degradation to glyoxylate II,BioCyc
+ARA:PWY-5697,1,0.9464149650356621,0,2,allantoin degradation to ureidoglycolate I (urea producing),BioCyc
+ARA:PWY-5698,1,0.8958419433420389,0,4,allantoin degradation to ureidoglycolate II (ammonia producing),BioCyc
+ARA:PWY-5704,1,0.9751601932005347,0,1,urea degradation II,BioCyc
+ARA:PWY-5723,1,0.24670676015042747,0,41,Rubisco shunt,BioCyc
+ARA:PWY-5765,1,0.8793166829297565,0,4,"1,3,5-trimethoxybenzene biosynthesis",BioCyc
+ARA:PWY-5783,1,0.9386647078868344,0,2,octaprenyl diphosphate biosynthesis,BioCyc
+ARA:PWY-5805,1,0.9386647078868344,0,2,nonaprenyl diphosphate biosynthesis I,BioCyc
+ARA:PWY-5807,1,0.8201932672568045,0,5,heptaprenyl diphosphate biosynthesis,BioCyc
+ARA:PWY-5859,1,0.6248969877530022,0,11,eugenol and isoeugenol biosynthesis,BioCyc
+ARA:PWY-5871,1,0.7965597762591332,0,8,ubiquinol-9 biosynthesis (eukaryotic),BioCyc
+ARA:PWY-5876,1,0.9396080490302418,0,2,magnoflorine biosynthesis,BioCyc
+ARA:PWY-5905,1,0.8848250878501407,0,3,hypusine biosynthesis,BioCyc
+ARA:PWY-5921,1,0.7309112923576639,0,9,glutaminyl-tRNAgln biosynthesis via transamidation,BioCyc
+ARA:PWY-5943,1,0.9628885937372751,0,1,&beta;-carotene biosynthesis,BioCyc
+ARA:PWY-5944,1,0.9659481962494599,0,1,zeaxanthin biosynthesis,BioCyc
+ARA:PWY-5945,1,0.8823546119593758,0,4,"zeaxanthin, antheraxanthin and violaxanthin interconversion",BioCyc
+ARA:PWY-5946,1,0.9722616242890848,0,1,&delta;-carotene biosynthesis,BioCyc
+ARA:PWY-5947,1,0.8920276093555569,0,4,lutein biosynthesis,BioCyc
+ARA:PWY-5957,1,0.8608379761042565,0,3,L-nicotianamine biosynthesis,BioCyc
+ARA:PWY-5963,1,0.7228402202315208,0,11,thio-molybdenum cofactor biosynthesis,BioCyc
+ARA:PWY-5973,1,0.38021238732639523,0,26,cis-vaccenate biosynthesis,BioCyc
+ARA:PWY-5995,1,0.9111252348412581,0,3,linoleate biosynthesis I (plants),BioCyc
+ARA:PWY-5997,1,0.9168969620354882,0,3,&alpha;-linolenate biosynthesis I (plants and red algae),BioCyc
+ARA:PWY-5998,1,0.9408031593451465,0,1,&gamma;-linolenate biosynthesis I (plants),BioCyc
+ARA:PWY-6,1,0.9484235543757913,0,2,GDP-L-fucose biosynthesis II (from L-fucose),BioCyc
+ARA:PWY-6005,1,0.9750500051288603,0,1,marneral biosynthesis,BioCyc
+ARA:PWY-6007,1,0.9583853430266843,0,2,arabidiol biosynthesis,BioCyc
+ARA:PWY-6012,1,0.8648693748108492,0,4,acyl carrier protein metabolism,BioCyc
+ARA:PWY-6014,1,0.8260312578168776,0,5,vernolate biosynthesis I,BioCyc
+ARA:PWY-6019,1,0.8791699405779628,0,4,pseudouridine degradation,BioCyc
+ARA:PWY-6051,1,0.7475242550577952,0,8,"2,4,6-trinitrotoluene degradation",BioCyc
+ARA:PWY-6064,1,0.9306428214814398,0,2,methylquercetin biosynthesis,BioCyc
+ARA:PWY-6066,1,0.9416712483145143,0,2,IAA biosynthesis VII,BioCyc
+ARA:PWY-6115,1,0.7713183329646524,0,9,"avenacin biosynthesis, initial reactions",BioCyc
+ARA:PWY-6118,1,0.7900640706448575,0,8,glycerol-3-phosphate shuttle,BioCyc
+ARA:PWY-6121,1,0.7947812188079898,0,7,5-aminoimidazole ribonucleotide biosynthesis I,BioCyc
+ARA:PWY-6122,1,0.7947812188079898,0,7,5-aminoimidazole ribonucleotide biosynthesis II,BioCyc
+ARA:PWY-6124,1,0.8467841624054568,0,6,inosine-5'-phosphate biosynthesis II,BioCyc
+ARA:PWY-6132,1,0.9524174957934562,0,2,lanosterol biosynthesis,BioCyc
+ARA:PWY-6137,1,0.8480025027240071,0,6,copper transport II,BioCyc
+ARA:PWY-6147,1,0.774243274230959,0,6,6-hydroxymethyl-dihydropterin diphosphate biosynthesis I,BioCyc
+ARA:PWY-6163,1,0.7611008469608381,0,9,chorismate biosynthesis from 3-dehydroquinate,BioCyc
+ARA:PWY-6164,1,0.8582235738278449,0,5,3-dehydroquinate biosynthesis I,BioCyc
+ARA:PWY-6196,1,0.9262119335195773,0,2,D-serine metabolism,BioCyc
+ARA:PWY-6213,1,0.8763355101545494,0,6,cadmium transport I,BioCyc
+ARA:PWY-622,1,0.424861825684632,0,33,starch biosynthesis,BioCyc
+ARA:PWY-6220,1,0.8674357010840692,0,5,jasmonoyl-amino acid conjugates biosynthesis I,BioCyc
+ARA:PWY-6232,1,0.960104642537392,0,1,chrysoeriol biosynthesis,BioCyc
+ARA:PWY-6233,1,0.8674357010840692,0,5,jasmonoyl-amino acid conjugates biosynthesis II,BioCyc
+ARA:PWY-6235,1,0.8611248489497272,0,4,hydroxyjasmonate sulfate biosynthesis,BioCyc
+ARA:PWY-6239,1,0.9662725870953135,0,1,luteolin glycosides biosynthesis,BioCyc
+ARA:PWY-6287,1,0.8300092194540786,0,7,neurosporene biosynthesis,BioCyc
+ARA:PWY-6295,1,0.911898635337915,0,2,olivetol biosynthesis,BioCyc
+ARA:PWY-6304,1,0.879609827748909,0,4,casbene biosynthesis,BioCyc
+ARA:PWY-6305,1,0.8866056339024965,0,4,putrescine biosynthesis IV,BioCyc
+ARA:PWY-6317,1,0.6640651883881805,0,15,D-galactose degradation I (Leloir pathway),BioCyc
+ARA:PWY-6348,1,0.3593390836356144,0,27,phosphate acquisition,BioCyc
+ARA:PWY-6364,1,0.7352616362160054,0,12,"D-myo-inositol (1,3,4)-trisphosphate biosynthesis",BioCyc
+ARA:PWY-6369,1,0.8333355542405501,0,7,inositol pyrophosphates biosynthesis,BioCyc
+ARA:PWY-6406,1,0.9479172543567849,0,2,salicylate biosynthesis I,BioCyc
+ARA:PWY-641,1,0.8751361107408798,0,4,proanthocyanidins biosynthesis from flavanols,BioCyc
+ARA:PWY-6424,1,0.9171226374681164,0,2,"26,27-dehydrozymosterol metabolism",BioCyc
+ARA:PWY-6441,1,0.7219116539858766,0,12,spermine and spermidine degradation III,BioCyc
+ARA:PWY-6442,1,0.8077082492375149,0,5,spermidine hydroxycinnamic acid conjugates biosynthesis,BioCyc
+ARA:PWY-6457,1,0.7694492815278712,0,8,trans-cinnamoyl-CoA biosynthesis,BioCyc
+ARA:PWY-6466,1,0.7551868213286597,0,6,pyridoxal 5'-phosphate biosynthesis II,BioCyc
+ARA:PWY-6473,1,0.9254390313432999,0,3,4-aminobutanoate degradation IV,BioCyc
+ARA:PWY-6475,1,0.6852835688292612,0,13,trans-lycopene biosynthesis II (plants),BioCyc
+ARA:PWY-6483,1,0.7609001179377592,0,10,ceramide degradation,BioCyc
+ARA:PWY-6498,1,0.75801200223101,0,6,eumelanin biosynthesis,BioCyc
+ARA:PWY-6502,1,0.9392138170813796,0,1,oxidized GTP and dGTP detoxification,BioCyc
+ARA:PWY-6520,1,0.8885906831042658,0,4,nonaprenyl diphosphate biosynthesis II,BioCyc
+ARA:PWY-6527,1,0.6890977954429323,0,13,stachyose degradation,BioCyc
+ARA:PWY-6535,1,0.9254390313432999,0,3,4-aminobutanoate degradation I,BioCyc
+ARA:PWY-6543,1,0.831871608581772,0,5,4-aminobenzoate biosynthesis,BioCyc
+ARA:PWY-6544,1,0.7238006325797408,0,11,superpathway of C28 brassinosteroid biosynthesis,BioCyc
+ARA:PWY-6545,1,0.33553165532088325,0,29,pyrimidine deoxyribonucleotides de novo biosynthesis III,BioCyc
+ARA:PWY-6556,1,0.8734887478276191,0,3,pyrimidine ribonucleosides salvage II,BioCyc
+ARA:PWY-6577,1,0.9146076230884419,0,3,farnesylcysteine salvage pathway,BioCyc
+ARA:PWY-6599,1,0.9060750443963875,0,2,guanine and guanosine salvage II,BioCyc
+ARA:PWY-6612,1,0.6438251231408749,0,11,superpathway of tetrahydrofolate biosynthesis,BioCyc
+ARA:PWY-6613,1,0.7553079163087265,0,8,"tetrahydrofolate salvage from 5,10-methenyltetrahydrofolate",BioCyc
+ARA:PWY-6619,1,0.9467608515862821,0,2,adenine and adenosine salvage VI,BioCyc
+ARA:PWY-6623,1,0.8899334884491784,0,3,salicylate glucosides biosynthesis II,BioCyc
+ARA:PWY-6666,1,0.9274638548360871,0,2,pyocyanin biosynthesis,BioCyc
+ARA:PWY-6707,1,0.9734031096387099,0,1,gallate biosynthesis,BioCyc
+ARA:PWY-6710,1,0.8260312578168776,0,5,poly-hydroxy fatty acids biosynthesis,BioCyc
+ARA:PWY-6724,1,0.6561912601288333,0,15,starch degradation II,BioCyc
+ARA:PWY-6730,1,0.8471572598175047,0,5,methylhalides biosynthesis (plants),BioCyc
+ARA:PWY-6736,1,0.9073318281970987,0,3,sulfur volatiles biosynthesis,BioCyc
+ARA:PWY-6745,1,0.7842135662472726,0,8,phytochelatins biosynthesis,BioCyc
+ARA:PWY-6754,1,0.7250212900657741,0,9,S-methyl-5'-thioadenosine degradation I,BioCyc
+ARA:PWY-6756,1,0.8006518240295337,0,6,S-methyl-5'-thioadenosine degradation II,BioCyc
+ARA:PWY-6786,1,0.5417664338746303,0,15,detoxification of reactive carbonyls in chloroplasts,BioCyc
+ARA:PWY-6799,1,0.9455062437694,0,2,fatty acid biosynthesis (plant mitochondria),BioCyc
+ARA:PWY-6802,1,0.9424530993202928,0,2,salidroside biosynthesis,BioCyc
+ARA:PWY-6804,1,0.8540485699126258,0,5,diacylglycerol biosynthesis (PUFA enrichment in oilseed),BioCyc
+ARA:PWY-6806,1,0.9154819771151357,0,3,carotenoid cleavage,BioCyc
+ARA:PWY-6823,1,0.47304106892023073,0,20,molybdenum cofactor biosynthesis,BioCyc
+ARA:PWY-6837,1,0.642928344925557,0,12,"fatty acid beta-oxidation V (unsaturated, odd number, di-isomerase-dependent)",BioCyc
+ARA:PWY-6845,1,0.9133814876109204,0,3,nitric oxide biosynthesis (plants),BioCyc
+ARA:PWY-6890,1,0.9449246891725948,0,2,4-amino-2-methyl-5-diphosphomethylpyrimidine biosynthesis,BioCyc
+ARA:PWY-6898,1,0.7233242612832638,0,8,thiamine salvage III,BioCyc
+ARA:PWY-6908,1,0.6423997012464632,0,11,thiamine diphosphate biosynthesis IV (eukaryotes),BioCyc
+ARA:PWY-6909,1,0.9603903374905032,0,1,thiazole biosynthesis III (eukaryotes),BioCyc
+ARA:PWY-6910,1,0.9710458302425647,0,1,hydroxymethylpyrimidine salvage,BioCyc
+ARA:PWY-6927,1,0.6333325107306002,0,14,chlorophyll a degradation II,BioCyc
+ARA:PWY-6930,1,0.8485039506643551,0,4,phenolic malonylglucosides biosynthesis,BioCyc
+ARA:PWY-6931,1,0.9815480813652138,0,1,seleno-amino acid detoxification and volatilization I,BioCyc
+ARA:PWY-6932,1,0.9378027256189756,0,2,selenate reduction,BioCyc
+ARA:PWY-6936,1,0.7087988447823003,0,10,seleno-amino acid biosynthesis,BioCyc
+ARA:PWY-6938,1,0.9429231800855776,0,2,NADH repair,BioCyc
+ARA:PWY-6959,1,0.593743119463091,0,16,L-ascorbate degradation V,BioCyc
+ARA:PWY-6982,1,0.6371617716169072,0,14,umbelliferone biosynthesis,BioCyc
+ARA:PWY-699,1,0.7238006325797408,0,11,brassinosteroid biosynthesis I,BioCyc
+ARA:PWY-701,1,0.9626847720511076,0,1,L-methionine degradation II,BioCyc
+ARA:PWY-7036,1,0.3763597704992215,0,31,very long chain fatty acid biosynthesis II,BioCyc
+ARA:PWY-7047,1,0.788857378576447,0,7,malate-oxaloacetate shuttle I,BioCyc
+ARA:PWY-7048,1,0.8373007584317503,0,5,malate-oxaloacetate shuttle II,BioCyc
+ARA:PWY-7060,1,0.8115811283873796,0,7,ornithine-citrulline shuttle,BioCyc
+ARA:PWY-7061,1,0.8690637527056395,0,6,glutamate-glutamine shuttle,BioCyc
+ARA:PWY-7071,1,0.9153049750343935,0,2,steviol glucoside biosynthesis (rebaudioside A biosynthesis),BioCyc
+ARA:PWY-7101,1,0.8919133095370768,0,3,5-deoxystrigol biosynthesis,BioCyc
+ARA:PWY-7120,1,0.8112285040421943,0,6,esterified suberin biosynthesis,BioCyc
+ARA:PWY-7140,1,0.9086320684674373,0,3,myricetin gentiobioside biosynthesis,BioCyc
+ARA:PWY-7158,1,0.9304968089119794,0,2,L-phenylalanine degradation V,BioCyc
+ARA:PWY-7170,1,0.9328332960530153,0,2,phytochromobilin biosynthesis,BioCyc
+ARA:PWY-7183,1,0.741314081024927,0,11,pyrimidine nucleobases salvage I,BioCyc
+ARA:PWY-7193,1,0.6199406051760475,0,16,pyrimidine ribonucleosides salvage I,BioCyc
+ARA:PWY-7197,1,0.5386661717236317,0,15,pyrimidine deoxyribonucleotide phosphorylation,BioCyc
+ARA:PWY-7204,1,0.5728264767253526,0,16,pyridoxal 5'-phosphate salvage II (plants),BioCyc
+ARA:PWY-7205,1,0.542889512229406,0,15,CMP phosphorylation,BioCyc
+ARA:PWY-7206,1,0.7273160347648351,0,7,pyrimidine deoxyribonucleotides dephosphorylation,BioCyc
+ARA:PWY-7213,1,0.8094246722127079,0,7,wogonin metabolism,BioCyc
+ARA:PWY-7219,1,0.17356805837431852,0,42,adenosine ribonucleotides de novo biosynthesis,BioCyc
+ARA:PWY-7224,1,0.576706162510759,0,14,purine deoxyribonucleosides salvage,BioCyc
+ARA:PWY-7226,1,0.6232892877207981,0,12,guanosine deoxyribonucleotides de novo biosynthesis I,BioCyc
+ARA:PWY-7227,1,0.6232892877207981,0,12,adenosine deoxyribonucleotides de novo biosynthesis,BioCyc
+ARA:PWY-7250,1,0.9641488729953075,0,1,[2Fe-2S] iron-sulfur cluster biosynthesis,BioCyc
+ARA:PWY-7267,1,0.8507568754827942,0,4,anthocyanin biosynthesis (pelargonidin 3-O-glucoside),BioCyc
+ARA:PWY-7343,1,0.6969114010371017,0,14,UDP-glucose biosynthesis,BioCyc
+ARA:PWY-7344,1,0.8383008248086397,0,6,UDP-D-galactose biosynthesis,BioCyc
+ARA:PWY-7346,1,0.8500436968684537,0,5,UDP-&alpha;-D-glucuronate biosynthesis (from UDP-glucose),BioCyc
+ARA:PWY-735,1,0.4529860610270193,0,25,jasmonic acid biosynthesis,BioCyc
+ARA:PWY-7356,1,0.5900379849206249,0,13,thiamine salvage IV (yeast),BioCyc
+ARA:PWY-7388,1,0.36829224066111255,0,30,"octanoyl-[acyl-carrier protein] biosynthesis (mitochondria, yeast)",BioCyc
+ARA:PWY-7436,1,0.895442251069248,0,3,vitamin E biosynthesis (tocotrienols),BioCyc
+ARA:PWY-7450,1,0.3832843883344425,0,25,anthocyanidin modification (Arabidopsis),BioCyc
+ARA:PWY-7528,1,0.3631958625794679,0,28,L-methionine salvage cycle I (bacteria and plants),BioCyc
+ARA:PWY-7590,1,0.913679891554188,0,3,"(7Z,10Z,13Z)-hexadecatrienoate biosynthesis",BioCyc
+ARA:PWY-762,1,0.7105335771714569,0,9,phospholipid desaturation,BioCyc
+ARA:PWY-7640,1,0.9410178192893285,0,2,neophaseic acid biosynthesis,BioCyc
+ARA:PWY-7985,1,0.9117568411388987,0,3,oxalate degradation VI,BioCyc
+ARA:PWY-801,1,0.8605273350066084,0,5,L-homocysteine and L-cysteine interconversion,BioCyc
+ARA:PWY-82,1,0.93334260120284,0,3,UDP-L-arabinose biosynthesis II (from L-arabinose),BioCyc
+ARA:PWY-83,1,0.9634104841366823,0,1,monolignol glucosides biosynthesis,BioCyc
+ARA:PWY-84,1,0.911898635337915,0,2,resveratrol biosynthesis,BioCyc
+ARA:PWY-841,1,0.6232892877207981,0,12,superpathway of purine nucleotides de novo biosynthesis I,BioCyc
+ARA:PWY-861,1,0.7404433944389778,0,8,dhurrin biosynthesis,BioCyc
+ARA:PWY-882,1,0.4569162774331421,0,26,L-ascorbate biosynthesis I (L-galactose pathway),BioCyc
+ARA:PWY0-1021,1,0.9110258714686478,0,3,L-alanine biosynthesis III,BioCyc
+ARA:PWY0-1264,1,0.7955800804666127,0,10,biotin-carboxyl carrier protein assembly,BioCyc
+ARA:PWY0-1313,1,0.771544404343696,0,10,acetate conversion to acetyl-CoA,BioCyc
+ARA:PWY0-1325,1,0.850090593222528,0,6,superpathway of L-asparagine biosynthesis,BioCyc
+ARA:PWY0-1535,1,0.9262119335195773,0,2,D-serine degradation,BioCyc
+ARA:PWY0-461,1,0.8159111578618757,0,5,L-lysine degradation I,BioCyc
+ARA:PWY0-501,1,0.7699631300995509,0,6,lipoate biosynthesis and incorporation I,BioCyc
+ARA:PWY0-662,1,0.7851110289831721,0,8,PRPP biosynthesis I,BioCyc
+ARA:PWY1F-353,1,0.9155748252737648,0,3,glycine betaine biosynthesis III (plants),BioCyc
+ARA:PWY1F-467,1,0.8925470897793486,0,4,"phenylpropanoid biosynthesis, initial reactions",BioCyc
+ARA:PWY1F-823,1,0.8586817018614952,0,4,leucopelargonidin and leucocyanidin biosynthesis,BioCyc
+ARA:PWY3DJ-35471,1,0.8831994881690961,0,4,L-ascorbate biosynthesis IV,BioCyc
+ARA:PWY3O-450,1,0.7160339308210814,0,11,phosphatidylcholine biosynthesis I,BioCyc
+ARA:PWY490-4,1,0.870265444517968,0,4,L-asparagine biosynthesis III (tRNA-dependent),BioCyc
+ARA:PWY4FS-10,1,0.924467587944433,0,2,scopolin biosynthesis,BioCyc
+ARA:PWY4FS-11,1,0.8960059738208384,0,4,L-ascorbate biosynthesis II (L-gulose pathway),BioCyc
+ARA:PWY4FS-12,1,0.9440211150943542,0,2,VTC2 cycle,BioCyc
+ARA:PWY4FS-13,1,0.9440211150943542,0,2,extended VTC2 cycle,BioCyc
+ARA:PWY4FS-2,1,0.6540628898418859,0,15,phosphatidylcholine biosynthesis II,BioCyc
+ARA:PWY4FS-3,1,0.7497692924298675,0,9,phosphatidylcholine biosynthesis III,BioCyc
+ARA:PWY4FS-4,1,0.7497692924298675,0,9,phosphatidylcholine biosynthesis IV,BioCyc
+ARA:PWY4FS-5,1,0.536438177999887,0,20,superpathway of phosphatidylcholine biosynthesis,BioCyc
+ARA:PWY4FS-6,1,0.6769842714537259,0,13,phosphatidylethanolamine biosynthesis II,BioCyc
+ARA:PWY66-423,1,0.8265438852566811,0,5,"fructose 2,6-bisphosphate biosynthesis",BioCyc
+ARA:PWYQT-1,1,0.8659149953541891,0,6,lysine degradation III,BioCyc
+ARA:PWYQT-4427,1,0.9180680688125145,0,3,sulfoquinovosyl diacylglycerol biosynthesis,BioCyc
+ARA:PWYQT-4432,1,0.8619080036365085,0,5,glutathione degradation,BioCyc
+ARA:PWYQT-4433,1,0.8920693457586029,0,4,CA1P biosynthesis,BioCyc
+ARA:PWYQT-4445,1,0.5241580424788653,0,23,pyrimidine salvage pathway,BioCyc
+ARA:PWYQT-4450,1,0.7473402180490567,0,9,"aliphatic glucosinolate biosynthesis, side chain elongation cycle",BioCyc
+ARA:PWYQT-4470,1,0.8995283557758013,0,4,&gamma;-glutamyl cycle (plant pathway),BioCyc
+ARA:PWYQT-4476,1,0.7699785473801983,0,8,indole glucosinolate activation (herbivore attack),BioCyc
+ARA:PWYQT-4477,1,0.5468910918549263,0,16,indole glucosinolate activation (intact plant cell),BioCyc
+ARA:PWYQT-4482,1,0.753819640524381,0,9,CDP-diacylglycerol biosynthesis IV,BioCyc
+ARA:PWYQT-62,1,0.35646641933011586,0,33,superpathway of proto- and siroheme biosynthesis,BioCyc
+ARA:PWYQT-94,1,0.5493699366174791,0,17,superpathway of polyamine biosynthesis,BioCyc
+ARA:PYRIDNUCSYN-PWY,1,0.805797599903752,0,7,NAD biosynthesis I (from aspartate),BioCyc
+ARA:PYRUVDEHYD-PWY,1,0.4933821758113316,0,22,pyruvate decarboxylation to acetyl CoA,BioCyc
+ARA:RIBOSYN2-PWY,1,0.6394436751671219,0,14,flavin biosynthesis I (bacteria and plants),BioCyc
+ARA:SAM-PWY,1,0.7804908513969209,0,7,S-adenosyl-L-methionine biosynthesis,BioCyc
+ARA:SERSYN-PWY,1,0.8134049184818631,0,6,L-serine biosynthesis,BioCyc
+ARA:SULFMETII-PWY,1,0.7415114496788263,0,9,sulfate reduction II (assimilatory),BioCyc
+ARA:THIOREDOX-PWY,1,0.37431685692789257,0,19,thioredoxin pathway,BioCyc
+ARA:TRIGLSYN-PWY,1,0.12211366640868357,0,66,diacylglycerol and triacylglycerol biosynthesis,BioCyc
+ARA:UDPNACETYLGALSYN-PWY,1,0.7319110495588987,0,8,UDP-N-acetyl-D-glucosamine biosynthesis II,BioCyc
+ARA:VALDEG-PWY,1,0.39806052981040185,0,30,L-valine degradation I,BioCyc
+ARA:VALSYN-PWY,1,0.6215648562272975,0,17,L-valine biosynthesis,BioCyc
+ARA:XYLCAT-PWY,1,0.89611527066162,0,4,xylose degradation I,BioCyc
