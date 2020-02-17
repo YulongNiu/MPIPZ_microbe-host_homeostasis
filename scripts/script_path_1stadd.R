@@ -171,162 +171,67 @@ for (i in kmeansRes$cl %>% unique) {
             paste0(prefix, '_cluster', i, '_BioCyc.csv') %>% file.path(savepath, .))
 }
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~choose sig~~~~~~~~~~~~~~~~~~~~~
-## padj < 0.05 & |log2FC| > log2(1.5)
-fcsig <- kmeansRes %>%
-  select(ends_with('FoldChange')) %>%
-  transmute_all(list(~ case_when(. > 1 ~ 1,
-                                 . < -1 ~ -1,
-                                 TRUE ~ 0)))
-padjsig <- kmeansRes %>%
-  select(ends_with('padj')) %>%
-  abs %>%
-  `<`(1) %>%
-  as_tibble %>%
-  transmute_all(list(~ if_else(is.na(.), FALSE, .)))
-
-sig <- (padjsig * fcsig) %>%
-  as_tibble %>%
-  mutate(ID = kmeansRes$ID, cl = kmeansRes$cl) %>%
-  select(ID, everything()) %>%
-  rename(Mock_Flg22_vs_Mock = Mock_Flg22_vs_Mock_padj,
-         SynCom33_Flg22_vs_Mock = SynCom33_Flg22_vs_Mock_padj,
-         SynCom35_Flg22_vs_Mock = SynCom35_Flg22_vs_Mock_padj)
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~GO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-vsGroup <- c('Mock_Flg22_vs_Mock', 'SynCom33_Flg22_vs_Mock', 'SynCom35_Flg22_vs_Mock')
-## cln <- 1:10
-## cln <- 10
-## cln <- 1
-cln <- 2
-
-for (i in vsGroup) {
-  for (j in cln) {
-    degVec <- sig %>%
-      transmute((!!as.name(i)) != 0 &
-                cl == j) %>%
-      unlist %>%
-      as.integer
-    names(degVec) <- sig$ID
-
-    pwf <- nullp(degVec, bias.data = kmeansRes$Length)
-
-    GOTestWithCat <- goseq(pwf, gene2cat = GOMat, use_genes_without_cat = FALSE) %>%
-      as_tibble %>%
-      filter(!is.na(ontology)) %>%
-      rename(Annotation = term)
-
-    termCat <- c('BP', 'MF', 'CC')
-    for (k in termCat) {
-      write.csv(GOTestWithCat %>% filter(ontology == k),
-                paste0('kmeans10_', i, '_cluster', j, '_', k, '.csv') %>% file.path('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/pathway_35down_1stadd_raw', .))
-    }
-  }
-}
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-##~~~~~~~~~~~~~~~~~~~~~~~~~KEGG~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-pathAnno <- getKEGGPathAnno('ath') %>%
-  as_tibble %>%
-  mutate(Annotation = Annotation %>% substr(., 1, nchar(.) - 37))
-
-for (i in vsGroup) {
-  for (j in cln) {
-    degVec <- sig %>%
-      transmute((!!as.name(i)) != 0 &
-                cl == j) %>%
-      unlist %>%
-      as.integer
-    names(degVec) <- sig$ID
-
-    pwf <- nullp(degVec, bias.data = kmeansRes$Length)
-
-    KEGGTestWithCat <- goseq(pwf, gene2cat = KEGGMat, use_genes_without_cat = FALSE) %>%
-      as_tibble %>%
-      inner_join(., pathAnno, by = c('category' = 'pathID')) %>%
-      mutate(ontology = 'KEGG')
-
-    write.csv(KEGGTestWithCat,
-              paste0('kmeans10_', i, '_cluster', j, '_KEGG', '.csv') %>% file.path('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/pathway_35down_1stadd_raw', .))
-  }
-}
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-##~~~~~~~~~~~~~~~~~~~~~~~~~BioCyc~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-pathAnno <- getCycPathway('ARA') %>%
-  rename(Annotation = pathAnno) %>%
-  mutate(Annotation = Annotation %>% str_replace_all('<.*?>', ''))
-
-for (i in vsGroup) {
-  for (j in cln) {
-    degVec <- sig %>%
-      transmute((!!as.name(i)) != 0 &
-                cl == j) %>%
-      unlist %>%
-      as.integer
-    names(degVec) <- sig$ID
-
-    pwf <- nullp(degVec, bias.data = kmeansRes$Length)
-
-    BioCycTestWithCat <- goseq(pwf, gene2cat = BioCycMat, use_genes_without_cat = FALSE) %>%
-      as_tibble %>%
-      inner_join(., pathAnno, by = c('category' = 'pathID')) %>%
-      mutate(ontology = 'BioCyc')
-
-    write.csv(BioCycTestWithCat,
-              paste0('kmeans10_', i, '_cluster', j, '_BioCyc', '.csv') %>% file.path('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/pathway_35down_1stadd_raw', .))
-  }
-}
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-##############################################################
-
+######################################################################
 
 ###################################plot###########################
-setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/pathway_35down_1stadd_raw')
+setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/fullbc')
 
-library('ggplot2')
+library('ComplexHeatmap')
 library('readr')
 library('dplyr')
 library('magrittr')
 library('foreach')
+library('RColorBrewer')
 
-## cln <- 1:10
-## cln <- 10
-## cln <- 1
-cln <- 2
+cond <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/kmeans10_1stadd.csv',
+                 col_types = cols(Chromosome = col_character())) %>%
+  .$cl %>%
+  unique %>%
+  sort %>%
+  paste0('cluster', .)
 
-geneset <- c('BP', 'MF', 'CC', 'KEGG', 'BioCyc')
+pathName <- c('BP', 'MF', 'CC', 'KEGG', 'BioCyc')
 
-for (i in cln) {
-  for (j in geneset) {
-
-    vsGroup <- c('Mock_Flg22_vs_Mock', 'SynCom33_Flg22_vs_Mock', 'SynCom35_Flg22_vs_Mock')
-
-    pathPlot <- foreach(k = seq_along(vsGroup), .combine = bind_rows) %do% {
-      vsGroup[k] %>%
-        {paste0('kmeans10_', ., '_cluster', i, '_', j, '.csv')} %>%
-        read_csv %>%
-        select(Annotation, over_represented_pvalue, numDEInCat, numInCat) %>%
-        rename(pvalue = over_represented_pvalue) %>%
-        mutate(group = vsGroup[k], ratio = numDEInCat / numInCat) %>%
-        filter(pvalue < 0.05 &
-               numDEInCat >= 2)
-    }
-
-    colorPal <- colorRampPalette(rev(c('red', 'yellow', 'cyan', 'blue')), bias=1)(10)
-
-    ggplot(pathPlot, aes(x = group, y = Annotation)) +
-      geom_point(aes(size = ratio, colour = -log10(pvalue))) +
-      scale_colour_gradientn(name = '-log10(P-value)', limits=c(0, max(-log10(pathPlot$pvalue))), colours = colorPal) +
-      ## scale_x_discrete(labels = c('Flg22', 'Flg22+SynCom33', 'Flg22+SynCom35')) +
-      ylab(j) +
-      xlab('') +
-      theme(axis.text.x = element_text(angle = 90, hjust = 1))
-    ggsave(paste0('kmeans10_cluster', i, '_', j, '.pdf'))
-    ggsave(paste0('kmeans10_cluster', i, '_', j, '.jpg'))
-  }
+gsRes <- foreach (i = seq_along(cond), .combine = inner_join) %do% {
+  paste0('kmeans10_1stadd_', cond[i], '_', 'BP.csv') %>%
+    read_csv %>%
+    select(2, 7, 6, 3, 5) %>%
+    rename(!!paste0(cond[i], '_pvalue') := over_represented_pvalue,
+           !!paste0(cond[i], '_in') := numDEInCat,
+           size = numInCat)
 }
-##################################################################
+
+gsResP <- gsRes %>%
+  filter(size > 5) %>%
+  select(ends_with('pvalue')) %>%
+  mutate_all(~ifelse(. > 1, 1, .)) %>%
+  mutate_all(~ -log2(.)) %>%
+  mutate_all(~ifelse(is.infinite(.), -log2(1e-10), .)) %>%
+  setNames(., substring(colnames(.), first = 1, last = nchar(colnames(.)) - 7)) %>%
+  {
+    sigIdx <- which(rowSums(.) >= (-log2(0.05))) ## as least 1 sig
+    slice(., sigIdx) %>%
+      bind_cols(gsRes %>%
+                select(category, term) %>%
+                slice(sigIdx))
+  }
+
+ht_list <- Heatmap(matrix = gsResP %>% select(-category, -term),
+                   name = 'BP',
+                   cluster_columns = FALSE,
+                   ## row_order = order(scaleC$cl) %>% rev,
+                   ## row_split = scaleC$cl,
+                   col = colorRampPalette(brewer.pal(n = 5, name = 'Oranges') %>% .[-1:-2] %>% c('white', .))(100),
+                   column_title_gp = gpar(fontsize = 7),
+                   column_names_gp = gpar(fontsize = 5),
+                   use_raster = FALSE)
+
+filePrefix <- 'kmeans10_1stadd_BP'
+
+pdf(paste0(filePrefix, '.pdf'))
+draw(ht_list)
+dev.off()
+
+system(paste0('convert -density 1200 ', paste0(filePrefix, '.pdf'), ' ', paste0(filePrefix, '.jpg')))
+####################################################################
+
