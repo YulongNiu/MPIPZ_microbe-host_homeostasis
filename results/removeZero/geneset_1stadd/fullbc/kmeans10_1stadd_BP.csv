@@ -1,0 +1,672 @@
+cluster1,cluster2,cluster3,cluster4,cluster5,cluster6,cluster7,cluster8,cluster9,cluster10,category,term,size
+18.881672366300755,0,10.45644886792212,0,15.04113523328495,0,0,0,0,0,GO:0006952,defense response,701
+15.258013825261406,0,0,0,0,0,0,0,0,0,GO:0009664,plant-type cell wall organization,66
+13.230389618538881,0,0,0,0,0,0,0,0,0,GO:0080147,root hair cell development,32
+12.579660829212877,0,0,0,0,0,0,4.564015362195198,0,0,GO:0042744,hydrogen peroxide catabolic process,103
+12.210955932792432,0,0,0,0,0,0,0,0,0,GO:0032482,Rab protein signal transduction,70
+12.138769428625642,0,0,0,0,0,0,0,0,0,GO:0048765,root hair cell differentiation,21
+11.92446070499993,0,0,0,15.103032032648429,0,0,0,0,0,GO:0016310,phosphorylation,514
+10.407952442101488,0,0,0,0,0,0,0,0,0,GO:0009086,methionine biosynthetic process,24
+10.272179018039555,0,0,0,0,0,0,0,0,0,GO:0006904,vesicle docking involved in exocytosis,39
+9.975900170588517,0,4.616183728341437,0,10.68734622321409,0,0,0,0,0,GO:0007165,signal transduction,410
+9.609592546713744,0,0,0,0,0,0,0,0,0,GO:0048767,root hair elongation,69
+9.55161054949858,0,6.58166279423628,6.947499346816975,17.022460319944486,0,6.085974544278525,0,0,0,GO:0006468,protein phosphorylation,1020
+9.532140202548618,0,0,0,0,0,0,0,0,0,GO:0010082,regulation of root meristem growth,36
+9.360095495647638,0,0,0,0,0,0,0,0,0,GO:0042546,cell wall biogenesis,52
+9.28726150723411,0,0,0,5.006972598314809,0,0,0,0,0,GO:0006886,intracellular protein transport,321
+9.107546532216302,0,0,0,0,0,0,0,0,0,GO:0032012,regulation of ARF protein signal transduction,6
+9.031364268156747,0,0,0,4.847039154801,0,0,0,6.777762782107647,0,GO:0006890,"retrograde vesicle-mediated transport, Golgi to ER",54
+8.960695321191592,0,0,0,0,0,0,0,0,0,GO:0001682,tRNA 5'-leader removal,6
+8.800242111873645,0,0,5.753359549326369,0,0,0,0,0,0,GO:0010105,negative regulation of ethylene-activated signaling pathway,18
+8.66766322885408,0,0,0,0,0,0,0,0,0,GO:0048768,root hair cell tip growth,33
+8.534425743915385,0,0,0,0,0,0,0,0,0,GO:0071577,zinc ion transmembrane transport,23
+8.514976072434022,0,0,0,0,0,0,0,0,0,GO:0009625,response to insect,28
+8.488456028901599,0,0,0,0,0,0,0,0,0,GO:0009808,lignin metabolic process,14
+8.394954875211376,0,0,0,0,0,0,0,0,0,GO:0033386,geranylgeranyl diphosphate biosynthetic process,10
+7.368680897998041,0,0,0,0,0,0,0,0,0,GO:0051225,spindle assembly,37
+7.1873973553182005,0,0,0,0,0,0,0,0,0,GO:0010091,trichome branching,32
+7.16088298907118,0,0,0,0,0,0,0,0,0,GO:0006102,isocitrate metabolic process,12
+7.1293027453482996,0,0,0,0,0,0,0,0,0,GO:0007098,centrosome cycle,12
+7.110417061760135,0,0,0,0,0,0,0,0,0,GO:0009846,pollen germination,81
+7.061718530504968,0,0,0,0,0,0,0,0,0,GO:0070212,protein poly-ADP-ribosylation,8
+7.0384969221886875,0,0,0,0,0,0,0,0,0,GO:0015700,arsenite transport,8
+6.850193976447832,0,0,0,0,0,0,0,0,0,GO:0009873,ethylene-activated signaling pathway,184
+6.821624428757331,0,0,0,0,0,0,0,0,0,GO:0006486,protein glycosylation,129
+6.6256932123141,0,0,0,0,0,8.033266351129301,0,0,0,GO:0071555,cell wall organization,283
+6.582919487120192,0,0,0,0,0,0,0,0,0,GO:0003006,developmental process involved in reproduction,13
+6.485251080916425,0,0,0,0,0,0,0,0,0,GO:0033384,geranyl diphosphate biosynthetic process,13
+6.485251080916425,0,0,0,0,0,0,0,0,0,GO:0045337,farnesyl diphosphate biosynthetic process,13
+6.228869883582807,0,0,0,0,0,0,0,0,0,GO:0016192,vesicle-mediated transport,198
+6.1261417546918135,0,0,0,0,0,0,0,0,0,GO:0080092,regulation of pollen tube growth,14
+6.111382158656605,0,0,0,0,0,0,0,0,0,GO:0009932,cell tip growth,14
+6.065288761577467,0,0,0,0,0,0,0,0,0,GO:0009699,phenylpropanoid biosynthetic process,14
+6.04638311902216,0,0,0,0,0,0,6.287526318845916,0,0,GO:0006865,amino acid transport,54
+6.030518760822222,0,0,0,0,0,0,0,0,0,GO:0018105,peptidyl-serine phosphorylation,108
+5.9709001564096775,0,0,5.714452203602703,0,0,0,0,0,0,GO:0006506,GPI anchor biosynthetic process,36
+5.751933830814537,0,0,0,5.085256523813708,0,0,0,0,0,GO:0033215,iron assimilation by reduction and transport,10
+5.724526356892062,0,0,0,0,0,0,0,0,0,GO:0048829,root cap development,20
+5.702653774698542,0,0,0,0,0,0,0,0,0,GO:0010264,myo-inositol hexakisphosphate biosynthetic process,10
+5.62025782650373,0,0,0,0,0,0,0,0,0,GO:0051013,microtubule severing,6
+5.606812954652169,0,0,0,0,0,0,0,0,0,GO:0000038,very long-chain fatty acid metabolic process,15
+5.575408738299718,0,0,0,0,0,0,0,0,0,GO:0006099,tricarboxylic acid cycle,63
+5.456281207783633,0,0,7.390663330251947,0,0,0,0,0,0,GO:0035556,intracellular signal transduction,252
+5.3511891047665,0,0,0,0,4.52770836186845,0,0,0,0,GO:0046685,response to arsenic-containing substance,21
+5.291158485787907,0,0,0,0,0,0,0,0,0,GO:0009870,"defense response signaling pathway, resistance gene-dependent",27
+5.27724679120438,0,0,0,0,0,0,0,0,0,GO:0007205,protein kinase C-activating G protein-coupled receptor signaling pathway,16
+5.22233740093718,0,0,0,0,0,0,0,0,0,GO:0010031,circumnutation,11
+5.217243519929081,0,0,0,0,0,0,0,0,0,GO:0016458,gene silencing,11
+5.206958405279621,0,0,0,0,0,0,0,0,16.00965448476519,GO:0019761,glucosinolate biosynthetic process,33
+5.173698375399803,0,0,0,0,0,0,0,0,0,GO:0048638,regulation of developmental growth,11
+5.165597367668442,0,0,0,0,0,0,0,0,0,GO:0009612,response to mechanical stimulus,16
+5.068960677596954,0,0,0,0,0,0,0,0,0,GO:0010015,root morphogenesis,22
+4.96386564697124,0,0,0,0,0,0,0,0,0,GO:0000162,tryptophan biosynthetic process,28
+4.946726957071814,0,0,0,0,0,0,0,0,0,GO:0009853,photorespiration,73
+4.881278138036841,0,0,0,6.892169252960743,0,0,0,0,0,GO:0051513,regulation of monopolar cell growth,7
+4.766589202966069,0,0,0,0,0,0,0,0,0,GO:0009225,nucleotide-sugar metabolic process,35
+4.753419682005861,0,0,0,0,0,0,0,0,0,GO:0009860,pollen tube growth,132
+4.712921874899817,0,0,0,0,0,0,8.423644347289436,0,0,GO:0006979,response to oxidative stress,376
+4.710391631244683,0,0,0,0,0,0,0,0,0,GO:0006000,fructose metabolic process,12
+4.660292536154143,0,0,0,0,0,0,0,0,0,GO:0010411,xyloglucan metabolic process,48
+4.575052218773914,0,0,0,0,0,0,0,0,4.381959542917907,GO:0006303,double-strand break repair via nonhomologous end joining,30
+4.468678138754199,0,0,0,0,0,0,0,0,0,GO:0051260,protein homooligomerization,24
+4.456346135683524,0,0,0,0,0,0,0,0,0,GO:0008299,isoprenoid biosynthetic process,24
+4.367505774570663,0,0,0,0,0,0,0,0,0,GO:0006812,cation transport,50
+4.3394758327207965,0,0,0,0,0,0,0,0,0,GO:0009094,L-phenylalanine biosynthetic process,13
+4.338315823352612,0,0,0,0,0,0,0,0,0,GO:0019722,calcium-mediated signaling,43
+4.32918655285701,0,0,0,0,0,0,0,0,0,GO:0007188,adenylate cyclase-modulating G protein-coupled receptor signaling pathway,8
+4.328828666528461,0,0,0,0,0,0,0,0,0,GO:0033512,L-lysine catabolic process to acetyl-CoA via saccharopine,8
+4.322327614984377,0,0,0,0,0,0,0,0,0,GO:0006207,'de novo' pyrimidine nucleobase biosynthetic process,13
+0,0,0,4.418439567546982,0,0,0,0,0,0,GO:0050829,defense response to Gram-negative bacterium,25
+0,5.271658924025902,0,0,0,0,0,0,0,0,GO:0006120,"mitochondrial electron transport, NADH to ubiquinone",19
+0,0,0,4.602803432387336,0,0,0,0,0,0,GO:0006887,exocytosis,58
+0,0,0,0,0,0,0,0,0,5.673688412385757,GO:0010449,root meristem growth,20
+0,0,0,0,0,0,5.012056555000166,0,0,0,GO:0006782,protoporphyrinogen IX biosynthetic process,20
+0,0,7.900784497197824,0,13.612854379104853,0,0,0,0,0,GO:0009617,response to bacterium,133
+0,0,0,0,4.683421177311002,0,0,0,0,0,GO:0006004,fucose metabolic process,42
+0,6.590874657984682,0,0,0,0,0,0,0,0,GO:0080170,hydrogen peroxide transmembrane transport,10
+0,0,0,0,5.0331368749352485,0,0,0,0,0,GO:0009682,induced systemic resistance,22
+0,0,0,4.500258455448185,0,0,0,0,0,0,GO:0090630,activation of GTPase activity,29
+0,0,8.852058696875805,0,4.3555816015453,0,0,0,0,0,GO:0048544,recognition of pollen,29
+0,0,0,0,4.984386908425035,0,0,0,0,0,GO:0052544,defense response by callose deposition in cell wall,17
+0,0,0,0,0,4.728529972364641,5.009364825349084,0,0,0,GO:0007018,microtubule-based movement,83
+0,0,0,0,4.956823345274415,0,0,0,0,0,GO:0006829,zinc ion transport,24
+0,0,0,0,0,0,5.541956432403109,5.173531951174947,0,0,GO:0003333,amino acid transmembrane transport,53
+0,0,0,0,0,5.465225207978561,0,0,0,0,GO:0048268,clathrin coat assembly,18
+0,0,0,0,0,5.286702950121308,0,0,0,0,GO:0009904,chloroplast accumulation movement,25
+0,0,0,0,0,0,0,4.599375122057813,0,0,GO:0010438,cellular response to sulfur starvation,6
+0,0,0,6.724902164034643,0,0,0,0,0,0,GO:0009825,multidimensional cell growth,40
+0,0,0,0,0,0,4.989587654595265,0,0,0,GO:0009933,meristem structural organization,26
+0,0,0,0,0,0,0,0,0,8.881516047108683,GO:0009098,leucine biosynthetic process,19
+0,0,0,0,0,0,0,0,0,4.415147803137252,GO:1900150,regulation of defense response to fungus,26
+0,0,4.851385909643183,0,0,0,0,0,0,0,GO:0050832,defense response to fungus,269
+0,4.404358685108798,0,0,0,0,0,0,0,0,GO:0006310,DNA recombination,41
+0,0,0,0,6.943479192183481,0,0,0,0,0,GO:0006893,Golgi to plasma membrane transport,13
+0,0,0,0,0,0,0,27.619626266879298,0,0,GO:0055114,oxidation-reduction process,1340
+0,0,0,0,0,6.535765755145038,0,0,0,0,GO:0009903,chloroplast avoidance movement,27
+0,0,5.11197914746237,0,0,0,0,0,0,0,GO:0006661,phosphatidylinositol biosynthetic process,7
+0,0,0,4.39561596003152,0,0,0,0,0,0,GO:0007032,endosome organization,7
+0,0,0,0,7.709553521625166,0,0,0,0,0,GO:0071369,cellular response to ethylene stimulus,34
+0,0,7.707345026752715,0,0,0,0,7.162188022119887,0,0,GO:0009611,response to wounding,250
+0,0,0,0,5.541923138797807,0,0,0,0,0,GO:0006813,potassium ion transport,50
+0,0,0,0,0,0,0,10.48269375766961,0,0,GO:0010540,basipetal auxin transport,28
+0,0,0,0,0,7.996786527426548,0,0,0,0,GO:0006094,gluconeogenesis,28
+0,0,4.887434207179449,0,0,0,0,0,0,0,GO:0006596,polyamine biosynthetic process,14
+0,0,4.703208965442929,0,0,0,0,0,0,0,GO:0046654,tetrahydrofolate biosynthetic process,14
+0,0,0,0,0,0,0,6.76916306580003,0,0,GO:0098869,cellular oxidant detoxification,14
+0,0,0,0,0,7.840354101185039,0,0,0,0,GO:0006086,acetyl-CoA biosynthetic process from pyruvate,8
+0,0,9.765157801577619,0,0,0,0,0,0,0,GO:0009607,response to biotic stimulus,22
+0,0,0,0,9.240866317060147,0,0,0,0,0,GO:0060321,acceptance of pollen,15
+0,0,0,0,0,0,5.170104069172929,0,0,0,GO:0006597,spermine biosynthetic process,8
+0,5.198454022421827,0,0,0,0,0,0,0,0,GO:0009880,embryonic pattern specification,15
+0,0,0,0,0,4.336621767715777,0,0,0,0,GO:0071249,cellular response to nitrate,15
+0,0,0,0,0,0,0,9.828260249868928,0,0,GO:0006629,lipid metabolic process,141
+0,0,0,0,0,0,0,8.927831326815804,0,0,GO:0009828,plant-type cell wall loosening,30
+0,0,0,0,0,0,0,7.433613807140348,0,0,GO:0006108,malate metabolic process,23
+0,0,0,0,0,4.935114839282145,0,0,0,0,GO:0006096,glycolytic process,78
+0,0,0,0,0,0,0,5.554844705102736,0,0,GO:0045490,pectin catabolic process,62
+0,4.462334434999489,0,0,0,0,0,0,0,0,GO:0010183,pollen tube guidance,31
+0,0,0,0,0,0,0,0,0,7.896291601044686,GO:0016579,protein deubiquitination,71
+0,0,0,5.649974932742071,0,0,0,0,0,0,GO:0060866,leaf abscission,9
+0,0,0,0,0,0,0,0,4.496059327394508,0,GO:0009744,response to sucrose,95
+0,0,4.48731682953466,0,0,0,0,0,0,0,GO:0006627,protein processing involved in protein targeting to mitochondrion,9
+0,0,0,0,0,0,0,5.295231119827602,0,0,GO:0016117,carotenoid biosynthetic process,39
+0,0,0,0,0,0,0,5.691763002787033,0,0,GO:0015031,protein transport,306
+0,0,0,0,0,0,0,8.947986178098242,0,0,GO:0090333,regulation of stomatal closure,32
+0,0,0,0,6.27971459481052,0,0,0,0,0,GO:0006470,protein dephosphorylation,189
+0,0,0,0,0,0,0,0,4.467406996510013,0,GO:0019745,pentacyclic triterpenoid biosynthetic process,10
+0,0,0,4.976222945329367,0,0,0,0,0,0,GO:0030007,cellular potassium ion homeostasis,10
+0,0,0,0,0,0,6.678183317348128,0,0,0,GO:0080060,integument development,10
+0,0,4.98813746743986,0,0,0,0,0,0,0,GO:0010119,regulation of stomatal movement,82
+0,0,0,0,0,0,0,9.550570819708035,0,0,GO:0019499,cyanide metabolic process,10
+0,0,0,0,0,0,0,9.550570819708035,0,0,GO:0019500,cyanide catabolic process,10
+0,0,0,0,0,0,0,5.0678645334258094,0,0,GO:0006995,cellular response to nitrogen starvation,50
+0,0,6.534434162306912,0,0,0,0,0,0,0,GO:0031347,regulation of defense response,75
+0,0,0,0,0,7.9799408557335845,0,0,0,0,GO:0000462,"maturation of SSU-rRNA from tricistronic rRNA transcript (SSU-rRNA, 5.8S rRNA, LSU-rRNA)",34
+0,0,0,0,0,0,0,4.958872690983691,0,0,GO:0006878,cellular copper ion homeostasis,18
+0,0,0,4.708925572147058,0,0,0,0,0,0,GO:0009861,jasmonic acid and ethylene-dependent systemic resistance,11
+0,0,0,0,10.364900043801434,0,0,0,0,0,GO:0010325,raffinose family oligosaccharide biosynthetic process,11
+0,0,0,6.944224682697473,0,0,0,0,0,0,GO:0006694,steroid biosynthetic process,11
+0,0,0,4.406262403331254,0,0,0,0,0,0,GO:0010225,response to UV-C,11
+0,0,0,0,0,4.523927587056077,0,0,0,0,GO:0070417,cellular response to cold,35
+0,0,0,0,0,0,0,5.743768589957702,0,0,GO:0046274,lignin catabolic process,19
+0,4.956034675903618,0,0,0,0,4.452484826718584,0,0,0,GO:0043622,cortical microtubule organization,52
+0,0,0,0,0,0,0,10.477149532992863,0,0,GO:0006855,drug transmembrane transport,78
+0,0,4.949069667588783,0,0,0,0,0,0,0,GO:1902600,proton transmembrane transport,28
+0,0,0,0,0,0,0,0,0,5.5056390417925485,GO:0009638,phototropism,28
+0,5.960237116335431,0,0,0,0,0,0,0,0,GO:0010440,stomatal lineage progression,12
+0,0,0,0,0,4.880777108339037,0,4.90287053537872,0,0,GO:0010114,response to red light,62
+0,0,0,0,0,0,0,7.28990515450827,0,0,GO:0051707,response to other organism,62
+0,0,0,0,0,0,0,0,0,4.3234706541188075,GO:0017148,negative regulation of translation,37
+0,0,0,0,0,0,5.350279609108949,0,0,0,GO:0009832,plant-type cell wall biogenesis,46
+0,0,0,0,0,0,0,4.612554156898069,0,0,GO:0034765,regulation of ion transmembrane transport,21
+0,0,0,0,4.841092814965094,0,0,0,0,0,GO:0009626,plant-type hypersensitive response,98
+0,0,0,0,0,0,0,10.41222447240621,0,0,GO:0010150,leaf senescence,142
+0,0,0,0,0,0,0,6.72198018492836,0,0,GO:0009395,phospholipid catabolic process,13
+0,0,0,0,0,5.193066632915074,0,0,0,0,GO:0007094,mitotic spindle assembly checkpoint,13
+0,0,0,0,0,0,0,5.451191166064167,0,0,GO:0010043,response to zinc ion,64
+0,0,4.94286023964731,0,0,0,0,0,0,0,GO:0030261,chromosome condensation,13
+0,0,7.878841697164399,0,0,0,0,0,0,0,GO:0008295,spermidine biosynthetic process,13
+0,5.253714908488378,0,0,0,0,0,0,0,0,GO:0043328,protein transport to vacuole involved in ubiquitin-dependent protein catabolic process via the multivesicular body sorting pathway,13
+0,0,0,0,0,0,0,5.928831978765814,0,0,GO:0009739,response to gibberellin,116
+0,0,0,0,0,0,0,5.13130669860264,0,0,GO:0019915,lipid storage,13
+0,0,0,0,0,0,16.439593049012082,0,0,0,GO:0009834,plant-type secondary cell wall biogenesis,65
+0,0,0,4.465766135416951,0,0,0,0,0,0,GO:0031053,primary miRNA processing,22
+0,0,0,0,0,0,4.461729282583509,0,0,0,GO:0006779,porphyrin-containing compound biosynthetic process,22
+0,0,0,5.51004719030175,0,0,0,0,0,0,GO:0016925,protein sumoylation,22
+0,0,9.307482365820663,0,6.109025733072254,0,0,0,0,0,GO:0042742,defense response to bacterium,409
+0,0,0,0,0,0,0,6.4669259058722,0,0,GO:0002213,defense response to insect,22
+0,0,6.529485692787399,0,0,0,0,9.345117283656203,0,0,GO:0009753,response to jasmonic acid,188
+0,0,10.858364499975913,0,4.535404777456391,0,0,0,0,0,GO:0010200,response to chitin,152
+0,0,8.080789986255649,0,0,0,0,0,0,0,GO:0120029,proton export across plasma membrane,14
+0,0,0,6.300876354145624,0,0,0,0,0,0,GO:0009733,response to auxin,313
+0,0,0,5.101930265159568,6.466644013111465,0,0,0,0,0,GO:0048278,vesicle docking,31
+0,0,0,0,0,0,0,0,6.313335409687995,0,GO:0009789,positive regulation of abscisic acid-activated signaling pathway,58
+0,0,0,0,0,0,0,4.433883749777399,0,0,GO:0009684,indoleacetic acid biosynthetic process,14
+0,0,0,7.958532084976875,0,0,0,0,0,0,GO:0031640,killing of cells of other organism,31
+0,0,5.252778618788171,0,0,0,0,0,0,0,GO:0008219,cell death,50
+0,0,0,0,6.60965271611938,0,0,0,0,0,GO:0009851,auxin biosynthetic process,32
+0,8.408991362558679,0,0,0,0,0,0,0,0,GO:0010583,response to cyclopentenone,41
+0,11.309109148619823,0,0,0,0,0,0,0,0,GO:0000079,regulation of cyclin-dependent protein serine/threonine kinase activity,50
+0,0,0,0,0,8.153669533584063,0,0,0,0,GO:0015995,chlorophyll biosynthetic process,59
+0,0,0,0,0,0,7.089584796476959,0,0,0,GO:0008150,biological_process,4784
+0,0,0,5.772670765864796,0,0,0,0,0,0,GO:0071588,hydrogen peroxide mediated signaling pathway,6
+0,0,0,0,0,0,0,0,0,6.712916582043605,GO:0010201,response to continuous far red light stimulus by the high-irradiance response system,6
+0,0,0,0,0,0,0,0,4.42464913321295,0,GO:0000184,"nuclear-transcribed mRNA catabolic process, nonsense-mediated decay",33
+0,6.697812674645499,0,0,0,0,0,0,0,0,GO:0006538,glutamate catabolic process,6
+0,5.032827782144084,0,0,0,0,0,0,0,0,GO:0048507,meristem development,15
+0,6.269015964173908,0,0,0,0,0,0,0,0,GO:0036065,fucosylation,6
+0,0,10.195399232248585,0,0,0,0,0,0,0,GO:0033591,response to L-ascorbic acid,6
+0,0,0,9.155095859494038,0,0,0,0,0,0,GO:0015780,nucleotide-sugar transmembrane transport,15
+0,0,0,0,0,6.105320903604092,0,0,0,0,GO:0045040,protein import into mitochondrial outer membrane,6
+0,0,0,7.163187716228414,0,0,0,0,0,0,GO:0070483,detection of hypoxia,6
+0,0,0,0,0,9.486084123693509,0,0,0,0,GO:0010027,thylakoid membrane organization,60
+0,0,0,0,11.661132133310794,0,0,0,0,0,GO:0071281,cellular response to iron ion,42
+0,0,0,0,0,0,0,0,5.163228980021649,0,GO:0009646,response to absence of light,60
+0,0,0,0,0,0,0,4.357593028246673,0,0,GO:0000302,response to reactive oxygen species,60
+0,0,0,8.785962528797118,0,0,0,0,0,0,GO:0009738,abscisic acid-activated signaling pathway,303
+0,0,0,0,6.346288277632841,0,0,0,0,0,GO:0043631,RNA polyadenylation,16
+0,0,0,10.258601688291707,0,0,0,0,0,0,GO:0043069,negative regulation of programmed cell death,25
+0,0,4.794468766788689,0,0,0,0,0,0,0,GO:0090351,seedling development,34
+0,0,0,7.539522625759527,0,0,0,0,0,0,GO:0010167,response to nitrate,25
+0,4.330706906197502,0,0,0,0,0,0,0,0,GO:0000105,histidine biosynthetic process,16
+0,0,0,5.294052586806696,0,0,0,0,0,0,GO:0043248,proteasome assembly,16
+0,0,0,0,0,0,6.089326471160615,4.445827787896005,0,0,GO:0043086,negative regulation of catalytic activity,25
+0,0,0,0,0,0,0,5.850690770284207,0,0,GO:0015904,tetracycline transport,7
+0,0,0,0,0,5.440750681192646,0,0,0,0,GO:0051322,anaphase,7
+0,0,0,0,0,0,5.5484081285031905,0,0,0,GO:0050994,regulation of lipid catabolic process,7
+0,0,0,7.54335534160887,0,0,0,0,0,0,GO:0009743,response to carbohydrate,7
+0,5.8159078702552645,0,0,0,0,0,0,0,0,GO:0033314,mitotic DNA replication checkpoint,7
+0,0,0,0,0,0,6.4857905855282,0,0,0,GO:0045492,xylan biosynthetic process,35
+0,0,9.061996332377818,0,0,0,0,0,0,0,GO:0009298,GDP-mannose biosynthetic process,7
+0,5.718478003310238,0,0,0,0,0,0,0,0,GO:0051289,protein homotetramerization,7
+0,0,0,0,6.017388609150365,0,0,0,0,0,GO:0006556,S-adenosylmethionine biosynthetic process,7
+0,0,0,0,0,0,0,7.457170444227434,0,0,GO:0006631,fatty acid metabolic process,63
+0,0,0,0,0,4.411608902586875,0,0,0,0,GO:2000280,regulation of root development,35
+0,0,4.867556595283457,0,0,0,0,6.302232479741401,0,0,GO:0019762,glucosinolate catabolic process,26
+0,0,0,6.423708119381493,0,0,0,0,0,0,GO:0007155,cell adhesion,17
+0,0,0,0,0,10.743740209065882,0,0,0,0,GO:0072593,reactive oxygen species metabolic process,17
+0,0,5.190060136020213,0,0,0,0,0,0,0,GO:0010193,response to ozone,45
+0,0,0,0,0,0,0,0,0,5.512268654864196,GO:0006814,sodium ion transport,36
+0,0,5.456705384742412,0,0,0,0,0,0,0,GO:0031936,negative regulation of chromatin silencing,17
+0,7.237787684062511,0,0,0,0,0,0,0,0,GO:0048443,stamen development,27
+0,0,0,5.162803062686578,0,0,0,0,0,0,GO:0051028,mRNA transport,46
+0,0,0,0,0,6.466699885074452,0,0,0,0,GO:0009060,aerobic respiration,27
+0,0,0,0,0,0,0,4.737567603803689,0,0,GO:0006857,oligopeptide transport,65
+0,0,0,0,0,0,0,0,0,4.862478994363505,GO:0007009,plasma membrane organization,8
+0,0,0,4.422854303036482,0,0,0,0,0,5.366971687022941,GO:0009584,detection of visible light,8
+0,0,0,4.422854303036482,0,0,0,0,0,5.366971687022941,GO:0017006,protein-tetrapyrrole linkage,8
+0,0,0,0,0,0,0,0,5.504054174883091,0,GO:0000913,preprophase band assembly,8
+0,0,4.506090144068559,0,0,0,0,0,0,0,GO:0006370,7-methylguanosine mRNA capping,8
+0,0,4.361147911852091,0,0,0,0,0,0,0,GO:0002239,response to oomycetes,8
+0,0,0,0,0,0,0,6.026624322757389,0,0,GO:0009688,abscisic acid biosynthetic process,18
+0,0,4.650139237655072,0,0,0,0,0,0,0,GO:0006885,regulation of pH,8
+0,0,0,0,0,0,0,0,5.571076147312016,0,GO:0009410,response to xenobiotic stimulus,8
+0,11.925127911101,0,0,0,0,0,0,0,0,GO:0090342,regulation of cell aging,8
+0,0,0,0,0,4.856823066871845,0,0,0,0,GO:0009643,photosynthetic acclimation,8
+0,0,0,0,0,0,0,0,6.588350177358329,9.680141581754539,GO:0006281,DNA repair,224
+0,0,5.398029479218177,0,0,0,0,0,0,0,GO:0080113,regulation of seed growth,18
+0,0,0,0,0,4.867406786463671,0,0,0,0,GO:0019464,glycine decarboxylation via glycine cleavage system,8
+0,8.108107281997789,0,0,0,0,0,0,0,0,GO:0010431,seed maturation,18
+0,0,0,5.746625227166807,0,0,0,0,0,0,GO:0045732,positive regulation of protein catabolic process,8
+0,0,0,0,0,0,0,0,6.104320491685405,0,GO:0006651,diacylglycerol biosynthetic process,8
+0,0,0,5.205833471646516,0,0,0,0,0,0,GO:0030490,maturation of SSU-rRNA,8
+0,10.939062678452204,0,0,0,0,0,0,0,0,GO:0051301,cell division,279
+0,0,0,0,0,0,0,8.064597109022097,0,0,GO:0016042,lipid catabolic process,131
+0,0,0,0,0,5.331777441151754,0,0,0,0,GO:0000103,sulfate assimilation,18
+0,0,0,0,0,0,0,0,6.608010608598402,0,GO:0009845,seed germination,122
+0,0,4.476009178267479,0,0,0,0,0,0,0,GO:0006012,galactose metabolic process,28
+0,0,0,0,0,0,0,0,5.139494210493037,0,GO:0042273,ribosomal large subunit biogenesis,18
+0,7.938504299019079,0,0,0,0,0,0,0,0,GO:0008284,positive regulation of cell proliferation,57
+0,0,0,0,0,0,7.7782124782698165,0,0,0,GO:0046856,phosphatidylinositol dephosphorylation,29
+0,0,0,0,0,7.111621286765147,0,0,0,0,GO:0006098,pentose-phosphate shunt,19
+0,0,0,0,0,0,5.3833797609129155,0,0,0,GO:0008283,cell proliferation,19
+0,0,0,0,0,0,0,0,0,4.628308536445195,GO:0045333,cellular respiration,19
+0,0,0,0,0,0,0,5.678175047604328,0,0,GO:0009269,response to desiccation,29
+0,0,0,0,0,5.52061176217812,0,0,0,0,GO:0034599,cellular response to oxidative stress,58
+0,0,0,13.760776047456625,0,0,0,0,0,0,GO:0009734,auxin-activated signaling pathway,218
+0,0,0,0,0,0,0,0,0,5.021148185184444,GO:0048830,adventitious root development,9
+0,6.318276198826215,0,0,0,0,0,5.976299586620297,0,0,GO:0006633,fatty acid biosynthetic process,106
+0,0,0,0,0,4.3802037832067935,0,0,0,0,GO:0009102,biotin biosynthetic process,9
+0,0,0,0,0,0,7.352892222282617,0,0,0,GO:0032958,inositol phosphate biosynthetic process,9
+0,0,0,5.568251479123668,0,0,0,0,0,0,GO:0052324,plant-type cell wall cellulose biosynthetic process,9
+0,0,0,0,0,4.390971880754539,0,0,0,0,GO:0051131,chaperone-mediated protein complex assembly,9
+0,0,0,0,0,0,0,0,0,5.202591698346927,GO:0015743,malate transport,9
+0,0,0,0,5.058669189497238,0,0,0,0,0,GO:0006072,glycerol-3-phosphate metabolic process,9
+0,0,0,0,0,0,0,4.8139422561461,0,0,GO:1901348,positive regulation of secondary cell wall biogenesis,9
+0,0,0,0,0,0,7.4590442893936455,0,0,0,GO:0010052,guard cell differentiation,9
+0,0,0,0,0,7.080769668482456,0,0,0,0,GO:0010387,COP9 signalosome assembly,9
+0,0,0,4.9688432256863475,0,0,0,0,0,0,GO:0010363,regulation of plant-type hypersensitive response,9
+0,0,0,0,0,0,0,9.85201517985592,0,0,GO:0030163,protein catabolic process,97
+0,0,0,0,0,22.11010220961195,0,0,0,0,GO:0010286,heat acclimation,59
+0,4.455719444252713,0,0,0,0,0,0,0,0,GO:0006183,GTP biosynthetic process,9
+0,0,0,6.7633120727109715,4.463066809790603,0,0,0,0,0,GO:0006906,vesicle fusion,49
+0,0,8.374592224281113,0,0,0,0,0,0,0,GO:0008202,steroid metabolic process,30
+0,0,0,0,0,0,0,8.655714369332397,0,0,GO:0005982,starch metabolic process,20
+0,0,0,0,0,0,5.0244181162472215,0,0,0,GO:0009819,drought recovery,20
+0,0,0,0,0,0,0,9.120832211523494,0,0,GO:0042542,response to hydrogen peroxide,88
+0,0,0,0,0,0,0,0,0,4.362372297450273,GO:0043928,exonucleolytic nuclear-transcribed mRNA catabolic process involved in deadenylation-dependent decay,20
+0,6.2253326514047025,0,4.669981070727124,0,0,0,0,0,0,GO:0009742,brassinosteroid mediated signaling pathway,99
+0,0,0,0,0,0,0,0,0,6.867354470422227,GO:0034728,nucleosome organization,10
+0,0,0,0,0,0,0,0,0,4.572412080023888,GO:0006828,manganese ion transport,10
+0,0,0,0,0,0,0,0,4.688247898896356,0,GO:0006085,acetyl-CoA biosynthetic process,10
+0,0,0,0,0,0,0,0,4.8613427605053134,0,GO:0008652,cellular amino acid biosynthetic process,10
+0,0,0,0,0,0,0,0,0,4.868223970201772,GO:0055070,copper ion homeostasis,10
+0,0,0,4.791410673830741,0,0,0,0,0,0,GO:0010374,stomatal complex development,10
+0,0,0,0,4.594331975691266,0,0,0,0,0,GO:0009835,fruit ripening,10
+0,0,0,0,0,13.08850332314248,0,0,0,0,GO:0010196,nonphotochemical quenching,10
+0,0,0,0,0,0,0,0,0,8.231448133036125,GO:0009740,gibberellic acid mediated signaling pathway,61
+0,0,0,0,0,0,0,11.455930348692176,0,0,GO:0010497,plasmodesmata-mediated intercellular transport,21
+0,0,0,0,0,0,0,0,4.381470609101276,0,GO:0006626,protein targeting to mitochondrion,21
+0,8.287543943873859,0,0,0,0,0,0,0,0,GO:0045787,positive regulation of cell cycle,42
+0,0,0,0,0,0,0,5.824526375420047,0,0,GO:0048825,cotyledon development,32
+0,0,0,0,0,0,0,7.547481875886895,0,0,GO:0010072,primary shoot apical meristem specification,22
+0,0,0,5.189208832565159,0,0,0,0,0,0,GO:0006289,nucleotide-excision repair,53
+0,0,0,0,0,0,0,4.431228682838397,0,0,GO:0044030,regulation of DNA methylation,22
+0,0,0,0,0,0,0,0,0,7.371430412524037,GO:0016051,carbohydrate biosynthetic process,53
+0,0,0,0,0,6.0479552116319,0,0,0,0,GO:0051096,positive regulation of helicase activity,11
+0,0,0,0,0,0,0,0,4.435151938691928,0,GO:0070475,rRNA base methylation,11
+0,9.470979659048835,0,0,0,0,0,0,0,0,GO:0009838,abscission,11
+0,0,0,0,0,0,0,5.837126937207682,0,0,GO:0019288,"isopentenyl diphosphate biosynthetic process, methylerythritol 4-phosphate pathway",11
+0,0,0,0,0,0,0,0,7.290753784766429,0,GO:0042372,phylloquinone biosynthetic process,11
+0,0,0,0,0,0,0,8.603042512410472,0,0,GO:0009072,aromatic amino acid family metabolic process,11
+0,0,0,0,0,0,0,6.020957345963555,0,0,GO:0035865,cellular response to potassium ion,11
+0,0,0,0,0,0,6.440318251953763,0,0,0,GO:0010117,photoprotection,11
+0,0,0,0,0,8.711763410690137,0,0,0,0,GO:0009299,mRNA transcription,11
+0,14.170939357852664,0,0,0,0,0,0,0,0,GO:0000278,mitotic cell cycle,94
+0,0,0,0,0,0,0,7.477963851915261,0,0,GO:0009695,jasmonic acid biosynthetic process,23
+0,0,0,0,0,0,0,5.017375061814719,0,0,GO:0045814,"negative regulation of gene expression, epigenetic",12
+0,0,0,9.58438411220463,0,0,0,0,0,0,GO:0042128,nitrate assimilation,45
+0,0,0,0,0,0,5.585956743576075,0,0,0,GO:0032957,inositol trisphosphate metabolic process,12
+0,0,0,0,0,0,0,5.096964323823142,0,0,GO:0045899,positive regulation of RNA polymerase II transcriptional preinitiation complex assembly,12
+0,6.023812427897586,0,0,0,0,0,0,0,0,GO:0048441,petal development,12
+0,0,0,0,0,0,0,7.562978686071181,0,0,GO:0010067,procambium histogenesis,12
+0,0,0,0,0,0,0,0,0,6.802927777059097,GO:0051415,microtubule nucleation by interphase microtubule organizing center,12
+0,0,5.543365411502004,0,0,0,0,0,0,0,GO:0032509,endosome transport via multivesicular body sorting pathway,12
+0,0,0,0,0,0,0,0,7.058675552767046,0,GO:0009821,alkaloid biosynthetic process,12
+0,0,0,0,0,0,0,0,0,4.420141995705312,GO:0007050,cell cycle arrest,12
+0,0,0,0,0,0,0,0,4.617803171238316,4.539309907530115,GO:0045736,negative regulation of cyclin-dependent protein serine/threonine kinase activity,12
+0,0,0,5.106074414586958,0,8.976157512271536,0,0,0,0,GO:0009637,response to blue light,56
+0,10.352801905505,0,0,0,0,0,0,0,0,GO:0007088,regulation of mitotic nuclear division,35
+0,0,0,0,6.717571266854666,0,0,0,0,0,GO:0071732,cellular response to nitric oxide,24
+0,0,0,5.448390466964508,0,0,0,0,0,0,GO:0010089,xylem development,35
+0,5.1182836850044415,0,0,0,0,0,0,0,0,GO:0006869,lipid transport,106
+0,5.266386913080019,0,0,0,0,0,0,0,0,GO:0051726,regulation of cell cycle,107
+0,0,0,4.570891620587736,0,0,0,0,4.956406337328973,0,GO:0009723,response to ethylene,175
+0,0,0,5.7482477484285575,0,0,0,0,0,0,GO:0030244,cellulose biosynthetic process,36
+0,5.603928888074782,0,0,0,7.5333774559492666,0,0,0,0,GO:0006950,response to stress,13
+0,0,0,8.719167712527495,0,0,0,0,0,0,GO:0040008,regulation of growth,108
+0,0,0,0,0,0,0,10.581915630651581,0,0,GO:0031408,oxylipin biosynthetic process,25
+0,0,0,0,0,0,5.310096576675351,0,0,0,GO:0048759,xylem vessel member cell differentiation,13
+0,0,0,5.1075740772098115,0,0,0,0,0,0,GO:0061025,membrane fusion,36
+0,0,0,0,5.7526053404813435,0,0,0,0,0,GO:2000306,positive regulation of photomorphogenesis,13
+0,0,0,0,0,6.442942267611129,0,0,0,0,GO:0048481,plant ovule development,48
+0,0,0,4.981886527077099,0,0,0,0,0,0,GO:0010218,response to far red light,58
+0,0,9.67147753028364,0,0,0,0,0,0,0,GO:0009817,"defense response to fungus, incompatible interaction",69
+0,0,0,5.424987690882204,0,0,0,0,0,0,GO:0009960,endosperm development,37
+0,0,4.763689859727012,0,0,0,0,0,0,0,GO:0045087,innate immune response,90
+0,0,0,4.365057739434994,0,0,0,0,0,0,GO:0010102,lateral root morphogenesis,26
+0,5.5744940128154,0,0,0,0,0,0,0,0,GO:0006268,DNA unwinding involved in DNA replication,14
+0,0,0,0,0,0,0,0,0,5.381277295154233,GO:0000712,resolution of meiotic recombination intermediates,14
+0,0,0,0,0,0,4.718090672586286,0,0,0,GO:0046855,inositol phosphate dephosphorylation,14
+0,0,0,8.267731742506614,0,0,0,0,0,0,GO:0006491,N-glycan processing,14
+0,5.0031589221092965,4.764550893919826,0,0,0,0,0,0,0,GO:0033499,galactose catabolic process via UDP-galactose,14
+0,0,0,0,0,9.675313479880245,0,0,0,0,GO:0000338,protein deneddylation,14
+0,0,0,0,0,0,7.39037905890067,0,0,0,GO:0010417,glucuronoxylan biosynthetic process,14
+0,0,0,0,0,4.698380668255464,0,0,0,0,GO:0070370,cellular heat acclimation,14
+0,0,0,0,0,0,0,0,4.734152207067634,0,GO:0016567,protein ubiquitination,663
+0,4.398750415321173,0,0,0,0,0,0,0,0,GO:0016132,brassinosteroid biosynthetic process,38
+0,0,0,0,0,0,0,7.094407045172534,0,0,GO:0016036,cellular response to phosphate starvation,102
+0,0,0,0,0,0,0,12.30152103155337,0,0,GO:0030091,protein repair,14
+0,0,6.4470698974504765,0,0,0,0,0,0,0,GO:0018230,peptidyl-L-cysteine S-palmitoylation,27
+0,0,0,7.260140619339268,0,0,0,0,7.697744689203956,0,GO:0000027,ribosomal large subunit assembly,49
+0,5.1618945519453865,0,0,0,0,0,0,0,0,GO:0010030,positive regulation of seed germination,27
+0,0,0,0,0,0,4.458389803634852,0,0,0,GO:0010588,cotyledon vascular tissue pattern formation,15
+0,0,0,0,0,0,0,0,0,5.203243957243359,GO:0007389,pattern specification process,15
+0,0,0,0,0,0,0,0,0,5.225333796246529,GO:0006997,nucleus organization,15
+0,0,0,0,0,9.22437066264458,0,0,0,0,GO:0010205,photoinhibition,15
+0,0,0,0,7.679540649762296,0,0,0,0,0,GO:0031952,regulation of protein autophosphorylation,15
+0,0,0,6.0643178675726235,0,0,0,0,0,0,GO:0009267,cellular response to starvation,15
+0,0,0,0,0,9.045371757518259,0,0,0,0,GO:0018119,peptidyl-cysteine S-nitrosylation,15
+0,0,0,0,0,6.478146931767468,0,0,0,0,GO:0019684,"photosynthesis, light reaction",15
+0,0,0,0,0,9.022264535993337,0,6.488629115047176,0,0,GO:0051259,protein complex oligomerization,15
+0,0,0,0,0,0,0,0,0,6.333309891106211,GO:0080156,mitochondrial mRNA modification,28
+0,0,0,0,0,0,0,7.821733774041253,0,0,GO:0045893,"positive regulation of transcription, DNA-templated",311
+0,0,0,0,0,22.6342764166058,0,18.056119945049822,0,0,GO:0046686,response to cadmium ion,486
+0,0,0,0,0,0,0,12.060912608907794,0,0,GO:0045037,protein import into chloroplast stroma,29
+0,0,0,0,0,0,0,5.045477946520272,0,0,GO:0010311,lateral root formation,74
+0,0,0,0,0,0,0,0,5.547063932509056,0,GO:0010025,wax biosynthetic process,29
+0,0,0,0,0,8.504462435391115,0,0,0,0,GO:0010206,photosystem II repair,16
+0,0,0,0,0,0,0,5.389805524645189,0,0,GO:0006559,L-phenylalanine catabolic process,16
+0,0,0,0,0,0,0,10.153374959445266,0,0,GO:0006949,syncytium formation,16
+0,0,0,0,0,0,0,0,6.114445387971558,0,GO:0006325,chromatin organization,97
+0,0,0,0,0,0,0,0,0,4.378386743298898,GO:0006402,mRNA catabolic process,17
+0,0,0,4.524928104229978,0,0,0,0,0,0,GO:0009958,positive gravitropism,42
+0,0,0,0,0,0,0,10.62962164383726,0,0,GO:0007275,multicellular organism development,413
+0,0,0,0,0,4.45766648100934,0,0,0,0,GO:0009813,flavonoid biosynthetic process,42
+0,0,0,0,0,5.696749923371673,0,4.937775485725201,0,0,GO:0015996,chlorophyll catabolic process,17
+0,0,0,0,0,0,0,9.081410011832945,0,4.464793764463793,GO:0006914,autophagy,54
+0,0,0,0,0,0,0,0,0,5.558553653166868,GO:0010332,response to gamma radiation,18
+0,0,0,0,0,18.812396696462802,0,0,0,0,GO:0051085,chaperone cofactor-dependent protein refolding,55
+0,0,0,0,0,0,0,0,6.862009327853129,0,GO:1901001,negative regulation of response to salt stress,18
+0,0,0,0,0,0,0,10.051412689852164,0,0,GO:0009651,response to salt stress,696
+0,0,0,0,0,12.93302917314028,0,0,0,0,GO:0009767,photosynthetic electron transport chain,18
+0,0,0,0,0,0,0,0,0,4.456291472350853,GO:0000723,telomere maintenance,32
+0,0,0,0,0,0,0,0,6.521698636015042,0,GO:0010224,response to UV-B,78
+0,0,0,4.484364857849761,0,0,0,0,0,0,GO:0006406,mRNA export from nucleus,32
+0,0,0,0,0,0,0,0,5.448534367401459,0,GO:0006970,response to osmotic stress,184
+0,0,0,0,0,12.261754506192544,0,7.410969924465476,0,0,GO:0019538,protein metabolic process,19
+0,0,4.599243451650276,0,0,0,0,0,6.343919138578854,5.308670535888877,GO:0032259,methylation,255
+0,0,0,0,0,0,0,0,4.432495434472678,0,GO:0009051,"pentose-phosphate shunt, oxidative branch",19
+0,5.450804275956102,0,0,0,0,0,0,0,0,GO:0010268,brassinosteroid homeostasis,33
+0,0,5.336607321455161,0,0,0,0,7.875959719762872,0,0,GO:0009751,response to salicylic acid,195
+0,0,0,0,0,0,0,4.57719599652152,0,0,GO:0009615,response to virus,46
+0,0,9.353796221104819,0,0,0,0,0,0,0,GO:0009620,response to fungus,92
+0,0,0,0,0,0,4.634929844662265,0,0,0,GO:0030154,cell differentiation,228
+0,5.672098940618153,0,0,0,0,0,0,0,0,GO:0032508,DNA duplex unwinding,20
+0,0,0,0,0,0,0,7.892001304143779,0,0,GO:0019252,starch biosynthetic process,34
+0,0,0,0,0,0,0,5.144302938180933,0,0,GO:0016571,histone methylation,20
+0,0,0,0,0,0,0,5.090596996861216,0,0,GO:0000045,autophagosome assembly,34
+0,4.9095051467479305,0,0,0,0,0,0,0,0,GO:0045454,cell redox homeostasis,166
+0,0,0,4.995322860248505,0,0,0,0,0,0,GO:0045039,protein import into mitochondrial inner membrane,20
+0,0,0,4.760057003345032,0,0,0,0,0,0,GO:0000028,ribosomal small subunit assembly,34
+0,5.771011279877633,0,0,0,0,0,0,0,0,GO:0051693,actin filament capping,21
+0,0,0,0,0,0,0,6.096595848358089,0,0,GO:0006414,translational elongation,71
+0,0,0,5.458576824175501,0,0,0,0,0,0,GO:0009833,plant-type primary cell wall biogenesis,21
+0,6.173186829649975,0,0,0,0,0,0,0,0,GO:0007049,cell cycle,127
+0,0,0,0,0,0,0,0,0,6.769912058736978,GO:0007129,synapsis,21
+0,0,0,0,0,0,0,4.600960456814481,0,0,GO:0016441,posttranscriptional gene silencing,21
+0,0,0,0,0,0,0,15.86948402733268,0,0,GO:0006508,proteolysis,471
+0,0,0,0,0,0,5.814365310676636,0,0,0,GO:0000226,microtubule cytoskeleton organization,60
+0,0,0,4.677668191677862,0,0,0,0,0,0,GO:0009850,auxin metabolic process,21
+0,0,0,0,0,0,0,0,0,5.540788507184238,GO:0006333,chromatin assembly or disassembly,21
+0,0,0,0,5.412104022660515,0,0,0,0,0,GO:0009854,oxidative photosynthetic carbon pathway,21
+0,0,0,0,0,0,4.425149986813499,0,0,0,GO:0010051,xylem and phloem pattern formation,36
+0,0,0,0,0,5.684492637908718,0,0,0,0,GO:0080022,primary root development,36
+0,0,9.180663530205,0,0,0,0,0,0,0,GO:0006306,DNA methylation,22
+0,0,0,0,0,0,0,8.133703938457835,0,0,GO:0000422,autophagy of mitochondrion,22
+0,0,0,0,0,0,10.882598605569713,0,0,0,GO:0045944,positive regulation of transcription by RNA polymerase II,132
+0,0,0,10.377180030336968,0,0,0,0,0,0,GO:0006817,phosphate ion transport,23
+0,0,0,0,0,8.620677849072282,0,0,0,0,GO:0007005,mitochondrion organization,38
+0,0,0,0,0,0,0,11.965463172399415,0,0,GO:0051603,proteolysis involved in cellular protein catabolic process,76
+0,0,0,0,0,0,0,6.973082845418043,0,0,GO:0006006,glucose metabolic process,24
+0,0,0,0,0,0,5.6919974446379475,0,0,0,GO:0045926,negative regulation of growth,24
+0,0,0,6.6143062029823945,0,0,0,0,0,0,GO:0006415,translational termination,24
+0,0,5.037016991276378,0,0,0,0,0,0,0,GO:0006612,protein targeting to membrane,39
+0,0,0,0,0,5.39136241156299,0,0,0,0,GO:0006790,sulfur compound metabolic process,24
+0,0,0,0,0,0,0,0,4.378931127776255,0,GO:0002181,cytoplasmic translation,52
+0,0,9.24796778531375,0,0,0,0,12.689022011597027,0,0,GO:0009407,toxin catabolic process,52
+0,6.7073311754908955,0,0,0,10.070915885231981,0,0,0,0,GO:0009793,embryo development ending in seed dormancy,467
+0,0,0,0,0,13.72005665765035,0,0,0,0,GO:0009735,response to cytokinin,252
+0,0,0,0,0,0,0,0,4.438396986725204,0,GO:0006913,nucleocytoplasmic transport,26
+0,0,0,0,0,0,0,6.651807962388463,0,0,GO:0009636,response to toxic substance,26
+0,0,0,0,0,6.52543388914353,0,0,0,0,GO:0010228,vegetative to reproductive phase transition of meristem,163
+0,5.104215078791201,0,0,0,0,0,0,0,0,GO:0030433,ubiquitin-dependent ERAD pathway,43
+0,0,9.001054038646698,0,0,0,0,0,0,0,GO:0006338,chromatin remodeling,44
+0,0,6.312517027576572,0,0,0,0,15.721171318563593,0,0,GO:0006749,glutathione metabolic process,57
+0,0,0,0,0,0,0,0,6.2751368391464,0,GO:0008360,regulation of cell shape,29
+0,0,0,0,0,0,0,0,5.143702751694057,0,GO:0009791,post-embryonic development,45
+0,0,0,0,0,0,0,0,0,5.6780280478784,GO:0009585,"red, far-red light phototransduction",72
+0,0,0,16.34228448589507,0,0,0,0,0,0,GO:0042254,ribosome biogenesis,142
+0,0,0,0,0,0,0,6.985276952563246,0,0,GO:0005975,carbohydrate metabolic process,349
+0,0,0,0,5.823888758986059,0,0,0,0,0,GO:0006357,regulation of transcription by RNA polymerase II,98
+0,0,0,0,0,20.239532430207376,0,7.00161151229844,0,0,GO:0009644,response to high light intensity,73
+0,0,0,0,0,0,0,0,4.665899464418041,0,GO:0006464,cellular protein modification process,46
+0,0,0,0,0,0,0,0,6.72046742307267,0,GO:0006396,RNA processing,100
+0,0,0,5.666659071789322,0,0,0,0,0,0,GO:0000160,phosphorelay signal transduction system,47
+0,5.876416274192842,0,0,0,0,0,0,0,0,GO:0045036,protein targeting to chloroplast,31
+0,0,0,0,0,0,0,5.209468339434189,0,4.476978915613238,GO:0009910,negative regulation of flower development,76
+0,0,0,0,0,0,6.818309307019367,0,0,0,GO:0007010,cytoskeleton organization,32
+0,0,0,4.8480191419981,0,0,0,0,0,0,GO:0006355,"regulation of transcription, DNA-templated",1749
+0,0,0,8.034495260310266,0,0,0,0,0,0,GO:0006487,protein N-linked glycosylation,49
+0,0,0,0,0,0,0,4.943384597334084,0,0,GO:0009556,microsporogenesis,33
+0,7.97621085946884,0,0,0,0,0,0,0,0,GO:0045292,"mRNA cis splicing, via spliceosome",65
+0,0,0,0,0,5.921846624576703,0,4.702967759030001,0,0,GO:0009416,response to light stimulus,242
+0,0,0,0,0,0,0,12.86470283514235,0,0,GO:0006635,fatty acid beta-oxidation,51
+0,0,5.222399719423484,0,0,4.587955903315913,0,0,0,0,GO:0009294,DNA mediated transformation,35
+0,0,0,0,0,14.116074005865771,0,0,0,0,GO:0034605,cellular response to heat,68
+0,0,0,0,0,7.408710268199657,0,5.765255918749302,0,6.011129280410012,GO:0006511,ubiquitin-dependent protein catabolic process,391
+0,0,0,0,6.62798011589661,0,0,0,0,0,GO:0009814,"defense response, incompatible interaction",38
+0,5.5637995645730385,0,0,0,0,0,0,0,13.294204164502345,GO:0009451,RNA modification,186
+0,0,0,0,0,0,0,0,5.254256327363415,0,GO:0006520,cellular amino acid metabolic process,57
+0,0,0,0,0,7.1521150512689395,0,0,27.335963735915946,0,GO:0006364,rRNA processing,101
+0,0,0,0,0,18.263647658783196,0,0,0,0,GO:0006606,protein import into nucleus,43
+0,0,0,0,0,0,0,0,4.803872183051659,0,GO:0006417,regulation of translation,77
+0,0,0,0,0,34.317373384049695,0,5.2850259397427735,0,0,GO:0009408,response to heat,195
+0,0,0,0,0,45.54240533648719,0,0,0,0,GO:0015979,photosynthesis,114
+0,0,0,0,0,23.814425092451557,0,0,0,0,GO:0006457,protein folding,288
+0,0,0,0,0,5.234743803534787,0,0,13.332588558893711,0,GO:0006413,translational initiation,115
+0,0,0,0,0,4.498895421747837,0,6.412803089966804,0,0,GO:0009790,embryo development,116
+0,0,0,0,0,4.323078822247158,0,6.918456602949742,0,0,GO:0043161,proteasome-mediated ubiquitin-dependent protein catabolic process,116
+0,0,0,0,0,20.801378839829333,0,0,0,0,GO:0018298,protein-chromophore linkage,51
+0,0,0,7.186414446498424,0,0,0,0,0,5.4482099283685725,GO:0000724,double-strand break repair via homologous recombination,71
+0,4.570765563389175,0,0,0,0,0,0,0,0,GO:0051321,meiotic cell cycle,76
+0,0,0,0,0,0,0,14.426588939702448,0,0,GO:0009414,response to water deprivation,398
+0,0,0,0,0,0,0,4.341134107511832,4.362777265939959,0,GO:0009553,embryo sac development,97
+0,0,0,37.92257114871733,0,12.304618170412102,0,0,6.944615523070518,0,GO:0006412,translation,454
+0,0,0,6.808553944150506,0,0,0,0,0,0,GO:0007623,circadian rhythm,149
+0,0,0,0,0,14.886779122567855,0,0,0,0,GO:0009409,response to cold,423
+0,6.757163869610927,0,0,0,0,0,0,0,0,GO:0000381,"regulation of alternative mRNA splicing, via spliceosome",71
+0,0,0,0,0,5.275163941598717,0,0,7.377822569558411,0,GO:0000398,"mRNA splicing, via spliceosome",183
+0,0,0,0,0,4.6150977882400355,0,0,8.70155732487023,0,GO:0006397,mRNA processing,244
+0,0,0,0,0,17.67951486900094,0,0,0,0,GO:0009658,chloroplast organization,184
+0,0,0,0,0,4.7014991646184985,0,0,5.103720584205356,0,GO:0008380,RNA splicing,174
+0,0,0,0,0,8.119481332456738,0,0,0,0,GO:0000244,spliceosomal tri-snRNP complex assembly,8
+0,0,0,0,0,6.203020314166045,0,0,0,0,GO:0000380,"alternative mRNA splicing, via spliceosome",16
+0,0,0,0,0,4.895818129006021,0,0,0,0,GO:0000413,protein peptidyl-prolyl isomerization,47
+0,6.845311319088722,0,0,0,0,0,0,0,0,GO:0000914,phragmoplast assembly,6
+0,0,0,0,0,0,0,0,7.939507030653886,0,GO:0000967,rRNA 5'-end processing,10
+0,0,0,0,0,0,0,0,6.181941814999407,0,GO:0001510,RNA methylation,7
+0,0,0,0,0,0,0,7.0183931372824455,0,0,GO:0001676,long-chain fatty acid metabolic process,9
+0,0,0,0,0,0,0,5.334107660335257,0,0,GO:0001709,cell fate determination,8
+0,0,0,4.636242435036907,0,0,0,0,0,0,GO:0002240,response to molecule of oomycetes origin,10
+0,0,0,0,0,0,4.799329376888675,0,0,0,GO:0006013,mannose metabolic process,8
+0,0,0,0,0,0,0,4.359185191169493,0,0,GO:0006021,inositol biosynthetic process,6
+0,0,0,0,0,0,0,0,5.284602363670772,0,GO:0006075,(1->3)-beta-D-glucan biosynthetic process,18
+0,0,0,0,0,0,0,9.657177232265001,0,0,GO:0006107,oxaloacetate metabolic process,7
+0,0,0,0,0,0,6.205357736216942,0,0,0,GO:0006145,purine nucleobase catabolic process,6
+0,0,0,0,0,4.398934258153205,0,0,0,0,GO:0006264,mitochondrial DNA replication,9
+0,5.38297267898145,0,0,0,0,6.582658607740921,0,0,0,GO:0006270,DNA replication initiation,27
+0,0,0,0,0,0,0,0,0,6.054538951245536,GO:0006275,regulation of DNA replication,8
+0,0,0,0,0,0,0,0,5.410781676734916,0,GO:0006342,chromatin silencing,28
+0,0,0,0,0,0,0,0,0,4.616222771520695,GO:0006354,"DNA-templated transcription, elongation",11
+0,0,0,0,0,5.536353042817293,0,0,0,0,GO:0006368,transcription elongation from RNA polymerase II promoter,18
+0,0,0,0,0,10.396545870622095,0,0,0,0,GO:0006458,'de novo' protein folding,9
+0,0,0,0,0,0,0,7.13808878677362,0,0,GO:0006513,protein monoubiquitination,6
+0,0,5.548540619740188,0,0,0,0,0,0,0,GO:0006516,glycoprotein catabolic process,7
+0,0,0,0,0,0,0,6.934792830936638,0,0,GO:0006526,arginine biosynthetic process,13
+0,0,0,0,0,0,0,9.718099702833971,0,0,GO:0006572,tyrosine catabolic process,7
+0,6.6145487782787695,0,0,0,10.776382953547923,0,0,0,0,GO:0006607,NLS-bearing protein import into nucleus,17
+0,0,0,0,0,10.05270326380173,0,0,0,0,GO:0006610,ribosomal protein import into nucleus,6
+0,0,0,0,0,0,0,0,0,4.788176166930913,GO:0006753,nucleoside phosphate metabolic process,11
+0,0,0,0,0,0,0,5.140473715490314,0,0,GO:0006809,nitric oxide biosynthetic process,8
+0,15.657311270356532,0,0,0,0,8.818920720092356,0,0,0,GO:0006833,water transport,28
+0,0,0,0,0,21.573483322747556,0,0,0,0,GO:0006986,response to unfolded protein,16
+0,0,0,5.798008805291223,0,0,0,0,0,0,GO:0007021,tubulin complex assembly,8
+0,0,0,0,0,0,0,6.351683677956967,0,0,GO:0007031,peroxisome organization,35
+0,0,0,0,0,0,0,0,4.781034268403917,0,GO:0007140,male meiotic nuclear division,10
+0,0,0,0,0,0,0,0,6.216923566584806,0,GO:0007143,female meiotic nuclear division,7
+0,0,0,0,4.376528339692151,0,0,0,0,0,GO:0007264,small GTPase mediated signal transduction,11
+0,5.05697430295468,0,0,0,0,0,0,0,0,GO:0007346,regulation of mitotic cell cycle,14
+0,0,0,0,0,0,4.4552891237736745,0,0,0,GO:0009061,anaerobic respiration,10
+0,0,0,4.524389011401488,0,0,0,0,0,0,GO:0009082,branched-chain amino acid biosynthetic process,16
+0,0,0,6.130508325380347,0,0,0,0,0,0,GO:0009097,isoleucine biosynthetic process,21
+0,0,0,5.0110851749609395,0,0,0,0,0,0,GO:0009099,valine biosynthetic process,15
+0,0,0,0,0,6.463181574121343,0,0,0,0,GO:0009228,thiamine biosynthetic process,10
+0,0,0,0,0,5.438109436145883,0,0,0,0,GO:0009229,thiamine diphosphate biosynthetic process,12
+0,5.600939314767351,0,0,0,0,0,0,0,0,GO:0009610,response to symbiotic fungus,13
+0,5.525243876308214,0,0,0,0,0,0,0,0,GO:0009645,response to low light intensity stimulus,12
+0,0,0,4.583742481193086,0,0,0,0,0,0,GO:0009648,photoperiodism,14
+0,0,0,16.842780398444013,0,0,0,0,0,0,GO:0009649,entrainment of circadian clock,19
+0,0,0,0,0,6.480936626354123,0,0,0,0,GO:0009697,salicylic acid biosynthetic process,10
+0,0,0,0,0,8.686029573504456,0,0,0,0,GO:0009765,"photosynthesis, light harvesting",7
+0,0,0,0,0,22.45762994749259,0,0,0,0,GO:0009768,"photosynthesis, light harvesting in photosystem I",22
+0,0,0,0,0,6.097454632241421,0,4.717980489570749,0,0,GO:0009769,"photosynthesis, light harvesting in photosystem II",6
+0,0,0,0,0,10.341419745108018,0,0,0,0,GO:0009772,photosynthetic electron transport in photosystem II,9
+0,0,0,0,0,0,0,5.167819659384731,0,0,GO:0009855,determination of bilateral symmetry,8
+0,0,0,0,7.175878520713902,0,0,0,0,0,GO:0009866,"induced systemic resistance, ethylene mediated signaling pathway",6
+0,0,4.84236184699262,0,0,0,0,0,0,0,GO:0009934,regulation of meristem structural organization,23
+0,0,0,0,0,5.4708937709252945,0,0,0,0,GO:0009943,adaxial/abaxial axis specification,7
+0,0,0,0,0,0,0,5.0848422563627285,0,0,GO:0009944,polarity specification of adaxial/abaxial axis,20
+0,6.47539399121458,0,0,0,0,0,0,0,0,GO:0009955,adaxial/abaxial pattern specification,11
+0,0,0,0,0,0,0,22.28690096724074,0,0,GO:0009970,cellular response to sulfate starvation,24
+0,0,0,9.432877127572363,0,0,0,0,0,0,GO:0010017,red or far-red light signaling pathway,38
+0,0,0,0,0,0,0,5.082773699323184,0,0,GO:0010019,chloroplast-nucleus signaling pathway,16
+0,0,0,0,0,0,0,5.042815922983548,0,0,GO:0010021,amylopectin biosynthetic process,8
+0,0,0,0,0,0,0,6.092387084677003,0,0,GO:0010077,maintenance of inflorescence meristem identity,7
+0,0,0,0,0,0,0,6.545416527199537,0,0,GO:0010088,phloem development,10
+0,0,0,0,6.724750514923438,0,0,0,0,0,GO:0010120,camalexin biosynthetic process,11
+0,0,0,0,0,0,0,5.461312752430371,0,0,GO:0010189,vitamin E biosynthetic process,12
+0,0,0,0,0,4.414558070977379,4.419882960395061,0,0,0,GO:0010192,mucilage biosynthetic process,15
+0,0,0,0,0,6.337726703391169,0,0,0,0,GO:0010207,photosystem II assembly,27
+0,0,0,0,0,0,0,0,8.44249094361905,0,GO:0010208,pollen wall assembly,9
+0,0,0,0,0,6.028074721847713,0,4.3780345204971525,0,0,GO:0010216,maintenance of DNA methylation,17
+0,0,0,0,0,0,0,6.335935623995939,0,0,GO:0010233,phloem transport,14
+0,0,0,0,0,4.866550195397673,0,0,0,0,GO:0010304,PSII associated light-harvesting complex II catabolic process,8
+0,0,0,0,0,0,0,20.172908379591874,0,0,GO:0010345,suberin biosynthetic process,20
+0,0,5.303609829900192,0,0,0,0,0,0,0,GO:0010380,regulation of chlorophyll biosynthetic process,12
+0,0,0,0,0,8.877715140456457,6.100263870479565,0,0,0,GO:0010498,proteasomal protein catabolic process,37
+0,0,0,0,0,7.999261221304806,6.84719050000102,0,0,0,GO:0010499,proteasomal ubiquitin-independent protein catabolic process,34
+0,0,5.192557446432132,0,0,0,0,0,0,0,GO:0010582,floral meristem determinacy,12
+0,0,0,0,0,0,0,0,6.8089028892733525,0,GO:0010587,miRNA catabolic process,6
+0,0,0,0,0,0,5.374353808759712,0,0,0,GO:0010603,regulation of cytoplasmic mRNA processing body assembly,7
+0,0,0,0,0,0,0,4.5741784457257735,0,0,GO:0010731,protein glutathionylation,6
+0,0,0,4.385137263186035,0,0,0,0,0,0,GO:0015675,nickel cation transport,6
+0,0,6.665826727569835,0,0,0,0,0,0,0,GO:0015976,carbon utilization,15
+0,0,0,0,0,12.006945540461759,0,0,0,0,GO:0015994,chlorophyll metabolic process,11
+0,0,0,0,0,0,0,0,0,6.90586458348023,GO:0016233,telomere capping,6
+0,0,0,0,0,0,0,8.073864171155753,0,0,GO:0016236,macroautophagy,11
+0,0,0,0,0,0,0,0,0,5.197079467312927,GO:0016444,somatic cell DNA recombination,15
+0,0,0,0,0,0,0,5.176711054485719,0,0,GO:0016558,protein import into peroxisome matrix,12
+0,0,0,0,0,0,0,0,0,5.560383996134552,GO:0016570,histone modification,8
+0,0,4.58815624335564,0,0,0,0,0,0,0,GO:0016575,histone deacetylation,30
+0,0,0,5.523391569597256,0,0,0,0,0,0,GO:0018342,protein prenylation,9
+0,0,0,0,0,10.024126804838495,0,0,0,0,GO:0019253,reductive pentose-phosphate cycle,18
+0,0,0,0,0,0,0,5.706727513527492,0,0,GO:0019388,galactose catabolic process,11
+0,0,10.970796676441317,0,0,0,0,0,0,0,GO:0019438,aromatic compound biosynthetic process,13
+0,0,8.955789840350112,0,0,0,0,0,0,0,GO:0019853,L-ascorbic acid biosynthetic process,21
+0,0,0,5.627651884522523,0,0,0,0,0,0,GO:0030041,actin filament polymerization,8
+0,0,0,6.034760821338654,0,0,0,0,0,0,GO:0030308,negative regulation of cell growth,8
+0,0,0,0,0,5.719869407448039,0,0,0,0,GO:0031022,nuclear migration along microfilament,7
+0,0,0,0,0,4.581923988381816,0,0,0,0,GO:0031048,chromatin silencing by small RNA,9
+0,0,0,0,0,4.845491571445441,0,0,0,0,GO:0031117,positive regulation of microtubule depolymerization,8
+0,0,0,0,0,0,0,0,6.633167448787792,0,GO:0031167,rRNA methylation,7
+0,5.331341428053482,0,0,0,0,0,0,0,0,GO:0031222,arabinan catabolic process,8
+0,4.908309538286745,0,0,0,0,0,0,0,0,GO:0031647,regulation of protein stability,10
+0,0,0,0,0,4.8440833760753925,0,0,0,0,GO:0031930,mitochondria-nucleus signaling pathway,8
+0,0,0,0,0,0,0,0,5.001403547477612,0,GO:0032210,regulation of telomere maintenance via telomerase,9
+0,12.313887348418,0,0,0,6.490421326877681,0,0,0,0,GO:0032544,plastid translation,15
+0,0,6.285858881366142,0,0,0,0,0,0,0,GO:0033388,putrescine biosynthetic process from arginine,6
+0,0,0,0,0,0,0,7.413450222888722,0,0,GO:0033523,histone H2B ubiquitination,9
+0,0,7.483203392052694,0,0,0,0,0,0,0,GO:0033540,fatty acid beta-oxidation using acyl-CoA oxidase,8
+0,0,0,0,0,0,0,0,0,5.815132980686218,GO:0033617,mitochondrial respiratory chain complex IV assembly,15
+0,0,0,4.4590619119955806,0,0,0,0,0,0,GO:0033962,cytoplasmic mRNA processing body assembly,12
+0,0,0,0,0,4.93916479104619,0,0,0,0,GO:0034052,positive regulation of plant-type hypersensitive response,8
+0,0,0,5.728061637274704,0,0,0,0,0,0,GO:0034059,response to anoxia,8
+0,0,0,0,0,0,4.362123061057752,0,0,0,GO:0034063,stress granule assembly,9
+0,0,0,0,0,0,0,0,7.328717197815369,0,GO:0034427,"nuclear-transcribed mRNA catabolic process, exonucleolytic, 3'-5'",17
+0,0,0,0,0,0,0,0,7.788214340440253,0,GO:0034475,U4 snRNA 3'-end processing,16
+0,0,0,0,0,0,0,6.483212543755524,0,0,GO:0034497,protein localization to phagophore assembly site,10
+0,5.21052015450914,4.727649774345289,0,0,0,0,0,0,0,GO:0034508,centromere complex assembly,8
+0,0,0,11.643023440343145,0,0,0,0,0,0,GO:0034613,cellular protein localization,9
+0,0,0,0,0,20.421974694654818,0,0,0,0,GO:0034620,cellular response to unfolded protein,17
+0,0,0,0,0,0,0,11.387469073457787,0,0,GO:0035336,long-chain fatty-acyl-CoA metabolic process,8
+0,0,0,0,0,0,0,4.437243307236894,0,0,GO:0040009,regulation of growth rate,6
+0,0,0,0,0,24.092154046559642,0,0,0,0,GO:0042026,protein refolding,54
+0,0,0,0,0,0,0,6.009083731693384,0,0,GO:0042176,regulation of protein catabolic process,7
+0,0,0,12.721203384779285,0,0,0,0,0,0,GO:0042539,hypotonic salinity response,6
+0,0,0,0,0,10.346353747144137,0,0,0,0,GO:0042549,photosystem II stabilization,9
+0,0,0,13.897755439517775,0,0,0,0,0,0,GO:0042753,positive regulation of circadian rhythm,18
+0,0,0,0,0,5.459023346396451,0,0,0,0,GO:0042793,plastid transcription,12
+0,0,0,0,0,6.101301408551738,0,0,0,0,GO:0042823,pyridoxal phosphate biosynthetic process,6
+0,0,0,0,0,0,0,4.506372160833067,0,0,GO:0043266,regulation of potassium ion transport,6
+0,0,0,0,0,0,0,0,0,4.8603406975261825,GO:0044375,regulation of peroxisome size,10
+0,8.128097949604847,0,0,0,0,0,0,0,0,GO:0045038,protein import into chloroplast thylakoid membrane,8
+0,0,0,0,0,0,0,0,6.855120600069225,0,GO:0045116,protein neddylation,12
+0,0,8.575765815199063,0,0,0,0,0,0,0,GO:0045324,late endosome to vacuole transport,26
+0,0,4.6371825673230145,0,0,0,0,0,0,0,GO:0045739,positive regulation of DNA repair,8
+0,4.788059353314023,0,0,0,0,0,0,0,0,GO:0045836,positive regulation of meiotic nuclear division,10
+0,0,0,0,0,0,0,11.25789750061683,0,0,GO:0046900,tetrahydrofolylpolyglutamate metabolic process,6
+0,0,0,0,0,0,4.4227687893652785,0,0,0,GO:0048358,mucilage pectin biosynthetic process,9
+0,0,0,0,0,0,0,0,0,5.2163840694035,GO:0048444,floral organ morphogenesis,9
+0,0,0,5.830849354367632,0,0,0,0,0,0,GO:0048497,maintenance of floral organ identity,6
+0,0,0,5.37784458588641,0,0,0,0,0,0,GO:0050793,regulation of developmental process,8
+0,5.592362586042409,0,0,0,0,0,0,0,0,GO:0051014,actin filament severing,9
+0,0,0,5.6423111585098065,0,0,0,0,0,0,GO:0051127,positive regulation of actin nucleation,6
+0,0,0,0,0,0,5.789218704313469,0,0,0,GO:0051511,negative regulation of unidimensional cell growth,12
+0,0,5.332678675187555,0,0,0,0,0,0,0,GO:0051512,positive regulation of unidimensional cell growth,7
+0,0,5.637965871167144,0,0,0,0,0,0,0,GO:0051604,protein maturation,17
+0,0,0,8.134453607694073,0,0,0,0,0,0,GO:0051973,positive regulation of telomerase activity,6
+0,0,0,0,0,0,0,0,10.366709377921314,0,GO:0052543,callose deposition in cell wall,10
+0,0,0,0,0,0,0,11.149980206280523,0,0,GO:0055069,zinc ion homeostasis,8
+0,0,0,0,0,0,0,7.199283981461611,0,0,GO:0055078,sodium ion homeostasis,6
+0,0,4.572041753705961,0,0,0,0,0,0,0,GO:0055088,lipid homeostasis,14
+0,0,0,0,0,0,0,0,12.004758138939291,0,GO:0060149,negative regulation of posttranscriptional gene silencing,8
+0,0,0,0,0,0,0,5.062845450764004,0,0,GO:0060919,auxin influx,8
+0,0,0,0,0,7.717933966605784,0,0,0,0,GO:0061077,chaperone-mediated protein folding,23
+0,0,5.2802608229607255,0,0,0,0,0,0,0,GO:0061158,3'-UTR-mediated mRNA destabilization,7
+0,0,0,0,0,0,4.575890858115461,0,0,0,GO:0070863,positive regulation of protein exit from endoplasmic reticulum,9
+0,0,0,0,0,0,0,0,8.998158701919271,0,GO:0071035,nuclear polyadenylation-dependent rRNA catabolic process,13
+0,0,0,0,0,0,0,0,4.566600762230435,0,GO:0071038,nuclear polyadenylation-dependent tRNA catabolic process,11
+0,0,0,0,0,0,0,0,9.452144139112939,0,GO:0071051,polyadenylation-dependent snoRNA 3'-end processing,8
+0,0,4.742323414881972,0,0,0,0,0,0,0,GO:0071368,cellular response to cytokinin stimulus,8
+0,0,0,0,29.343581982572132,0,0,0,0,0,GO:0071456,cellular response to hypoxia,26
+0,0,0,0,0,6.102551558290231,0,0,0,0,GO:0071484,cellular response to light intensity,6
+0,0,0,0,0,5.400134632376192,0,0,0,0,GO:0071486,cellular response to high light intensity,7
+0,0,0,0,0,0,0,5.726212456531924,0,0,GO:0071493,cellular response to UV-B,8
+0,0,0,0,0,4.847480880613163,0,0,0,0,GO:0075733,intracellular transport of virus,8
+0,0,0,0,0,0,0,16.057628295243305,0,0,GO:0080003,thalianol metabolic process,6
+0,5.938951475813047,0,0,0,0,0,0,0,0,GO:0080009,mRNA methylation,7
+0,0,0,0,0,0,0,7.232604886691604,0,0,GO:0080144,amino acid homeostasis,6
+0,0,0,0,0,0,0,6.34728756478108,0,0,GO:0080186,developmental vegetative growth,14
+0,6.566276430279852,0,0,0,0,0,0,0,0,GO:0080187,floral organ senescence,11
+0,0,0,0,0,0,0,4.351771204991075,0,0,GO:0090057,root radial pattern formation,10
+0,0,0,4.859875738053026,0,0,0,0,0,0,GO:0090506,axillary shoot meristem initiation,9
+0,0,0,6.157267369383251,0,0,0,0,0,0,GO:0090549,response to carbon starvation,8
+0,0,0,0,0,0,0,0,0,7.369486594103417,GO:1900864,mitochondrial RNA modification,6
+0,0,0,0,0,0,4.7036430719846,0,0,0,GO:1901002,positive regulation of response to salt stress,9
+0,7.524833265631988,0,0,0,5.014881116891333,0,0,0,0,GO:1901259,chloroplast rRNA processing,19
+0,0,0,6.945422415828838,0,0,0,0,0,0,GO:1901703,protein localization involved in auxin polar transport,11
+0,0,0,0,0,0,0,7.121461962704825,0,0,GO:2000652,regulation of secondary cell wall biogenesis,21
+0,0,0,6.75219837768728,0,0,0,0,0,0,GO:2001009,regulation of plant-type cell wall cellulose biosynthetic process,8
+0,0,0,0,0,0,0,0,0,4.325418790346704,GO:2001020,regulation of response to DNA damage stimulus,9
+0,7.029278241798134,0,0,0,0,0,0,0,0,GO:2001295,malonyl-CoA biosynthetic process,6
