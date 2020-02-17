@@ -15,8 +15,6 @@ library('stringr')
 setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero')
 
 wholeDEG <- read_csv('eachGroup_vs_Mock_k_1stadd.csv')
-kmeansRes <- read_csv('kmeans10_1stadd.csv') %>%
-  select(ID, cl)
 
 fcsig <- wholeDEG %>%
   select(ends_with('FoldChange')) %>%
@@ -31,6 +29,7 @@ padjsig <- wholeDEG %>%
 
 sigMat <- (padjsig * fcsig) %>%
   as_tibble %>%
+  setNames(., substring(colnames(.), first = 1, last = nchar(colnames(.)) - 5)) %>%
   bind_cols(wholeDEG %>% select(ID, Length))
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -160,46 +159,104 @@ for (i in cond) {
 ###################################plot###########################
 setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/DEGs')
 
-library('ggplot2')
+library('ComplexHeatmap')
 library('readr')
 library('dplyr')
 library('magrittr')
 library('foreach')
+library('RColorBrewer')
 
-## cln <- 1:10
-## cln <- 10
-## cln <- 1
-cln <- 2
+cond <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/eachGroup_vs_Mock_k_1stadd.csv') %>%
+  select(ends_with('padj')) %>%
+  colnames %>%
+  substring(first = 1, last = nchar(.) - 5)
 
-geneset <- c('BP', 'MF', 'CC', 'KEGG', 'BioCyc')
+pathName <- c('BP', 'MF', 'CC', 'KEGG', 'BioCyc')
 
-for (i in cln) {
-  for (j in geneset) {
-
-    vsGroup <- c('Mock_Flg22_vs_Mock', 'SynCom33_Flg22_vs_Mock', 'SynCom35_Flg22_vs_Mock')
-
-    pathPlot <- foreach(k = seq_along(vsGroup), .combine = bind_rows) %do% {
-      vsGroup[k] %>%
-        {paste0('kmeans10_', ., '_cluster', i, '_', j, '.csv')} %>%
-        read_csv %>%
-        select(Annotation, over_represented_pvalue, numDEInCat, numInCat) %>%
-        rename(pvalue = over_represented_pvalue) %>%
-        mutate(group = vsGroup[k], ratio = numDEInCat / numInCat) %>%
-        filter(pvalue < 0.05 &
-               numDEInCat >= 2)
-    }
-
-    colorPal <- colorRampPalette(rev(c('red', 'yellow', 'cyan', 'blue')), bias=1)(10)
-
-    ggplot(pathPlot, aes(x = group, y = Annotation)) +
-      geom_point(aes(size = ratio, colour = -log10(pvalue))) +
-      scale_colour_gradientn(name = '-log10(P-value)', limits=c(0, max(-log10(pathPlot$pvalue))), colours = colorPal) +
-      ## scale_x_discrete(labels = c('Flg22', 'Flg22+SynCom33', 'Flg22+SynCom35')) +
-      ylab(j) +
-      xlab('') +
-      theme(axis.text.x = element_text(angle = 90, hjust = 1))
-    ggsave(paste0('kmeans10_cluster', i, '_', j, '.pdf'))
-    ggsave(paste0('kmeans10_cluster', i, '_', j, '.jpg'))
-  }
+## up
+gsRes <- foreach (i = seq_along(cond), .combine = inner_join) %do% {
+  paste0(cond[i], '_', 'BP_up.csv') %>%
+    read_csv %>%
+    select(2, 7, 6, 3, 5) %>%
+    rename(!!paste0(cond[i], '_pvalue') := over_represented_pvalue,
+           !!paste0(cond[i], '_in') := numDEInCat,
+           size = numInCat)
 }
+
+gsResP <- gsRes %>%
+  filter(size > 5) %>%
+  select(ends_with('pvalue')) %>%
+  mutate_all(~ifelse(. > 1, 1, .)) %>%
+  mutate_all(~ -log2(.)) %>%
+  mutate_all(~ifelse(is.infinite(.), -log2(1e-10), .)) %>%
+  setNames(., substring(colnames(.), first = 1, last = nchar(colnames(.)) - 7)) %>%
+  {
+    sigIdx <- which(rowSums(.) >= (-log2(0.05))) ## as least 1 sig
+    slice(., sigIdx) %>%
+      bind_cols(gsRes %>%
+              select(category, term) %>%
+              slice(sigIdx))
+  }
+
+ht_list <- Heatmap(matrix = gsResP %>% select(-category, -term),
+                   name = 'BP',
+                   cluster_columns = FALSE,
+                   ## row_order = order(scaleC$cl) %>% rev,
+                   ## row_split = scaleC$cl,
+                   col = colorRampPalette(brewer.pal(n = 5, name = 'Oranges') %>% .[-1:-2] %>% c('white', .))(100),
+                   column_title_gp = gpar(fontsize = 7),
+                   column_names_gp = gpar(fontsize = 5),
+                   use_raster = FALSE)
+
+filePrefix <- 'DEGs_BP_up'
+
+pdf(paste0(filePrefix, '.pdf'))
+draw(ht_list)
+dev.off()
+
+system(paste0('convert -density 1200 ', paste0(filePrefix, '.pdf'), ' ', paste0(filePrefix, '.jpg')))
+
+
+## down
+gsRes <- foreach (i = seq_along(cond), .combine = inner_join) %do% {
+  paste0(cond[i], '_', 'BP_down.csv') %>%
+    read_csv %>%
+    select(2, 7, 6, 3, 5) %>%
+    rename(!!paste0(cond[i], '_pvalue') := over_represented_pvalue,
+           !!paste0(cond[i], '_in') := numDEInCat,
+           size = numInCat)
+}
+
+gsResP <- gsRes %>%
+  filter(size > 5) %>%
+  select(ends_with('pvalue')) %>%
+  mutate_all(~ifelse(. > 1, 1, .)) %>%
+  mutate_all(~ -log2(.)) %>%
+  mutate_all(~ifelse(is.infinite(.), -log2(1e-10), .)) %>%
+  setNames(., substring(colnames(.), first = 1, last = nchar(colnames(.)) - 7)) %>%
+  {
+    sigIdx <- which(rowSums(.) >= (-log2(0.05))) ## as least 1 sig
+    slice(., sigIdx) %>%
+      bind_cols(gsRes %>%
+              select(category, term) %>%
+              slice(sigIdx))
+  }
+
+ht_list <- Heatmap(matrix = gsResP %>% select(-category, -term),
+                   name = 'BP',
+                   cluster_columns = FALSE,
+                   ## row_order = order(scaleC$cl) %>% rev,
+                   ## row_split = scaleC$cl,
+                   col = colorRampPalette(brewer.pal(n = 6, name = 'PuBu') %>% .[-1:-3] %>% c('white', .))(100),
+                   column_title_gp = gpar(fontsize = 7),
+                   column_names_gp = gpar(fontsize = 5),
+                   use_raster = FALSE)
+
+filePrefix <- 'DEGs_BP_down'
+
+pdf(paste0(filePrefix, '.pdf'))
+draw(ht_list)
+dev.off()
+
+system(paste0('convert -density 1200 ', paste0(filePrefix, '.pdf'), ' ', paste0(filePrefix, '.jpg')))
 ##################################################################
