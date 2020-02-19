@@ -115,7 +115,7 @@ for (i in kmeansRes$cl %>% unique) {
 ##~~~~~~~~~~~~~~~~~~~whole cluster gene-set with background~~~~~~~~~~
 for (i in kmeansRes$cl %>% unique) {
 
-  prefix <- 'kmeans_10_1stadd'
+  prefix <- 'kmeans10_1stadd'
 
   eachRes <- kmeansRes %>%
     filter(cl == i) %>%
@@ -177,11 +177,9 @@ for (i in kmeansRes$cl %>% unique) {
 setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/fullbc')
 
 library('ComplexHeatmap')
-library('readr')
-library('dplyr')
-library('magrittr')
 library('foreach')
 library('RColorBrewer')
+library('tidyverse')
 
 cond <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/kmeans10_1stadd.csv',
                  col_types = cols(Chromosome = col_character())) %>%
@@ -192,7 +190,7 @@ cond <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/kmean
 
 pathName <- c('BP', 'MF', 'CC', 'KEGG', 'BioCyc')
 
-gsRes <- foreach (i = seq_along(cond), .combine = inner_join) %do% {
+gsRes <- foreach (i = seq_along(cond), .combine = full_join) %do% {
   paste0('kmeans10_1stadd_', cond[i], '_', 'BP.csv') %>%
     read_csv %>%
     select(2, 7, 6, 3, 5) %>%
@@ -204,7 +202,8 @@ gsRes <- foreach (i = seq_along(cond), .combine = inner_join) %do% {
 
 gsResP <- gsRes %>%
   select(ends_with('pvalue')) %>%
-  mutate_all(~ifelse(. > 1, 1, .)) %>%
+  mutate_all(~ifelse(is.na(.), 1, .)) %>% ## remove NA
+  mutate_all(~ifelse(. > 1, 1, .)) %>% ## remove >1
   mutate_all(~ -log2(.)) %>%
   mutate_all(~ifelse(is.infinite(.), -log2(1e-10), .)) %>%
   mutate_all(~ifelse(. < -log2(0.05), 0, .)) %>%
@@ -240,3 +239,81 @@ system(paste0('convert -density 1200 ', paste0(filePrefix, '.pdf'), ' ', paste0(
 write_csv(gsResP, 'kmeans10_1stadd_BP.csv')
 ####################################################################
 
+###############################cluster profiler#####################
+library('org.At.tair.db')
+library('clusterProfiler')
+library('magrittr')
+library('tidyverse')
+
+savepath <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/clusterbc'
+
+setwd(savepath)
+
+kmeansRes <- read_csv('../../kmeans10_1stadd_sig.csv',
+                      col_types = cols(Chromosome = col_character()))
+kmeansBkg <- read_csv('../../kmeans10_1stadd.csv',
+                      col_types = cols(Chromosome = col_character()))
+prefix <- 'kmeans10'
+
+for (i in kmeansRes$cl %>% unique) {
+
+  ## BP
+  goBP <- enrichGO(gene = kmeansRes %>% filter(cl == i) %>% .$ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[[', 1) %>% unlist %>% unique,
+                   OrgDb = 'org.At.tair.db',
+                   keyType= 'TAIR',
+                   ont = 'BP',
+                   universe = keys(org.At.tair.db),
+                   pAdjustMethod = 'BH',
+                   pvalueCutoff=0.01,
+                   qvalueCutoff=0.01)
+
+
+  goBPSim <- clusterProfiler::simplify(goBP,
+                                       cutoff = 0.5,
+                                       by = 'p.adjust',
+                                       select_fun = min)
+  ## check and plot
+  write.csv(as.data.frame(goBPSim),
+            paste0(prefix, '_cluster', i, '_cp_BP.csv') %>% file.path(savepath, .))
+
+  ## KEGG
+  kk2 <- enrichKEGG(gene = kmeansRes %>% filter(cl == i) %>% .$ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[[', 1) %>% unlist %>% unique,
+                    organism = 'ath',
+                    pvalueCutoff = 0.05)
+
+  write.csv(as.data.frame(kk2),
+            paste0(prefix, '_cluster', i, '_cp_KEGG.csv') %>% file.path(savepath, .))
+ }
+#######################################################################
+
+###############################metacape################################
+library('foreach')
+library('tidyverse')
+library('magrittr')
+
+setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/clusterbc/')
+
+kcluster <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/kmeans10_1stadd_sig.csv')
+
+clusterSeq <- kcluster$cl %>% unique %>% seq_along
+kall <- foreach (i = clusterSeq) %do% {
+
+  eachTrans <- kcluster %>%
+    filter(cl == i) %>%
+    .$ID
+
+  return(eachTrans)
+}
+
+maxLen <- sapply(kall, length) %>% max
+
+kall %<>% lapply(function(x) {
+  x %<>% c(., rep('', maxLen - length(x)))
+  return(x)
+}) %>%
+  do.call(cbind, .) %>%
+  set_colnames(paste0('cluster', clusterSeq))
+
+write_csv(kall %>% as_tibble %>% select(-cluster9:-cluster10), 'kmeans10_1stadd_1to8_sig_metascape.csv')
+write_csv(kcluster %>% select(ID), 'kall_bkg.csv')
+#######################################################################

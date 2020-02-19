@@ -1,1 +1,219 @@
 cluster1,cluster2,cluster3,cluster4,cluster5,cluster6,cluster7,cluster8,cluster9,cluster10,category,term,size
+23.133389889962352,0,0,0,0,0,0,0,0,0,GO:0006468,protein phosphorylation,145
+19.005029948358136,0,0,0,0,0,0,0,0,0,GO:0009664,plant-type cell wall organization,20
+14.089298009480743,0,0,0,0,0,0,0,0,0,GO:0006952,defense response,119
+12.116094486454514,0,0,0,0,0,0,0,0,0,GO:0042744,hydrogen peroxide catabolic process,25
+8.698812116517768,0,0,0,0,0,0,0,0,0,GO:0016310,phosphorylation,84
+7.241845648004764,0,0,0,0,0,0,0,0,0,GO:0048544,recognition of pollen,6
+6.958983843962784,0,0,0,0,0,0,0,0,0,GO:0009617,response to bacterium,21
+6.345664562344324,0,0,0,0,0,0,0,0,0,GO:0071555,cell wall organization,45
+6.3391192108964995,0,0,0,0,0,0,0,0,0,GO:0009826,unidimensional cell growth,21
+6.291411841268224,0,0,0,0,0,0,0,0,0,GO:0048765,root hair cell differentiation,9
+6.2136890158017115,0,0,0,0,0,0,0,0,0,GO:0007169,transmembrane receptor protein tyrosine kinase signaling pathway,22
+6.074853306502696,0,0,0,0,0,0,0,0,0,GO:0010200,response to chitin,18
+5.829117070714003,0,0,0,0,0,0,0,0,0,GO:0007275,multicellular organism development,40
+5.651709068778203,0,0,0,0,0,0,0,0,0,GO:0003333,amino acid transmembrane transport,9
+5.598101352296876,0,0,0,0,0,0,0,0,0,GO:0045490,pectin catabolic process,9
+5.460765635617437,0,0,0,0,0,0,0,0,0,GO:0016042,lipid catabolic process,14
+5.455423884502482,0,0,0,0,0,0,0,0,0,GO:0002237,response to molecule of bacterial origin,7
+5.158067504468276,0,0,0,0,0,0,0,0,0,GO:0055114,oxidation-reduction process,162
+4.728487783108427,0,0,0,0,0,0,0,0,0,GO:0048767,root hair elongation,17
+4.526541833494365,0,0,0,0,0,0,0,0,0,GO:0042545,cell wall modification,8
+4.344895920625903,0,0,0,0,0,0,0,0,0,GO:0010053,root epidermal cell differentiation,6
+0,0,0,0,0,10.950914396082187,0,0,0,0,GO:0000079,regulation of cyclin-dependent protein serine/threonine kinase activity,6
+0,0,0,0,0,6.360193185672774,0,0,0,0,GO:0009561,megagametogenesis,6
+0,25.73070323066216,0,0,0,0,0,0,0,0,GO:0009651,response to salt stress,51
+0,23.77836129618543,0,0,0,0,0,0,0,0,GO:0006833,water transport,11
+0,19.786465938970657,0,0,0,0,0,0,0,0,GO:0009414,response to water deprivation,32
+0,17.262592132205167,0,0,0,0,0,0,0,0,GO:0055085,transmembrane transport,41
+0,17.048804084020617,0,0,0,0,0,0,0,0,GO:0055114,oxidation-reduction process,123
+0,11.427344842542647,0,0,0,0,0,0,0,0,GO:0009737,response to abscisic acid,58
+0,8.393906906925809,0,0,0,0,0,0,0,0,GO:0009733,response to auxin,32
+0,7.889591365370727,0,0,0,0,0,0,0,0,GO:0009826,unidimensional cell growth,14
+0,6.864531457988142,0,0,0,0,0,0,0,0,GO:0006979,response to oxidative stress,23
+0,6.430107158784393,0,0,0,0,0,0,0,10.676994999640918,GO:0042744,hydrogen peroxide catabolic process,8
+0,5.960284049667589,0,0,0,0,0,0,0,0,GO:0009409,response to cold,34
+0,5.32649535986948,0,0,0,0,0,0,0,0,GO:0009416,response to light stimulus,22
+0,5.1392196403769,0,0,0,0,0,5.031278304179383,0,0,GO:0006869,lipid transport,16
+0,4.479384343029104,9.400712242918248,0,0,0,0,0,0,6.741870869813776,GO:0045490,pectin catabolic process,7
+0,0,0,5.704242054200649,0,0,0,0,0,0,GO:0042545,cell wall modification,6
+0,0,0,0,0,0,0,0,4.982890816709269,0,GO:0009058,biosynthetic process,11
+0,0,16.262293580583346,0,0,0,0,0,0,0,GO:0019438,aromatic compound biosynthetic process,6
+0,0,13.929093783134029,0,0,0,0,0,0,0,GO:0006952,defense response,96
+0,0,11.713074409504722,0,0,0,0,0,0,0,GO:0009611,response to wounding,38
+0,0,10.021439955692408,0,0,0,0,0,0,0,GO:0002229,defense response to oomycetes,9
+0,0,9.708602499462677,0,0,0,0,0,0,0,GO:0006749,glutathione metabolic process,11
+0,0,9.363658623372944,0,0,0,0,0,0,0,GO:0010200,response to chitin,27
+0,0,9.112960374686509,0,0,0,0,0,0,0,GO:0009407,toxin catabolic process,12
+0,0,7.941192562421042,0,0,0,0,0,0,0,GO:0009733,response to auxin,28
+0,0,6.928202210908715,0,0,0,0,0,0,0,GO:0006979,response to oxidative stress,41
+0,0,6.806249634401795,0,0,0,0,0,0,0,GO:0009651,response to salt stress,71
+0,0,6.789678176136767,0,0,0,0,0,0,0,GO:0042742,defense response to bacterium,59
+0,0,6.779679298822007,0,0,0,0,0,0,0,GO:0050832,defense response to fungus,35
+0,0,6.773024133067578,0,0,0,0,0,0,0,GO:0048316,seed development,10
+0,0,6.566116802990338,0,0,0,0,0,0,0,GO:0006812,cation transport,7
+0,0,6.382799041544846,0,0,0,0,0,0,0,GO:0055114,oxidation-reduction process,103
+0,0,6.24131259792373,0,0,0,0,0,0,0,GO:0030154,cell differentiation,23
+0,0,6.1723978122678265,0,0,0,0,0,0,0,GO:0071555,cell wall organization,23
+0,0,5.804533255425639,0,0,0,0,0,0,0,GO:0009617,response to bacterium,23
+0,0,5.796843154915208,0,0,0,0,0,0,0,GO:0040008,regulation of growth,11
+0,0,5.532686037075337,0,0,0,0,0,0,0,GO:0045944,positive regulation of transcription by RNA polymerase II,15
+0,0,5.231850502415959,0,0,0,0,0,0,0,GO:0009723,response to ethylene,20
+0,0,5.213364620127475,0,0,0,0,0,0,0,GO:0009620,response to fungus,19
+0,0,5.206678104843761,0,0,0,0,0,0,0,GO:0016051,carbohydrate biosynthetic process,6
+0,0,5.148898638694122,0,0,0,0,0,0,0,GO:0009753,response to jasmonic acid,28
+0,0,4.985177087423948,0,0,0,0,0,0,0,GO:0045893,"positive regulation of transcription, DNA-templated",26
+0,0,4.794295412634138,0,0,0,0,0,0,0,GO:0032259,methylation,33
+0,0,4.79282876721377,0,0,0,0,0,0,0,GO:0016042,lipid catabolic process,13
+0,0,4.560240608826997,0,0,0,0,0,0,0,GO:0051603,proteolysis involved in cellular protein catabolic process,10
+0,0,4.419287821983428,0,0,0,0,0,0,0,GO:0080167,response to karrikin,13
+0,0,4.403491432556996,0,0,0,0,0,0,0,GO:0009414,response to water deprivation,45
+0,0,4.374423415343979,0,0,0,0,0,0,0,GO:0009817,"defense response to fungus, incompatible interaction",16
+0,0,0,8.235949456290955,0,0,0,0,0,0,GO:2000022,regulation of jasmonic acid mediated signaling pathway,7
+0,0,0,9.499338657839585,0,0,4.56271872553015,0,0,0,GO:0006629,lipid metabolic process,14
+0,0,0,14.875984548216016,0,0,0,0,0,0,GO:0080167,response to karrikin,29
+0,0,0,13.87653084097691,0,0,0,0,0,0,GO:0009617,response to bacterium,10
+0,0,0,13.471741464191494,0,0,0,0,0,0,GO:0006952,defense response,87
+0,0,0,12.165787525361816,0,0,0,0,0,0,GO:0009751,response to salicylic acid,33
+0,0,0,12.116758276096473,0,0,0,0,0,0,GO:0009723,response to ethylene,33
+0,0,0,12.02474151782089,0,0,0,0,0,0,GO:0009626,plant-type hypersensitive response,16
+0,0,0,9.97633358242168,0,0,0,0,0,0,GO:0009733,response to auxin,58
+0,0,0,9.236261834490664,0,0,0,0,0,0,GO:0010114,response to red light,13
+0,0,0,8.377485938053967,0,0,0,0,0,0,GO:0009753,response to jasmonic acid,23
+0,0,0,8.31891289161451,0,0,0,0,0,0,GO:0050832,defense response to fungus,43
+0,0,0,7.868560698577227,0,0,0,0,0,0,GO:0031640,killing of cells of other organism,12
+0,0,0,7.48702255057566,0,0,0,0,0,0,GO:0001666,response to hypoxia,13
+0,0,0,7.380552716605721,0,0,0,0,0,0,GO:0016042,lipid catabolic process,20
+0,0,0,7.122167420779694,0,0,0,0,0,0,GO:0031347,regulation of defense response,8
+0,0,0,7.040047556137607,0,0,0,0,0,0,GO:0071555,cell wall organization,37
+0,0,0,7.011694600060944,0,0,0,0,0,0,GO:0006468,protein phosphorylation,152
+0,0,0,6.988570531719451,0,0,0,0,0,0,GO:0009814,"defense response, incompatible interaction",8
+0,0,0,6.977804075903071,0,0,0,0,0,0,GO:0042742,defense response to bacterium,49
+0,0,0,6.937112105533222,0,0,0,0,0,0,GO:0010017,red or far-red light signaling pathway,13
+0,0,0,6.936907279605871,0,0,0,0,0,0,GO:0009833,plant-type primary cell wall biogenesis,6
+0,0,0,6.898095981921662,0,0,0,0,0,0,GO:0010105,negative regulation of ethylene-activated signaling pathway,6
+0,0,0,6.549905125699498,0,0,0,0,0,0,GO:0006817,phosphate ion transport,9
+0,0,0,6.5147759800202545,0,0,0,0,0,0,GO:0009624,response to nematode,9
+0,0,0,6.421270948364386,0,0,0,0,0,0,GO:0055114,oxidation-reduction process,175
+0,0,0,6.1861329087849946,0,0,0,0,0,0,GO:0009736,cytokinin-activated signaling pathway,14
+0,0,0,5.991114417222562,0,0,0,0,0,0,GO:0016310,phosphorylation,76
+0,0,0,5.907999157288353,5.179284548395965,0,4.917522231491864,0,0,0,GO:0009627,systemic acquired resistance,6
+0,0,0,5.498173064219871,0,0,0,0,0,0,GO:0051707,response to other organism,9
+0,0,0,5.469429497209707,0,0,0,0,0,0,GO:0010311,lateral root formation,13
+0,0,0,5.451366253614328,0,0,0,0,0,0,GO:0009825,multidimensional cell growth,11
+0,0,0,5.209864158259149,0,0,0,0,0,0,GO:0009625,response to insect,6
+0,0,0,5.060213665669513,0,0,0,0,0,0,GO:0009958,positive gravitropism,10
+0,0,0,4.825040708753248,0,0,0,0,0,0,GO:0009739,response to gibberellin,20
+0,0,0,4.751073204533408,0,0,0,0,0,0,GO:0009873,ethylene-activated signaling pathway,34
+0,0,0,4.744422664891814,0,0,0,0,0,0,GO:0006857,oligopeptide transport,8
+0,0,0,4.70775590954013,0,0,0,0,0,0,GO:0042753,positive regulation of circadian rhythm,10
+0,0,0,4.623027356992523,0,0,0,0,0,0,GO:0009809,lignin biosynthetic process,11
+0,0,0,4.597527284624553,0,0,0,0,0,0,GO:0009646,response to absence of light,10
+0,0,0,4.576709488510174,0,0,0,0,0,0,GO:0042752,regulation of circadian rhythm,11
+0,0,0,4.4506081352344316,0,0,0,0,0,0,GO:0030244,cellulose biosynthetic process,9
+0,0,0,0,0,6.917703136076386,0,0,0,0,GO:0009615,response to virus,6
+0,0,0,0,27.827174916054613,0,0,0,0,0,GO:0006952,defense response,83
+0,0,0,0,26.097555575282026,0,0,0,0,0,GO:0009617,response to bacterium,24
+0,0,0,0,25.447011093336652,0,0,0,0,0,GO:0071456,cellular response to hypoxia,14
+0,0,0,0,17.13121855463249,0,0,0,0,0,GO:0007165,signal transduction,49
+0,0,0,0,16.014624310837544,0,0,0,0,0,GO:0055114,oxidation-reduction process,96
+0,0,0,0,15.437748173701964,0,0,0,0,0,GO:0050832,defense response to fungus,21
+0,0,0,0,13.45133543150414,0,0,0,0,0,GO:0042742,defense response to bacterium,44
+0,0,0,0,11.216697074551725,0,0,0,0,0,GO:0002229,defense response to oomycetes,8
+0,0,0,0,9.480763588784134,0,0,0,0,0,GO:0009693,ethylene biosynthetic process,6
+0,0,0,0,8.007659512474856,0,0,0,0,0,GO:0009851,auxin biosynthetic process,7
+0,0,0,0,7.988699314358114,0,0,0,0,0,GO:0071281,cellular response to iron ion,11
+0,0,0,0,6.676168764340325,0,0,0,0,0,GO:0006468,protein phosphorylation,113
+0,0,0,0,6.548159403814109,0,0,0,0,0,GO:0010200,response to chitin,19
+0,0,0,0,5.347939598957266,0,0,0,0,0,GO:0009817,"defense response to fungus, incompatible interaction",7
+0,0,0,0,5.33514291327866,0,0,0,0,0,GO:0071732,cellular response to nitric oxide,6
+0,0,0,0,4.561177759550394,0,0,0,0,0,GO:0009751,response to salicylic acid,12
+0,0,0,0,4.434461939715357,0,0,0,0,0,GO:0006508,proteolysis,34
+0,0,0,0,0,33.36504983755656,0,0,0,0,GO:0009408,response to heat,50
+0,0,0,0,0,29.733455691363286,0,0,0,0,GO:0015979,photosynthesis,41
+0,0,0,0,0,23.973276146238597,0,0,0,0,GO:0009644,response to high light intensity,22
+0,0,0,0,0,20.884705185665748,0,0,0,0,GO:0034605,cellular response to heat,18
+0,0,0,0,0,17.45772804314697,0,0,0,0,GO:0009767,photosynthetic electron transport chain,8
+0,0,0,0,0,15.506054635551651,0,0,0,0,GO:0042542,response to hydrogen peroxide,11
+0,0,0,0,0,13.952367274689234,0,0,0,0,GO:0006457,protein folding,57
+0,0,0,0,0,11.39312642067389,0,0,0,0,GO:0009651,response to salt stress,78
+0,0,0,0,0,10.970517462232879,0,0,0,0,GO:0010200,response to chitin,9
+0,0,0,0,0,9.458199062472486,0,0,0,0,GO:0009768,"photosynthesis, light harvesting in photosystem I",12
+0,0,0,0,0,8.853597368595382,0,0,0,0,GO:0042026,protein refolding,20
+0,0,0,0,0,8.72366456558982,0,0,0,0,GO:0034620,cellular response to unfolded protein,10
+0,0,0,0,0,8.566761751717792,0,0,0,0,GO:0010196,nonphotochemical quenching,6
+0,0,0,0,0,8.150769806657255,0,0,0,0,GO:0009626,plant-type hypersensitive response,8
+0,0,0,0,0,7.823038331108742,0,0,0,0,GO:0051726,regulation of cell cycle,13
+0,0,0,0,0,7.580044856477947,0,0,0,0,GO:0010286,heat acclimation,20
+0,0,0,0,0,7.45269635132485,0,0,0,0,GO:0080167,response to karrikin,18
+0,0,0,0,0,6.511366481936138,0,0,0,0,GO:0009416,response to light stimulus,34
+0,0,0,0,0,6.478369312981033,0,0,0,0,GO:0009414,response to water deprivation,46
+0,0,0,0,0,6.4013680858412325,0,0,0,0,GO:0055114,oxidation-reduction process,130
+0,0,0,0,0,6.128652479186673,0,0,0,0,GO:0006986,response to unfolded protein,10
+0,0,0,0,0,5.8418113307457435,0,0,0,0,GO:0061077,chaperone-mediated protein folding,7
+0,0,0,0,0,5.554315168601154,0,0,0,0,GO:0015995,chlorophyll biosynthetic process,13
+0,0,0,0,0,5.486766571940389,0,0,0,0,GO:0000302,response to reactive oxygen species,9
+0,0,0,0,0,5.467614084705035,0,0,0,0,GO:0051085,chaperone cofactor-dependent protein refolding,18
+0,0,0,0,0,5.425173784725639,0,0,0,0,GO:0018298,protein-chromophore linkage,18
+0,0,0,0,0,4.472082559332063,0,0,0,0,GO:0045787,positive regulation of cell cycle,6
+0,0,0,0,0,4.453813681745268,0,0,0,0,GO:0009735,response to cytokinin,44
+0,0,0,0,0,0,4.861621375028784,0,0,0,GO:0030001,metal ion transport,11
+0,0,0,0,0,0,12.950108728325816,0,0,0,GO:0055114,oxidation-reduction process,99
+0,0,0,0,0,0,8.930219093004949,0,0,0,GO:0009834,plant-type secondary cell wall biogenesis,18
+0,0,0,0,0,0,7.943675483618601,0,0,0,GO:0009753,response to jasmonic acid,12
+0,0,0,0,0,0,4.65914713570987,0,0,0,GO:0071555,cell wall organization,40
+0,0,0,0,0,0,4.504052194635161,0,0,0,GO:0006833,water transport,8
+0,0,0,0,0,0,0,28.311844507033523,0,0,GO:0055114,oxidation-reduction process,275
+0,0,0,0,0,0,0,20.8394324050114,0,0,GO:0055085,transmembrane transport,73
+0,0,0,0,0,0,0,18.014716916855544,0,0,GO:0009834,plant-type secondary cell wall biogenesis,14
+0,0,0,0,0,0,0,17.458311583085763,0,0,GO:0009414,response to water deprivation,90
+0,0,0,0,0,0,0,15.761336400492121,0,0,GO:0010345,suberin biosynthetic process,13
+0,0,0,0,0,0,0,12.918956351365324,0,0,GO:0046274,lignin catabolic process,7
+0,0,0,0,0,0,0,11.434636416218257,0,0,GO:0006857,oligopeptide transport,16
+0,0,0,0,0,0,0,11.098397141318943,0,0,GO:0009611,response to wounding,53
+0,0,0,0,0,0,0,9.975809080593146,0,0,GO:0045490,pectin catabolic process,16
+0,0,0,0,0,0,0,9.928837306798833,0,0,GO:0006979,response to oxidative stress,76
+0,0,0,0,0,0,0,8.882167922414101,0,0,GO:0019762,glucosinolate catabolic process,9
+0,0,0,0,0,0,0,8.369698722190025,0,0,GO:0005975,carbohydrate metabolic process,71
+0,0,0,0,0,0,0,8.179190084639343,0,0,GO:0009926,auxin polar transport,13
+0,0,0,0,0,0,0,7.89615514396393,0,0,GO:0009636,response to toxic substance,9
+0,0,0,0,0,0,0,7.452704907230128,0,0,GO:0042545,cell wall modification,11
+0,0,0,0,0,0,0,7.113638756179586,0,0,GO:0010540,basipetal auxin transport,12
+0,0,0,0,0,0,0,6.878819361550046,0,0,GO:0080167,response to karrikin,27
+0,0,0,0,0,0,0,6.684642538964633,0,0,GO:0009408,response to heat,40
+0,0,0,0,0,0,0,6.620943680848059,0,0,GO:0010200,response to chitin,28
+0,0,0,0,0,0,0,6.587649846227292,0,0,GO:0010311,lateral root formation,18
+0,0,0,0,0,0,0,6.502854556841845,0,0,GO:0005985,sucrose metabolic process,7
+0,0,0,0,0,0,0,6.463150224539263,0,0,GO:0009737,response to abscisic acid,94
+0,0,0,0,0,0,0,6.284778013611691,0,0,GO:0031408,oxylipin biosynthetic process,11
+0,0,0,0,0,0,0,6.145113204698804,0,0,GO:0006749,glutathione metabolic process,21
+0,0,0,0,0,0,0,6.09364892554719,0,0,GO:0006817,phosphate ion transport,7
+0,0,0,0,0,0,0,6.023455244959444,0,0,GO:2000652,regulation of secondary cell wall biogenesis,8
+0,0,0,0,0,0,0,6.006347152901754,0,0,GO:0006952,defense response,106
+0,0,0,0,0,0,0,5.871222196722867,0,0,GO:0043086,negative regulation of catalytic activity,7
+0,0,0,0,0,0,0,5.866349291054708,0,0,GO:0009809,lignin biosynthetic process,13
+0,0,0,0,0,0,0,5.850476434941364,0,0,GO:0006855,drug transmembrane transport,24
+0,0,0,0,0,0,0,5.688545436144129,0,0,GO:0009624,response to nematode,20
+0,0,0,0,0,0,0,5.687820786612575,0,0,GO:0005982,starch metabolic process,9
+0,0,0,0,0,0,0,5.658194220637248,0,0,GO:0009738,abscisic acid-activated signaling pathway,40
+0,0,0,0,0,0,0,5.58790342380468,0,0,GO:0071555,cell wall organization,42
+0,0,0,0,0,0,0,5.535386267265295,0,0,GO:0010315,auxin efflux,6
+0,0,0,0,0,0,0,5.485043071325158,0,0,GO:0009753,response to jasmonic acid,44
+0,0,0,0,0,0,0,5.476469183832705,0,0,GO:0042744,hydrogen peroxide catabolic process,22
+0,0,0,0,0,0,0,5.361721417515685,0,0,GO:0009630,gravitropism,11
+0,0,0,0,0,0,0,5.086910333421019,0,0,GO:0035336,long-chain fatty-acyl-CoA metabolic process,6
+0,0,0,0,0,0,0,5.050666949280337,0,0,GO:0009644,response to high light intensity,19
+0,0,0,0,0,0,0,4.787648024334647,0,0,GO:0098869,cellular oxidant detoxification,6
+0,0,0,0,0,0,0,4.6645382629755465,0,0,GO:0009651,response to salt stress,136
+0,0,0,0,0,0,0,4.640727732929051,0,0,GO:0009407,toxin catabolic process,18
+0,0,0,0,0,0,0,4.632622639480993,0,0,GO:0009828,plant-type cell wall loosening,11
+0,0,0,0,0,0,0,4.59883512191425,0,0,GO:0016036,cellular response to phosphate starvation,26
+0,0,0,0,0,0,0,4.531232936925075,0,0,GO:0030001,metal ion transport,20
+0,0,0,0,0,0,0,4.384034563509229,0,0,GO:0042542,response to hydrogen peroxide,24
+0,0,0,0,0,0,0,0,5.8841685671405735,0,GO:0016042,lipid catabolic process,8
+0,0,0,0,0,0,0,0,4.525994487699213,0,GO:0046777,protein autophosphorylation,13
+0,0,0,0,0,0,0,0,0,6.019617677013511,GO:0006979,response to oxidative stress,24
+0,0,0,0,0,0,0,0,0,13.822539001953801,GO:0019761,glucosinolate biosynthetic process,11
+0,0,0,0,0,0,0,0,0,12.24455224222198,GO:0009098,leucine biosynthetic process,6
+0,0,0,0,0,0,0,0,0,7.179070386166089,GO:0055114,oxidation-reduction process,102
+0,0,0,0,0,0,0,0,0,4.442850886002529,GO:0009611,response to wounding,16

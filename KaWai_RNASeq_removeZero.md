@@ -6,7 +6,7 @@
     - [1.1 Alignment](#11-alignment)
     - [1.2 DEGs](#12-degs)
     - [1.3 Gene-set](#13-gene-set)
-- [2. Col0 flowpot plate](#2-col0-flowpot-plate)
+- [2. Col0 agar plate](#2-col0-agar-plate)
     - [2.1 Alignment](#21-alignment)
     - [2.2 DEGs](#22-degs)
     - [2.3 Gene-set](#23-gene-set)
@@ -91,7 +91,7 @@ DEGs threshold: `|log2FC| > log2(1.5)` and `adj-pvalue < 0.05`
 
 [GO analysis](results/removeZero/geneset_1stadd)
 
-## 2. Col0 flowpot plate
+## 2. Col0 agar plate
 
 ### 2.1 Alignment
 
