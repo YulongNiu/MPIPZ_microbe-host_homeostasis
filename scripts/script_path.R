@@ -280,6 +280,81 @@ for (i in vsGroup) {
 ##############################################################
 
 
+###############################cluster profiler#####################
+library('org.At.tair.db')
+library('clusterProfiler')
+library('magrittr')
+library('tidyverse')
+
+savepath <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset/fullbc'
+
+setwd(savepath)
+
+kmeansRes <- read_csv('../../kmeans10_sig.csv',
+                      col_types = cols(Chromosome = col_character()))
+kmeansBkg <- read_csv('../../kmeans10.csv',
+                      col_types = cols(Chromosome = col_character()))
+prefix <- 'kmeans10'
+
+for (i in kmeansRes$cl %>% unique) {
+
+  ## BP
+  goBP <- enrichGO(gene = kmeansRes %>% filter(cl == i) %>% .$ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[[', 1) %>% unlist %>% unique,
+                   OrgDb = 'org.At.tair.db',
+                   keyType= 'TAIR',
+                   ont = 'BP',
+                   universe = keys(org.At.tair.db),
+                   pAdjustMethod = 'BH',
+                   pvalueCutoff=0.01,
+                   qvalueCutoff=0.01)
+
+
+  goBPSim <- clusterProfiler::simplify(goBP,
+                                       cutoff = 0.5,
+                                       by = 'p.adjust',
+                                       select_fun = min)
+  ## check and plot
+  write.csv(as.data.frame(goBPSim),
+            paste0(prefix, '_cluster', i, '_cp_BP.csv') %>% file.path(savepath, .))
+
+  ## KEGG
+  kk2 <- enrichKEGG(gene = kmeansRes %>% filter(cl == i) %>% .$ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[[', 1) %>% unlist %>% unique,
+                    organism = 'ath',
+                    pvalueCutoff = 0.05)
+
+  write.csv(as.data.frame(kk2),
+            paste0(prefix, '_cluster', i, '_cp_KEGG.csv') %>% file.path(savepath, .))
+}
+
+kall <- lapply(kmeansBkg$cl %>% unique, function(x) {
+
+  eachG <- kmeansBkg %>% filter(cl == x) %>% .$ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[[', 1) %>% unlist %>% unique
+
+  return(eachG)
+
+}) %>%
+  set_names(kmeansBkg$cl %>% unique %>% paste0('cluster', .))
+
+kallGOBP <- compareCluster(geneCluster = kall,
+                           fun = 'enrichGO',
+                           OrgDb = 'org.At.tair.db',
+                           keyType= 'TAIR',
+                           ont = 'BP',
+                           universe = keys(org.At.tair.db),
+                           pAdjustMethod = 'BH',
+                           pvalueCutoff=0.01,
+                           qvalueCutoff=0.01)
+
+pdf('kmeans10_cp_BP.pdf', width = 13)
+dotplot(kallGOBP)
+dev.off()
+
+kallKEGG <- compareCluster(geneCluster = kall,
+                           fun = 'enrichKEGG',
+                           organism = 'ath',
+                           pvalueCutoff = 0.05)
+#######################################################################
+
 ###################################plot###########################
 setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/pathway_35up')
 
