@@ -245,7 +245,7 @@ library('clusterProfiler')
 library('magrittr')
 library('tidyverse')
 
-savepath <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/fullbc'
+savepath <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/clusterbc'
 
 setwd(savepath)
 
@@ -264,8 +264,8 @@ for (i in kmeansRes$cl %>% unique) {
                    ont = 'BP',
                    universe = keys(org.At.tair.db),
                    pAdjustMethod = 'BH',
-                   pvalueCutoff=0.01,
-                   qvalueCutoff=0.01)
+                   pvalueCutoff = 0.05,
+                   qvalueCutoff = 0.1)
 
 
   goBPSim <- clusterProfiler::simplify(goBP,
@@ -285,15 +285,14 @@ for (i in kmeansRes$cl %>% unique) {
             paste0(prefix, '_cluster', i, '_cp_KEGG.csv') %>% file.path(savepath, .))
 }
 
+kall <- lapply(kmeansRes$cl %>% unique %>% .[!(. %in% c(9, 10))], function(x) {
 
-kall <- lapply(kmeansBkg$cl %>% unique, function(x) {
-
-  eachG <- kmeansBkg %>% filter(cl == x) %>% .$ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[[', 1) %>% unlist %>% unique
+  eachG <- kmeansRes %>% filter(cl == x) %>% .$ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[[', 1) %>% unlist %>% unique
 
   return(eachG)
 
 }) %>%
-  set_names(kmeansBkg$cl %>% unique %>% paste0('cluster', .))
+  set_names(kmeansRes$cl %>% unique %>% .[!(. %in% c(9, 10))] %>% paste0('cluster', .))
 
 kallGOBP <- compareCluster(geneCluster = kall,
                            fun = 'enrichGO',
@@ -303,16 +302,31 @@ kallGOBP <- compareCluster(geneCluster = kall,
                            universe = keys(org.At.tair.db),
                            pAdjustMethod = 'BH',
                            pvalueCutoff=0.01,
-                           qvalueCutoff=0.01)
+                           qvalueCutoff=0.1)
+
+kallGOBPSim <- clusterProfiler::simplify(kallGOBP,
+                                         cutoff = 0.6,
+                                         by = 'p.adjust',
+                                         select_fun = min)
 
 pdf('kmeans10_1stadd_cp_BP.pdf', width = 13)
 dotplot(kallGOBP)
 dev.off()
 
+kallGOBP %>%
+  as.data.frame %>%
+  write_csv('kmeans10_1stadd_cp_BP.csv')
+
+emapplot(kallGOBP,
+         pie='count',
+         pie_scale=1.5,
+         layout='nicely')
+
 kallKEGG <- compareCluster(geneCluster = kall,
                            fun = 'enrichKEGG',
                            organism = 'ath',
                            pvalueCutoff = 0.05)
+dotplot(kallKEGG)
 #######################################################################
 
 ###############################metacape################################
