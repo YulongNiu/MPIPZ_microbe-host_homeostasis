@@ -211,6 +211,16 @@ DEGs threshold: `|log2FC| > log2(1.5)` and `adj-pvalue < 0.05`
 
 [GO analysis](results/removeZero/geneset_1stadd)
 
+* dotplot 
+
+[kmeans10_1stadd_cp_BP_dotplot](results/removeZero/geneset_1stadd/kmeans10_1stadd_cp_BP_dotplot.jpg)
+
+* network
+
+[kmeans10_1stadd_cp_BP_network](results/removeZero/geneset_1stadd/kmeans10_1stadd_cp_BP_network.jpg)
+
+[kmeans10_1stadd_cp_BP_network_10](results/removeZero/geneset_1stadd/kmeans10_1stadd_cp_BP_network_10.jpg)
+
 ## 3. Col0 flow pot
 
 ### 3.1 Alignment

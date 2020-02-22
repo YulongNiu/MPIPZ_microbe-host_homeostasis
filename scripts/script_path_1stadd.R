@@ -309,18 +309,21 @@ kallGOBPSim <- clusterProfiler::simplify(kallGOBP,
                                          by = 'p.adjust',
                                          select_fun = min)
 
-pdf('kmeans10_1stadd_cp_BP.pdf', width = 13)
 dotplot(kallGOBP)
-dev.off()
+ggsave('kmeans10_1stadd_cp_BP_dotplot.jpg', width = 13)
+ggsave('kmeans10_1stadd_cp_BP_dotplot.pdf', width = 13)
 
 kallGOBP %>%
   as.data.frame %>%
   write_csv('kmeans10_1stadd_cp_BP.csv')
 
 emapplot(kallGOBP,
+         ## showCategory = 10,
          pie='count',
          pie_scale=1.5,
          layout='nicely')
+ggsave('kmeans10_1stadd_cp_BP_network.jpg', width = 18, height = 15)
+ggsave('kmeans10_1stadd_cp_BP_network.pdf', width = 18, height = 15)
 
 kallKEGG <- compareCluster(geneCluster = kall,
                            fun = 'enrichKEGG',
