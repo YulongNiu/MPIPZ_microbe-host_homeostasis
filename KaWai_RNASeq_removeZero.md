@@ -219,6 +219,8 @@ DEGs threshold: `|log2FC| > log2(1.5)` and `adj-pvalue < 0.05`
 
 ![kmeans10_1stadd_cp_BP_network](results/removeZero/geneset_1stadd/clusterbc/kmeans10_1stadd_cp_BP_network.jpg)
 
+Expand GO terms
+
 ![kmeans10_1stadd_cp_BP_network_10](results/removeZero/geneset_1stadd/clusterbc/kmeans10_1stadd_cp_BP_network_10.jpg)
 
 ## 3. Col0 flow pot
