@@ -52,22 +52,32 @@ combWhole_internal <- function(x, y, self = FALSE, bidirect = FALSE) {
   return(m)
 }
 
-GOCytoEdge <- function(cpRes) {
-  ## INTPUT: `cpRes` is the clusterProfiler table.
+JacSim <- function (x, y) {
+  x <- unlist(x)
+  y <- unlist(y)
+  length(intersect(x, y))/length(unique(c(x, y)))
+}
+
+GOCytoEdge <- function(cpRes, JacSimThres = 0.2) {
+  ## INTPUT: `cpRes` is the clusterProfiler table. `JacSimThres` is the threshold of Jaccard simialrity.
   ## OUTPUT: A tibble of edge matrix.
   ## USAGE: Generate the edge table for Cytoscape.
 
   require('tidyverse')
 
   ## step1: remove duplicated terms
-  cpRes %<>% {
-    slice(., which(!duplicated(.$ID)))
-  }
+  cpRes %<>%
+    as_tibble %>%
+    select(ID, geneID) %>%
+    group_by(ID) %>%
+    summarise(geneID = paste(geneID, collapse = '/')) %>%
+    ungroup
 
   termNum <- nrow(cpRes)
 
   ## step2: find intersection
   cpResList <- strsplit(cpRes$geneID, split = '/', fixed = TRUE) %>%
+    sapply(unique) %>%
     setNames(cpRes$ID)
 
   interMat <- combWhole_internal(1 : termNum, 1:termNum) %>%
@@ -76,13 +86,12 @@ GOCytoEdge <- function(cpRes) {
     as_tibble
 
   interMat %<>%
-    mutate(interNum = apply(., 1, function(x) {
-      eachInterNum <- (cpResList[[x[1]]] %in% cpResList[[x[2]]]) %>%
-        sum
+    mutate(jacSim = apply(., 1, function(x) {
+      eachJacSim <- JacSim(cpResList[[x[1]]], cpResList[[x[2]]])
 
-      return(eachInterNum)
+      return(eachJacSim)
     })) %>%
-  filter(interNum > 0) %>%
+  filter(jacSim >= JacSimThres) %>%
   mutate(fromAnno = cpRes$ID[from], toAnno = cpRes$ID[to]) %>%
   rename(SOURCE = from, TARGET = to)
 
@@ -93,7 +102,9 @@ GOCytoEdge <- function(cpRes) {
 
 setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/clusterbc')
 
-cpBP <- read_csv('kmeans10_1stadd_cp_BP.csv')
+load('kmeans10_1stadd_cp_BP.RData')
+
+cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP)
 
 GOCytoEdge(cpBP) %>% write_csv('tmp1.csv')
 #####################################################################

@@ -327,8 +327,8 @@ kallGOBPPlot@compareClusterResult %<>% {
   cbind(., clusterColor)
 }
 
-emapplot(kallGOBPSim,
-         showCategory = 20,
+emapplot(kallGOBP,
+         showCategory = 5,
          pie='count',
          pie_scale=1.5,
          layout='nicely')
