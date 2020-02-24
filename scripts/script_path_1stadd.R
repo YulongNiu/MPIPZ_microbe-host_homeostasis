@@ -244,6 +244,7 @@ library('org.At.tair.db')
 library('clusterProfiler')
 library('magrittr')
 library('tidyverse')
+library('RColorBrewer')
 
 savepath <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/clusterbc'
 
@@ -305,9 +306,10 @@ kallGOBP <- compareCluster(geneCluster = kall,
                            qvalueCutoff=0.1)
 
 kallGOBPSim <- clusterProfiler::simplify(kallGOBP,
-                                         cutoff = 0.6,
+                                         cutoff = 0.9,
                                          by = 'p.adjust',
                                          select_fun = min)
+dotplot(kallGOBPSim, showCategory = 20)
 
 dotplot(kallGOBP)
 ggsave('kmeans10_1stadd_cp_BP_dotplot.jpg', width = 13)
@@ -317,8 +319,16 @@ kallGOBP %>%
   as.data.frame %>%
   write_csv('kmeans10_1stadd_cp_BP.csv')
 
-emapplot(kallGOBP,
-         ## showCategory = 10,
+save(kallGOBP, file = 'kmeans10_1stadd_cp_BP.RData')
+
+kallGOBPPlot <- kallGOBP
+kallGOBPPlot@compareClusterResult %<>% {
+  clusterColor <- c(brewer.pal(n = 8, name = 'Set1'))[.$Cluster]
+  cbind(., clusterColor)
+}
+
+emapplot(kallGOBPSim,
+         showCategory = 20,
          pie='count',
          pie_scale=1.5,
          layout='nicely')
