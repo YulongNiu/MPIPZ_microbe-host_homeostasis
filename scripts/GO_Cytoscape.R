@@ -157,7 +157,7 @@ anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno
 
 
 cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
-                                                       showCategory = 10) %>%
+                                                       showCategory = 30) %>%
   as_tibble %>%
   mutate(geneName = sapply(geneID, function(x) {
     strsplit(x, split = '/', fixed = TRUE) %>%
@@ -170,5 +170,6 @@ cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
 
 GOCytoEdge(cpBP) %>% write_csv('tmp1.csv')
 GOCytoNode(cpBP) %>% write_csv('tmp2.csv')
+cpBP %>% as.data.frame %>% write_csv('tmp3.csv')
 #####################################################################
 
