@@ -68,9 +68,10 @@ GOCytoEdge <- function(cpRes, JacSimThres = 0.2) {
   ## step1: remove duplicated terms
   cpRes %<>%
     as_tibble %>%
-    select(ID, geneID) %>%
+    select(ID, geneID, Description) %>%
     group_by(ID) %>%
-    summarise(geneID = paste(geneID, collapse = '/')) %>%
+    summarise(geneID = paste(geneID, collapse = '/'),
+              Description = sample(Description, 1)) %>%
     ungroup
 
   termNum <- nrow(cpRes)
@@ -88,12 +89,12 @@ GOCytoEdge <- function(cpRes, JacSimThres = 0.2) {
   interMat %<>%
     mutate(jacSim = apply(., 1, function(x) {
       eachJacSim <- JacSim(cpResList[[x[1]]], cpResList[[x[2]]])
-
       return(eachJacSim)
     })) %>%
-  filter(jacSim >= JacSimThres) %>%
-  mutate(fromAnno = cpRes$ID[from], toAnno = cpRes$ID[to]) %>%
-  rename(SOURCE = from, TARGET = to)
+    filter(jacSim >= JacSimThres) %>% ## filter by jaccard similarity
+    mutate(fromID = cpRes$ID[from], toID = cpRes$ID[to]) %>%
+    mutate(fromDesc = cpRes$Description[from], toDesc = cpRes$Description[to]) %>%
+    rename(SOURCE = from, TARGET = to)
 
   return(interMat)
 }
@@ -104,7 +105,8 @@ setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/c
 
 load('kmeans10_1stadd_cp_BP.RData')
 
-cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP)
+cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
+                                                       showCategory = 20)
 
 GOCytoEdge(cpBP) %>% write_csv('tmp1.csv')
 #####################################################################
