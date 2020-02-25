@@ -1,5 +1,6 @@
 ##########################cytoscape GO plot###########################
 library('tidyverse')
+library('reshape2')
 library('magrittr')
 
 ##~~~~~~~~~~~~~~~~~~~~~useful funcs~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,7 +68,6 @@ GOCytoEdge <- function(cpRes, JacSimThres = 0.2) {
 
   ## step1: remove duplicated terms
   cpRes %<>%
-    as_tibble %>%
     select(ID, geneID, Description) %>%
     group_by(ID) %>%
     summarise(geneID = paste(geneID, collapse = '/'),
@@ -92,11 +92,37 @@ GOCytoEdge <- function(cpRes, JacSimThres = 0.2) {
       return(eachJacSim)
     })) %>%
     filter(jacSim >= JacSimThres) %>% ## filter by jaccard similarity
-    mutate(fromID = cpRes$ID[from], toID = cpRes$ID[to]) %>%
-    mutate(fromDesc = cpRes$Description[from], toDesc = cpRes$Description[to]) %>%
-    rename(SOURCE = from, TARGET = to)
+    mutate(SOURCE = cpRes$ID[from], TARGET = cpRes$ID[to]) %>%
+    mutate(fromDesc = cpRes$Description[from], toDesc = cpRes$Description[to])
 
   return(interMat)
+}
+
+GOCytoNode <- function(cpRes) {
+  ## INTPUT: `cpRes` is the clusterProfiler table.
+  ## OUTPUT: A tibble of node matrix.
+  ## USAGE: Generate the node table for Cytoscape.
+
+  require('reshape2')
+
+  cpUniq <- cpRes %>%
+    select(ID, geneID, geneName, Description) %>%
+    group_by(ID) %>%
+    summarise(geneID = paste(geneID, collapse = '/'),
+              Description = sample(Description, 1),
+              geneID = sample(geneID, 1),
+              geneName = sample(geneName, 1)) %>%
+    ungroup
+
+  nodeMat <- cpRes %>%
+    mutate(Cluster = str_extract(Cluster, 'cluster\\d')) %>%
+    dcast(ID ~ Cluster, value.var = 'Count') %>%
+    mutate_all(~ifelse(is.na(.), 0, .)) %>%
+    inner_join(cpUniq) %>%
+    rename(SOURCE=ID)
+
+  return(nodeMat)
+
 }
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -105,9 +131,30 @@ setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/c
 
 load('kmeans10_1stadd_cp_BP.RData')
 
+anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno.csv',
+                 col_types = cols(Chromosome = col_character())) %>%
+  mutate_all(list(~replace(., is.na(.), ''))) %>%
+  mutate(GeneID = strsplit(ID, split = '.', fixed = TRUE) %>%
+           sapply('[[', 1) %>%
+           unlist) %>%
+  mutate(Gene = if_else(nchar(Gene) == 0, GeneID, Gene)) %>%
+  select(GeneID, Gene, Description) %>%
+  slice(which(!duplicated(.)))
+
+
 cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
-                                                       showCategory = 20)
+                                                       showCategory = 5) %>%
+  as_tibble %>%
+  mutate(geneName = sapply(geneID, function(x) {
+    strsplit(x, split = '/', fixed = TRUE) %>%
+      unlist %>%
+      tibble(GeneID = .) %>%
+      inner_join(anno) %>%
+      .$Gene %>%
+      paste(collapse = '/')
+  }))
 
 GOCytoEdge(cpBP) %>% write_csv('tmp1.csv')
+GOCytoNode(cpBP) %>% write_csv('tmp2.csv')
 #####################################################################
 

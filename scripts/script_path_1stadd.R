@@ -321,12 +321,6 @@ kallGOBP %>%
 
 save(kallGOBP, file = 'kmeans10_1stadd_cp_BP.RData')
 
-kallGOBPPlot <- kallGOBP
-kallGOBPPlot@compareClusterResult %<>% {
-  clusterColor <- c(brewer.pal(n = 8, name = 'Set1'))[.$Cluster]
-  cbind(., clusterColor)
-}
-
 emapplot(kallGOBP,
          showCategory = 5,
          pie='count',
