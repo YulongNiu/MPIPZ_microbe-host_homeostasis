@@ -59,6 +59,17 @@ JacSim <- function (x, y) {
   length(intersect(x, y))/length(unique(c(x, y)))
 }
 
+Shrinkage <- function(x, minNew, maxNew) {
+  ## INPUT: `x` is numeric vector. `minNew` and `maxNew` is the new min and new max.
+  ## OUTPUT: A shrink vector.
+
+  unit <- (maxNew - minNew) / (max(x) - min(x))
+
+  res <- minNew + (x - min(x)) * unit
+
+  return(res)
+}
+
 GOCytoEdge <- function(cpRes, JacSimThres = 0.2) {
   ## INTPUT: `cpRes` is the clusterProfiler table. `JacSimThres` is the threshold of Jaccard simialrity.
   ## OUTPUT: A tibble of edge matrix.
@@ -92,6 +103,7 @@ GOCytoEdge <- function(cpRes, JacSimThres = 0.2) {
       return(eachJacSim)
     })) %>%
     filter(jacSim >= JacSimThres) %>% ## filter by jaccard similarity
+    mutate(edgeWidth = Shrinkage(jacSim, 2, 5)) %>% ## edge width
     mutate(SOURCE = cpRes$ID[from], TARGET = cpRes$ID[to]) %>%
     mutate(fromDesc = cpRes$Description[from], toDesc = cpRes$Description[to])
 
@@ -105,6 +117,7 @@ GOCytoNode <- function(cpRes) {
 
   require('reshape2')
 
+  ## unique GO terms
   cpUniq <- cpRes %>%
     select(ID, geneID, geneName, Description) %>%
     group_by(ID) %>%
@@ -118,6 +131,7 @@ GOCytoNode <- function(cpRes) {
     mutate(Cluster = str_extract(Cluster, 'cluster\\d')) %>%
     dcast(ID ~ Cluster, value.var = 'Count') %>%
     mutate_all(~ifelse(is.na(.), 0, .)) %>%
+    mutate(nodeSize = select(., -ID) %>% rowSums %>% Shrinkage(30, 50)) %>%
     inner_join(cpUniq) %>%
     rename(SOURCE=ID)
 
@@ -143,7 +157,7 @@ anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno
 
 
 cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
-                                                       showCategory = 5) %>%
+                                                       showCategory = 20) %>%
   as_tibble %>%
   mutate(geneName = sapply(geneID, function(x) {
     strsplit(x, split = '/', fixed = TRUE) %>%
