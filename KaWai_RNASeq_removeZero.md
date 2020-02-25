@@ -221,7 +221,7 @@ DEGs threshold: `|log2FC| > log2(1.5)` and `adj-pvalue < 0.05`
 
 * Optimized network (top 5 significant GO terms)
 
-![kmeans10_1stadd_cp_BP_cytoscape_5](results/removeZero/geneset_1stadd/clusterbc/kmeans10_1stadd_cp_BP_cytoscape_5.jpg)
+![kmeans10_1stadd_cp_BP_cytoscape_5](results/removeZero/geneset_1stadd/clusterbc/kmeans10_1stadd_cp_BP_cytoscape_5.jpeg)
 
 * Expand GO terms (top 10 significant GO terms)
 
@@ -229,7 +229,7 @@ DEGs threshold: `|log2FC| > log2(1.5)` and `adj-pvalue < 0.05`
 
 * Optimized network (top 10 significant GO terms)
 
-![kmeans10_1stadd_cp_BP_cytoscape_10](results/removeZero/geneset_1stadd/clusterbc/kmeans10_1stadd_cp_BP_cytoscape_10.jpg)
+![kmeans10_1stadd_cp_BP_cytoscape_10](results/removeZero/geneset_1stadd/clusterbc/kmeans10_1stadd_cp_BP_cytoscape_10.jpeg)
 
 ## 3. Col0 flow pot
 
