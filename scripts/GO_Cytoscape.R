@@ -2,6 +2,7 @@
 library('tidyverse')
 library('reshape2')
 library('magrittr')
+library('foreach')
 
 ##~~~~~~~~~~~~~~~~~~~~~useful funcs~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 comb2_internal <- function(x) {
@@ -140,7 +141,7 @@ GOCytoNode <- function(cpRes) {
 
 }
 
-GOCytoGene_ <- function(GOGene, geneAnno) {
+CytoGeneEdge_ <- function(GOGene, geneAnno) {
 
   ## INPUT: `GOgene` is the 'GO-gene' matrix. `geneAnno` is the gene annotation.
   ## OUTPUT: A `tibble` of interaction matrix.
@@ -149,7 +150,7 @@ GOCytoGene_ <- function(GOGene, geneAnno) {
                 TARGET = GOGene$ID,
                 toDesc = GOGene$Description) %>%
     mutate(jacSim = 1,
-           edgeWidth = 2) %>%
+           edgeWidth = 1) %>%
     mutate(fromDesc = anno$Description[match(SOURCE, anno$Gene)]) %>%
     select(jacSim, edgeWidth, SOURCE, TARGET, fromDesc, toDesc)
 
@@ -157,15 +158,61 @@ GOCytoGene_ <- function(GOGene, geneAnno) {
 }
 
 
-
-GOCytoGeneEdge <- function(cpRes) {
+GOCytoGeneEdge <- function(cpRes, ...) {
   ## INPUT: `cpRes` is the clusterProfiler table.
   ## OUTPUT: A tibble of gene-GO matrix.
   ## USAGE: Generate the node table for Cytoscape.
 
-  cpRes %>%
-    mutate(Cluster = str_extract(Cluster, 'cluster\\d')) %>%
+  require('foreach')
 
+  res <- foreach(i = seq_len(nrow(cpRes)), .combine = bind_rows) %do% {
+    CytoGeneEdge_(cpRes[i, ], ...)
+  }
+
+  return(res)
+}
+
+CytoGeneNode_ <- function(GOGene, anno) {
+  ## INPUT: `GOgene` is the 'GO-gene' matrix. `geneAnno` is the gene annotation.
+  ## OUTPUT: A `tibble` of node matrix.
+
+  GOGene %<>%
+    mutate(Cluster = str_extract(Cluster, 'cluster\\d'))
+
+  res <- tibble(SOURCE = strsplit(GOGene$geneName, split = '/', fixed = TRUE) %>% unlist,
+                Cluster = GOGene$Cluster) %>%
+    mutate(nodeSize = 10,
+      geneID = strsplit(GOGene$geneID, split = '/', fixed = TRUE) %>% unlist,
+      Description = anno$Description[match(SOURCE, anno$Gene)],
+      geneName = SOURCE)
+
+  return(res)
+}
+
+
+GOCytoGeneNode <- function(cpRes, ...) {
+  ## INPUT: `cpRes` is the clusterProfiler table.
+  ## OUTPUT: A tibble of gene-GO edge.
+  ## USAGE: Generate the node table for Cytoscape.
+
+  require('foreach')
+  require('reshape2')
+
+  nodeMat <- foreach(i = seq_len(nrow(cpRes)), .combine = bind_rows) %do% {
+    CytoGeneNode_(cpRes[i, ], ...)
+  } %>%
+    slice(which(!duplicated(.)))
+
+  clusterMat <- nodeMat %>%
+    mutate(Val = 1) %>%
+    dcast(SOURCE ~ Cluster, value.var = 'Val', fill = 0) %>%
+    mutate_at(.vars = vars(contains('cluster')),
+              .funs = ~ifelse(. > 0, 1, .))
+
+  res <- inner_join(clusterMat, nodeMat %>% select(-Cluster)) %>%
+    as_tibble
+
+  return(res)
 }
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -186,7 +233,7 @@ anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno
 
 
 cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
-                                                       showCategory = 20) %>%
+                                                       showCategory = 5) %>%
   as_tibble %>%
   mutate(geneName = sapply(geneID, function(x) {
     strsplit(x, split = '/', fixed = TRUE) %>%
@@ -197,9 +244,17 @@ cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
       paste(collapse = '/')
   }))
 
+## GO network
 GOCytoEdge(cpBP) %>% write_csv('tmp1.csv')
 GOCytoNode(cpBP) %>% write_csv('tmp2.csv')
 cpBP %>% write_csv('tmp3.csv')
+
+## GO-gene network
+bind_rows(GOCytoEdge(cpBP),
+          GOCytoGeneEdge(cpBP, anno)) %>% write_csv('tmp1.csv')
+
+bind_rows(GOCytoNode(cpBP),
+          GOCytoGeneNode(cpBP, anno)) %>% write_csv('tmp2.csv')
 
 ##~~~~~~~~~~~~~~~~interesting genes cluster~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## AT2G19190 -- SIRK/FRK1 -- 3

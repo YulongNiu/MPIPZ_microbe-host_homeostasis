@@ -109,7 +109,7 @@
             <visualProperty default="255" name="EDGE_LABEL_TRANSPARENCY"/>
             <visualProperty default="3.0" name="EDGE_WIDTH">
                 <continuousMapping attributeName="edgeWidth" attributeType="float">
-                    <continuousMappingPoint attrValue="2.0" equalValue="2.0" greaterValue="2.0" lesserValue="2.0"/>
+                    <continuousMappingPoint attrValue="1.0" equalValue="1.0" greaterValue="1.0" lesserValue="1.0"/>
                     <continuousMappingPoint attrValue="5.0" equalValue="5.0" greaterValue="5.0" lesserValue="5.0"/>
                 </continuousMapping>
             </visualProperty>
