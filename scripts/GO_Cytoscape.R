@@ -140,7 +140,6 @@ GOCytoNode <- function(cpRes) {
 }
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
 setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/clusterbc')
 
 load('kmeans10_1stadd_cp_BP.RData')
@@ -157,7 +156,7 @@ anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno
 
 
 cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
-                                                       showCategory = 200) %>%
+                                                       showCategory = 20) %>%
   as_tibble %>%
   mutate(geneName = sapply(geneID, function(x) {
     strsplit(x, split = '/', fixed = TRUE) %>%
@@ -170,6 +169,38 @@ cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
 
 GOCytoEdge(cpBP) %>% write_csv('tmp1.csv')
 GOCytoNode(cpBP) %>% write_csv('tmp2.csv')
-cpBP %>% as.data.frame %>% write_csv('tmp3.csv')
+cpBP %>% write_csv('tmp3.csv')
+
+##~~~~~~~~~~~~~~~~interesting genes cluster~~~~~~~~~~~~~~~~~~~~~~~~~~
+## AT2G19190 -- SIRK/FRK1 -- 3
+## AT1G14550 -- PER5 -- 3
+## AT1G18570 -- MYB51 -- 5
+## AT2G30750 -- CYP71A12 -- 5
+## AT1G19250 -- FMO1 -- 5
+## AT1G73805 -- SARD1 -- 1
+## AT4G28460 -- PIP1 -- 5
+## AT4G37290 -- PIP2 -- 5
+## AT3G48090 -- EDS1 -- 1
+## AT3G07040 -- RPM1 -- 1
+## AT3G50950 -- ZAR1/RPP13L4 -- 1
+## AT4G11170 -- -- 5
+## AT5G41540 -- -- 1
+interesGene <- c('AT2G19190',
+                 'AT1G14550',
+                 'AT1G18570',
+                 'AT2G30750',
+                 'AT1G73805',
+                 'AT4G28460',
+                 'AT4G37290',
+                 'AT3G48090',
+                 'AT3G07040',
+                 'AT3G50950',
+                 'AT4G11170',
+                 'AT5G41540')
+
+str_detect(GOCytoNode(cpBP)$geneID, interesGene %>% paste(collapse = '|')) %>%
+  GOCytoNode(cpBP)$Description[.]
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 #####################################################################
 
