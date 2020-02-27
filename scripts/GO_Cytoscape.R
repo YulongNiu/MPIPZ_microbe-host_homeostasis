@@ -105,7 +105,8 @@ GOCytoEdge <- function(cpRes, JacSimThres = 0.2) {
     filter(jacSim >= JacSimThres) %>% ## filter by jaccard similarity
     mutate(edgeWidth = Shrinkage(jacSim, 2, 5)) %>% ## edge width
     mutate(SOURCE = cpRes$ID[from], TARGET = cpRes$ID[to]) %>%
-    mutate(fromDesc = cpRes$Description[from], toDesc = cpRes$Description[to])
+    mutate(fromDesc = cpRes$Description[from], toDesc = cpRes$Description[to]) %>%
+    select(-from, -to)
 
   return(interMat)
 }
@@ -138,6 +139,35 @@ GOCytoNode <- function(cpRes) {
   return(nodeMat)
 
 }
+
+GOCytoGene_ <- function(GOGene, geneAnno) {
+
+  ## INPUT: `GOgene` is the 'GO-gene' matrix. `geneAnno` is the gene annotation.
+  ## OUTPUT: A `tibble` of interaction matrix.
+
+  res <- tibble(SOURCE = strsplit(GOGene$geneName, split = '/', fixed = TRUE) %>% unlist,
+                TARGET = GOGene$ID,
+                toDesc = GOGene$Description) %>%
+    mutate(jacSim = 1,
+           edgeWidth = 2) %>%
+    mutate(fromDesc = anno$Description[match(SOURCE, anno$Gene)]) %>%
+    select(jacSim, edgeWidth, SOURCE, TARGET, fromDesc, toDesc)
+
+  return(res)
+}
+
+
+
+GOCytoGeneEdge <- function(cpRes) {
+  ## INPUT: `cpRes` is the clusterProfiler table.
+  ## OUTPUT: A tibble of gene-GO matrix.
+  ## USAGE: Generate the node table for Cytoscape.
+
+  cpRes %>%
+    mutate(Cluster = str_extract(Cluster, 'cluster\\d')) %>%
+
+}
+
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/clusterbc')
