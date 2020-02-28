@@ -233,7 +233,7 @@ anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno
 
 
 cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
-                                                       showCategory = 10) %>%
+                                                       showCategory = 20) %>%
   as_tibble %>%
   mutate(geneName = sapply(geneID, function(x) {
     strsplit(x, split = '/', fixed = TRUE) %>%
@@ -288,4 +288,3 @@ str_detect(GOCytoNode(cpBP)$geneID, interesGene %>% paste(collapse = '|')) %>%
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #####################################################################
-

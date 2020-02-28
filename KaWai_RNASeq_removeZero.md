@@ -89,7 +89,29 @@ DEGs threshold: `|log2FC| > log2(1.5)` and `adj-pvalue < 0.05`
 
 ### 1.3 Gene-set
 
-[GO analysis](results/removeZero/geneset_1stadd)
+[GO analysis](results/removeZero/geneset)
+
+* dotplot 
+
+![kmeans10_cp_BP_dotplot](results/removeZero/geneset/clusterbc/kmeans10_cp_BP_dotplot.jpg)
+
+![kmeans10_cp_BP_dotplot_10](results/removeZero/geneset/clusterbc/kmeans10_cp_BP_dotplot_10.jpg)
+
+* Network (top 5 significant GO terms)
+
+![kmeans10_cp_BP_network](results/removeZero/geneset/clusterbc/kmeans10_cp_BP_network.jpg)
+
+* Optimized network (top 5 significant GO terms)
+
+![kmeans10_cp_BP_cytoscape_5](results/removeZero/geneset/clusterbc/kmeans10_cp_BP_cytoscape_5.jpeg)
+
+* Expand GO terms (top 10 significant GO terms)
+
+![kmeans10_cp_BP_network_10](results/removeZero/geneset/clusterbc/kmeans10_cp_BP_network_10.jpg)
+
+* Optimized network (top 10 significant GO terms)
+
+![kmeans10_cp_BP_cytoscape_10](results/removeZero/geneset/clusterbc/kmeans10_cp_BP_cytoscape_10.jpeg)
 
 ## 2. Col0 agar plate
 
