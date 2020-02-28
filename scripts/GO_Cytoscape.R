@@ -130,7 +130,7 @@ GOCytoNode <- function(cpRes) {
     ungroup
 
   nodeMat <- cpRes %>%
-    mutate(Cluster = str_extract(Cluster, 'cluster\\d')) %>%
+    mutate(Cluster = str_extract(Cluster, 'cluster\\d+')) %>%
     dcast(ID ~ Cluster, value.var = 'Count') %>%
     mutate_all(~ifelse(is.na(.), 0, .)) %>%
     mutate(nodeSize = select(., -ID) %>% rowSums %>% Shrinkage(30, 50)) %>%
@@ -214,12 +214,11 @@ GOCytoGeneNode <- function(cpRes, ...) {
 
   return(res)
 }
-
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/clusterbc')
+setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset/clusterbc')
 
-load('kmeans10_1stadd_cp_BP.RData')
+load('kmeans10_cp_BP.RData')
 
 anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno.csv',
                  col_types = cols(Chromosome = col_character())) %>%
@@ -233,7 +232,7 @@ anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno
 
 
 cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
-                                                       showCategory = 20) %>%
+                                                       showCategory = 5) %>%
   as_tibble %>%
   mutate(geneName = sapply(geneID, function(x) {
     strsplit(x, split = '/', fixed = TRUE) %>%
