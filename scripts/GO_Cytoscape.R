@@ -177,7 +177,7 @@ CytoGeneNode_ <- function(GOGene, anno) {
   ## OUTPUT: A `tibble` of node matrix.
 
   GOGene %<>%
-    mutate(Cluster = str_extract(Cluster, 'cluster\\d'))
+    mutate(Cluster = str_extract(Cluster, 'cluster\\d+'))
 
   res <- tibble(SOURCE = strsplit(GOGene$geneName, split = '/', fixed = TRUE) %>% unlist,
                 Cluster = GOGene$Cluster) %>%
@@ -199,6 +199,7 @@ GOCytoGeneNode <- function(cpRes, ...) {
   require('reshape2')
 
   nodeMat <- foreach(i = seq_len(nrow(cpRes)), .combine = bind_rows) %do% {
+    print(i)
     CytoGeneNode_(cpRes[i, ], ...)
   } %>%
     slice(which(!duplicated(.)))
@@ -232,7 +233,7 @@ anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno
 
 
 cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
-                                                       showCategory = 5) %>%
+                                                       showCategory = 10) %>%
   as_tibble %>%
   mutate(geneName = sapply(geneID, function(x) {
     strsplit(x, split = '/', fixed = TRUE) %>%
@@ -240,7 +241,8 @@ cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
       tibble(GeneID = .) %>%
       inner_join(anno) %>%
       .$Gene %>%
-      paste(collapse = '/')
+      paste(collapse = '/') %>%
+      str_replace('C/VIF2', 'C-VIF2') ## replace genes with '/'
   }))
 
 ## GO network
