@@ -326,14 +326,14 @@ for (i in kmeansRes$cl %>% unique) {
             paste0(prefix, '_cluster', i, '_cp_KEGG.csv') %>% file.path(savepath, .))
 }
 
-kall <- lapply(kmeansBkg$cl %>% unique, function(x) {
+kall <- lapply(kmeansRes$cl %>% unique, function(x) {
 
-  eachG <- kmeansBkg %>% filter(cl == x) %>% .$ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[[', 1) %>% unlist %>% unique
+  eachG <- kmeansRes %>% filter(cl == x) %>% .$ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[[', 1) %>% unlist %>% unique
 
   return(eachG)
 
 }) %>%
-  set_names(kmeansBkg$cl %>% unique %>% paste0('cluster', .))
+  set_names(kmeansRes$cl %>% unique %>% paste0('cluster', .))
 
 kallGOBP <- compareCluster(geneCluster = kall,
                            fun = 'enrichGO',
@@ -352,15 +352,15 @@ kallGOBPSim <- clusterProfiler::simplify(kallGOBP,
 
 dotplot(kallGOBPSim, showCategory = 20)
 
-dotplot(kallGOBP, showCategory = 5)
-ggsave('kmeans10_soil_cp_BP_dotplot_5.jpg', width = 13)
-ggsave('kmeans10_soil_cp_BP_dotplot_5.pdf', width = 13)
+dotplot(kallGOBP, showCategory = 10)
+ggsave('kmeans10_soil_cp_BP_dotplot_10.jpg', width = 13)
+ggsave('kmeans10_soil_cp_BP_dotplot_10.pdf', width = 13)
 
 kallGOBP %>%
   as.data.frame %>%
-  write_csv('kmeans10_cp_BP.csv')
+  write_csv('kmeans10_soil_cp_BP.csv')
 
-save(kallGOBP, file = 'kmeans10_cp_BP.RData')
+save(kallGOBP, file = 'kmeans10_soil_cp_BP.RData')
 
 kallKEGG <- compareCluster(geneCluster = kall,
                            fun = 'enrichKEGG',
@@ -368,12 +368,12 @@ kallKEGG <- compareCluster(geneCluster = kall,
                            pvalueCutoff = 0.05)
 
 emapplot(kallGOBP,
-         showCategory = 10,
+         showCategory = 5,
          pie='count',
          pie_scale=1.5,
          layout='nicely')
-ggsave('kmeans10_cp_BP_network_10.jpg', width = 18, height = 15)
-ggsave('kmeans10_cp_BP_network_10.pdf', width = 18, height = 15)
+ggsave('kmeans10_soil_cp_BP_network_5.jpg', width = 18, height = 15)
+ggsave('kmeans10_soil_cp_BP_network_5.pdf', width = 18, height = 15)
 #######################################################################
 
 ###################################plot###########################
