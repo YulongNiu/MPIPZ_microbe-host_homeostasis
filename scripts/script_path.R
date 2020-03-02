@@ -286,7 +286,7 @@ library('clusterProfiler')
 library('magrittr')
 library('tidyverse')
 
-savepath <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset/fullbc'
+savepath <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset/clusterbc'
 
 setwd(savepath)
 
@@ -352,7 +352,7 @@ kallGOBPSim <- clusterProfiler::simplify(kallGOBP,
 
 dotplot(kallGOBPSim, showCategory = 20)
 
-dotplot(kallGOBP, showCategory = 15)
+dotplot(kallGOBP, showCategory = 10)
 ggsave('kmeans10_cp_BP_dotplot_10.jpg', width = 13)
 ggsave('kmeans10_cp_BP_dotplot_10.pdf', width = 13)
 

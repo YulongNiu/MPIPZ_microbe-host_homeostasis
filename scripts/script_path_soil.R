@@ -280,6 +280,102 @@ for (i in vsGroup) {
 ##############################################################
 
 
+###############################cluster profiler#####################
+library('org.At.tair.db')
+library('clusterProfiler')
+library('magrittr')
+library('tidyverse')
+
+savepath <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_soil/clusterbc'
+
+setwd(savepath)
+
+kmeansRes <- read_csv('../../kmeans10_soil_sig.csv',
+                      col_types = cols(Chromosome = col_character()))
+kmeansBkg <- read_csv('../../kmeans10_soil.csv',
+                      col_types = cols(Chromosome = col_character()))
+prefix <- 'kmeans10_soil'
+
+for (i in kmeansRes$cl %>% unique) {
+
+  ## BP
+  goBP <- enrichGO(gene = kmeansRes %>% filter(cl == i) %>% .$ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[[', 1) %>% unlist %>% unique,
+                   OrgDb = 'org.At.tair.db',
+                   keyType= 'TAIR',
+                   ont = 'BP',
+                   universe = keys(org.At.tair.db),
+                   pAdjustMethod = 'BH',
+                   pvalueCutoff=0.01,
+                   qvalueCutoff=0.01)
+
+
+  goBPSim <- clusterProfiler::simplify(goBP,
+                                       cutoff = 0.5,
+                                       by = 'p.adjust',
+                                       select_fun = min)
+  ## check and plot
+  write.csv(as.data.frame(goBPSim),
+            paste0(prefix, '_cluster', i, '_cp_BP.csv') %>% file.path(savepath, .))
+
+  ## KEGG
+  kk2 <- enrichKEGG(gene = kmeansRes %>% filter(cl == i) %>% .$ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[[', 1) %>% unlist %>% unique,
+                    organism = 'ath',
+                    pvalueCutoff = 0.05)
+
+  write.csv(as.data.frame(kk2),
+            paste0(prefix, '_cluster', i, '_cp_KEGG.csv') %>% file.path(savepath, .))
+}
+
+kall <- lapply(kmeansBkg$cl %>% unique, function(x) {
+
+  eachG <- kmeansBkg %>% filter(cl == x) %>% .$ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[[', 1) %>% unlist %>% unique
+
+  return(eachG)
+
+}) %>%
+  set_names(kmeansBkg$cl %>% unique %>% paste0('cluster', .))
+
+kallGOBP <- compareCluster(geneCluster = kall,
+                           fun = 'enrichGO',
+                           OrgDb = 'org.At.tair.db',
+                           keyType= 'TAIR',
+                           ont = 'BP',
+                           universe = keys(org.At.tair.db),
+                           pAdjustMethod = 'BH',
+                           pvalueCutoff=0.01,
+                           qvalueCutoff=0.1)
+
+kallGOBPSim <- clusterProfiler::simplify(kallGOBP,
+                                         cutoff = 0.9,
+                                         by = 'p.adjust',
+                                         select_fun = min)
+
+dotplot(kallGOBPSim, showCategory = 20)
+
+dotplot(kallGOBP, showCategory = 5)
+ggsave('kmeans10_soil_cp_BP_dotplot_5.jpg', width = 13)
+ggsave('kmeans10_soil_cp_BP_dotplot_5.pdf', width = 13)
+
+kallGOBP %>%
+  as.data.frame %>%
+  write_csv('kmeans10_cp_BP.csv')
+
+save(kallGOBP, file = 'kmeans10_cp_BP.RData')
+
+kallKEGG <- compareCluster(geneCluster = kall,
+                           fun = 'enrichKEGG',
+                           organism = 'ath',
+                           pvalueCutoff = 0.05)
+
+emapplot(kallGOBP,
+         showCategory = 10,
+         pie='count',
+         pie_scale=1.5,
+         layout='nicely')
+ggsave('kmeans10_cp_BP_network_10.jpg', width = 18, height = 15)
+ggsave('kmeans10_cp_BP_network_10.pdf', width = 18, height = 15)
+#######################################################################
+
 ###################################plot###########################
 setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/pathway_35up')
 
