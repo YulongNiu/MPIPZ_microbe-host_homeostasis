@@ -314,6 +314,28 @@ cond <- list(c('SynCom33', 'Mock'),
 
 [GO analysis](results/removeZero/geneset_soil)
 
+* dotplot 
+
+![kmeans10_soil_cp_BP_dotplot_5](results/removeZero/geneset_soil/clusterbc/kmeans10_soil_cp_BP_dotplot_4.jpg)
+
+![kmeans10_soil_cp_BP_dotplot_10](results/removeZero/geneset_soil/clusterbc/kmeans10_soil_cp_BP_dotplot_10.jpg)
+
+* Network (top 5 significant GO terms)
+
+![kmeans10_soil_cp_BP_network](results/removeZero/geneset_soil/clusterbc/kmeans10_soil_cp_BP_network.jpg)
+
+* Optimized network (top 5 significant GO terms)
+
+![kmeans10_soil_cp_BP_cytoscape_5](results/removeZero/geneset_soil/clusterbc/kmeans10_soil_cp_BP_cytoscape_5.jpeg)
+
+* Expand GO terms (top 10 significant GO terms)
+
+![kmeans10_soil_cp_BP_network_10](results/removeZero/geneset_soil/clusterbc/kmeans10_soil_cp_BP_network_10.jpg)
+
+* Optimized network (top 10 significant GO terms)
+
+![kmeans10_soil_cp_BP_cytoscape_10](results/removeZero/geneset_soil/clusterbc/kmeans10_soil_cp_BP_cytoscape_10.png)
+
 ## 4. Merge
 
 ### 4.1 WER Col0 agar plate
