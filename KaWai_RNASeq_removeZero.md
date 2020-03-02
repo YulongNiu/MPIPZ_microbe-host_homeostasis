@@ -316,13 +316,13 @@ cond <- list(c('SynCom33', 'Mock'),
 
 * dotplot 
 
-![kmeans10_soil_cp_BP_dotplot_5](results/removeZero/geneset_soil/clusterbc/kmeans10_soil_cp_BP_dotplot_4.jpg)
+![kmeans10_soil_cp_BP_dotplot_5](results/removeZero/geneset_soil/clusterbc/kmeans10_soil_cp_BP_dotplot_5.jpg)
 
 ![kmeans10_soil_cp_BP_dotplot_10](results/removeZero/geneset_soil/clusterbc/kmeans10_soil_cp_BP_dotplot_10.jpg)
 
 * Network (top 5 significant GO terms)
 
-![kmeans10_soil_cp_BP_network](results/removeZero/geneset_soil/clusterbc/kmeans10_soil_cp_BP_network.jpg)
+![kmeans10_soil_cp_BP_network_5](results/removeZero/geneset_soil/clusterbc/kmeans10_soil_cp_BP_network_5.jpg)
 
 * Optimized network (top 5 significant GO terms)
 
