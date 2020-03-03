@@ -367,3 +367,115 @@ kall %<>% lapply(function(x) {
 write_csv(kall %>% as_tibble %>% select(-cluster9:-cluster10), 'kmeans10_1stadd_1to8_sig_metascape.csv')
 write_csv(kcluster %>% select(ID), 'kall_bkg.csv')
 #######################################################################
+
+##############################Plot GO heatmap##########################
+library('tidyverse')
+library('DESeq2')
+library('ComplexHeatmap')
+library('RColorBrewer')
+
+setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/clusterbc')
+
+load('kmeans10_1stadd_cp_BP.RData')
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Sig terms~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno.csv',
+                 col_types = cols(Chromosome = col_character())) %>%
+  mutate_all(list(~replace(., is.na(.), ''))) %>%
+  mutate(GeneID = strsplit(ID, split = '.', fixed = TRUE) %>%
+           sapply('[[', 1) %>%
+           unlist) %>%
+  mutate(Gene = if_else(nchar(Gene) == 0, GeneID, Gene)) %>%
+  dplyr::select(GeneID, Gene, Description) %>%
+  dplyr::slice(which(!duplicated(.)))
+
+cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
+                                                       showCategory = 5) %>%
+  as_tibble %>%
+  mutate(geneName = sapply(geneID, function(x) {
+    strsplit(x, split = '/', fixed = TRUE) %>%
+      unlist %>%
+      tibble(GeneID = .) %>%
+      inner_join(anno) %>%
+      .$Gene %>%
+      paste(collapse = '/') %>%
+      str_replace('C/VIF2', 'C-VIF2') ## replace genes with '/'
+  }))
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~heatmap matrix~~~~~~~~~~~~~~~~~~~~~~
+load('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/degres_condi_Mock_1stadd.RData')
+
+wholeDEG <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/eachGroup_vs_Mock_k_1stadd.csv')
+kmeansRes <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/kmeans10_1stadd.csv') %>%
+  select(ID, cl)
+
+fcsig <- wholeDEG %>%
+  select(ends_with('FoldChange')) %>%
+  transmute_all(list(~ case_when(. > log2(1.5) ~ 1,
+                                 . < -log2(1.5) ~ -1,
+                                 TRUE ~ 0)))
+padjsig <- wholeDEG %>%
+  select(ends_with('padj')) %>%
+  `<`(0.05) %>%
+  as_tibble %>%
+  transmute_all(list(~ if_else(is.na(.), FALSE, .)))
+
+heatsig <- (padjsig * fcsig) %>%
+  as_tibble %>%
+  abs %>%
+  rowSums %>%
+  {. >= 1} %>%
+  which %>%
+  dplyr::slice(wholeDEG, .) %>%
+  inner_join(kmeansRes)
+
+rawC <- rldData %>%
+  as.data.frame %>%
+  rownames_to_column('ID') %>%
+  as_tibble %>%
+  dplyr::select(matches('Mock_\\d|HKSynCom33_\\d|HKSynCom35_\\d'), matches('Mock_Flg22_\\d|HKSynCom33_Flg22_\\d|HKSynCom35_Flg22_\\d'), everything()) %>%
+  inner_join(heatsig %>% select(ID, cl))
+## inner_join(kmeansRes) ## all transcripts
+
+## scale counts
+scaleC <- rawC %>%
+  select(contains('_')) %>%
+  t %>%
+  scale %>%
+  t %>%
+  as_tibble %>%
+  bind_cols(rawC %>% select(ID, cl)) %>%
+  mutate(GeneID = ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[', 1))
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+## root development
+interesGO <- c('GO:0010053', 'GO:0010054', 'GO:0010015', 'GO:0048764', 'GO:0090627')
+
+## defense
+interesGO <- c('GO:0045730', 'GO:0002679', 'GO:0010200', 'GO:0010243', 'GO:0009753')
+
+interesGene <- cpBP %>%
+  filter(ID %in% interesGO) %>%
+  .$geneID %>%
+  strsplit(split = '/', fixed = TRUE) %>%
+  unlist %>%
+  unique
+
+interesMat <- scaleC %>%
+  dplyr::filter(GeneID %in% interesGene) %>%
+  dplyr::filter(!(cl %in% c(9:10)))
+
+Heatmap(matrix = interesMat %>%
+          select(contains('_')),
+        name = 'Scaled Counts',
+        row_order = order(interesMat$cl) %>% rev,
+        row_split = interesMat$cl,
+        row_gap = unit(2, "mm"),
+        column_order = 1 : 40,
+        column_split = rep(c('Mock/HKSynCom', 'Non-sup', 'Sup'), c(24, 8, 8)),
+        show_column_names = FALSE,
+        col = colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral'))[c(-3, -4, -6, -7)])(100),
+        use_raster = FALSE)
+#######################################################################
