@@ -54,7 +54,7 @@
                 </continuousMapping>
             </visualProperty>
             <visualProperty default="50.0" name="NODE_CUSTOMGRAPHICS_SIZE_2"/>
-            <visualProperty default="org.cytoscape.PieChart:{&quot;cy_range&quot;:[1.0,8.0],&quot;cy_colors&quot;:[&quot;#FFFF33&quot;,&quot;#E41A1C&quot;,&quot;#F781BF&quot;,&quot;#FF7F00&quot;],&quot;cy_borderWidth&quot;:0.0,&quot;cy_dataColumns&quot;:[&quot;cluster1&quot;,&quot;cluster4&quot;,&quot;cluster7&quot;,&quot;cluster8&quot;]}" name="NODE_CUSTOMGRAPHICS_1"/>
+            <visualProperty default="org.cytoscape.PieChart:{&quot;cy_range&quot;:[1.0,8.0],&quot;cy_colors&quot;:[&quot;#FFFF33&quot;,&quot;#E41A1C&quot;,&quot;#984EA3&quot;,&quot;#FF7F00&quot;],&quot;cy_borderWidth&quot;:0.0,&quot;cy_dataColumns&quot;:[&quot;cluster1&quot;,&quot;cluster4&quot;,&quot;cluster7&quot;,&quot;cluster8&quot;]}" name="NODE_CUSTOMGRAPHICS_1"/>
             <visualProperty default="#006699" name="NODE_BORDER_PAINT"/>
             <visualProperty default="0.0" name="NODE_X_LOCATION"/>
             <visualProperty default="255" name="NODE_LABEL_TRANSPARENCY"/>
