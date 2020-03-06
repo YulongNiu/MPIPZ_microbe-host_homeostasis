@@ -452,7 +452,6 @@ rawC <- rldData %>%
   as.data.frame %>%
   rownames_to_column('ID') %>%
   as_tibble %>%
-  dplyr::select(matches('Mock_\\d|HKSynCom33_\\d|HKSynCom35_\\d'), matches('Mock_Flg22_\\d|HKSynCom33_Flg22_\\d|HKSynCom35_Flg22_\\d'), everything()) %>%
   inner_join(heatsig %>% select(ID, cl))
 ## inner_join(kmeansRes) ## all transcripts
 

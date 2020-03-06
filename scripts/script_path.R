@@ -458,7 +458,7 @@ anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno
   dplyr::slice(which(!duplicated(.)))
 
 cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
-                                                       showCategory = 10) %>%
+                                                       showCategory = 5) %>%
   as_tibble %>%
   mutate(geneName = sapply(geneID, function(x) {
     strsplit(x, split = '/', fixed = TRUE) %>%
@@ -472,10 +472,10 @@ cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~heatmap matrix~~~~~~~~~~~~~~~~~~~~~~
-load('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/degres_condi_Mock_1stadd.RData')
+load('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/degres_condi_Mock.RData')
 
-wholeDEG <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/eachGroup_vs_Mock_k_1stadd.csv')
-kmeansRes <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/kmeans10_1stadd.csv') %>%
+wholeDEG <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/eachGroup_vs_Mock_k.csv')
+kmeansRes <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/kmeans10.csv') %>%
   select(ID, cl)
 
 fcsig <- wholeDEG %>%
@@ -502,7 +502,6 @@ rawC <- rldData %>%
   as.data.frame %>%
   rownames_to_column('ID') %>%
   as_tibble %>%
-  dplyr::select(matches('Mock_\\d|HKSynCom33_\\d|HKSynCom35_\\d'), matches('Mock_Flg22_\\d|HKSynCom33_Flg22_\\d|HKSynCom35_Flg22_\\d'), everything()) %>%
   inner_join(heatsig %>% select(ID, cl))
 ## inner_join(kmeansRes) ## all transcripts
 
@@ -518,7 +517,7 @@ scaleC <- rawC %>%
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ## top 5
-interesGO <- list(root_dev = c('GO:0010053', 'GO:0010054', 'GO:0010015', 'GO:0048764', 'GO:0090627'),
+interesGO <- list(root_dev = c('GO:0010054', 'GO:0010015', 'GO:0010053', 'GO:0090627'),
                   defense = c('GO:0045730', 'GO:0002679', 'GO:0010200', 'GO:0010243', 'GO:0009753'),
                   hypoxia = c('GO:0036294', 'GO:0071453', 'GO:0071456'),
                   toxic = c('GO:0009636', 'GO:0098754', 'GO:0010583', 'GO:0009407', 'GO:0009404'),
