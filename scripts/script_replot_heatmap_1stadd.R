@@ -191,7 +191,7 @@ boxplotData <- rldData %>%
   as.data.frame %>%
   rownames_to_column('ID') %>%
   as_tibble %>%
-  inner_join(kmeansRes)
+  inner_join(kmeansResSig)
 
 for (i in 1:10) {
   boxplotData %>%
@@ -207,7 +207,9 @@ for (i in 1:10) {
     mutate(Group = Group %>% factor(levels = c('Mock', 'Nonsupp', 'Supp'))) %>%
     ggplot(aes(x = Group, y = ScaleCounts, fill = Conditions)) +
     geom_boxplot(position = position_dodge2(preserve = 'single')) +
-    scale_fill_manual(values = c(rep(NA, 6), rep('#377eb8', 2), rep('#e41a1c', 2))) +
+    ## scale_fill_manual(values = c(rep(NA, 6), rep('#377eb8', 2), rep('#e41a1c', 2))) +
+    scale_fill_manual(values = c(rep(c(NA, '#a6cee3', '#fb9a99'), 2), rep('#377eb8', 2), rep('#e41a1c', 2))) +
+    ylim(-2, 2) +
     ylab('Scaled counts') +
     theme_classic() +
     theme(axis.text.x = element_text(angle = 90),

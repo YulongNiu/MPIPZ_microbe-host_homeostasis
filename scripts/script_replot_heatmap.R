@@ -103,6 +103,69 @@ dev.off()
 
 system(paste0('convert -density 1200 ', paste0(filePrefix, '.pdf'), ' ', paste0(filePrefix, '.jpg')))
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~box plot~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+meanFlg22 <- function(v) {
+
+  require('magrittr')
+
+  res <- v %>%
+    split(rep(1 : 4, each = 3)) %>%
+    sapply(mean, na.rm = TRUE)
+
+  return(res)
+}
+
+## kmeansRes <- read_csv('kmeans10.csv') %>%
+##   select(ID, cl)
+
+kmeansResSig <- read_csv('kmeans10_sig.csv') %>%
+  select(ID, cl)
+
+sampleN <- c('Mock', 'Mock_flg22', 'Nonsupp_flg22', 'Supp_flg22')
+
+boxplotData <- rldData %>%
+  t %>%
+  scale %>%
+  t %>%
+  apply(1, meanFlg22) %>%
+  t %>%
+  set_colnames(sampleN) %>%
+  as.data.frame %>%
+  rownames_to_column('ID') %>%
+  as_tibble %>%
+  inner_join(kmeansResSig)
+
+for (i in 1:10) {
+  boxplotData %>%
+    filter(cl == i) %>%
+    select(-ID, -cl) %>%
+    gather(key = 'Conditions', value = 'ScaleCounts') %>%
+    mutate(Group = case_when(
+             str_detect(Conditions, '^Mock|^HK') ~ 'Mock',
+             str_detect(Conditions, '^Nonsupp') ~ 'Nonsupp',
+             str_detect(Conditions, '^Supp') ~ 'Supp',
+           )) %>%
+    mutate(Conditions = Conditions %>% factor(levels = sampleN)) %>%
+    mutate(Group = Group %>% factor(levels = c('Mock', 'Nonsupp', 'Supp'))) %>%
+    ggplot(aes(x = Group, y = ScaleCounts, fill = Conditions)) +
+    geom_boxplot(position = position_dodge2(preserve = 'single')) +
+    ## scale_fill_manual(values = c(rep(NA, 6), rep('#377eb8', 2), rep('#e41a1c', 2))) +
+    scale_fill_manual(values = c(rep(NA, 2), '#377eb8', '#e41a1c')) +
+    ylim(-2, 2) +
+    ylab('Scaled counts') +
+    theme_classic() +
+    theme(axis.text.x = element_text(angle = 90),
+          plot.title = element_text(hjust = 0.5, size = 12, face = 'bold'),
+          legend.text.align = 0,
+          axis.text = element_text(size = 13),
+          axis.title = element_text(size = 14),
+          legend.text=element_text(size= 13),
+          legend.title = element_text(size = 14))
+
+  ggsave(paste0('boxplot/kmeans10_boxplot', i, '.pdf'))
+  ggsave(paste0('boxplot/kmeans10_boxplot', i, '.jpeg'))
+}
 #######################################################################
 
 
