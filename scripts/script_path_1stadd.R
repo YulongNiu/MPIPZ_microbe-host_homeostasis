@@ -311,9 +311,9 @@ kallGOBPSim <- clusterProfiler::simplify(kallGOBP,
                                          select_fun = min)
 dotplot(kallGOBPSim, showCategory = 20)
 
-dotplot(kallGOBP)
-ggsave('kmeans10_1stadd_cp_BP_dotplot.jpg', width = 13)
-ggsave('kmeans10_1stadd_cp_BP_dotplot.pdf', width = 13)
+dotplot(kallGOBP, showCategory = 10)
+ggsave('kmeans10_1stadd_cp_BP_dotplot_10.jpg', width = 13)
+ggsave('kmeans10_1stadd_cp_BP_dotplot_10.pdf', width = 13)
 
 kallGOBP %>%
   as.data.frame %>%
@@ -326,8 +326,8 @@ emapplot(kallGOBP,
          pie='count',
          pie_scale=1.5,
          layout='nicely')
-ggsave('kmeans10_1stadd_cp_BP_network.jpg', width = 18, height = 15)
-ggsave('kmeans10_1stadd_cp_BP_network.pdf', width = 18, height = 15)
+ggsave('kmeans10_1stadd_cp_BP_network.jpg', width = 18, height = 16)
+ggsave('kmeans10_1stadd_cp_BP_network.pdf', width = 18, height = 16)
 
 kallKEGG <- compareCluster(geneCluster = kall,
                            fun = 'enrichKEGG',
@@ -386,10 +386,14 @@ library('tidyverse')
 library('DESeq2')
 library('ComplexHeatmap')
 library('RColorBrewer')
+library('circlize')
 
-setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/clusterbc')
+savepath <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset_1stadd/clusterbc'
+setwd(savepath)
 
 load('kmeans10_1stadd_cp_BP.RData')
+
+topGONum <- 10
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Sig terms~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno.csv',
@@ -403,7 +407,7 @@ anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno
   dplyr::slice(which(!duplicated(.)))
 
 cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
-                                                       showCategory = 5) %>%
+                                                       showCategory = topGONum) %>%
   as_tibble %>%
   mutate(geneName = sapply(geneID, function(x) {
     strsplit(x, split = '/', fixed = TRUE) %>%
@@ -463,48 +467,56 @@ scaleC <- rawC %>%
   mutate(GeneID = ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[', 1))
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-## root development
-interesGO <- c('GO:0010053', 'GO:0010054', 'GO:0010015', 'GO:0048764', 'GO:0090627')
+## top 5
+interesGO <- list(root_dev = c('GO:0010053', 'GO:0010054', 'GO:0010015', 'GO:0048764', 'GO:0090627'),
+                  defense = c('GO:0045730', 'GO:0002679', 'GO:0010200', 'GO:0010243', 'GO:0009753'),
+                  hypoxia = c('GO:0036294', 'GO:0071453', 'GO:0071456'),
+                  toxic = c('GO:0009636', 'GO:0098754', 'GO:0010583', 'GO:0009407', 'GO:0009404'),
+                  nitrate = c('GO:0015706', 'GO:0010167', 'GO:0015698', 'GO:0000041'),
+                  cell_wall = c('GO:0045491', 'GO:0045492', 'GO:0042546', 'GO:0044038', 'GO:0010413'))
 
-## defense
-interesGO <- c('GO:0045730', 'GO:0002679', 'GO:0010200', 'GO:0010243', 'GO:0009753')
+## top 10
+interesGO <- list(root_dev = c('GO:0090627', 'GO:0080147', 'GO:0048767', 'GO:0048765', 'GO:0048764', 'GO:0048588', 'GO:0048469', 'GO:0010054', 'GO:0010053', 'GO:0010015'),
+                  defense = c('GO:0050832', 'GO:0046189', 'GO:0045730', 'GO:0035690', 'GO:0010243', 'GO:0010200', 'GO:0009753', 'GO:0009723', 'GO:0009697', 'GO:0009611', 'GO:0002679'),
+                  hypoxia = c('GO:0036294', 'GO:0071453', 'GO:0071456'),
+                  toxic = c('GO:0009636', 'GO:0098754', 'GO:0010583', 'GO:0009407', 'GO:0009404'),
+                  nitrate = c('GO:0048878', 'GO:0042594', 'GO:0031669', 'GO:0030003', 'GO:0019725', 'GO:0015706', 'GO:0015698', 'GO:0010167', 'GO:0009267', 'GO:0006875', 'GO:0006826', 'GO:0000041'),
+                  cell_wall = c('GO:0070592', 'GO:0070589', 'GO:0045492', 'GO:0045491', 'GO:0044038', 'GO:0044036', 'GO:0042546', 'GO:0010413', 'GO:0010410', 'GO:0010383'))
 
-## response to hypoxia
-interesGO <- c('GO:0036294', 'GO:0071453', 'GO:0071456')
 
-## response to toxic substrate
-interesGO <- c('GO:0009636', 'GO:0098754', 'GO:0010583', 'GO:0009407', 'GO:0009404')
+for (i in seq_along(interesGO)) {
 
-## nitrate transpot
-interesGO <- c('GO:0015706', 'GO:0010167', 'GO:0015698', 'GO:0000041')
+  interesGene <- cpBP %>%
+    filter(ID %in% interesGO[[i]]) %>%
+    .$geneID %>%
+    strsplit(split = '/', fixed = TRUE) %>%
+    unlist %>%
+    unique
 
-## cell wall biogenesis
-interesGO <- c('GO:0045491', 'GO:0045492', 'GO:0042546', 'GO:0044038', 'GO:0010413')
+  interesMat <- scaleC %>%
+    dplyr::filter(GeneID %in% interesGene) %>%
+    dplyr::filter(!(cl %in% c(9:10)))
 
-interesGene <- cpBP %>%
-  filter(ID %in% interesGO) %>%
-  .$geneID %>%
-  strsplit(split = '/', fixed = TRUE) %>%
-  unlist %>%
-  unique
+  matcol <- colorRamp2(seq(min(scaleC %>% select(contains('_'))), max(scaleC %>% select(contains('_'))), length = 100), colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral'))[c(-3, -4, -6, -7)])(100))
 
-interesMat <- scaleC %>%
-  dplyr::filter(GeneID %in% interesGene) %>%
-  dplyr::filter(!(cl %in% c(9:10)))
+  dim(interesMat) %>% print
 
-Heatmap(matrix = interesMat %>%
-          select(contains('_')) %>%
-          apply(1, meanFlg22) %>%
-          t,
-        name = 'Scaled Counts',
-        row_order = order(interesMat$cl) %>% rev,
-        row_split = interesMat$cl,
-        row_gap = unit(2, "mm"),
-        column_order = 1 : 10,
-        column_split = rep(c('Mock/HKSynCom', 'Non-sup', 'Sup'), c(6, 2, 2)),
-        ## column_order = 1 : 40,
-        ## column_split = rep(c('Mock/HKSynCom', 'Non-sup', 'Sup'), c(24, 8, 8)),
-        show_column_names = FALSE,
-        col = colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral'))[c(-3, -4, -6, -7)])(100),
-        use_raster = FALSE)
+  ht_list <- Heatmap(matrix = interesMat %>%
+                       select(contains('_')) %>%
+                       apply(1, meanFlg22) %>%
+                       t,
+                     name = 'Scaled Counts',
+                     row_order = order(interesMat$cl) %>% rev,
+                     row_split = interesMat$cl,
+                     row_gap = unit(2, "mm"),
+                     column_order = 1 : 10,
+                     column_split = rep(c('Mock/HKSynCom', 'Non-sup', 'Sup'), c(6, 2, 2)),
+                     show_column_names = FALSE,
+                     col = matcol,
+                     use_raster = FALSE)
+
+  pdf(paste0(savepath, '/', 'GO_', names(interesGO)[i], '_1stadd_', topGONum, '.pdf'))
+  draw(ht_list)
+  dev.off()
+}
 #######################################################################

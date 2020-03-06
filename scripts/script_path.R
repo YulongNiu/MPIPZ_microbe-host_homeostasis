@@ -419,3 +419,154 @@ for (i in cln) {
   }
 }
 ##################################################################
+
+
+##############################Plot GO heatmap##########################
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~useful funcs~~~~~~~~~~~~~~~~~~~~~~~~~~~
+meanFlg22 <- function(v) {
+
+  require('magrittr')
+
+  res <- v %>%
+    split(rep(1 : 4, each = 3)) %>%
+    sapply(mean, na.rm = TRUE)
+
+  return(res)
+}
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+library('tidyverse')
+library('DESeq2')
+library('ComplexHeatmap')
+library('RColorBrewer')
+library('circlize')
+
+savepath <- '/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/geneset/clusterbc'
+setwd(savepath)
+
+load('kmeans10_cp_BP.RData')
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Sig terms~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno.csv',
+                 col_types = cols(Chromosome = col_character())) %>%
+  mutate_all(list(~replace(., is.na(.), ''))) %>%
+  mutate(GeneID = strsplit(ID, split = '.', fixed = TRUE) %>%
+           sapply('[[', 1) %>%
+           unlist) %>%
+  mutate(Gene = if_else(nchar(Gene) == 0, GeneID, Gene)) %>%
+  dplyr::select(GeneID, Gene, Description) %>%
+  dplyr::slice(which(!duplicated(.)))
+
+cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
+                                                       showCategory = 10) %>%
+  as_tibble %>%
+  mutate(geneName = sapply(geneID, function(x) {
+    strsplit(x, split = '/', fixed = TRUE) %>%
+      unlist %>%
+      tibble(GeneID = .) %>%
+      inner_join(anno) %>%
+      .$Gene %>%
+      paste(collapse = '/') %>%
+      str_replace('C/VIF2', 'C-VIF2') ## replace genes with '/'
+  }))
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~heatmap matrix~~~~~~~~~~~~~~~~~~~~~~
+load('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/degres_condi_Mock_1stadd.RData')
+
+wholeDEG <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/eachGroup_vs_Mock_k_1stadd.csv')
+kmeansRes <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/kmeans10_1stadd.csv') %>%
+  select(ID, cl)
+
+fcsig <- wholeDEG %>%
+  select(ends_with('FoldChange')) %>%
+  transmute_all(list(~ case_when(. > log2(1.5) ~ 1,
+                                 . < -log2(1.5) ~ -1,
+                                 TRUE ~ 0)))
+padjsig <- wholeDEG %>%
+  select(ends_with('padj')) %>%
+  `<`(0.05) %>%
+  as_tibble %>%
+  transmute_all(list(~ if_else(is.na(.), FALSE, .)))
+
+heatsig <- (padjsig * fcsig) %>%
+  as_tibble %>%
+  abs %>%
+  rowSums %>%
+  {. >= 1} %>%
+  which %>%
+  dplyr::slice(wholeDEG, .) %>%
+  inner_join(kmeansRes)
+
+rawC <- rldData %>%
+  as.data.frame %>%
+  rownames_to_column('ID') %>%
+  as_tibble %>%
+  dplyr::select(matches('Mock_\\d|HKSynCom33_\\d|HKSynCom35_\\d'), matches('Mock_Flg22_\\d|HKSynCom33_Flg22_\\d|HKSynCom35_Flg22_\\d'), everything()) %>%
+  inner_join(heatsig %>% select(ID, cl))
+## inner_join(kmeansRes) ## all transcripts
+
+## scale counts
+scaleC <- rawC %>%
+  select(contains('_')) %>%
+  t %>%
+  scale %>%
+  t %>%
+  as_tibble %>%
+  bind_cols(rawC %>% select(ID, cl)) %>%
+  mutate(GeneID = ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[', 1))
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+## top 5
+interesGO <- list(root_dev = c('GO:0010053', 'GO:0010054', 'GO:0010015', 'GO:0048764', 'GO:0090627'),
+                  defense = c('GO:0045730', 'GO:0002679', 'GO:0010200', 'GO:0010243', 'GO:0009753'),
+                  hypoxia = c('GO:0036294', 'GO:0071453', 'GO:0071456'),
+                  toxic = c('GO:0009636', 'GO:0098754', 'GO:0010583', 'GO:0009407', 'GO:0009404'),
+                  nitrate = c('GO:0015706', 'GO:0010167', 'GO:0015698', 'GO:0000041'),
+                  cell_wall = c('GO:0045491', 'GO:0045492', 'GO:0042546', 'GO:0044038', 'GO:0010413'))
+
+## top 10
+interesGO <- list(root_dev = c('GO:0090627', 'GO:0080147', 'GO:0048767', 'GO:0048765', 'GO:0048764', 'GO:0048588', 'GO:0048469', 'GO:0010054', 'GO:0010053', 'GO:0010015'),
+                  defense = c('GO:0050832', 'GO:0046189', 'GO:0045730', 'GO:0035690', 'GO:0010243', 'GO:0010200', 'GO:0009753', 'GO:0009723', 'GO:0009697', 'GO:0009611', 'GO:0002679'),
+                  hypoxia = c('GO:0036294', 'GO:0071453', 'GO:0071456'),
+                  toxic = c('GO:0009636', 'GO:0098754', 'GO:0010583', 'GO:0009407', 'GO:0009404'),
+                  nitrate = c('GO:0048878', 'GO:0042594', 'GO:0031669', 'GO:0030003', 'GO:0019725', 'GO:0015706', 'GO:0015698', 'GO:0010167', 'GO:0009267', 'GO:0006875', 'GO:0006826', 'GO:0000041'),
+                  cell_wall = c('GO:0070592', 'GO:0070589', 'GO:0045492', 'GO:0045491', 'GO:0044038', 'GO:0044036', 'GO:0042546', 'GO:0010413', 'GO:0010410', 'GO:0010383'))
+
+
+for (i in seq_along(interesGO)) {
+
+  interesGene <- cpBP %>%
+    filter(ID %in% interesGO[[i]]) %>%
+    .$geneID %>%
+    strsplit(split = '/', fixed = TRUE) %>%
+    unlist %>%
+    unique
+
+  interesMat <- scaleC %>%
+    dplyr::filter(GeneID %in% interesGene) %>%
+    dplyr::filter(!(cl %in% c(9:10)))
+
+  matcol <- colorRamp2(seq(min(scaleC %>% select(contains('_'))), max(scaleC %>% select(contains('_'))), length = 100), colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral'))[c(-3, -4, -6, -7)])(100))
+
+  dim(interesMat) %>% print
+
+  ht_list <- Heatmap(matrix = interesMat %>%
+                       select(contains('_')) %>%
+                       apply(1, meanFlg22) %>%
+                       t,
+                     name = 'Scaled Counts',
+                     row_order = order(interesMat$cl) %>% rev,
+                     row_split = interesMat$cl,
+                     row_gap = unit(2, "mm"),
+                     column_order = 1 : 10,
+                     column_split = rep(c('Mock/HKSynCom', 'Non-sup', 'Sup'), c(6, 2, 2)),
+                     show_column_names = FALSE,
+                     col = matcol,
+                     use_raster = FALSE)
+
+  pdf(paste0(savepath, '/', 'GO_', names(interesGO)[i], '_1stadd_5.pdf'))
+  draw(ht_list)
+  dev.off()
+}
+#######################################################################
