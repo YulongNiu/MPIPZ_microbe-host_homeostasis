@@ -140,7 +140,7 @@ VolzCol0Sig <- sigCol0 %>%
   mutate(Volz_log2FC = case_when(Volz_log2FC > 0 ~ 'up',
                                       Volz_log2FC < 0 ~ 'down',
                                       is.na(Volz_log2FC) ~ 'no')) %>%
-  inner_join(scaleCCol0sig %>% select(ID, cl), .)
+  inner_join(scaleCCol0sig %>% select(ID), .)
 
 all.equal(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
           sum(scaleCCol0sig$ID == flg22Col0Sig$ID),
@@ -151,7 +151,7 @@ all.equal(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
 
 ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
         name = 'Scaled Counts',
-        row_order = order(scaleCCol0sig$cl) %>% rev,
+        ## row_order = order(scaleCCol0sig$cl) %>% rev,
         row_split = scaleCCol0sig$cl,
         row_gap = unit(2, "mm"),
         column_order = 1 : 40,
@@ -201,7 +201,8 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
 
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02'
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02_Iron2'
-filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22'
+## filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22'
+filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22_Iron2'
 
 pdf(paste0(filePrefix, '.pdf'))
 draw(ht_list)
