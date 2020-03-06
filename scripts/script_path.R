@@ -446,6 +446,8 @@ setwd(savepath)
 
 load('kmeans10_cp_BP.RData')
 
+topGONum <- 5
+
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Sig terms~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno.csv',
                  col_types = cols(Chromosome = col_character())) %>%
@@ -458,7 +460,7 @@ anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno
   dplyr::slice(which(!duplicated(.)))
 
 cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
-                                                       showCategory = 5) %>%
+                                                       showCategory = topGONum) %>%
   as_tibble %>%
   mutate(geneName = sapply(geneID, function(x) {
     strsplit(x, split = '/', fixed = TRUE) %>%
@@ -518,11 +520,9 @@ scaleC <- rawC %>%
 
 ## top 5
 interesGO <- list(root_dev = c('GO:0010054', 'GO:0010015', 'GO:0010053', 'GO:0090627'),
-                  defense = c('GO:0045730', 'GO:0002679', 'GO:0010200', 'GO:0010243', 'GO:0009753'),
-                  hypoxia = c('GO:0036294', 'GO:0071453', 'GO:0071456'),
                   toxic = c('GO:0009636', 'GO:0098754', 'GO:0010583', 'GO:0009407', 'GO:0009404'),
-                  nitrate = c('GO:0015706', 'GO:0010167', 'GO:0015698', 'GO:0000041'),
-                  cell_wall = c('GO:0045491', 'GO:0045492', 'GO:0042546', 'GO:0044038', 'GO:0010413'))
+                  nitrate = c('GO:0015698', 'GO:0071496', 'GO:0006826', 'GO:0046916', 'GO:0015706', 'GO:0010167', 'GO:0000041', 'GO:0031668', 'GO:0098771'),
+                  iron = c('GO:0071281', 'GO:0071248', 'GO:0071732', 'GO:0071731', 'GO:0071241'))
 
 ## top 10
 interesGO <- list(root_dev = c('GO:0090627', 'GO:0080147', 'GO:0048767', 'GO:0048765', 'GO:0048764', 'GO:0048588', 'GO:0048469', 'GO:0010054', 'GO:0010053', 'GO:0010015'),
@@ -544,7 +544,7 @@ for (i in seq_along(interesGO)) {
 
   interesMat <- scaleC %>%
     dplyr::filter(GeneID %in% interesGene) %>%
-    dplyr::filter(!(cl %in% c(9:10)))
+    dplyr::filter(!(cl %in% c(6)))
 
   matcol <- colorRamp2(seq(min(scaleC %>% select(contains('_'))), max(scaleC %>% select(contains('_'))), length = 100), colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral'))[c(-3, -4, -6, -7)])(100))
 
@@ -558,13 +558,13 @@ for (i in seq_along(interesGO)) {
                      row_order = order(interesMat$cl) %>% rev,
                      row_split = interesMat$cl,
                      row_gap = unit(2, "mm"),
-                     column_order = 1 : 10,
-                     column_split = rep(c('Mock/HKSynCom', 'Non-sup', 'Sup'), c(6, 2, 2)),
+                     column_order = 1 : 4,
+                     column_split = rep(c('Mock', 'Mock+flg22', 'Non-sup', 'Sup'), c(1, 1, 1, 1)),
                      show_column_names = FALSE,
                      col = matcol,
                      use_raster = FALSE)
 
-  pdf(paste0(savepath, '/', 'GO_', names(interesGO)[i], '_1stadd_5.pdf'))
+  pdf(paste0(savepath, '/', 'GO_', names(interesGO)[i], '_1stadd_', topGONum, '.pdf'))
   draw(ht_list)
   dev.off()
 }
