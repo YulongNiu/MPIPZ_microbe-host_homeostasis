@@ -334,7 +334,7 @@ cond <- list(c('SynCom33', 'Mock'),
 
 * Optimized network (top 10 significant GO terms)
 
-![kmeans10_soil_cp_BP_cytoscape_10](results/removeZero/geneset_soil/clusterbc/kmeans10_soil_cp_BP_cytoscape_10.png)
+![kmeans10_soil_cp_BP_cytoscape_10](results/removeZero/geneset_soil/clusterbc/kmeans10_soil_cp_BP_cytoscape_10.jpeg)
 
 ## 4. Merge
 
