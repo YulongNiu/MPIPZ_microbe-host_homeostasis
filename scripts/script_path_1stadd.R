@@ -312,8 +312,8 @@ kallGOBPSim <- clusterProfiler::simplify(kallGOBP,
 dotplot(kallGOBPSim, showCategory = 20)
 
 dotplot(kallGOBP, showCategory = 10)
-ggsave('kmeans10_1stadd_cp_BP_dotplot_10.jpg', width = 13)
-ggsave('kmeans10_1stadd_cp_BP_dotplot_10.pdf', width = 13)
+ggsave('kmeans10_1stadd_cp_BP_dotplot_10.jpg', width = 13, height = 12)
+ggsave('kmeans10_1stadd_cp_BP_dotplot_10.pdf', width = 13, height = 12)
 
 kallGOBP %>%
   as.data.frame %>%
