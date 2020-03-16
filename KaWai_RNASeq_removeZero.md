@@ -305,10 +305,13 @@ cond <- list(c('SynCom33', 'Mock'),
 
 ![kmeans10_heatmap_soil_sig2](results/removeZero/kmeans10_heatmap_soil_sig2.jpg)
 
-![kmeans10_heatmap_soil_sig_DEG.jpg](results/removeZero/kmeans10_heatmap_soil_sig_DEG.jpg)
+![kmeans10_heatmap_soil_sig_DEG](results/removeZero/kmeans10_heatmap_soil_sig_DEG.jpg)
 
-![kmeans10_heatmap_soil_sig_DEG.jpg2](results/removeZero/kmeans10_heatmap_soil_sig_DEG2.jpg)
+![kmeans10_heatmap_soil_sig_DEG2](results/removeZero/kmeans10_heatmap_soil_sig_DEG2.jpg)
 
+![kmeans10_heatmap_1stadd_sig_mergeMockHK_DEG](results/removeZero/kmeans10_heatmap_1stadd_sig_mergeMockHK_DEG.jpg)
+
+![kmeans10_heatmap_1stadd_sig_mergeMockHK_DEG2](results/removeZero/kmeans10_heatmap_1stadd_sig_mergeMockHK_DEG2.jpg)
 
 ### 3.3 Gene-set
 
