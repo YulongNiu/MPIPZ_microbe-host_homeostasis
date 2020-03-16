@@ -403,7 +403,7 @@ anno <- read_csv('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/Ensembl_ath_Anno
            sapply('[[', 1) %>%
            unlist) %>%
   mutate(Gene = if_else(nchar(Gene) == 0, GeneID, Gene)) %>%
-  dplyr::select(GeneID, Gene, Description) %>%
+  dplyr::select(ID, GeneID, Gene, Description) %>%
   dplyr::slice(which(!duplicated(.)))
 
 cpBP <- clusterProfiler:::fortify.compareClusterResult(kallGOBP,
@@ -452,6 +452,7 @@ rawC <- rldData %>%
   as.data.frame %>%
   rownames_to_column('ID') %>%
   as_tibble %>%
+  dplyr::select(matches('Mock_\\d|HKSynCom33_\\d|HKSynCom35_\\d'), matches('Mock_Flg22_\\d|HKSynCom33_Flg22_\\d|HKSynCom35_Flg22_\\d'), everything()) %>%
   inner_join(heatsig %>% select(ID, cl))
 ## inner_join(kmeansRes) ## all transcripts
 
@@ -494,11 +495,27 @@ for (i in seq_along(interesGO)) {
 
   interesMat <- scaleC %>%
     dplyr::filter(GeneID %in% interesGene) %>%
-    dplyr::filter(!(cl %in% c(9:10)))
+    dplyr::filter(!(cl %in% c(9:10))) %>%
+    inner_join(anno)
 
   matcol <- colorRamp2(seq(min(scaleC %>% select(contains('_'))), max(scaleC %>% select(contains('_'))), length = 100), colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral'))[c(-3, -4, -6, -7)])(100))
 
   dim(interesMat) %>% print
+
+  defenseGene <- c('AT2G19190',
+                   'AT1G14550',
+                   'AT1G18570',
+                   'AT2G30750',
+                   'AT1G73805',
+                   'AT4G28460',
+                   'AT4G37290',
+                   'AT3G48090',
+                   'AT3G07040',
+                   'AT3G50950',
+                   'AT4G11170',
+                   'AT5G41540')
+  defenseGeneIdx <- match(defenseGene, interesMat$GeneID) %>% .[!is.na(.)]
+  defenseAnno <- rowAnnotation(foo = anno_mark(at = defenseGeneIdx, labels = interesMat$Gene[defenseGeneIdx]))
 
   ht_list <- Heatmap(matrix = interesMat %>%
                        select(contains('_')) %>%
@@ -512,10 +529,42 @@ for (i in seq_along(interesGO)) {
                      column_split = rep(c('Mock/HKSynCom', 'Non-sup', 'Sup'), c(6, 2, 2)),
                      show_column_names = FALSE,
                      col = matcol,
-                     use_raster = FALSE)
+                     use_raster = FALSE,
+                     right_annotation = defenseAnno)
 
-  pdf(paste0(savepath, '/', 'GO_', names(interesGO)[i], '_1stadd_', topGONum, '.pdf'))
+  pdf(paste0(savepath, '/', 'GO_', names(interesGO)[i], '_1stadd_', topGONum, 'withgname.pdf'))
   draw(ht_list)
   dev.off()
 }
+
+
+##~~~~~~~~~~~~~~~~~~example TF~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Myb15 <- interesMat %>%
+  filter(ID == 'AT3G23250.1') %>%
+  select(contains('_'))
+
+tibble(Conditions = c('Mock', 'HK_nonsupp', 'HK_supp', 'Mock_flg22', 'HK_nonsupp_flg22', 'HK_supp_flg22', 'Nonsupp', 'Nonsupp_flg22', 'Supp', 'Supp_flg22') %>% rep(each = 4),
+       ScaleCounts = Myb15[1, ] %>% as.numeric) %>%
+  mutate(Group = case_when(
+           str_detect(Conditions, '^Mock|^HK') ~ 'Mock',
+           str_detect(Conditions, '^Nonsupp') ~ 'Nonsupp',
+           str_detect(Conditions, '^Supp') ~ 'Supp',
+         )) %>%
+  mutate(Conditions = Conditions %>% factor(levels = c('Mock', 'HK_nonsupp',  'HK_supp', 'Mock_flg22', 'HK_nonsupp_flg22', 'HK_supp_flg22', 'Nonsupp', 'Nonsupp_flg22', 'Supp', 'Supp_flg22'))) %>%
+  ggplot(aes(x = Group, y = ScaleCounts, fill = Conditions)) +
+  geom_boxplot(position = position_dodge2(preserve = 'single')) +
+  ## geom_boxplot(position = position_dodge(0.8)) +
+  ## geom_dotplot(binaxis = 'y', stackdir = 'center', position = position_dodge(0.8), dotsize = 0.5) +
+  scale_fill_manual(values = c(rep(NA, 6), rep('#377eb8', 2), rep('#e41a1c', 2))) +
+  ylim(-2, 2) +
+  ylab('Scaled counts') +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 90),
+        plot.title = element_text(hjust = 0.5, size = 12, face = 'bold'),
+        legend.text.align = 0,
+        axis.text = element_text(size = 13),
+        axis.title = element_text(size = 14),
+        legend.text=element_text(size= 13),
+        legend.title = element_text(size = 14))
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #######################################################################
