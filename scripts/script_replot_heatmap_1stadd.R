@@ -90,6 +90,32 @@ colnames(flg22Mat) <- c('Mock+flg22 vs. Mock',
                         'SynCom33+flg22 vs. SynCom33',
                         'SynCom35+flg22 vs. SynCom35')
 
+## 'AT5G06950.4'
+## Mock+flg22 vs. Mock HKSynCom33+flg22 vs. HKSynCom33
+## "no"                          "down"
+## HKSynCom35+flg22 vs. HKSynCom35     SynCom33+flg22 vs. SynCom33
+## "up"                            "no"
+## SynCom35+flg22 vs. SynCom35
+## "no"
+flg22Mat2 <- flg22Mat[, 1:3] %>%
+  apply(1, function(x) {
+    if (('down' %in% x) & ('up' %in% x)) {
+      return('no')
+    }
+    else if ('down' %in% x) {
+      return('down')
+    }
+    else if ('up' %in% x) {
+      return('up')
+    }
+    else {
+      return('no')
+    }
+  }) %>%
+  cbind(flg22Mat[, 4:5])
+colnames(flg22Mat2)[1] <- 'Mock/HKSynCom+flg22 vs. Mock/HKSynCom'
+
+
 bacMat <- sigMat[, 6:11]
 colnames(bacMat) <- c('HKSynCom33 vs. Mock',
                       'HKSynCom35 vs. Mock',
@@ -116,7 +142,7 @@ colnames(hkMat) <- c('SynCom33 vs. HKSynCom33',
 
 ht_list <- Heatmap(matrix = scaleC %>% select(contains('_')),
                    name = 'Scaled Counts',
-                   row_order = order(scaleC$cl) %>% rev,
+                   ## row_order = order(scaleC$cl) %>% rev,
                    row_split = scaleC$cl,
                    row_gap = unit(2, "mm"),
                    column_order = 1 : 40,
@@ -125,7 +151,7 @@ ht_list <- Heatmap(matrix = scaleC %>% select(contains('_')),
                    col = colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral'))[c(-3, -4, -6, -7)])(100),
                    top_annotation = c(col_flg22, col_syncom),
                    use_raster = FALSE) +
-  Heatmap(flg22Mat,
+  Heatmap(flg22Mat2,
           col = c('down' = 'blue', 'no' = 'white', 'up' = 'red'),
           column_names_gp = gpar(fontsize = 5),
           heatmap_legend_param = list(title = 'DEGs'),
@@ -150,8 +176,7 @@ ht_list <- Heatmap(matrix = scaleC %>% select(contains('_')),
           use_raster = FALSE,
           show_heatmap_legend = FALSE)
 
-
-filePrefix <- 'kmeans10_heatmap_1stadd_sig_DEG'
+filePrefix <- 'kmeans10_heatmap_1stadd_sig_mergeMockHK_DEG2'
 
 pdf(paste0(filePrefix, '.pdf'))
 draw(ht_list)
