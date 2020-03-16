@@ -225,9 +225,13 @@ DEGs threshold: `|log2FC| > log2(1.5)` and `adj-pvalue < 0.05`
 
 ![kmeans10_heatmap_1stadd_sig2](results/removeZero/kmeans10_heatmap_1stadd_sig2.jpg)
 
-![kmeans10_heatmap_1stadd_sig_DEG.jpg](results/removeZero/kmeans10_heatmap_1stadd_sig_DEG.jpg)
+![kmeans10_heatmap_1stadd_sig_DEG](results/removeZero/kmeans10_heatmap_1stadd_sig_DEG.jpg)
 
-![kmeans10_heatmap_1stadd_sig_DEG.jpg2](results/removeZero/kmeans10_heatmap_1stadd_sig_DEG2.jpg)
+![kmeans10_heatmap_1stadd_sig_DEG](results/removeZero/kmeans10_heatmap_1stadd_sig_DEG2.jpg)
+
+![kmeans10_heatmap_1stadd_sig_mergeMockHK_DEG](results/removeZero/kmeans10_heatmap_1stadd_sig_mergeMockHK_DEG.jpg)
+
+![kmeans10_heatmap_1stadd_sig_mergeMockHK_DEG2](results/removeZero/kmeans10_heatmap_1stadd_sig_mergeMockHK_DEG2.jpg)
 
 ### 2.3 Gene-set
 
@@ -308,10 +312,6 @@ cond <- list(c('SynCom33', 'Mock'),
 ![kmeans10_heatmap_soil_sig_DEG](results/removeZero/kmeans10_heatmap_soil_sig_DEG.jpg)
 
 ![kmeans10_heatmap_soil_sig_DEG2](results/removeZero/kmeans10_heatmap_soil_sig_DEG2.jpg)
-
-![kmeans10_heatmap_1stadd_sig_mergeMockHK_DEG](results/removeZero/kmeans10_heatmap_1stadd_sig_mergeMockHK_DEG.jpg)
-
-![kmeans10_heatmap_1stadd_sig_mergeMockHK_DEG2](results/removeZero/kmeans10_heatmap_1stadd_sig_mergeMockHK_DEG2.jpg)
 
 ### 3.3 Gene-set
 
