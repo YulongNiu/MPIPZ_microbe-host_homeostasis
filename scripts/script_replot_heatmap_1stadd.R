@@ -246,8 +246,8 @@ for (i in 1:10) {
           legend.title = element_text(size = 14),
           legend.position = 'none')
 
-  ggsave(paste0('boxplot_1stadd/kmeans10_1stadd_boxplot', i, '.pdf'), width = 20)
-  ggsave(paste0('boxplot_1stadd/kmeans10_1stadd_boxplot', i, '.jpeg'), width = 20)
+  ggsave(paste0('boxplot_1stadd/kmeans10_1stadd_boxplot', i, '.pdf'), width = 20, height = 12)
+  ggsave(paste0('boxplot_1stadd/kmeans10_1stadd_boxplot', i, '.jpeg'), width = 20, height = 12)
 }
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #######################################################################

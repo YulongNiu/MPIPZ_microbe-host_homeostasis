@@ -70,17 +70,57 @@ sigMat <- (padjsig * fcsig) %>%
                                 . == 1 ~ 'up'))) %>%
   mutate(ID = scaleCCol0$ID)
 
+sigMat <- (padjsig * fcsig) %>%
+  as_tibble %>%
+  setNames(names(.) %>% substr(., start = 1, stop = nchar(.) - 5)) %>%
+  mutate(ID = wholeDEG$ID) %>%
+  inner_join(scaleCCol0 %>% select(ID), .) %T>%
+  {(sum(.$ID == scaleCCol0$ID) == nrow(.)) %>% print} %>%
+  transmute_at(.var = vars(contains('vs')),
+               list(~ case_when(. == -1 ~ 'down',
+                                . == 0 ~'no',
+                                . == 1 ~ 'up'))) %>%
+  mutate(ID = scaleCCol0$ID)
+
 ## flg22 matrix
-flg22Col <- sigMat %>% select(1:3, ID)
-colnames(flg22Col)[1:3] <- c('Mock+flg22 vs. Mock',
+flg22Col <- sigMat %>% select(1:5, ID)
+colnames(flg22Col)[1:5] <- c('Mock+flg22 vs. Mock',
                              'HKSynCom33+flg22 vs. HKSynCom33',
-                             'HKSynCom35+flg22 vs. HKSynCom35')
+                             'HKSynCom35+flg22 vs. HKSynCom35',
+                             'SynCom33+flg22 vs. SynCom33',
+                             'SynCom35+flg22 vs. SynCom35')
+
+hkCol <- sigMat %>% select(22:23, ID)
+colnames(hkCol)[1:2] <- c('SynCom33 vs. HKSynCom33',
+                          'SynCom35 vs. HKSynCom35')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~Iron bac response~~~~~~~~~~~~~~~~~~~~~~~~
-ironBacSig <- read_csv('/extDisk1/RESEARCH/MPIPZ_CJ_RNASeq/results/eachGroup_mergeDay8_deg_sig.csv') %>%
-  select(ID, cl) %>%
-  filter(cl %in% c(10, 3))
+## ironBacSig <- read_csv('/extDisk1/RESEARCH/MPIPZ_CJ_RNASeq/results/eachGroup_mergeDay8_deg_sig.csv') %>%
+##   select(ID, cl) %>%
+##   filter(cl %in% c(10, 3))
+
+ironHKLive <- read_csv('/extDisk1/RESEARCH/MPIPZ_CJ_RNASeq/results/eachGroup_mergeDay8_deg_sig.csv')
+
+fcsigIron <- ironHKLive %>%
+  select(ends_with('FoldChange')) %>%
+  transmute_all(list(~ case_when(. > log2(1.5) ~ 1,
+                                 . < -log2(1.5) ~ -1,
+                                 TRUE ~ 0)))
+padjsigIron <- ironHKLive %>%
+  select(ends_with('padj')) %>%
+  `<`(0.05) %>%
+  as_tibble %>%
+  transmute_all(list(~ if_else(is.na(.), FALSE, .)))
+
+sigMatIron <- (padjsigIron * fcsigIron) %>%
+  as_tibble %>%
+  setNames(names(.) %>% substr(., start = 1, stop = nchar(.) - 5)) %>%
+  transmute_at(.var = vars(contains('vs')),
+               list(~ case_when(. == -1 ~ 'bacdown',
+                                . == 0 ~'bacno',
+                                . == 1 ~ 'bacup'))) %>%
+  mutate(ID = ironHKLive$ID)
 
 ironRespSig <- read_csv('/extDisk1/RESEARCH/MPIPZ_CJ_RNASeq/results/eachGroup_mergeDay8_deg_sig.csv') %>%
   select(ID, cl) %>%
@@ -115,6 +155,14 @@ scaleCWERSig <- scaleCWER %>%
 flg22Col0Sig <- flg22Col %>%
   inner_join(sigCol0)
 
+hkCol0Sig <- hkCol %>%
+  inner_join(sigCol0)
+
+ironHKLiveSig <- sigCol0 %>%
+  left_join(., sigMatIron) %>%
+  mutate_all(.funs = list(~if_else(is.na(.), 'bacno', .))) %>%
+  inner_join(scaleCCol0sig %>% select(ID), .)
+
 ironCol0Sig <- sigCol0 %>%
   left_join(., ironBacSig) %>%
   dplyr::rename(ironbac = cl) %>%
@@ -142,16 +190,18 @@ VolzCol0Sig <- sigCol0 %>%
                                       is.na(Volz_log2FC) ~ 'no')) %>%
   inner_join(scaleCCol0sig %>% select(ID), .)
 
-all.equal(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
-          sum(scaleCCol0sig$ID == flg22Col0Sig$ID),
-          sum(scaleCCol0sig$ID == ironCol0Sig$ID),
-          sum(scaleCCol0sig$ID == CastrilloCol0Sig$ID),
-          sum(scaleCCol0sig$ID == VolzCol0Sig$ID),
-          nrow(scaleCCol0sig))
+c(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
+  sum(scaleCCol0sig$ID == flg22Col0Sig$ID),
+  sum(scaleCCol0sig$ID == hkCol0Sig$ID),
+  sum(scaleCCol0sig$ID == ironHKLiveSig$ID),
+  sum(scaleCCol0sig$ID == ironCol0Sig$ID),
+  sum(scaleCCol0sig$ID == CastrilloCol0Sig$ID),
+  sum(scaleCCol0sig$ID == VolzCol0Sig$ID),
+  nrow(scaleCCol0sig))
 
 ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
         name = 'Scaled Counts',
-        ## row_order = order(scaleCCol0sig$cl) %>% rev,
+        row_order = order(scaleCCol0sig$cl) %>% rev,
         row_split = scaleCCol0sig$cl,
         row_gap = unit(2, "mm"),
         column_order = 1 : 40,
@@ -171,7 +221,7 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
   Heatmap(flg22Col0Sig %>% select(-ID),
           col = c('down' = 'blue', 'no' = 'white', 'up' = 'red'),
           column_names_gp = gpar(fontsize = 5),
-          heatmap_legend_param = list(title = 'DEGs'),
+          heatmap_legend_param = list(title = 'Col0flg22'),
           cluster_columns = FALSE,
           use_raster = FALSE) +
   Heatmap(CastrilloCol0Sig %>% select(-ID),
@@ -186,18 +236,30 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
           heatmap_legend_param = list(title = 'Volz'),
           cluster_columns = FALSE,
           use_raster = FALSE) +
-  Heatmap(ironCol0Sig %>% select(ironbac),
+  ## Heatmap(ironCol0Sig %>% select(ironbac),
+  ##         col = c('bacup' = 'purple', 'bacno' = 'white', 'bacdown' = 'green3'),
+  ##         column_names_gp = gpar(fontsize = 5),
+  ##         heatmap_legend_param = list(title = 'IronBac'),
+  ##         cluster_columns = FALSE,
+  ##         use_raster = FALSE) +
+  Heatmap(ironHKLiveSig %>% select(-2:-5, -ID),
           col = c('bacup' = 'purple', 'bacno' = 'white', 'bacdown' = 'green3'),
           column_names_gp = gpar(fontsize = 5),
           heatmap_legend_param = list(title = 'IronBac'),
           cluster_columns = FALSE,
           use_raster = FALSE) +
-  Heatmap(ironCol0Sig %>% select(ironresp),
-          col = c('respup' = 'purple', 'respno' = 'white', 'respdown' = 'green3'),
+  Heatmap(hkCol0Sig %>% select(-ID),
+          col = c('up' = 'purple', 'no' = 'white', 'down' = 'green3'),
           column_names_gp = gpar(fontsize = 5),
-          heatmap_legend_param = list(title = 'IronResp'),
+          heatmap_legend_param = list(title = 'Col0HKlive'),
           cluster_columns = FALSE,
           use_raster = FALSE)
+  ## Heatmap(ironCol0Sig %>% select(ironresp),
+  ##         col = c('respup' = 'purple', 'respno' = 'white', 'respdown' = 'green3'),
+  ##         column_names_gp = gpar(fontsize = 5),
+  ##         heatmap_legend_param = list(title = 'IronResp'),
+  ##         cluster_columns = FALSE,
+  ##         use_raster = FALSE)
 
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02'
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02_Iron2'
