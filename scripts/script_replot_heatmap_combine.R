@@ -194,14 +194,14 @@ c(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
   sum(scaleCCol0sig$ID == flg22Col0Sig$ID),
   sum(scaleCCol0sig$ID == hkCol0Sig$ID),
   sum(scaleCCol0sig$ID == ironHKLiveSig$ID),
-  sum(scaleCCol0sig$ID == ironCol0Sig$ID),
+  ## sum(scaleCCol0sig$ID == ironCol0Sig$ID),
   sum(scaleCCol0sig$ID == CastrilloCol0Sig$ID),
   sum(scaleCCol0sig$ID == VolzCol0Sig$ID),
   nrow(scaleCCol0sig))
 
 ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
         name = 'Scaled Counts',
-        row_order = order(scaleCCol0sig$cl) %>% rev,
+        ## row_order = order(scaleCCol0sig$cl) %>% rev,
         row_split = scaleCCol0sig$cl,
         row_gap = unit(2, "mm"),
         column_order = 1 : 40,
@@ -243,13 +243,13 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
   ##         cluster_columns = FALSE,
   ##         use_raster = FALSE) +
   Heatmap(ironHKLiveSig %>% select(-2:-5, -ID),
-          col = c('bacup' = 'purple', 'bacno' = 'white', 'bacdown' = 'green3'),
+          col = c('bacup' = 'blue', 'bacno' = 'white', 'bacdown' = 'red'),
           column_names_gp = gpar(fontsize = 5),
           heatmap_legend_param = list(title = 'IronBac'),
           cluster_columns = FALSE,
           use_raster = FALSE) +
   Heatmap(hkCol0Sig %>% select(-ID),
-          col = c('up' = 'purple', 'no' = 'white', 'down' = 'green3'),
+          col = c('up' = 'blue', 'no' = 'white', 'down' = 'red'),
           column_names_gp = gpar(fontsize = 5),
           heatmap_legend_param = list(title = 'Col0HKlive'),
           cluster_columns = FALSE,
@@ -264,13 +264,75 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02'
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02_Iron2'
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22'
-filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22_Iron2'
+filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22_Iron'
 
 pdf(paste0(filePrefix, '.pdf'))
 draw(ht_list)
 dev.off()
 
 system(paste0('convert -density 1200 ', paste0(filePrefix, '.pdf'), ' ', paste0(filePrefix, '.jpg')))
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~HK vs live~~~~~~~~~~~~~~~~~~~~~~~
+## library('venn')
+## library('VennDiagram')
+## library('venneuler')
+library('eulerr')
+
+hkCol0SigVenn <- hkCol0Sig %>%
+  mutate_at(vars(-ID), list(~str_detect(., 'down|up'))) %>%
+  dplyr::rename(Nonsupp = `SynCom33 vs. HKSynCom33`,
+                Supp = `SynCom35 vs. HKSynCom35`)
+
+ironHKLiveVenn <- ironHKLiveSig %>%
+  select(-1:-5) %>%
+  transmute(Iron = apply(., 1, function(x) {str_detect(x, 'bacdown|bacup') %>% any})) %>%
+  mutate(ID = ironHKLiveSig$ID)
+
+mergeVenn <- inner_join(hkCol0SigVenn, ironHKLiveVenn) %>%
+  inner_join(scaleCCol0sig %>% select(ID, cl))
+
+for (i in 1:10) {
+  pdf(paste0('iron_venn/cluster', i, '.pdf'))
+  mergeVenn %>%
+    ## filter(cl == i) %>%
+    dplyr::select(Iron, Nonsupp, Supp) %>%
+    euler %>%
+    plot(quantities = TRUE,
+         labels = list(font = 4),
+         fill = c('#7CAE00', '#F1696D', '#21BDC3'))
+  dev.off()
+}
+
+## mergeVenn %>%
+##   filter(cl == 1) %>%
+##   dplyr::select(Iron, Nonsupp, Supp) %>%
+##   euler %>%
+##   .$original.values %>%
+##   venneuler %>%
+##   plot
+
+
+## list(Iron = eachVenn$iron %>% which,
+##      Nonsupp = eachVenn$Nonsupp %>% which,
+##      Supp = eachVenn$Supp %>% which) %>%
+##   venn.diagram(.,
+##                euler.d = TRUE,
+##                filename = 'tmp1.pdf')
+## venn(.,
+##    snames = c('Iron', 'Nonsupp', 'Supp'),
+##    ilab = TRUE,
+##    zcolor = 'style',
+##    size = 25,
+##    cexil = 1.2,
+##    cexsn = 1.5)
+
+
+
+
+
+
+
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #######################################################################
 
