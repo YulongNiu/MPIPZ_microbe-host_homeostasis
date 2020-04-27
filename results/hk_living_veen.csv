@@ -1,0 +1,16 @@
+ID,cluster1,cluster2,cluster3,cluster4,cluster5,cluster6,cluster7,cluster8,cluster9,cluster10,clusterAll
+Iron,36,16,34,20,26,17,4,18,1,1,173
+Nonsupp,19,5,4,8,21,18,2,19,1,1,98
+Supp,218,0,12,229,2,67,107,471,14,0,1120
+Paulo,25,17,37,14,13,15,12,45,2,7,187
+Iron&Nonsupp,34,0,15,4,47,2,1,0,0,1,104
+Iron&Supp,56,0,8,43,0,5,6,43,0,1,162
+Iron&Paulo,12,4,20,14,6,12,2,28,1,7,106
+Nonsupp&Supp,45,0,0,21,3,36,2,56,0,0,163
+Nonsupp&Paulo,4,0,1,2,8,4,0,3,0,0,22
+Supp&Paulo,52,1,4,35,1,8,18,116,0,0,235
+Iron&Nonsupp&Supp,93,0,1,24,9,3,3,17,0,0,150
+Iron&Nonsupp&Paulo,5,1,4,0,22,0,0,3,0,0,35
+Iron&Supp&Paulo,22,1,2,12,0,3,7,56,0,0,103
+Nonsupp&Supp&Paulo,21,0,0,12,3,7,0,26,0,0,69
+Iron&Nonsupp&Supp&Paulo,81,0,1,26,5,9,0,34,0,0,156
