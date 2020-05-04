@@ -1,0 +1,157 @@
+ID,Gene,Chromosome,Start,End,Strand,Length,BioType,Description,cl
+AT1G01660.2,,1,239841,242703,-,2862,protein_coding,RING/U-box superfamily protein [Source:TAIR;Acc:AT1G01660],1
+AT1G01680.1,PUB54,1,246262,248440,-,2178,protein_coding,U-box domain-containing protein 54 [Source:UniProtKB/Swiss-Prot;Acc:Q9LQ92],4
+AT1G02430.1,ATARFD1B,1,495050,496332,-,1282,protein_coding,ADP-ribosylation factor D1B [Source:UniProtKB/TrEMBL;Acc:F4HXI4],1
+AT1G02850.1,BGLU11,1,630374,633420,+,3046,protein_coding,Beta-glucosidase 11 [Source:UniProtKB/Swiss-Prot;Acc:B3H5Q1],6
+AT1G05560.1,UGT1,1,1645308,1647147,-,1839,protein_coding,UDP-glucosyltransferase 75B1 [Source:TAIR;Acc:AT1G05560],8
+AT1G05680.1,UGT74E2,1,1703002,1704838,-,1836,protein_coding,Glycosyltransferase (Fragment) [Source:UniProtKB/TrEMBL;Acc:A0A0K1SBE8],8
+AT1G09932.1,,1,3230450,3233259,-,2809,protein_coding,Phosphoglycerate mutase family protein [Source:UniProtKB/TrEMBL;Acc:Q8GWG7],1
+AT1G11920.1,,1,4023533,4025113,-,1580,protein_coding,Putative pectate lyase 2 [Source:UniProtKB/Swiss-Prot;Acc:O65388],1
+AT1G13420.1,SOT8,1,4604688,4606067,+,1379,protein_coding,Cytosolic sulfotransferase 8 [Source:UniProtKB/Swiss-Prot;Acc:Q9FX56],4
+AT1G13480.1,,1,4622550,4624081,-,1531,protein_coding,At1g13480 [Source:UniProtKB/TrEMBL;Acc:Q56Y29],1
+AT1G14550.1,PER5,1,4978922,4980466,+,1544,protein_coding,Peroxidase 5 [Source:UniProtKB/Swiss-Prot;Acc:Q9M9Q9],3
+AT1G17180.1,GSTU25,1,5872024,5873124,+,1100,protein_coding,Glutathione S-transferase U25 [Source:UniProtKB/Swiss-Prot;Acc:Q9SHH7],8
+AT1G19250.1,FMO1,1,6650476,6653195,-,2719,protein_coding,Probable flavin-containing monooxygenase 1 [Source:UniProtKB/Swiss-Prot;Acc:Q9LMA1],5
+AT1G21210.1,WAK4,1,7423704,7427041,+,3337,protein_coding,Wall-associated receptor kinase 4 [Source:UniProtKB/Swiss-Prot;Acc:Q9LMN6],4
+AT1G26250.1,,1,9083838,9085464,+,1626,protein_coding,Proline-rich extensin-like family protein [Source:UniProtKB/TrEMBL;Acc:Q9C669],1
+AT1G28470.1,NAC010,1,10010124,10012258,+,2134,protein_coding,NAC domain-containing protein 10 [Source:UniProtKB/Swiss-Prot;Acc:F4HY61],8
+AT1G29290.1,CEP14,1,10244453,10245874,+,1421,protein_coding,Precursor of CEP14 [Source:UniProtKB/Swiss-Prot;Acc:Q52K95],1
+AT1G33840.1,,1,12283725,12285371,-,1646,protein_coding,Protein of unknown function (DUF567) [Source:TAIR;Acc:AT1G33840],1
+AT1G49860.1,GSTF14,1,18458526,18459969,+,1443,protein_coding,Glutathione S-transferase F14 [Source:UniProtKB/Swiss-Prot;Acc:Q9C6C8],1
+AT1G51620.2,,1,19140130,19141926,+,1796,protein_coding,Protein kinase superfamily protein [Source:UniProtKB/TrEMBL;Acc:Q9C8H4],1
+AT1G53940.2,GLIP2,1,20143144,20144974,+,1830,protein_coding,GDSL esterase/lipase 2 [Source:UniProtKB/Swiss-Prot;Acc:Q9SYF0],4
+AT1G54970.1,PRP1,1,20504901,20506504,+,1603,protein_coding,Proline-rich protein 1 [Source:UniProtKB/Swiss-Prot;Acc:Q9FZ35],1
+AT1G62510.1,,1,23136366,23137254,-,888,protein_coding,Bifunctional inhibitor/lipid-transfer protein/seed storage 2S albumin superfamily protein [Source:UniProtKB/TrEMBL;Acc:Q9SXE6],6
+AT1G62980.1,EXPA18,1,23331563,23333246,+,1683,protein_coding,Expansin-A18 [Source:UniProtKB/Swiss-Prot;Acc:Q9LQ07],1
+AT1G63590.1,CRRSP5,1,23579896,23580702,+,806,protein_coding,Putative cysteine-rich repeat secretory protein 5 [Source:UniProtKB/Swiss-Prot;Acc:Q9SH43],1
+AT1G64400.1,LACS3,1,23915570,23919835,-,4265,protein_coding,Long chain acyl-CoA synthetase 3 [Source:UniProtKB/Swiss-Prot;Acc:Q9C7W4],1
+AT1G64900.1,CYP89A2,1,24113109,24114984,+,1875,protein_coding,Cytochrome P450 89A2 [Source:UniProtKB/Swiss-Prot;Acc:Q42602],6
+AT1G64940.1,CYP89A6,1,24123789,24125514,+,1725,protein_coding,"Cytochrome P450, family 87, subfamily A, polypeptide 6 [Source:UniProtKB/TrEMBL;Acc:Q9XIQ2]",8
+AT1G64950.1,CYP89A5,1,24127506,24129557,+,2051,protein_coding,"Cytochrome P450, family 89, subfamily A, polypeptide 5 [Source:UniProtKB/TrEMBL;Acc:Q9XIQ1]",8
+AT1G68880.1,BZIP8,1,25893971,25895056,-,1085,protein_coding,Basic leucine zipper 8 [Source:UniProtKB/Swiss-Prot;Acc:Q9CA46],4
+AT1G73805.1,SARD1,1,27744790,27749248,-,4458,protein_coding,Protein SAR DEFICIENT 1 [Source:UniProtKB/Swiss-Prot;Acc:Q9C9T2],1
+AT1G74010.1,,1,27832095,27834207,-,2112,protein_coding,At1g74010 [Source:UniProtKB/TrEMBL;Acc:Q9C9C2],8
+AT1G75160.1,,1,28209407,28211826,+,2419,protein_coding,Protein of unknown function (DUF620) [Source:TAIR;Acc:AT1G75160],1
+AT1G75270.1,DHAR2,1,28250075,28251469,-,1394,protein_coding,Glutathione S-transferase DHAR2 [Source:UniProtKB/Swiss-Prot;Acc:Q9FRL8],6
+AT1G76680.1,OPR1,1,28776626,28778837,+,2211,protein_coding,12-oxophytodienoate reductase 1 [Source:UniProtKB/TrEMBL;Acc:F4I403],8
+AT1G76680.2,OPR1,1,28776861,28778467,+,1606,protein_coding,12-oxophytodienoate reductase 1 [Source:UniProtKB/TrEMBL;Acc:F4I403],8
+AT1G78230.1,,1,29430052,29432764,+,2712,protein_coding,Outer arm dynein light chain 1 protein [Source:UniProtKB/TrEMBL;Acc:F4IA60],6
+AT1G79860.1,ROPGEF12,1,30041989,30044297,-,2308,protein_coding,Rop guanine nucleotide exchange factor 12 [Source:UniProtKB/Swiss-Prot;Acc:Q9CA89],1
+AT2G01890.1,PAP8,2,396756,399338,-,2582,protein_coding,Purple acid phosphatase 8 [Source:UniProtKB/Swiss-Prot;Acc:Q8VYZ2],8
+AT2G17500.4,PILS5,2,7606905,7609278,+,2373,protein_coding,Protein PIN-LIKES 5 [Source:UniProtKB/Swiss-Prot;Acc:Q9SHL8],8
+AT2G18193.1,,2,7917413,7919345,-,1932,protein_coding,AAA-ATPase At2g18193 [Source:UniProtKB/Swiss-Prot;Acc:Q8GW96],8
+AT2G18350.1,ZHD6,2,7971017,7972396,-,1379,protein_coding,Zinc-finger homeodomain protein 6 [Source:UniProtKB/Swiss-Prot;Acc:Q9ZPW7],1
+AT2G19310.1,HSP18.5,2,8369568,8370675,-,1107,protein_coding,18.5 kDa class IV heat shock protein [Source:UniProtKB/Swiss-Prot;Acc:O64564],6
+AT2G20520.1,FLA6,2,8840557,8841565,+,1008,protein_coding,Fasciclin-like arabinogalactan protein 6 [Source:UniProtKB/Swiss-Prot;Acc:Q9SIL7],1
+AT2G20560.1,,2,8848130,8850111,-,1981,protein_coding,At2g20560/T13C7.15 [Source:UniProtKB/TrEMBL;Acc:Q9SIL3],6
+AT2G22500.1,PUMP5,2,9562774,9564850,-,2076,protein_coding,Mitochondrial uncoupling protein 5 [Source:UniProtKB/Swiss-Prot;Acc:Q9SJY5],1
+AT2G24980.3,,2,10622403,10624277,+,1874,protein_coding,Proline-rich extensin-like family protein [Source:TAIR;Acc:AT2G24980],1
+AT2G25150.1,SCT,2,10702341,10704825,-,2484,protein_coding,Spermidine coumaroyl-CoA acyltransferase [Source:UniProtKB/Swiss-Prot;Acc:Q8GYW8],1
+AT2G25410.1,ATL22,2,10814393,10815994,+,1601,protein_coding,RING-H2 finger protein ATL22 [Source:UniProtKB/Swiss-Prot;Acc:Q9SKK8],1
+AT2G25680.1,MOT1,2,10933005,10934604,-,1599,protein_coding,Molybdate transporter 1 [Source:UniProtKB/Swiss-Prot;Acc:Q9SL95],4
+AT2G28570.1,,2,12241766,12242778,+,1012,protein_coding,At2g28570 [Source:UniProtKB/TrEMBL;Acc:Q9SK01],4
+AT2G34500.1,CYP710A1,2,14539373,14541617,-,2244,protein_coding,CYP710A1 [Source:UniProtKB/TrEMBL;Acc:A0A178VRK5],8
+AT2G34810.1,,2,14685170,14687216,+,2046,protein_coding,Berberine bridge enzyme-like 16 [Source:UniProtKB/Swiss-Prot;Acc:O64745],4
+AT2G37760.2,AKR4C8,2,15831656,15833921,+,2265,protein_coding,Aldo-keto reductase family 4 member C8 [Source:UniProtKB/Swiss-Prot;Acc:O80944],8
+AT2G38400.1,AGT3,2,16083645,16086453,+,2808,protein_coding,Alanine:glyoxylate aminotransferase 3 [Source:UniProtKB/TrEMBL;Acc:F4ISY3],4
+AT2G38490.1,CIPK22,2,16113909,16115204,-,1295,protein_coding,CBL-interacting serine/threonine-protein kinase 22 [Source:UniProtKB/Swiss-Prot;Acc:O80902],1
+AT2G39980.1,,2,16687673,16690182,-,2509,protein_coding,At2g39980/T28M21.14 [Source:UniProtKB/TrEMBL;Acc:O04201],1
+AT2G41100.1,CML12,2,17138065,17139617,+,1552,protein_coding,Calmodulin-like protein 12 [Source:UniProtKB/Swiss-Prot;Acc:P25071],1
+AT2G44340.1,VQ18,2,18314188,18315322,+,1134,protein_coding,VQ motif-containing protein 18 [Source:UniProtKB/Swiss-Prot;Acc:O64868],1
+AT2G44390.1,,2,18325811,18326551,-,740,protein_coding,Cysteine/Histidine-rich C1 domain family protein [Source:UniProtKB/TrEMBL;Acc:O64873],1
+AT2G45360.1,,2,18698592,18699514,+,922,protein_coding,Ankyrin repeat/KH domain protein (DUF1442) [Source:UniProtKB/TrEMBL;Acc:O22136],4
+AT2G47710.1,,2,19554724,19556126,-,1402,protein_coding,Adenine nucleotide alpha hydrolases-like superfamily protein [Source:UniProtKB/TrEMBL;Acc:O82240],8
+AT2G47730.1,GSTF8,2,19556326,19559468,+,3142,protein_coding,"Glutathione S-transferase F8, chloroplastic [Source:UniProtKB/Swiss-Prot;Acc:Q96266]",8
+AT3G01290.1,HIR3,3,87684,89593,-,1909,protein_coding,HIR2 [Source:UniProtKB/TrEMBL;Acc:A0A178V7M0],1
+AT3G02240.1,RGF7,3,418357,419323,+,966,protein_coding,Root meristem growth factor 7 [Source:UniProtKB/Swiss-Prot;Acc:Q6NNL3],1
+AT3G10710.1,PME24,3,3352077,3354375,+,2298,protein_coding,Putative pectinesterase/pectinesterase inhibitor 24 [Source:UniProtKB/Swiss-Prot;Acc:Q9SG77],1
+AT3G16370.1,APG,3,5556710,5558982,+,2272,protein_coding,GDSL esterase/lipase APG [Source:UniProtKB/Swiss-Prot;Acc:Q9LU14],1
+AT3G20380.1,,3,7108097,7109970,+,1873,protein_coding,TRAF-like family protein [Source:UniProtKB/TrEMBL;Acc:Q9LTQ4],1
+AT3G24420.1,,3,8862813,8865239,-,2426,protein_coding,Alpha/beta-Hydrolases superfamily protein [Source:UniProtKB/TrEMBL;Acc:Q9LK01],8
+AT3G26450.1,,3,9681235,9683506,-,2271,protein_coding,"Major latex protein, putative [Source:UniProtKB/TrEMBL;Acc:Q9LIN0]",8
+AT3G27950.1,,3,10377957,10379907,+,1950,protein_coding,GDSL-like Lipase/Acylhydrolase superfamily protein [Source:TAIR;Acc:AT3G27950],1
+AT3G28740.1,CYP81D11,3,10788698,10790553,-,1855,protein_coding,Cytochrome P450 81D11 [Source:UniProtKB/Swiss-Prot;Acc:Q9LHA1],8
+AT3G44310.3,NIT1,3,15986864,15989025,+,2161,protein_coding,NITI [Source:UniProtKB/TrEMBL;Acc:A0A384KJ08],8
+AT3G47480.1,CML47,3,17496085,17497164,-,1079,protein_coding,Probable calcium-binding protein CML47 [Source:UniProtKB/Swiss-Prot;Acc:Q9SN89],5
+AT3G49580.1,LSU1,3,18375233,18375940,-,707,protein_coding,LSU1 [Source:UniProtKB/TrEMBL;Acc:A0A178VF66],8
+AT3G50460.1,HR2,3,18727666,18728810,+,1144,protein_coding,RPW8-like protein 2 [Source:UniProtKB/Swiss-Prot;Acc:Q9SCS8],4
+AT3G51340.2,,3,19056766,19060087,-,3321,protein_coding,Eukaryotic aspartyl protease family protein [Source:UniProtKB/TrEMBL;Acc:F4J3B9],1
+AT3G53230.1,CDC48D,3,19723350,19727128,+,3778,protein_coding,Cell division control protein 48 homolog D [Source:UniProtKB/Swiss-Prot;Acc:Q9SCN8],8
+AT3G53590.1,,3,19866880,19872749,-,5869,protein_coding,Leucine-rich repeat protein kinase family protein [Source:TAIR;Acc:AT3G53590],1
+AT3G53820.1,,3,19938564,19939231,+,667,protein_coding,C2H2 and C2HC zinc fingers superfamily protein [Source:UniProtKB/TrEMBL;Acc:Q9M344],4
+AT3G62680.1,PRP3,3,23182722,23184042,+,1320,protein_coding,Proline-rich protein 3 [Source:UniProtKB/Swiss-Prot;Acc:Q9LZJ7],1
+AT4G01970.1,AtSTS,4,853922,857020,-,3098,protein_coding,stachyose synthase [Source:TAIR;Acc:AT4G01970],1
+AT4G02270.1,RHS13,4,992111,993039,-,928,protein_coding,At4g02270 [Source:UniProtKB/TrEMBL;Acc:O81417],1
+AT4G02380.3,SAG21,4,1046073,1047105,-,1032,protein_coding,senescence-associated gene 21 [Source:TAIR;Acc:AT4G02380],4
+AT4G03330.1,SYP123,4,1466284,1467750,+,1466,protein_coding,At4g03330 [Source:UniProtKB/TrEMBL;Acc:Q0WPM4],4
+AT4G07820.1,,4,4636624,4637450,-,826,protein_coding,At4g07820 [Source:UniProtKB/TrEMBL;Acc:Q9ZPG2],1
+AT4G07960.2,CSLC12,4,4802299,4805337,-,3038,protein_coding,CSLC12 [Source:UniProtKB/TrEMBL;Acc:A0A384KRZ4],1
+AT4G08620.1,SULTR1;1,4,5500313,5506313,+,6000,protein_coding,Sulfate transporter 1.1 [Source:UniProtKB/Swiss-Prot;Acc:Q9SAY1],1
+AT4G08770.1,PER37,4,5598037,5600398,-,2361,protein_coding,Peroxidase 37 [Source:UniProtKB/Swiss-Prot;Acc:Q9LDN9],4
+AT4G11170.1,,4,6811103,6817339,+,6236,protein_coding,Putative disease resistance protein At4g11170 [Source:UniProtKB/Swiss-Prot;Acc:O82500],5
+AT4G13390.1,,4,7783798,7785366,+,1568,protein_coding,Extensin-like protein [Source:UniProtKB/TrEMBL;Acc:Q9T0L0],1
+AT4G15740.1,,4,8964683,8966351,-,1668,protein_coding,Calcium-dependent lipid-binding (CaLB domain) family protein [Source:UniProtKB/TrEMBL;Acc:O23425],4
+AT4G16370.1,ATOPT3,4,9247302,9250343,-,3041,protein_coding,oligopeptide transporter [Source:TAIR;Acc:AT4G16370],8
+AT4G18940.1,,4,10372658,10373895,+,1237,protein_coding,RNA ligase/cyclic nucleotide phosphodiesterase family protein [Source:UniProtKB/TrEMBL;Acc:O49408],1
+AT4G21250.1,,4,11324987,11326958,+,1971,protein_coding,Sulfite exporter TauE/SafE family protein 5 [Source:UniProtKB/Swiss-Prot;Acc:F4JIP9],1
+AT4G21990.1,APR3,4,11657008,11659105,-,2097,protein_coding,"5'-adenylylsulfate reductase 3, chloroplastic [Source:UniProtKB/Swiss-Prot;Acc:P92980]",6
+AT4G22080.1,RHS14,4,11700555,11702785,-,2230,protein_coding,Probable pectate lyase 16 [Source:UniProtKB/Swiss-Prot;Acc:O65456],1
+AT4G25220.1,RHS15,4,12920742,12922885,+,2143,protein_coding,Putative glycerol-3-phosphate transporter 2 [Source:UniProtKB/Swiss-Prot;Acc:Q9SB41],1
+AT4G25310.1,,4,12949664,12951937,+,2273,protein_coding,2-oxoglutarate (2OG) and Fe(II)-dependent oxygenase superfamily protein [Source:UniProtKB/TrEMBL;Acc:Q9SB32],1
+AT4G25790.1,,4,13122047,13123354,-,1307,protein_coding,At4g25790 [Source:UniProtKB/TrEMBL;Acc:Q9SW04],1
+AT4G25820.1,XTH14,4,13130291,13131860,+,1569,protein_coding,Xyloglucan endotransglucosylase/hydrolase [Source:UniProtKB/TrEMBL;Acc:A0A178UTG4],1
+AT4G28850.1,XTH26,4,14244290,14246037,+,1747,protein_coding,Probable xyloglucan endotransglucosylase/hydrolase protein 26 [Source:UniProtKB/Swiss-Prot;Acc:Q9SVV2],1
+AT4G30320.1,,4,14835792,14836531,+,739,protein_coding,"CAP (Cysteine-rich secretory proteins, Antigen 5, and Pathogenesis-related 1 protein) superfamily protein [Source:UniProtKB/TrEMBL;Acc:Q9M0C8]",1
+AT4G33720.1,,4,16182743,16183619,+,876,protein_coding,AT4g33720/T16L1_210 [Source:UniProtKB/TrEMBL;Acc:O81888],4
+AT4G34135.1,UGT73B2,4,16345150,16347364,-,2214,protein_coding,UDP-glucosyl transferase 73B2 [Source:UniProtKB/Swiss-Prot;Acc:Q94C57],8
+AT4G34380.1,,4,16438469,16440641,+,2172,protein_coding,At4g34380 [Source:UniProtKB/TrEMBL;Acc:Q9SZ03],1
+AT4G37390.1,YDK1,4,17579618,17582022,+,2404,protein_coding,Auxin-responsive GH3 family protein [Source:TAIR;Acc:AT4G37390],4
+AT4G38060.1,,4,17873001,17875201,-,2200,protein_coding,AT4G38060 protein [Source:UniProtKB/TrEMBL;Acc:Q93VQ7],8
+AT4G38340.2,NLP3,4,17955110,17958063,+,2953,protein_coding,Protein NLP3 [Source:UniProtKB/Swiss-Prot;Acc:Q9SVF1],1
+AT4G39675.1,,4,18413775,18414240,+,465,protein_coding,At4g39675 [Source:UniProtKB/TrEMBL;Acc:Q8LEP7],4
+AT4G40090.1,AGP3,4,18580827,18581696,-,869,protein_coding,AGP3 [Source:UniProtKB/TrEMBL;Acc:A0A178USX4],1
+AT5G01050.1,LAC9,5,18086,20887,-,2801,protein_coding,Laccase [Source:UniProtKB/TrEMBL;Acc:A0A178U9W8],1
+AT5G04730.1,,5,1363965,1367451,-,3486,protein_coding,Ankyrin-repeat containing protein [Source:UniProtKB/TrEMBL;Acc:F4JXP4],4
+AT5G04960.1,PME46,5,1461786,1464066,+,2280,protein_coding,Pectinesterase [Source:UniProtKB/TrEMBL;Acc:A0A178UR22],1
+AT5G05250.1,,5,1556987,1558486,-,1499,protein_coding,AT5g05250/K18I23_5 [Source:UniProtKB/TrEMBL;Acc:Q9FLC9],8
+AT5G05410.1,DREB2A,5,1602205,1604112,+,1907,protein_coding,Dehydration-responsive element-binding protein 2A [Source:UniProtKB/Swiss-Prot;Acc:O82132],6
+AT5G05500.1,,5,1629610,1630478,+,868,protein_coding,At5g05500 [Source:UniProtKB/TrEMBL;Acc:Q9FFG5],1
+AT5G06630.1,,5,2036312,2037855,-,1543,protein_coding,Proline-rich extensin-like family protein [Source:UniProtKB/TrEMBL;Acc:F4K3X4],1
+AT5G06640.1,,5,2039641,2041928,-,2287,protein_coding,Proline-rich extensin-like family protein [Source:UniProtKB/TrEMBL;Acc:Q9FG06],1
+AT5G06730.1,PER54,5,2079925,2081685,-,1760,protein_coding,Peroxidase 54 [Source:UniProtKB/Swiss-Prot;Acc:Q9FG34],1
+AT5G10230.1,ANNAT7,5,3209497,3211483,-,1986,protein_coding,Annexin D7 [Source:UniProtKB/Swiss-Prot;Acc:Q9LX07],8
+AT5G13080.1,WRKY75,5,4149738,4151201,-,1463,protein_coding,WRKY75 [Source:UniProtKB/TrEMBL;Acc:A0A178UJF4],8
+AT5G16170.1,,5,5277787,5279821,+,2034,protein_coding,At5g16170 [Source:UniProtKB/TrEMBL;Acc:Q4V3A2],1
+AT5G16970.1,AER,5,5575973,5578086,-,2113,protein_coding,NADPH-dependent oxidoreductase 2-alkenal reductase [Source:UniProtKB/Swiss-Prot;Acc:Q39172],8
+AT5G18350.1,,5,6074069,6078615,-,4546,protein_coding,Disease resistance protein (TIR-NBS-LRR class) family [Source:UniProtKB/TrEMBL;Acc:F4JWL7],1
+AT5G19890.1,PER59,5,6724076,6725966,-,1890,protein_coding,Peroxidase 59 [Source:UniProtKB/Swiss-Prot;Acc:Q39034],4
+AT5G20470.1,,5,6916181,6920120,-,3939,protein_coding,Myosin [Source:UniProtKB/TrEMBL;Acc:F4K5I9],4
+AT5G22410.1,PER60,5,7426310,7427964,+,1654,protein_coding,Peroxidase 60 [Source:UniProtKB/Swiss-Prot;Acc:Q9FMR0],1
+AT5G22560.1,,5,7491356,7493269,-,1913,protein_coding,Emb [Source:UniProtKB/TrEMBL;Acc:Q9FK83],1
+AT5G24140.1,SQP2,5,8164319,8167776,-,3457,protein_coding,squalene monooxygenase 2 [Source:TAIR;Acc:AT5G24140],1
+AT5G24313.1,,5,8276785,8277406,-,621,protein_coding,At5g24313 [Source:UniProtKB/TrEMBL;Acc:Q8L8Z4],1
+AT5G26280.1,,5,9208671,9210650,+,1979,protein_coding,TRAF-like family protein [Source:TAIR;Acc:AT5G26280],4
+AT5G26320.1,,5,9238227,9241333,+,3106,protein_coding,TRAF-like family protein [Source:UniProtKB/TrEMBL;Acc:F4JZS7],1
+AT5G26920.1,CBP60G,5,9475679,9478777,+,3098,protein_coding,Calmodulin-binding protein 60 G [Source:UniProtKB/Swiss-Prot;Acc:F4K2R6],5
+AT5G38940.1,,5,15588723,15589728,+,1005,protein_coding,RmlC-like cupins superfamily protein [Source:TAIR;Acc:AT5G38940],1
+AT5G39000.1,,5,15611812,15614664,+,2852,protein_coding,Putative receptor-like protein kinase At5g39000 [Source:UniProtKB/Swiss-Prot;Acc:Q9FID8],1
+AT5G39050.1,PMAT1,5,15634444,15636480,+,2036,protein_coding,Phenolic glucoside malonyltransferase 1 [Source:UniProtKB/Swiss-Prot;Acc:Q940Z5],8
+AT5G39580.1,PER62,5,15847065,15849141,-,2076,protein_coding,Peroxidase 62 [Source:UniProtKB/Swiss-Prot;Acc:Q9FKA4],1
+AT5G41300.1,CRRSP59,5,16514929,16516331,+,1402,protein_coding,Cysteine-rich repeat secretory protein 59 [Source:UniProtKB/Swiss-Prot;Acc:Q9FHD3],4
+AT5G44582.1,,5,17980850,17981958,+,1108,protein_coding,unknown protein; FUNCTIONS IN: molecular_function unknown; INVOLVED IN: biological_process unknown; LOCATED IN: endomembrane system; BEST Arabidopsis thaliana protein match is: unknown protein (TAIR:AT5G44580.1); Has 24 Blast hits to 24 proteins in  /.../ies: Archae - 0; Bacteria - 0; Metazoa - 0; Fungi - 0; Plants - 24; Viruses - 0; Other Eukaryotes - 0 (source: NCBI BLink). [Source:TAIR;Acc:AT5G44582],1
+AT5G44585.1,,5,17984527,17986431,+,1904,protein_coding,unknown protein; FUNCTIONS IN: molecular_function unknown; INVOLVED IN: biological_process unknown; LOCATED IN: endomembrane system; Has 30201 Blast hits to 17322 proteins in 780 species: Archae - 12; Bacteria - 1396; Metazoa - 17338; Fungi - 3422;  /.../ - 5037; Viruses - 0; Other Eukaryotes - 2996 (source: NCBI BLink). [Source:TAIR;Acc:AT5G44585],1
+AT5G48430.1,,5,19627634,19629167,-,1533,protein_coding,At5g48430 [Source:UniProtKB/TrEMBL;Acc:Q9LV70],1
+AT5G49770.1,,5,20222669,20227466,+,4797,protein_coding,Probable leucine-rich repeat receptor-like protein kinase At5g49770 [Source:UniProtKB/Swiss-Prot;Acc:Q9LT96],1
+AT5G51310.1,,5,20852712,20854812,-,2100,protein_coding,Gibberellin 20-oxidase-like protein [Source:UniProtKB/Swiss-Prot;Acc:F4KBY0],1
+AT5G56795.1,MT1B,5,22971713,22972690,-,977,protein_coding,MT1B [Source:UniProtKB/TrEMBL;Acc:A0A178UJC4],4
+AT5G57540.1,XTH13,5,23302787,23304095,-,1308,protein_coding,Putative xyloglucan endotransglucosylase/hydrolase protein 13 [Source:UniProtKB/Swiss-Prot;Acc:Q9FKL8],1
+AT5G57625.1,,5,23337832,23338855,+,1023,protein_coding,At5g57625 [Source:UniProtKB/TrEMBL;Acc:Q9FKL1],1
+AT5G58750.1,,5,23728588,23730142,+,1554,protein_coding,At5g58750 [Source:UniProtKB/TrEMBL;Acc:Q9LUY6],1
+AT5G59260.1,LECRK21,5,23907786,23910082,-,2296,protein_coding,Probable L-type lectin-domain containing receptor kinase II.1 [Source:UniProtKB/Swiss-Prot;Acc:Q9FIF1],4
+AT5G59680.1,,5,24046512,24051112,+,4600,protein_coding,Probable LRR receptor-like serine/threonine-protein kinase At5g59680 [Source:UniProtKB/Swiss-Prot;Acc:Q9FN93],5
+AT5G61820.1,,5,24834300,24836933,-,2633,protein_coding,Stress up-regulated Nod 19 protein [Source:UniProtKB/TrEMBL;Acc:Q8VZ21],8
+AT5G63790.1,ANAC102,5,25526509,25528013,-,1504,protein_coding,NAC domain containing protein 102 [Source:TAIR;Acc:AT5G63790],8
+AT5G64510.1,TIN1,5,25784404,25786385,+,1981,protein_coding,Tunicamycin induced protein [Source:UniProtKB/TrEMBL;Acc:Q84JN2],8
+AT5G65380.1,DTX27,5,26122937,26126560,-,3623,protein_coding,Protein DETOXIFICATION 27 [Source:UniProtKB/Swiss-Prot;Acc:Q9FKQ1],8
+AT5G65980.1,PILS7,5,26392336,26394768,+,2432,protein_coding,Protein PIN-LIKES 7 [Source:UniProtKB/Swiss-Prot;Acc:Q9FKY4],1
+AT5G67400.1,PER73,5,26894778,26896488,+,1710,protein_coding,Peroxidase [Source:UniProtKB/TrEMBL;Acc:A3KPG1],1

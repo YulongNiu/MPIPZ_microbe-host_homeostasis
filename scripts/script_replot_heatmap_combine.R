@@ -1,4 +1,5 @@
 ##########################WER and Col0##############################
+library('clusterProfiler')
 library('tidyverse')
 library('ComplexHeatmap')
 library('limma')
@@ -7,9 +8,8 @@ library('RColorBrewer')
 library('foreach')
 library('magrittr')
 library('org.At.tair.db')
-library('clusterProfiler')
 
-basepath <- '/run/media/Yulong/MyPassport/backup_20200320/'
+basepath <- '/extDisk1/RESEARCH/'
 
 basepath %>%
   file.path('MPIPZ_KaWai_RNASeq/results/removeZero') %>%
@@ -18,13 +18,13 @@ basepath %>%
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~load WER and Col0 data~~~~~~~~~~~~~~~~~~~
 load('degres_condi_Mock.RData')
 kmeansRes <- read_csv('kmeans10.csv') %>%
-  select(ID, cl)
+  dplyr::select(ID, cl)
 
 scaleCWER <- rldData %>%
   as.data.frame %>%
   rownames_to_column('ID') %>%
   as_tibble %>%
-  select(contains('_')) %>%
+  dplyr::select(contains('_')) %>%
   t %>%
   scale %>%
   t %>%
@@ -34,13 +34,13 @@ scaleCWER <- rldData %>%
 
 load('degres_condi_Mock_1stadd.RData')
 kmeansRes <- read_csv('kmeans10_1stadd.csv') %>%
-  select(ID, cl)
+  dplyr::select(ID, cl)
 
 scaleCCol0 <- rldData %>%
   as.data.frame %>%
   rownames_to_column('ID') %>%
   as_tibble %>%
-  select(contains('_')) %>%
+  dplyr::select(contains('_')) %>%
   t %>%
   scale %>%
   t %>%
@@ -53,15 +53,15 @@ scaleCCol0 <- rldData %>%
 ##~~~~~~~~~~~~~~~~~~~~~~~~~Col0 arga DEGs~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wholeDEG <- read_csv('eachGroup_vs_Mock_k_1stadd.csv')
 kmeansRes <- read_csv('kmeans10_1stadd.csv') %>%
-  select(ID, cl)
+  dplyr::select(ID, cl)
 
 fcsig <- wholeDEG %>%
-  select(ends_with('FoldChange')) %>%
+  dplyr::select(ends_with('FoldChange')) %>%
   transmute_all(list(~ case_when(. > log2(1.5) ~ 1,
                                  . < -log2(1.5) ~ -1,
                                  TRUE ~ 0)))
 padjsig <- wholeDEG %>%
-  select(ends_with('padj')) %>%
+  dplyr::select(ends_with('padj')) %>%
   `<`(0.05) %>%
   as_tibble %>%
   transmute_all(list(~ if_else(is.na(.), FALSE, .)))
@@ -70,7 +70,7 @@ sigMat <- (padjsig * fcsig) %>%
   as_tibble %>%
   setNames(names(.) %>% substr(., start = 1, stop = nchar(.) - 5)) %>%
   mutate(ID = wholeDEG$ID) %>%
-  inner_join(scaleCCol0 %>% select(ID), .) %T>%
+  inner_join(scaleCCol0 %>% dplyr::select(ID), .) %T>%
   {(sum(.$ID == scaleCCol0$ID) == nrow(.)) %>% print} %>%
   transmute_at(.var = vars(contains('vs')),
                list(~ case_when(. == -1 ~ 'down',
@@ -79,14 +79,14 @@ sigMat <- (padjsig * fcsig) %>%
   mutate(ID = scaleCCol0$ID)
 
 ## flg22 matrix
-flg22Col <- sigMat %>% select(1:5, ID)
+flg22Col <- sigMat %>% dplyr::select(1:5, ID)
 colnames(flg22Col)[1:5] <- c('Mock+flg22 vs. Mock',
                              'HKSynCom33+flg22 vs. HKSynCom33',
                              'HKSynCom35+flg22 vs. HKSynCom35',
                              'SynCom33+flg22 vs. SynCom33',
                              'SynCom35+flg22 vs. SynCom35')
 
-hkCol <- sigMat %>% select(22:23, ID)
+hkCol <- sigMat %>% dplyr::select(22:23, ID)
 colnames(hkCol)[1:2] <- c('SynCom33 vs. HKSynCom33',
                           'SynCom35 vs. HKSynCom35')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -101,12 +101,12 @@ ironHKLive <- basepath %>%
   read_csv
 
 fcsigIron <- ironHKLive %>%
-  select(ends_with('FoldChange')) %>%
+  dplyr::select(ends_with('FoldChange')) %>%
   transmute_all(list(~ case_when(. > log2(1.5) ~ 1,
                                  . < -log2(1.5) ~ -1,
                                  TRUE ~ 0)))
 padjsigIron <- ironHKLive %>%
-  select(ends_with('padj')) %>%
+  dplyr::select(ends_with('padj')) %>%
   `<`(0.05) %>%
   as_tibble %>%
   transmute_all(list(~ if_else(is.na(.), FALSE, .)))
@@ -123,7 +123,7 @@ sigMatIron <- (padjsigIron * fcsigIron) %>%
 ironRespSig <- basepath %>%
   file.path('MPIPZ_CJ_RNASeq/results/eachGroup_mergeDay8_deg_sig.csv') %>%
   read_csv %>%
-  select(ID, cl) %>%
+  dplyr::select(ID, cl) %>%
   filter(cl %in% c(4, 8))
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -131,7 +131,7 @@ ironRespSig <- basepath %>%
 CastrilloSig <- basepath %>%
   file.path('MPIPZ_KaWai_RNASeq/flg22_crossref/Castrillo_2017/DEGsflg22_singleend.csv') %>%
   read_csv %>%
-  select(ID, flg22_vs_Col0_log2FoldChange) %>%
+  dplyr::select(ID, flg22_vs_Col0_log2FoldChange) %>%
   dplyr::rename(Castrillo_log2FC = flg22_vs_Col0_log2FoldChange)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -139,7 +139,7 @@ CastrilloSig <- basepath %>%
 VolzSig <- basepath %>%
   file.path('MPIPZ_KaWai_RNASeq/flg22_crossref/Volz_2019/DEGs_pairend.csv') %>%
   read_csv %>%
-  select(ID, Col0_vs_flg22_log2FoldChange) %>%
+  dplyr::select(ID, Col0_vs_flg22_log2FoldChange) %>%
   dplyr::rename(Volz_log2FC = Col0_vs_flg22_log2FoldChange) %>%
   mutate(Volz_log2FC = -Volz_log2FC)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -156,9 +156,9 @@ PauloHKSig <- read_csv('Paulo_RNASeq_hklive_noflg22.csv') %>%
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~combine heatmap~~~~~~~~~~~~~~~~~~~~~~~~~~~
 sigCol0 <- read_csv('kmeans10_1stadd_sig.csv') %>%
-  select(ID) %>%
-  inner_join(scaleCCol0 %>% select(ID)) %>%
-  inner_join(scaleCWER %>% select(ID)) %>%
+  dplyr::select(ID) %>%
+  inner_join(scaleCCol0 %>% dplyr::select(ID)) %>%
+  inner_join(scaleCWER %>% dplyr::select(ID)) %>%
   mutate(Gene = ID %>% substring(first = 1, last = nchar(.) - 2))
 
 scaleCCol0sig <- scaleCCol0 %>%
@@ -176,7 +176,7 @@ hkCol0Sig <- hkCol %>%
 ironHKLiveSig <- sigCol0 %>%
   left_join(., sigMatIron) %>%
   mutate_all(.funs = list(~if_else(is.na(.), 'bacno', .))) %>%
-  inner_join(scaleCCol0sig %>% select(ID), .)
+  inner_join(scaleCCol0sig %>% dplyr::select(ID), .)
 
 ironCol0Sig <- sigCol0 %>%
   ## left_join(., ironBacSig) %>%
@@ -189,21 +189,21 @@ ironCol0Sig <- sigCol0 %>%
   mutate(ironresp = case_when(ironresp == 8 ~ 'respup',
                               ironresp == 4 ~ 'respdown',
                               is.na(ironresp) ~ 'respno')) %>%
-  inner_join(scaleCCol0sig %>% select(ID), .)
+  inner_join(scaleCCol0sig %>% dplyr::select(ID), .)
 
 CastrilloCol0Sig <- sigCol0 %>%
   left_join(., CastrilloSig) %>%
   mutate(Castrillo_log2FC = case_when(Castrillo_log2FC > 0 ~ 'up',
                                       Castrillo_log2FC < 0 ~ 'down',
                                       is.na(Castrillo_log2FC) ~ 'no')) %>%
-  inner_join(scaleCCol0sig %>% select(ID), .)
+  inner_join(scaleCCol0sig %>% dplyr::select(ID), .)
 
 VolzCol0Sig <- sigCol0 %>%
   left_join(., VolzSig) %>%
   mutate(Volz_log2FC = case_when(Volz_log2FC > 0 ~ 'up',
                                       Volz_log2FC < 0 ~ 'down',
                                       is.na(Volz_log2FC) ~ 'no')) %>%
-  inner_join(scaleCCol0sig %>% select(ID), .)
+  inner_join(scaleCCol0sig %>% dplyr::select(ID), .)
 
 PauloCol0Sig <- sigCol0 %>%
   left_join(., PauloSig) %>%
@@ -214,8 +214,8 @@ PauloCol0Sig <- sigCol0 %>%
   mutate(Paulo_bacresp = case_when(logFC > 0 ~ 'up',
                                    logFC < 0 ~ 'down',
                                    is.na(logFC) ~ 'no')) %>%
-  select(-Cluster, -logFC) %>%
-  inner_join(scaleCCol0sig %>% select(ID), .)
+  dplyr::select(-Cluster, -logFC) %>%
+  inner_join(scaleCCol0sig %>% dplyr::select(ID), .)
 
 c(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
   sum(scaleCCol0sig$ID == flg22Col0Sig$ID),
@@ -227,7 +227,7 @@ c(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
   sum(scaleCCol0sig$ID == PauloCol0Sig$ID),
   nrow(scaleCCol0sig))
 
-ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
+ht_list <- Heatmap(matrix = scaleCCol0sig %>% dplyr::select(contains('_')),
         name = 'Scaled Counts',
         row_order = order(scaleCCol0sig$cl) %>% rev,
         row_split = scaleCCol0sig$cl,
@@ -238,7 +238,7 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
         col = colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral'))[c(-3, -4, -6, -7)])(100),
         column_title_gp = gpar(fontsize = 10),
         use_raster = FALSE) +
-  Heatmap(matrix = scaleCWERSig %>% select(contains('_')),
+  Heatmap(matrix = scaleCWERSig %>% dplyr::select(contains('_')),
           name = 'Scaled Counts',
           column_order = 1 : 12,
           column_split = rep(c('Mock', 'Mock+flg22', 'Non-sup+flg22', 'Sup+flg22'), each = 3),
@@ -246,25 +246,25 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
           col = colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral'))[c(-3, -4, -6, -7)])(100),
           column_title_gp = gpar(fontsize = 6),
           use_raster = FALSE) +
-  Heatmap(flg22Col0Sig %>% select(-ID, -Gene),
+  Heatmap(flg22Col0Sig %>% dplyr::select(-ID, -Gene),
           col = c('down' = 'blue', 'no' = 'white', 'up' = 'red'),
           column_names_gp = gpar(fontsize = 5),
           heatmap_legend_param = list(title = 'Col0flg22'),
           cluster_columns = FALSE,
           use_raster = FALSE) +
-  Heatmap(PauloCol0Sig %>% select(-ID, -Gene, -Paulo_bacresp),
+  Heatmap(PauloCol0Sig %>% dplyr::select(-ID, -Gene, -Paulo_bacresp),
           col = c('down' = 'blue', 'no' = 'white', 'up' = 'red'),
           column_names_gp = gpar(fontsize = 5),
           heatmap_legend_param = list(title = 'Paulo'),
           cluster_columns = FALSE,
           use_raster = FALSE) +
-  Heatmap(CastrilloCol0Sig %>% select(-ID, -Gene),
+  Heatmap(CastrilloCol0Sig %>% dplyr::select(-ID, -Gene),
           col = c('down' = 'blue', 'no' = 'white', 'up' = 'red'),
           column_names_gp = gpar(fontsize = 5),
           heatmap_legend_param = list(title = 'Castrillo'),
           cluster_columns = FALSE,
           use_raster = FALSE) +
-  Heatmap(VolzCol0Sig %>% select(-ID, -Gene),
+  Heatmap(VolzCol0Sig %>% dplyr::select(-ID, -Gene),
           col = c('down' = 'blue', 'no' = 'white', 'up' = 'red'),
           column_names_gp = gpar(fontsize = 5),
           heatmap_legend_param = list(title = 'Volz'),
@@ -276,19 +276,19 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% select(contains('_')),
   ##         heatmap_legend_param = list(title = 'IronBac'),
   ##         cluster_columns = FALSE,
   ##         use_raster = FALSE) +
-  Heatmap(hkCol0Sig %>% select(-ID, -Gene),
+  Heatmap(hkCol0Sig %>% dplyr::select(-ID, -Gene),
           col = c('up' = 'red', 'no' = 'white', 'down' = 'blue'),
           column_names_gp = gpar(fontsize = 5),
           heatmap_legend_param = list(title = 'Col0HKlive'),
           cluster_columns = FALSE,
           use_raster = FALSE) +
-  Heatmap(PauloCol0Sig %>% select(-ID, -Gene, -Paulo_flg22),
+  Heatmap(PauloCol0Sig %>% dplyr::select(-ID, -Gene, -Paulo_flg22),
           col = c('down' = 'blue', 'no' = 'white', 'up' = 'red'),
           column_names_gp = gpar(fontsize = 5),
           heatmap_legend_param = list(title = 'PauloHKlive'),
           cluster_columns = FALSE,
           use_raster = FALSE) +
-  Heatmap(ironHKLiveSig %>% select(-2:-5, -ID, -Gene),
+  Heatmap(ironHKLiveSig %>% dplyr::select(-2:-5, -ID, -Gene),
           col = c('bacup' = 'red', 'bacno' = 'white', 'bacdown' = 'blue'),
           column_names_gp = gpar(fontsize = 5),
           heatmap_legend_param = list(title = 'IronBac'),
@@ -323,17 +323,17 @@ hkCol0SigVenn <- hkCol0Sig %>%
                 Supp = `SynCom35 vs. HKSynCom35`)
 
 ironHKLiveVenn <- ironHKLiveSig %>%
-  select(-1:-6) %>%
+  dplyr::select(-1:-6) %>%
   transmute(Iron = apply(., 1, function(x) {str_detect(x, 'bacdown|bacup') %>% any})) %>%
   mutate(ID = ironHKLiveSig$ID)
 
 PauloHKLiveVenn <- PauloCol0Sig %>%
   mutate(Paulo = str_detect(Paulo_bacresp, 'down|up')) %>%
-  select(ID, Paulo)
+  dplyr::select(ID, Paulo)
 
 mergeVenn <- inner_join(hkCol0SigVenn, ironHKLiveVenn) %>%
   inner_join(PauloHKLiveVenn) %>%
-  inner_join(scaleCCol0sig %>% select(ID, cl))
+  inner_join(scaleCCol0sig %>% dplyr::select(ID, cl))
 
 ## output venn
 allVenn <- foreach (i = 1:10, .combine = inner_join) %do% {
@@ -349,7 +349,7 @@ allVenn <- foreach (i = 1:10, .combine = inner_join) %do% {
 }
 
 allVenn %<>%
-  mutate(clusterAll = allVenn %>% select(-ID) %>% rowSums)
+  mutate(clusterAll = allVenn %>% dplyr::select(-ID) %>% rowSums)
 write_csv(allVenn, 'hk_living_veen.csv')
 
 ## plot
