@@ -439,6 +439,38 @@ dotplot(comVeen, showCategory = 40, font.size = 8)
 ggsave('common_HKvsLiving.pdf', height = 20)
 
 write_csv(as.data.frame(comVeen), 'common_HKvsLiving.csv')
+
+
+## general defense
+defenseTerms <- c('GO:0010243', 'GO:0010200', 'GO:0009697',
+                  'GO:0009696', 'GO:0050832', 'GO:0009863',
+                  'GO:0071446', 'GO:0009626', 'GO:0034050',
+                  'GO:0009627', 'GO:0002679', 'GO:0045730',
+                  'GO:0009753', 'GO:0009723', 'GO:0060548',
+                  'GO:0000302', 'GO:0043069', 'GO:0036294',
+                  'GO:0010112', 'GO:0010337', 'GO:0012501',
+                  'GO:0009862')
+
+defenseGenes <- comVeen %>%
+  as.data.frame %>%
+  as_tibble %>%
+  dplyr::filter(ID %in% defenseTerms) %>%
+  dplyr::group_by(Cluster) %>%
+  dplyr::summarise(geneID = paste(geneID, collapse = '/')) %>% {
+    uniGene <- .$geneID %>%
+      strsplit(split = '/', fixed = TRUE) %>%
+      sapply(function(x) {x %>% unique %>% paste(collapse = '/')})
+
+    mutate(., geneID = uniGene)
+  } %>% {
+    len <- .$geneID %>%
+      strsplit(split = '/', fixed = TRUE) %>%
+      sapply(length)
+
+    mutate(., No = len)
+  }
+
+write_csv(defenseGenes, 'Nonsupp_Supp_Paulo_Iron_defenseGenes.csv')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~flg22 Venn~~~~~~~~~~~~~~~~~~~~~~~~~~~~
