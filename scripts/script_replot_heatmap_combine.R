@@ -395,8 +395,36 @@ foreach (i = 1:10) %do% {
 }
 
 ## common GO
-comVeen <- mergeVenn %>%
-  filter(Nonsupp, Supp, Iron, Paulo) %>%
+comVeen <- list(Nonsupp = mergeVenn %>%
+                  dplyr::filter(Nonsupp) %>%
+                  .$Gene,
+                Supp = mergeVenn %>%
+                  dplyr::filter(Supp) %>%
+                  .$Gene,
+                Paulo = mergeVenn %>%
+                  dplyr::filter(Paulo) %>%
+                  .$Gene,
+                Iron = mergeVenn %>%
+                  dplyr::filter(Iron) %>%
+                  .$Gene,
+                Nonsupp_Supp = mergeVenn %>%
+                  dplyr::filter(Nonsupp, Supp) %>%
+                  .$Gene,
+                ## Supp_Paulo = mergeVenn %>%
+                ##   dplyr::filter(Supp, Paulo) %>%
+                ##   .$Gene,
+                ## Supp_Iron = mergeVenn %>%
+                ##   dplyr::filter(Supp, Iron) %>%
+                ##   .$Gene,
+                Nonsupp_Supp_Paulo = mergeVenn %>%
+                  dplyr::filter(Nonsupp, Supp, Paulo) %>%
+                  .$Gene,
+                Nonsupp_Supp_Iron = mergeVenn %>%
+                  dplyr::filter(Nonsupp, Supp, Iron) %>%
+                  .$Gene,
+                Nonsupp_Supp_Paulo_Iron = mergeVenn %>%
+                  dplyr::filter(Nonsupp, Supp, Paulo, Iron) %>%
+                  .$Gene) %>%
   compareCluster(geneCluster = .,
                  fun = 'enrichGO',
                  OrgDb = 'org.At.tair.db',
@@ -404,11 +432,13 @@ comVeen <- mergeVenn %>%
                  ont = 'BP',
                  universe = keys(org.At.tair.db),
                  pAdjustMethod = 'BH',
-                 pvalueCutoff=0.01,
+                 pvalueCutoff=0.05,
                  qvalueCutoff=0.1)
 
-dotplot(comVeen, showCategory = 30)
-ggsave('common_HKvsLiving.pdf')
+dotplot(comVeen, showCategory = 40, font.size = 8)
+ggsave('common_HKvsLiving.pdf', height = 20)
+
+write_csv(as.data.frame(comVeen), 'common_HKvsLiving.csv')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~flg22 Venn~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -523,7 +553,7 @@ library('RColorBrewer')
 library('org.At.tair.db')
 library('clusterProfiler')
 
-basepath <- '/run/media/Yulong/MyPassport/backup_20200320/'
+basepath <- '/extDisk1/RESEARCH'
 
 basepath %>%
   file.path('MPIPZ_KaWai_RNASeq/results/removeZero') %>%
@@ -616,7 +646,7 @@ resList <- c(Col0List[1],
 8:12
 13:15
 16:20
-goBP <- compareCluster(geneCluster = resList[15],
+goBP <- compareCluster(geneCluster = resList[13:15],
                        fun = 'enrichGO',
                        OrgDb = 'org.At.tair.db',
                        keyType= 'TAIR',
@@ -630,5 +660,43 @@ dotplot(goBP, showCategory = 20)
 ggsave('compare_Ka-Wai_Paulo_4.pdf', width = 15, height = 12)
 
 write_csv(as.data.frame(goBP), 'compare_Ka-Wai3_Paulo1.csv')
+
+## Col0 Paulo common defense response genes
+goBPdefense <- compareCluster(geneCluster = resList[13:15],
+                              fun = 'enrichGO',
+                              OrgDb = 'org.At.tair.db',
+                              keyType= 'TAIR',
+                              ont = 'BP',
+                              universe = keys(org.At.tair.db),
+                              pAdjustMethod = 'BH',
+                              pvalueCutoff=0.01,
+                              qvalueCutoff=0.1)
+defenseTerms <- c('GO:0002679', 'GO:0045730', 'GO:0010200',
+                  'GO:0010243', 'GO:0009753', 'GO:0050832',
+                  'GO:0009723', 'GO:0009867', 'GO:0071395',
+                  'GO:0002252', 'GO:0009751', 'GO:0012501',
+                  'GO:0010941', 'GO:0010363', 'GO:0008219',
+                  'GO:0012501', 'GO:0009626', 'GO:0034050')
+
+defenseGenes <- goBPdefense %>%
+  as.data.frame %>%
+  as_tibble %>%
+  dplyr::filter(ID %in% defenseTerms) %>%
+  dplyr::group_by(Cluster) %>%
+  dplyr::summarise(geneID = paste(geneID, collapse = '/')) %>% {
+    uniGene <- .$geneID %>%
+      strsplit(split = '/', fixed = TRUE) %>%
+      sapply(function(x) {x %>% unique %>% paste(collapse = '/')})
+
+    mutate(., geneID = uniGene)
+  } %>% {
+    len <- .$geneID %>%
+      strsplit(split = '/', fixed = TRUE) %>%
+      sapply(length)
+
+    mutate(., No = len)
+  }
+
+write_csv(defenseGenes, 'Col0_Paulo_defenseGenes.csv')
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ######################################################################
