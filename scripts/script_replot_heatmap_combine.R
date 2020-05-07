@@ -730,5 +730,21 @@ defenseGenes <- goBPdefense %>%
   }
 
 write_csv(defenseGenes, 'Col0_Paulo_defenseGenes.csv')
+
+## compare defense responsive genes
+commDef <- read_csv('Col0_Paulo_defenseGenes.csv')
+genDef <- read_csv('Nonsupp_Supp_Paulo_Iron_defenseGenes.csv')
+
+lapply(1:8, function(x) {
+  intersect(commDef$geneID[3] %>%
+            strsplit(split = '/', fixed = TRUE) %>%
+            unlist,
+            genDef$geneID[x] %>%
+            strsplit(split = '/', fixed = TRUE) %>%
+            unlist)
+}) %>%
+  set_names(genDef$Cluster)
+
+
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ######################################################################
