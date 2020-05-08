@@ -419,9 +419,9 @@ comVeen <- list(Nonsupp = mergeVenn %>%
                 Nonsupp_Supp_Paulo = mergeVenn %>%
                   dplyr::filter(Nonsupp, Supp, Paulo) %>%
                   .$Gene,
-                Nonsupp_Supp_Iron = mergeVenn %>%
-                  dplyr::filter(Nonsupp, Supp, Iron) %>%
-                  .$Gene,
+                ## Nonsupp_Supp_Iron = mergeVenn %>%
+                ##   dplyr::filter(Nonsupp, Supp, Iron) %>%
+                ##   .$Gene,
                 Nonsupp_Supp_Paulo_Iron = mergeVenn %>%
                   dplyr::filter(Nonsupp, Supp, Paulo, Iron) %>%
                   .$Gene) %>%
@@ -437,9 +437,20 @@ comVeen <- list(Nonsupp = mergeVenn %>%
 
 dotplot(comVeen, showCategory = 40, font.size = 8)
 ggsave('common_HKvsLiving.pdf', height = 20)
-
 write_csv(as.data.frame(comVeen), 'common_HKvsLiving.csv')
 
+## select general response plot
+comVeenSelect <- comVeen
+comVeenSelect@compareClusterResult <-
+  c('GO:0010054', 'GO:0010015', 'GO:0098754',
+    'GO:0001666', 'GO:0015698', 'GO:0000302',
+    'GO:0010200', 'GO:0050832', 'GO:0009862') %>%
+  {comVeenSelect@compareClusterResult$ID %in% .} %>%
+  which %>%
+  comVeenSelect@compareClusterResult[., ]
+
+dotplot(comVeenSelect, showCategory = 30)
+ggsave('common_HKvsLiving_selectGO.pdf', width = 20)
 
 ## general defense
 defenseTerms <- c('GO:0010243', 'GO:0010200', 'GO:0009697',
@@ -744,7 +755,5 @@ lapply(1:8, function(x) {
             unlist)
 }) %>%
   set_names(genDef$Cluster)
-
-
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ######################################################################
