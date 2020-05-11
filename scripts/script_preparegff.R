@@ -1,3 +1,7 @@
+
+## originally by Yulong Niu
+## yulong.niu@hotmail.com
+
 ########################deal with gff3########################
 library('stringr')
 library('utils')

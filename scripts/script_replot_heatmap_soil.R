@@ -1,3 +1,7 @@
+
+## originally by Yulong Niu
+## yulong.niu@hotmail.com
+
 ###########################replot heatmap##############################
 library('tidyverse')
 library('ComplexHeatmap')

@@ -1,3 +1,7 @@
+
+## originally by Yulong Niu
+## yulong.niu@hotmail.com
+
 ################################each GO#################################
 library('ontologyIndex')
 library('ontologyPlot')

@@ -1,3 +1,7 @@
+
+## originally by Yulong Niu
+## yulong.niu@hotmail.com
+
 ###########################DEGs##################################
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~useful funcs~~~~~~~~~~~~~~~~~~~~~~~~
 checkZeros <- function(v, threshold) {

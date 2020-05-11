@@ -1,3 +1,7 @@
+
+## originally by Yulong Niu
+## yulong.niu@hotmail.com
+
 #####################estimate from transcripts######################
 library('stringr')
 library('utils')

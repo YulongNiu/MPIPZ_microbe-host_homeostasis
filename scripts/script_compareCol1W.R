@@ -1,3 +1,7 @@
+
+## originally by Yulong Niu
+## yulong.niu@hotmail.com
+
 ##########################Compare Col0 and Wmutant#####################
 library('magrittr')
 library('readr')

@@ -1,3 +1,7 @@
+
+## originally by Yulong Niu
+## yulong.niu@hotmail.com
+
 ####################merge fq files lines or runs##################
 library('magrittr')
 library('doParallel')

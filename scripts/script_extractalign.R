@@ -1,3 +1,7 @@
+
+## originally by Yulong Niu
+## yulong.niu@hotmail.com
+
 ###########################Raw reads######################
 rawpath <- '/netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/raw_data_soil'
 setwd(rawpath)

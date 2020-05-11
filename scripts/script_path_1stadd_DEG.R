@@ -1,3 +1,7 @@
+
+## originally by Yulong Niu
+## yulong.niu@hotmail.com
+
 #######################GO analysis############################
 library('goseq')
 library('GO.db')

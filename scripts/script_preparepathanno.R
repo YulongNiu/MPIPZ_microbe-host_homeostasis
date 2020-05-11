@@ -1,3 +1,7 @@
+
+## originally by Yulong Niu
+## yulong.niu@hotmail.com
+
 #########################Prepare GO from Consortium###################
 library('readr')
 library('dplyr')

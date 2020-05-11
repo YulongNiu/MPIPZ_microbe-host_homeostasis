@@ -1,3 +1,7 @@
+
+## originally by Yulong Niu
+## yulong.niu@hotmail.com
+
 #############################output each sigpath########################
 setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/geneset/')
 

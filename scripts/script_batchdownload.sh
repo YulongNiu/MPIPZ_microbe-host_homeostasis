@@ -1,3 +1,7 @@
+
+## originally by Yulong Niu
+## yulong.niu@hotmail.com
+
 date
 
 RAW_PATH=/biodata/dep_psl/grp_rgo/metatranscriptomics/data/flg22

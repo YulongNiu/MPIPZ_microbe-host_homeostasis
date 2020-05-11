@@ -1,3 +1,7 @@
+
+## originally by Yulong Niu
+## yulong.niu@hotmail.com
+
 wget https://websafe.mpipz.mpg.de/d/pFsiu0faQO/4296_A_run622_TATGCCAG_S137_L007_R1_001.fastq.gz
 wget https://websafe.mpipz.mpg.de/d/OUK5kSCvzx/4296_A_run622_TATGCCAG_S137_L007_R2_001.fastq.gz
 wget https://websafe.mpipz.mpg.de/d/OjSWSAViw1/4296_B_run622_TTCGCACC_S138_L007_R1_001.fastq.gz

@@ -1,3 +1,7 @@
+
+## originally by Yulong Niu
+## yulong.niu@hotmail.com
+
 ##########################cytoscape GO plot###########################
 library('tidyverse')
 library('reshape2')
