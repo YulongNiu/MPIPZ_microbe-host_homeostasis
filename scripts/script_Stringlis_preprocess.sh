@@ -6,12 +6,12 @@
 #########################download SRA################################
 date
 
-BIN_PATH=/usr/bin
-SRATOOLS_PATH=/extDisk1/Biotools/sratoolkit.2.10.0-centos_linux64/bin
+BIN_PATH=/bin
+SRATOOLS_PATH=/home/yniu/Biotools/sratoolkit.2.10.0-centos_linux64/bin
 
-RAW_PATH=/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/flg22_crossref/Stringlis_2018
+RAW_PATH=/netscratch/dep_psl/grp_rgo/yniu/Flg22Acute/raw_data
 
-CORENUM=10
+CORENUM=40
 
 cd ${RAW_PATH}
 
@@ -51,7 +51,7 @@ printf "[%s]\n" "${sorted[@]}"
 
 for i in ${!SRARaw[*]}; do
 
-    ${SRATOOLS_PATH}/fasterq-dump ${SRARaw[i]} -e 12 \
+    ${SRATOOLS_PATH}/fasterq-dump ${SRARaw[i]} -e ${CORENUM} \
                     -O ${RAW_PATH}
 
     ${BIN_PATH}/gzip ${SRARaw[i]}.fastq
