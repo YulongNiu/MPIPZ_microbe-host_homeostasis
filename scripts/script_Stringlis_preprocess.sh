@@ -29,7 +29,7 @@ SRAName=("flg22Pa_1h_1" "flg22417_1h_3" "flg22417_1h_2"
          "flg22Pa_1h_2" "WCS417_0p5h_1" "WCS417_0p5h_2"
          "Mock_0p5h_2" "Mock_0h_3" "Mock_0p5h_1"
          "Mock_0h_1" "Mock_0p5h_3" "Mock_0h_2"
-         "WCS417_0p5h_3" "flg22417_0p5_1" "WCS417_6h_2"
+         "WCS417_0p5h_3" "flg22417_0p5h_1" "WCS417_6h_2"
          "WCS417_6h_3" "Mock_6h_3" "WCS417_6h_1"
          "flg22417_6h_3" "flg22Pa_6h_1" "Mock_1h_1"
          "Mock_1h_2" "chitin_0p5h_2" "chitin_0p5h_3"
@@ -44,6 +44,10 @@ SRAName=("flg22Pa_1h_1" "flg22417_1h_3" "flg22417_1h_2"
          "flg22Pa_3h_1" "chitin_3h_1" "flg22Pa_3h_3"
          "chitin_3h_3" "chitin_3h_2" "Mock_6h_2"
          "Mock_6h_1" "chitin_6h_2" "chitin_6h_1")
+
+## check
+IFS=$'\n' sorted=($(sort <<<"${SRAName[*]}")); unset IFS
+printf "[%s]\n" "${sorted[@]}"
 
 for i in ${!SRARaw[*]}; do
 
