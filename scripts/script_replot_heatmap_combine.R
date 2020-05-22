@@ -115,7 +115,7 @@ padjsigIron <- ironHKLive %>%
   as_tibble %>%
   transmute_all(list(~ if_else(is.na(.), FALSE, .)))
 
-sigMatIron <- (padjsigIron * fcsigIron) %>%
+sigMatIronDay8 <- (padjsigIron * fcsigIron) %>%
   as_tibble %>%
   setNames(names(.) %>% substr(., start = 1, stop = nchar(.) - 5)) %>%
   transmute_at(.var = vars(contains('vs')),
@@ -123,6 +123,34 @@ sigMatIron <- (padjsigIron * fcsigIron) %>%
                                 . == 0 ~'bacno',
                                 . == 1 ~ 'bacup'))) %>%
   mutate(ID = ironHKLive$ID)
+colnames(sigMatIronDay8)[1:8] %<>% paste0('_Day8')
+
+
+ironHKLive <- basepath %>%
+  file.path('MPIPZ_CJ_RNASeq/results/eachGroup_mergeDay15.csv') %>%
+  read_csv
+
+fcsigIron <- ironHKLive %>%
+  dplyr::select(ends_with('FoldChange')) %>%
+  transmute_all(list(~ case_when(. > log2(1.5) ~ 1,
+                                 . < -log2(1.5) ~ -1,
+                                 TRUE ~ 0)))
+padjsigIron <- ironHKLive %>%
+  dplyr::select(ends_with('padj')) %>%
+  `<`(0.05) %>%
+  as_tibble %>%
+  transmute_all(list(~ if_else(is.na(.), FALSE, .)))
+
+sigMatIronDay15 <- (padjsigIron * fcsigIron) %>%
+  as_tibble %>%
+  setNames(names(.) %>% substr(., start = 1, stop = nchar(.) - 5)) %>%
+  transmute_at(.var = vars(contains('vs')),
+               list(~ case_when(. == -1 ~ 'bacdown',
+                                . == 0 ~'bacno',
+                                . == 1 ~ 'bacup'))) %>%
+  mutate(ID = ironHKLive$ID)
+colnames(sigMatIronDay15)[1:8] %<>% paste0('_Day15')
+
 
 ironRespSig <- basepath %>%
   file.path('MPIPZ_CJ_RNASeq/results/eachGroup_mergeDay8_deg_sig.csv') %>%
@@ -177,8 +205,13 @@ flg22Col0Sig <- flg22Col %>%
 hkCol0Sig <- hkCol %>%
   inner_join(sigCol0)
 
-ironHKLiveSig <- sigCol0 %>%
-  left_join(., sigMatIron) %>%
+ironHKLiveSigDay8 <- sigCol0 %>%
+  left_join(., sigMatIronDay8) %>%
+  mutate_all(.funs = list(~if_else(is.na(.), 'bacno', .))) %>%
+  inner_join(scaleCCol0sig %>% dplyr::select(ID), .)
+
+ironHKLiveSigDay15 <- sigCol0 %>%
+  left_join(., sigMatIronDay15) %>%
   mutate_all(.funs = list(~if_else(is.na(.), 'bacno', .))) %>%
   inner_join(scaleCCol0sig %>% dplyr::select(ID), .)
 
@@ -224,7 +257,8 @@ PauloCol0Sig <- sigCol0 %>%
 c(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
   sum(scaleCCol0sig$ID == flg22Col0Sig$ID),
   sum(scaleCCol0sig$ID == hkCol0Sig$ID),
-  sum(scaleCCol0sig$ID == ironHKLiveSig$ID),
+  sum(scaleCCol0sig$ID == ironHKLiveSigDay8$ID),
+  sum(scaleCCol0sig$ID == ironHKLiveSigDay15$ID),
   ## sum(scaleCCol0sig$ID == ironCol0Sig$ID),
   sum(scaleCCol0sig$ID == CastrilloCol0Sig$ID),
   sum(scaleCCol0sig$ID == VolzCol0Sig$ID),
@@ -233,7 +267,7 @@ c(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
 
 ht_list <- Heatmap(matrix = scaleCCol0sig %>% dplyr::select(contains('_')),
         name = 'Scaled Counts',
-        row_order = order(scaleCCol0sig$cl) %>% rev,
+        ## row_order = order(scaleCCol0sig$cl) %>% rev,
         row_split = scaleCCol0sig$cl,
         row_gap = unit(2, "mm"),
         column_order = 1 : 40,
@@ -292,7 +326,13 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% dplyr::select(contains('_')),
           heatmap_legend_param = list(title = 'PauloHKlive'),
           cluster_columns = FALSE,
           use_raster = FALSE) +
-  Heatmap(ironHKLiveSig %>% dplyr::select(-2:-5, -ID, -Gene),
+  Heatmap(ironHKLiveSigDay8 %>% dplyr::select(-3:-6, -ID, -Gene),
+          col = c('bacup' = 'red', 'bacno' = 'white', 'bacdown' = 'blue'),
+          column_names_gp = gpar(fontsize = 5),
+          heatmap_legend_param = list(title = 'IronBac'),
+          cluster_columns = FALSE,
+          use_raster = FALSE) +
+  Heatmap(ironHKLiveSigDay15 %>% dplyr::select(-3:-6, -ID, -Gene),
           col = c('bacup' = 'red', 'bacno' = 'white', 'bacdown' = 'blue'),
           column_names_gp = gpar(fontsize = 5),
           heatmap_legend_param = list(title = 'IronBac'),
@@ -308,7 +348,7 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% dplyr::select(contains('_')),
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02'
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02_Iron2'
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22'
-filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22_Iron'
+filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22_Iron2'
 
 pdf(paste0(filePrefix, '.pdf'))
 draw(ht_list)
