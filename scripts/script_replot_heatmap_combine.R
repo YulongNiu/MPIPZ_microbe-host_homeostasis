@@ -385,7 +385,8 @@ PauloHKLiveVenn <- PauloCol0Sig %>%
   mutate(Paulo = str_detect(Paulo_bacresp, 'down|up')) %>%
   dplyr::select(ID, Paulo)
 
-mergeVenn <- inner_join(hkCol0SigVenn, ironHKLiveVennDay8) %>%
+mergeVenn <- hkCol0SigVenn %>%
+  inner_join(ironHKLiveVennDay8) %>%
   inner_join(ironHKLiveVennDay15) %>%
   inner_join(PauloHKLiveVenn) %>%
   inner_join(scaleCCol0sig %>% dplyr::select(ID, cl))
@@ -395,15 +396,16 @@ allVenn <- foreach (i = 1:10, .combine = inner_join) %do% {
 
   eachVenn <- mergeVenn %>%
     filter(cl == i) %>%
-    dplyr::select(IronDay8, IronDay15, Nonsupp, Supp, Paulo) %>%
+    dplyr::select(IronDay8, Nonsupp, Supp, Paulo) %>%
     euler %>%
     .$original.values %>%
     as.data.frame %>%
     rownames_to_column('ID') %>%
     magrittr::set_colnames(c('ID', paste0('cluster', i)))
-} %>%
-  mutate(clusterAll = allVenn %>% dplyr::select(-ID) %>% rowSums)
+}
 
+allVenn %<>%
+  mutate(., clusterAll = allVenn %>% dplyr::select(-ID) %>% rowSums)
 write_csv(allVenn, 'hk_living_veen.csv')
 
 ## plot
@@ -450,30 +452,37 @@ foreach (i = 1:10) %do% {
 }
 
 ## common GO
-comVeen <- list(Nonsupp = mergeVenn %>%
-                  dplyr::filter(Nonsupp) %>%
-                  .$Gene,
-                Supp = mergeVenn %>%
-                  dplyr::filter(Supp) %>%
-                  .$Gene,
-                Paulo = mergeVenn %>%
-                  dplyr::filter(Paulo) %>%
-                  .$Gene,
-                IronDay8 = mergeVenn %>%
-                  dplyr::filter(IronDay8) %>%
-                  .$Gene,
-                IronDay15 = mergeVenn %>%
-                  dplyr::filter(IronDay8) %>%
-                  .$Gene,
-                Nonsupp_Supp = mergeVenn %>%
-                  dplyr::filter(Nonsupp, Supp) %>%
-                  .$Gene,
-                Nonsupp_Supp_Paulo = mergeVenn %>%
-                  dplyr::filter(Nonsupp, Supp, Paulo) %>%
-                  .$Gene,
-                Nonsupp_Supp_Paulo_IronDay8_IronDay15 = mergeVenn %>%
-                  dplyr::filter(Nonsupp, Supp, Paulo, IronDay8, IronDay15) %>%
-                  .$Gene) %>%
+comVeen <- list(## Nonsupp = mergeVenn %>%
+  ##   dplyr::filter(Nonsupp) %>%
+  ##   .$Gene,
+  ## Supp = mergeVenn %>%
+  ##   dplyr::filter(Supp) %>%
+  ##   .$Gene,
+  ## Paulo = mergeVenn %>%
+  ##   dplyr::filter(Paulo) %>%
+  ##   .$Gene,
+  ## IronDay8 = mergeVenn %>%
+  ##   dplyr::filter(IronDay8) %>%
+  ##   .$Gene,
+  ## IronDay15 = mergeVenn %>%
+  ##   dplyr::filter(IronDay15) %>%
+  ##   .$Gene,
+  ## Nonsupp_Supp = mergeVenn %>%
+  ##   dplyr::filter(Nonsupp, Supp) %>%
+  ##   .$Gene,
+  ## Nonsupp_Supp_Paulo = mergeVenn %>%
+  ##   dplyr::filter(Nonsupp, Supp, Paulo) %>%
+  ##   .$Gene,
+  ## Nonsupp_Supp_Paulo_IronDay8_IronDay15 = mergeVenn %>%
+  ##   dplyr::filter(Nonsupp, Supp, Paulo, IronDay8, IronDay15) %>%
+  ##   .$Gene
+  Nonsupp_Supp_Paulo_IronDay15 = mergeVenn %>%
+    dplyr::filter(Nonsupp, Supp, Paulo, IronDay15) %>%
+    .$Gene
+  ## Nonsupp_Supp_Paulo_IronDay8 = mergeVenn %>%
+  ##   dplyr::filter(Nonsupp, Supp, Paulo, IronDay8) %>%
+  ##   .$Gene
+) %>%
   compareCluster(geneCluster = .,
                  fun = 'enrichGO',
                  OrgDb = 'org.At.tair.db',
@@ -484,7 +493,7 @@ comVeen <- list(Nonsupp = mergeVenn %>%
                  pvalueCutoff=0.05,
                  qvalueCutoff=0.1)
 
-dotplot(comVeen, showCategory = 40, font.size = 8)
+dotplot(comVeen, showCategory = 100, font.size = 8)
 ggsave('common_HKvsLiving.pdf', height = 20)
 write_csv(as.data.frame(comVeen), 'common_HKvsLiving.csv')
 
