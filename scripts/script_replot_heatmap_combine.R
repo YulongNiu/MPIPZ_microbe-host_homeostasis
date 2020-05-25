@@ -366,16 +366,27 @@ hkCol0SigVenn <- hkCol0Sig %>%
   dplyr::rename(Nonsupp = `SynCom33 vs. HKSynCom33`,
                 Supp = `SynCom35 vs. HKSynCom35`)
 
-ironHKLiveVenn <- ironHKLiveSig %>%
-  dplyr::select(-1:-6) %>%
-  transmute(Iron = apply(., 1, function(x) {str_detect(x, 'bacdown|bacup') %>% any})) %>%
-  mutate(ID = ironHKLiveSig$ID)
+## ironHKLiveVenn <- ironHKLiveSigDay8 %>%
+##   dplyr::select(-1:-6) %>%
+##   transmute(Iron = apply(., 1, function(x) {str_detect(x, 'bacdown|bacup') %>% any})) %>%
+##   mutate(ID = ironHKLiveSig$ID)
+
+ironHKLiveVennDay8 <- ironHKLiveSigDay8 %>%
+  dplyr::select(-1:-6, -8:-10) %>%
+  transmute(IronDay8 = apply(., 1, function(x) {str_detect(x, 'bacdown|bacup') %>% any})) %>%
+  mutate(ID = ironHKLiveSigDay8$ID)
+
+ironHKLiveVennDay15 <- ironHKLiveSigDay15 %>%
+  dplyr::select(-1:-6, -8:-10) %>%
+  transmute(IronDay15 = apply(., 1, function(x) {str_detect(x, 'bacdown|bacup') %>% any})) %>%
+  mutate(ID = ironHKLiveSigDay15$ID)
 
 PauloHKLiveVenn <- PauloCol0Sig %>%
   mutate(Paulo = str_detect(Paulo_bacresp, 'down|up')) %>%
   dplyr::select(ID, Paulo)
 
-mergeVenn <- inner_join(hkCol0SigVenn, ironHKLiveVenn) %>%
+mergeVenn <- inner_join(hkCol0SigVenn, ironHKLiveVennDay8) %>%
+  inner_join(ironHKLiveVennDay15) %>%
   inner_join(PauloHKLiveVenn) %>%
   inner_join(scaleCCol0sig %>% dplyr::select(ID, cl))
 
@@ -384,16 +395,15 @@ allVenn <- foreach (i = 1:10, .combine = inner_join) %do% {
 
   eachVenn <- mergeVenn %>%
     filter(cl == i) %>%
-    dplyr::select(Iron, Nonsupp, Supp, Paulo) %>%
+    dplyr::select(IronDay8, IronDay15, Nonsupp, Supp, Paulo) %>%
     euler %>%
     .$original.values %>%
     as.data.frame %>%
     rownames_to_column('ID') %>%
     magrittr::set_colnames(c('ID', paste0('cluster', i)))
-}
-
-allVenn %<>%
+} %>%
   mutate(clusterAll = allVenn %>% dplyr::select(-ID) %>% rowSums)
+
 write_csv(allVenn, 'hk_living_veen.csv')
 
 ## plot
@@ -417,8 +427,9 @@ foreach (i = 1:10) %do% {
 
   mergeVenn %>%
     filter(cl == i) %>%
-    dplyr::select(Iron, Nonsupp, Supp, Paulo) %>% {
-      vennList <- list(Iron = which(.$Iron),
+    dplyr::select(IronDay8, IronDay15, Nonsupp, Supp, Paulo) %>% {
+      vennList <- list(IronDay8 = which(.$IronDay8),
+                       IronDay15 = which(.$IronDay15),
                        Nonsupp = which(.$Nonsupp),
                        Supp = which(.$Supp),
                        Paulo = which(.$Paulo))
@@ -448,26 +459,20 @@ comVeen <- list(Nonsupp = mergeVenn %>%
                 Paulo = mergeVenn %>%
                   dplyr::filter(Paulo) %>%
                   .$Gene,
-                Iron = mergeVenn %>%
-                  dplyr::filter(Iron) %>%
+                IronDay8 = mergeVenn %>%
+                  dplyr::filter(IronDay8) %>%
+                  .$Gene,
+                IronDay15 = mergeVenn %>%
+                  dplyr::filter(IronDay8) %>%
                   .$Gene,
                 Nonsupp_Supp = mergeVenn %>%
                   dplyr::filter(Nonsupp, Supp) %>%
                   .$Gene,
-                ## Supp_Paulo = mergeVenn %>%
-                ##   dplyr::filter(Supp, Paulo) %>%
-                ##   .$Gene,
-                ## Supp_Iron = mergeVenn %>%
-                ##   dplyr::filter(Supp, Iron) %>%
-                ##   .$Gene,
                 Nonsupp_Supp_Paulo = mergeVenn %>%
                   dplyr::filter(Nonsupp, Supp, Paulo) %>%
                   .$Gene,
-                ## Nonsupp_Supp_Iron = mergeVenn %>%
-                ##   dplyr::filter(Nonsupp, Supp, Iron) %>%
-                ##   .$Gene,
-                Nonsupp_Supp_Paulo_Iron = mergeVenn %>%
-                  dplyr::filter(Nonsupp, Supp, Paulo, Iron) %>%
+                Nonsupp_Supp_Paulo_IronDay8_IronDay15 = mergeVenn %>%
+                  dplyr::filter(Nonsupp, Supp, Paulo, IronDay8, IronDay15) %>%
                   .$Gene) %>%
   compareCluster(geneCluster = .,
                  fun = 'enrichGO',
