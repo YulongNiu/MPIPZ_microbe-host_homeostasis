@@ -6,8 +6,8 @@
 #########################download SRA################################
 date
 
-BIN_PATH=/bin
-SRATOOLS_PATH=/home/yniu/Biotools/sratoolkit.2.10.0-centos_linux64/bin
+BIN_PATH=/usr/bin
+SRATOOLS_PATH=/extDisk1/Biotools/sratoolkit.2.10.0-centos_linux64/bin
 
 RAW_PATH=/netscratch/dep_psl/grp_rgo/yniu/Flg22Acute/raw_data
 
@@ -50,7 +50,7 @@ IFS=$'\n' sorted=($(sort <<<"${SRAName[*]}")); unset IFS
 printf "[%s]\n" "${sorted[@]}"
 
 ## for i in ${!SRARaw[*]}; do
-mfile=(2 {6..31} {33..38} {42..44} 46 47 {54..56} 62)
+mfile=(13 {29..31} 33 {35..38} 46 {54..56} 62)
 for idx in ${!mfile[*]}; do
 
     i=${mfile[idx]}

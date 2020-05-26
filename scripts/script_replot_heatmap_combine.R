@@ -267,7 +267,7 @@ c(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
 
 ht_list <- Heatmap(matrix = scaleCCol0sig %>% dplyr::select(contains('_')),
         name = 'Scaled Counts',
-        ## row_order = order(scaleCCol0sig$cl) %>% rev,
+        row_order = order(scaleCCol0sig$cl) %>% rev,
         row_split = scaleCCol0sig$cl,
         row_gap = unit(2, "mm"),
         column_order = 1 : 40,
@@ -326,13 +326,13 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% dplyr::select(contains('_')),
           heatmap_legend_param = list(title = 'PauloHKlive'),
           cluster_columns = FALSE,
           use_raster = FALSE) +
-  Heatmap(ironHKLiveSigDay8 %>% dplyr::select(-3:-6, -ID, -Gene),
-          col = c('bacup' = 'red', 'bacno' = 'white', 'bacdown' = 'blue'),
-          column_names_gp = gpar(fontsize = 5),
-          heatmap_legend_param = list(title = 'IronBac'),
-          cluster_columns = FALSE,
-          use_raster = FALSE) +
-  Heatmap(ironHKLiveSigDay15 %>% dplyr::select(-3:-6, -ID, -Gene),
+  ## Heatmap(ironHKLiveSigDay8 %>% dplyr::select(-3:-6, -ID, -Gene),
+  ##         col = c('bacup' = 'red', 'bacno' = 'white', 'bacdown' = 'blue'),
+  ##         column_names_gp = gpar(fontsize = 5),
+  ##         heatmap_legend_param = list(title = 'IronBac'),
+  ##         cluster_columns = FALSE,
+  ##         use_raster = FALSE) +
+  Heatmap(ironHKLiveSigDay15 %>% dplyr::select(-3:-6,-8:-10, -ID, -Gene),
           col = c('bacup' = 'red', 'bacno' = 'white', 'bacdown' = 'blue'),
           column_names_gp = gpar(fontsize = 5),
           heatmap_legend_param = list(title = 'IronBac'),
@@ -348,7 +348,7 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% dplyr::select(contains('_')),
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02'
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02_Iron2'
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22'
-filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22_Iron2'
+filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22_IronDay15'
 
 pdf(paste0(filePrefix, '.pdf'))
 draw(ht_list)
