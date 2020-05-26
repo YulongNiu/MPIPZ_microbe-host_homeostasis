@@ -389,12 +389,6 @@ hkCol0SigVenn <- (padjsig * fcsig) %>%
   dplyr::mutate(ID = kmeansRes$ID,
                 cl = kmeansRes$cl)
 
-hkCol0SigVenn <- hkCol0Sig %>%
-  mutate_at(vars(-ID, -Gene), list(~str_detect(., 'down|up'))) %>%
-  dplyr::rename(Nonsupp = `SynCom33 vs. HKSynCom33`,
-                Supp = `SynCom35 vs. HKSynCom35`) %>%
-  dplyr::select(-Gene)
-
 ironHKLiveVennDay8 <- sigMatIronDay8 %>%
   dplyr::select(-1:-4, -6:-8, -ID) %>%
   transmute(IronDay8 = apply(., 1, function(x) {str_detect(x, 'bacdown|bacup') %>% any})) %>%
@@ -416,6 +410,7 @@ PauloHKLiveVenn <- PauloHKSig %>%
 
 mergeVenn %<>%
   full_join(PauloHKLiveVenn) %>%
+  dplyr::filter(!is.na(cl)) %>%
   mutate_all(~ifelse(is.na(.), FALSE, .))
 
 ## output venn
@@ -423,7 +418,7 @@ allVenn <- foreach (i = 1:10, .combine = inner_join) %do% {
 
   eachVenn <- mergeVenn %>%
     filter(cl == i) %>%
-    dplyr::select(IronDay8, Nonsupp, Supp, Paulo) %>%
+    dplyr::select(IronDay15, Nonsupp, Supp, Paulo) %>%
     euler %>%
     .$original.values %>%
     as.data.frame %>%
@@ -438,7 +433,7 @@ write_csv(allVenn, 'hk_living_veen.csv')
 ## plot
 foreach (i = 1:10) %do% {
 
-  ## pdf(paste0('iron_venn/cluster', i, '.pdf'))
+  pdf(paste0('iron_venn3/cluster', i, '.pdf'))
 
   ## mergeVenn %>%
   ##   filter(cl == i) %>%
@@ -446,36 +441,35 @@ foreach (i = 1:10) %do% {
   ##   venneuler %>%
   ##   plot
 
-  ## mergeVenn %>%
-  ##   filter(cl == i) %>%
-  ##   dplyr::select(Iron, Nonsupp, Supp, Paulo) %>%
-  ##   euler %>%
-  ##   plot(quantities = TRUE,
-  ##        labels = list(font = 4),
-  ##        fill = c('#ffff33', '#F1696D', '#21BDC3', '#7CAE00'))
-
   mergeVenn %>%
     filter(cl == i) %>%
-    dplyr::select(IronDay8, IronDay15, Nonsupp, Supp, Paulo) %>% {
-      vennList <- list(IronDay8 = which(.$IronDay8),
-                       IronDay15 = which(.$IronDay15),
-                       Nonsupp = which(.$Nonsupp),
-                       Supp = which(.$Supp),
-                       Paulo = which(.$Paulo))
-      return(vennList)} %>%
-    venn.diagram(filename = paste0('iron_venn2/cluster', i, '.pdf'),
-                 lwd = 2,
-                 lty = 'blank',
-                 fill = c('#ffff33', '#F1696D', '#21BDC3', '#7CAE00'),
-                 cex = .6,
-                 fontface = 'bold',
-                 fontfamily = 'sans',
-                 cat.cex = 0.6,
-                 cat.fontface = 'bold',
-                 cat.default.pos = 'outer',
-                 cat.fontfamily = 'sans')
+    dplyr::select(IronDay15, Nonsupp, Supp, Paulo) %>%
+    euler(shape = 'ellipse') %>%
+    plot(quantities = TRUE,
+         labels = list(font = 4),
+         fill = c('#ffff33', '#F1696D', '#21BDC3', '#7CAE00'))
 
-  ## dev.off()
+  ## mergeVenn %>%
+  ##   filter(cl == i) %>%
+  ##   dplyr::select(IronDay15, Nonsupp, Supp, Paulo) %>% {
+  ##     vennList <- list(IronDay15 = which(.$IronDay15),
+  ##                      Nonsupp = which(.$Nonsupp),
+  ##                      Supp = which(.$Supp),
+  ##                      Paulo = which(.$Paulo))
+  ##     return(vennList)} %>%
+  ##   venn.diagram(filename = paste0('iron_venn3/cluster', i, '.pdf'),
+  ##                lwd = 2,
+  ##                lty = 'blank',
+  ##                fill = c('#ffff33', '#F1696D', '#21BDC3', '#7CAE00'),
+  ##                cex = .6,
+  ##                fontface = 'bold',
+  ##                fontfamily = 'sans',
+  ##                cat.cex = 0.6,
+  ##                cat.fontface = 'bold',
+  ##                cat.default.pos = 'outer',
+  ##                cat.fontfamily = 'sans')
+
+  dev.off()
 }
 
 ## common GO
