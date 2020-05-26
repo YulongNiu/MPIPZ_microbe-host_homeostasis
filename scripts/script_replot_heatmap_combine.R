@@ -473,27 +473,28 @@ foreach (i = 1:10) %do% {
 }
 
 ## common GO
-comVeen <- list(## Nonsupp = mergeVenn %>%
-  ##   dplyr::filter(Nonsupp) %>%
-  ##   .$Gene,
-  ## Supp = mergeVenn %>%
-  ##   dplyr::filter(Supp) %>%
-  ##   .$Gene,
-  ## Paulo = mergeVenn %>%
-  ##   dplyr::filter(Paulo) %>%
-  ##   .$Gene,
+comVeen <- list(
+  Nonsupp = mergeVenn %>%
+    dplyr::filter(Nonsupp) %>%
+    .$Gene,
+  Supp = mergeVenn %>%
+    dplyr::filter(Supp) %>%
+    .$Gene,
+  Paulo = mergeVenn %>%
+    dplyr::filter(Paulo) %>%
+    .$Gene,
   ## IronDay8 = mergeVenn %>%
   ##   dplyr::filter(IronDay8) %>%
   ##   .$Gene,
-  ## IronDay15 = mergeVenn %>%
-  ##   dplyr::filter(IronDay15) %>%
-  ##   .$Gene,
-  ## Nonsupp_Supp = mergeVenn %>%
-  ##   dplyr::filter(Nonsupp, Supp) %>%
-  ##   .$Gene,
-  ## Nonsupp_Supp_Paulo = mergeVenn %>%
-  ##   dplyr::filter(Nonsupp, Supp, Paulo) %>%
-  ##   .$Gene,
+  IronDay15 = mergeVenn %>%
+    dplyr::filter(IronDay15) %>%
+    .$Gene,
+  Nonsupp_Supp = mergeVenn %>%
+    dplyr::filter(Nonsupp, Supp) %>%
+    .$Gene,
+  Nonsupp_Supp_Paulo = mergeVenn %>%
+    dplyr::filter(Nonsupp, Supp, Paulo) %>%
+    .$Gene,
   ## Nonsupp_Supp_Paulo_IronDay8_IronDay15 = mergeVenn %>%
   ##   dplyr::filter(Nonsupp, Supp, Paulo, IronDay8, IronDay15) %>%
   ##   .$Gene
@@ -514,7 +515,7 @@ comVeen <- list(## Nonsupp = mergeVenn %>%
                  pvalueCutoff=0.05,
                  qvalueCutoff=0.1)
 
-dotplot(comVeen, showCategory = 100, font.size = 8)
+dotplot(comVeen, showCategory = 30, font.size = 8)
 ggsave('common_HKvsLiving.pdf', height = 20)
 write_csv(as.data.frame(comVeen), 'common_HKvsLiving.csv')
 
@@ -522,7 +523,7 @@ write_csv(as.data.frame(comVeen), 'common_HKvsLiving.csv')
 comVeenSelect <- comVeen
 comVeenSelect@compareClusterResult <-
   c('GO:0010054', 'GO:0010015', 'GO:0098754',
-    'GO:0001666', 'GO:0015698', 'GO:0000302',
+    'GO:0001666', 'GO:0015698', 'GO:0071453',
     'GO:0010200', 'GO:0050832', 'GO:0009862') %>%
   {comVeenSelect@compareClusterResult$ID %in% .} %>%
   which %>%
