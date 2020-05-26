@@ -101,7 +101,7 @@ colnames(hkCol)[1:2] <- c('SynCom33 vs. HKSynCom33',
 ##   filter(cl %in% c(10, 3))
 
 ironHKLive <- basepath %>%
-  file.path('MPIPZ_CJ_RNASeq/results/eachGroup_mergeDay8_deg_sig.csv') %>%
+  file.path('MPIPZ_CJ_RNASeq/results/eachGroup_mergeDay8.csv') %>%
   read_csv
 
 fcsigIron <- ironHKLive %>%
@@ -267,7 +267,7 @@ c(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
 
 ht_list <- Heatmap(matrix = scaleCCol0sig %>% dplyr::select(contains('_')),
         name = 'Scaled Counts',
-        row_order = order(scaleCCol0sig$cl) %>% rev,
+        ## row_order = order(scaleCCol0sig$cl) %>% rev,
         row_split = scaleCCol0sig$cl,
         row_gap = unit(2, "mm"),
         column_order = 1 : 40,
@@ -348,7 +348,7 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% dplyr::select(contains('_')),
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02'
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02_Iron2'
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22'
-filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22_IronDay15'
+filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22_IronDay152'
 
 pdf(paste0(filePrefix, '.pdf'))
 draw(ht_list)
@@ -361,35 +361,62 @@ system(paste0('convert -density 1200 ', paste0(filePrefix, '.pdf'), ' ', paste0(
 library('eulerr')
 library('VennDiagram')
 
+kmeansRes <- read_csv('kmeans10_1stadd.csv')
+
+fcsig <- kmeansRes %>%
+  dplyr::select(ends_with('FoldChange')) %>%
+  transmute_all(list(~ case_when(. > log2(1.5) ~ 1,
+                                 . < -log2(1.5) ~ -1,
+                                 TRUE ~ 0)))
+
+padjsig <- kmeansRes %>%
+  dplyr::select(ends_with('padj')) %>%
+  `<`(0.05) %>%
+  as_tibble %>%
+  transmute_all(list(~ if_else(is.na(.), FALSE, .)))
+
+hkCol0SigVenn <- (padjsig * fcsig) %>%
+  as_tibble %>%
+  setNames(names(.) %>% substr(., start = 1, stop = nchar(.) - 5)) %>%
+  transmute_at(.var = vars(contains('vs')),
+               list(~ case_when(. == -1 ~ 'bacdown',
+                                . == 0 ~'bacno',
+                                . == 1 ~ 'bacup'))) %>%
+  dplyr::rename(Nonsupp = SynCom33_vs_HKSynCom33,
+                Supp = SynCom35_vs_HKSynCom35) %>%
+  dplyr::select(Nonsupp, Supp) %>%
+  mutate_all(list(~str_detect(., 'down|up'))) %>%
+  dplyr::mutate(ID = kmeansRes$ID,
+                cl = kmeansRes$cl)
+
 hkCol0SigVenn <- hkCol0Sig %>%
   mutate_at(vars(-ID, -Gene), list(~str_detect(., 'down|up'))) %>%
   dplyr::rename(Nonsupp = `SynCom33 vs. HKSynCom33`,
-                Supp = `SynCom35 vs. HKSynCom35`)
+                Supp = `SynCom35 vs. HKSynCom35`) %>%
+  dplyr::select(-Gene)
 
-## ironHKLiveVenn <- ironHKLiveSigDay8 %>%
-##   dplyr::select(-1:-6) %>%
-##   transmute(Iron = apply(., 1, function(x) {str_detect(x, 'bacdown|bacup') %>% any})) %>%
-##   mutate(ID = ironHKLiveSig$ID)
-
-ironHKLiveVennDay8 <- ironHKLiveSigDay8 %>%
-  dplyr::select(-1:-6, -8:-10) %>%
+ironHKLiveVennDay8 <- sigMatIronDay8 %>%
+  dplyr::select(-1:-4, -6:-8, -ID) %>%
   transmute(IronDay8 = apply(., 1, function(x) {str_detect(x, 'bacdown|bacup') %>% any})) %>%
-  mutate(ID = ironHKLiveSigDay8$ID)
+  mutate(ID = sigMatIronDay8$ID)
 
-ironHKLiveVennDay15 <- ironHKLiveSigDay15 %>%
-  dplyr::select(-1:-6, -8:-10) %>%
+ironHKLiveVennDay15 <- sigMatIronDay15 %>%
+  dplyr::select(-1:-4, -6:-8, -ID) %>%
   transmute(IronDay15 = apply(., 1, function(x) {str_detect(x, 'bacdown|bacup') %>% any})) %>%
-  mutate(ID = ironHKLiveSigDay15$ID)
-
-PauloHKLiveVenn <- PauloCol0Sig %>%
-  mutate(Paulo = str_detect(Paulo_bacresp, 'down|up')) %>%
-  dplyr::select(ID, Paulo)
+  mutate(ID = sigMatIronDay15$ID)
 
 mergeVenn <- hkCol0SigVenn %>%
-  inner_join(ironHKLiveVennDay8) %>%
-  inner_join(ironHKLiveVennDay15) %>%
-  inner_join(PauloHKLiveVenn) %>%
-  inner_join(scaleCCol0sig %>% dplyr::select(ID, cl))
+  full_join(ironHKLiveVennDay8) %>%
+  full_join(ironHKLiveVennDay15) %>%
+  mutate(Gene = ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[[', 1))
+
+PauloHKLiveVenn <- PauloHKSig %>%
+  dplyr::mutate(Paulo = TRUE) %>%
+  dplyr::select(-logFC)
+
+mergeVenn %<>%
+  full_join(PauloHKLiveVenn) %>%
+  mutate_all(~ifelse(is.na(.), FALSE, .))
 
 ## output venn
 allVenn <- foreach (i = 1:10, .combine = inner_join) %do% {
