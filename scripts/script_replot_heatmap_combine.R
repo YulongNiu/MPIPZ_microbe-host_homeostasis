@@ -418,7 +418,7 @@ allVenn <- foreach (i = 1:10, .combine = inner_join) %do% {
 
   eachVenn <- mergeVenn %>%
     filter(cl == i) %>%
-    dplyr::select(IronDay15, Nonsupp, Supp, Paulo) %>%
+    dplyr::select(IronDay8, Nonsupp, Supp, Paulo) %>%
     euler %>%
     .$original.values %>%
     as.data.frame %>%
@@ -433,7 +433,7 @@ write_csv(allVenn, 'hk_living_veen.csv')
 ## plot
 foreach (i = 1:10) %do% {
 
-  pdf(paste0('iron_venn3/cluster', i, '.pdf'))
+  pdf(paste0('iron_venn/cluster', i, '.pdf'))
 
   ## mergeVenn %>%
   ##   filter(cl == i) %>%
@@ -443,7 +443,7 @@ foreach (i = 1:10) %do% {
 
   mergeVenn %>%
     filter(cl == i) %>%
-    dplyr::select(IronDay15, Nonsupp, Supp, Paulo) %>%
+    dplyr::select(IronDay8, Nonsupp, Supp, Paulo) %>%
     euler(shape = 'ellipse') %>%
     plot(quantities = TRUE,
          labels = list(font = 4),
