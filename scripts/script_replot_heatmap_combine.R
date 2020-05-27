@@ -562,6 +562,38 @@ defenseGenes <- comVeen %>%
   }
 
 write_csv(defenseGenes, 'Nonsupp_Supp_Paulo_Iron_defenseGenes.csv')
+
+## iron test
+sigMatIronFull <- full_join(sigMatIronDay8 %>%
+          dplyr::select(-1:-4) %>%
+          transmute_at(.var = vars(contains('vs')),
+                       list(~ case_when(. %in% c('bacup', 'bacdown') ~ TRUE,
+                                        . %in% 'bacno' ~ FALSE))) %>%
+          mutate(ID = sigMatIronDay8$ID)
+         ,
+          sigMatIronDay15 %>%
+          dplyr::select(-1:-4) %>%
+          transmute_at(.var = vars(contains('vs')),
+                       list(~ case_when(. %in% c('bacup', 'bacdown') ~ TRUE,
+                                        . %in% 'bacno' ~ FALSE))) %>%
+          mutate(ID = sigMatIronDay15$ID)) %>%
+  mutate_all(~ifelse(is.na(.), FALSE, .)) %>%
+  dplyr::rename(Col0_Suf_Day8 = Col0_FeEDTA_Live_vs_Col0_FeEDTA_HK_Day8,
+                Col0_Def_Day8 = Col0_FeCl3_Live_vs_Col0_FeCl3_HK_Day8,
+                f6h1_Suf_Day8 = f6h1_FeEDTA_Live_vs_f6h1_FeEDTA_HK_Day8,
+                f6h1_Def_Day8 = f6h1_FeCl3_Live_vs_f6h1_FeCl3_HK_Day8,
+                Col0_Suf_Day15 = Col0_FeEDTA_Live_vs_Col0_FeEDTA_HK_Day15,
+                Col0_Def_Day15 = Col0_FeCl3_Live_vs_Col0_FeCl3_HK_Day15,
+                f6h1_Suf_Day15 = f6h1_FeEDTA_Live_vs_f6h1_FeEDTA_HK_Day15,
+                f6h1_Def_Day15 = f6h1_FeCl3_Live_vs_f6h1_FeCl3_HK_Day15)
+
+pdf('iron_only_venn/iron_day8.pdf')
+sigMatIronFull %>%
+  dplyr::select(-6:-9, -ID) %>%
+  euler(shape = 'ellipse') %>%
+  plot(quantities = TRUE,
+       labels = list(font = 4))
+dev.off()
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~flg22 Venn~~~~~~~~~~~~~~~~~~~~~~~~~~~~
