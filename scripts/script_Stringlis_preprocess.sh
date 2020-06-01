@@ -3,16 +3,18 @@
 ## yniu@mpipz.mpg.de
 ##
 
-#########################download SRA################################
 date
 
 BIN_PATH=/usr/bin
 SRATOOLS_PATH=/extDisk1/Biotools/sratoolkit.2.10.0-centos_linux64/bin
+FASTP_PATH=/home/yniu/Biotools
 
 RAW_PATH=/netscratch/dep_psl/grp_rgo/yniu/Flg22Acute/raw_data
+CLEAN_PATH=/netscratch/dep_psl/grp_rgo/yniu/Flg22Acute/clean_data
 
 CORENUM=40
 
+#########################download SRA################################
 cd ${RAW_PATH}
 
 ##~~~~~~~~~~~~~~~~~~~~single-end~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -64,4 +66,24 @@ for idx in ${!mfile[*]}; do
 
 done
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#######################################################################
+
+############################trim#######################################
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~raw~~~~~~~~~~~~~~~~~~
+## sample names
+fq=($(ls | grep .fq.gz))
+
+for i in ${fq[@]}
+do
+    echo "Trimming ${i}."
+    ${FASTP_PATH}/fastp -w ${CORENUM} \
+                     -z 6 \
+                     -p \
+                     -U --umi_loc=read1 --umi_len=8 \
+                     --trim_tail1=2 \
+                     -h ${i%%.*}.html \
+                     -i ${i} \
+                     -o ${CLEAN_PATH}/${i}
+done
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #######################################################################
