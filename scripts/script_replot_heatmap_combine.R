@@ -695,6 +695,7 @@ flg22PauloSigVenn <- PauloSig %>%
   mutate(Paulo = case_when(Cluster %in% 1:4 ~ 'up',
                            Cluster %in% 5:8 ~ 'down',
                            is.na(Cluster) ~ 'no')) %>%
+  mutate(Paulo = Paulo %>% str_detect('down|up')) %>%
   dplyr::select(Gene, Paulo)
 
 flg22StringlisSigVenn <- sigMatStringlis %>%
@@ -714,6 +715,7 @@ mergeflg22Venn <- flg22Col0SigVenn %>%
   full_join(flg22StringlisSigVenn) %>%
   mutate(Gene = ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[[', 1)) %>%
   full_join(flg22PauloSigVenn) %>%
+  mutate(Mock_HK = apply(.[, 1:4], 1, any)) %>%
   dplyr::filter(!is.na(cl)) %>%
   mutate_all(~ifelse(is.na(.), FALSE, .))
 
@@ -722,7 +724,7 @@ allVenn <- foreach (i = 1:10, .combine = inner_join) %do% {
 
   eachVenn <- mergeflg22Venn %>%
     filter(cl == i) %>%
-    dplyr::select(Mock, Nonsupp, Paulo, flg22Pa_6h, flg22417_6h) %>%
+    dplyr::select(Mock_HK, Nonsupp, Paulo, flg22Pa_6h, flg22417_6h) %>%
     euler %>%
     .$original.values %>%
     as.data.frame %>%
@@ -732,7 +734,62 @@ allVenn <- foreach (i = 1:10, .combine = inner_join) %do% {
 
 allVenn %<>%
   mutate(., clusterAll = allVenn %>% dplyr::select(-ID) %>% rowSums)
-write_csv(allVenn, 'hk_living_veen.csv')
+write_csv(allVenn, 'flg22_veen.csv')
+
+foreach (i = 1:10) %do% {
+
+  pdf(paste0('flg22_venn/cluster', i, '.pdf'))
+
+  mergeflg22Venn %>%
+    filter(cl == i) %>%
+    dplyr::select(Mock_HK, Nonsupp, Paulo, flg22Pa_6h, flg22417_6h) %>%
+    euler(shape = 'ellipse') %>%
+    plot(quantities = TRUE,
+         labels = list(font = 2))
+
+  dev.off()
+}
+
+## common GO
+comVeen <- list(
+  Mock_HK = mergeflg22Venn %>%
+    dplyr::filter(Mock_HK) %>%
+    .$Gene,
+  Nonsupp = mergeflg22Venn %>%
+    dplyr::filter(Nonsupp) %>%
+    .$Gene,
+  Paulo = mergeflg22Venn %>%
+    dplyr::filter(Paulo) %>%
+    .$Gene,
+  flg22Pa_6h = mergeflg22Venn %>%
+    dplyr::filter(flg22Pa_6h) %>%
+    .$Gene,
+  flg22417_6h = mergeflg22Venn %>%
+    dplyr::filter(flg22417_6h) %>%
+    .$Gene
+  ## Nonsupp_Supp = mergeflg22Venn %>%
+  ##   dplyr::filter(Nonsupp, Supp) %>%
+  ##   .$Gene,
+  ## Nonsupp_Supp_Paulo = mergeflg22Venn %>%
+  ##   dplyr::filter(Nonsupp, Supp, Paulo) %>%
+  ##   .$Gene,
+  ## Nonsupp_Supp_Paulo_IronDay15 = mergeflg22Venn %>%
+  ##   dplyr::filter(Nonsupp, Supp, Paulo, IronDay15) %>%
+  ##   .$Gene
+) %>%
+  compareCluster(geneCluster = .,
+                 fun = 'enrichGO',
+                 OrgDb = 'org.At.tair.db',
+                 keyType= 'TAIR',
+                 ont = 'BP',
+                 universe = keys(org.At.tair.db),
+                 pAdjustMethod = 'BH',
+                 pvalueCutoff=0.05,
+                 qvalueCutoff=0.1)
+
+dotplot(comVeen, showCategory = 30, font.size = 8)
+ggsave('common_HKvsLiving.pdf', height = 20)
+write_csv(as.data.frame(comVeen), 'common_HKvsLiving.csv')
 
 pdf('flg22_response_DEGs.pdf')
 flg22Col %>% transmute_at(.var = vars(-ID),
