@@ -660,6 +660,79 @@ dev.off()
 library('eulerr')
 library('magrittr')
 
+kmeansRes <- read_csv('kmeans10_1stadd.csv')
+
+fcsig <- kmeansRes %>%
+  dplyr::select(ends_with('FoldChange')) %>%
+  transmute_all(list(~ case_when(. > log2(1.5) ~ 1,
+                                 . < -log2(1.5) ~ -1,
+                                 TRUE ~ 0)))
+
+padjsig <- kmeansRes %>%
+  dplyr::select(ends_with('padj')) %>%
+  `<`(0.05) %>%
+  as_tibble %>%
+  transmute_all(list(~ if_else(is.na(.), FALSE, .)))
+
+flg22Col0SigVenn <- (padjsig * fcsig) %>%
+  as_tibble %>%
+  setNames(names(.) %>% substr(., start = 1, stop = nchar(.) - 5)) %>%
+  transmute_at(.var = vars(contains('vs')),
+               list(~ case_when(. == -1 ~ 'bacdown',
+                                . == 0 ~'bacno',
+                                . == 1 ~ 'bacup'))) %>%
+  dplyr::rename(Mock = Mock_Flg22_vs_Mock,
+                HKNonsupp = HKSynCom33_Flg22_vs_HKSynCom33,
+                HKSupp = HKSynCom35_Flg22_vs_HKSynCom35,
+                Nonsupp = SynCom33_Flg22_vs_SynCom33,
+                Supp = SynCom35_Flg22_vs_SynCom35) %>%
+  dplyr::select(Mock, HKNonsupp, HKSupp, Nonsupp, Supp) %>%
+  mutate_all(list(~str_detect(., 'bacdown|bacup'))) %>%
+  dplyr::mutate(ID = kmeansRes$ID,
+                cl = kmeansRes$cl)
+
+flg22PauloSigVenn <- PauloSig %>%
+  mutate(Paulo = case_when(Cluster %in% 1:4 ~ 'up',
+                           Cluster %in% 5:8 ~ 'down',
+                           is.na(Cluster) ~ 'no')) %>%
+  dplyr::select(Gene, Paulo)
+
+flg22StringlisSigVenn <- sigMatStringlis %>%
+  dplyr::rename(flg22Pa_0p5h = flg22Pa_0p5h_vs_Mock_0p5h,
+                flg22Pa_1h = flg22Pa_1h_vs_Mock_1h,
+                flg22Pa_3h = flg22Pa_3h_vs_Mock_3h,
+                flg22Pa_6h = flg22Pa_6h_vs_Mock_6h,
+                flg22417_0p5h = flg22417_0p5h_vs_Mock_0p5h,
+                flg22417_1h = flg22417_1h_vs_Mock_1h,
+                flg22417_3h = flg22417_3h_vs_Mock_3h,
+                flg22417_6h = flg22417_6h_vs_Mock_6h) %>%
+  dplyr::select(1:8) %>%
+  mutate_all(list(~str_detect(., 'down|up'))) %>%
+  dplyr::mutate(ID = sigMatStringlis$ID)
+
+mergeflg22Venn <- flg22Col0SigVenn %>%
+  full_join(flg22StringlisSigVenn) %>%
+  mutate(Gene = ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[[', 1)) %>%
+  full_join(flg22PauloSigVenn) %>%
+  dplyr::filter(!is.na(cl)) %>%
+  mutate_all(~ifelse(is.na(.), FALSE, .))
+
+## output venn
+allVenn <- foreach (i = 1:10, .combine = inner_join) %do% {
+
+  eachVenn <- mergeflg22Venn %>%
+    filter(cl == i) %>%
+    dplyr::select(Mock, Nonsupp, Paulo, flg22Pa_6h, flg22417_6h) %>%
+    euler %>%
+    .$original.values %>%
+    as.data.frame %>%
+    rownames_to_column('ID') %>%
+    magrittr::set_colnames(c('ID', paste0('cluster', i)))
+}
+
+allVenn %<>%
+  mutate(., clusterAll = allVenn %>% dplyr::select(-ID) %>% rowSums)
+write_csv(allVenn, 'hk_living_veen.csv')
 
 pdf('flg22_response_DEGs.pdf')
 flg22Col %>% transmute_at(.var = vars(-ID),
