@@ -766,16 +766,16 @@ comVeen <- list(
     .$Gene,
   flg22417_6h = mergeflg22Venn %>%
     dplyr::filter(flg22417_6h) %>%
-    .$Gene
+    .$Gene,
   ## Nonsupp_Supp = mergeflg22Venn %>%
   ##   dplyr::filter(Nonsupp, Supp) %>%
   ##   .$Gene,
   ## Nonsupp_Supp_Paulo = mergeflg22Venn %>%
   ##   dplyr::filter(Nonsupp, Supp, Paulo) %>%
   ##   .$Gene,
-  ## Nonsupp_Supp_Paulo_IronDay15 = mergeflg22Venn %>%
-  ##   dplyr::filter(Nonsupp, Supp, Paulo, IronDay15) %>%
-  ##   .$Gene
+  MockHK_Nonsupp_Paulo_flg22Pa6h_flg224176h = mergeflg22Venn %>%
+    dplyr::filter(Mock_HK, Nonsupp, Paulo, flg22Pa_6h, flg22417_6h) %>%
+    .$Gene
 ) %>%
   compareCluster(geneCluster = .,
                  fun = 'enrichGO',
@@ -787,9 +787,9 @@ comVeen <- list(
                  pvalueCutoff=0.05,
                  qvalueCutoff=0.1)
 
-dotplot(comVeen, showCategory = 30, font.size = 8)
-ggsave('common_HKvsLiving.pdf', height = 20)
-write_csv(as.data.frame(comVeen), 'common_HKvsLiving.csv')
+dotplot(comVeen, showCategory = 20, font.size = 8)
+ggsave('common_flg22.pdf', height = 20)
+write_csv(as.data.frame(comVeen), 'common_flg22.csv')
 
 pdf('flg22_response_DEGs.pdf')
 flg22Col %>% transmute_at(.var = vars(-ID),
