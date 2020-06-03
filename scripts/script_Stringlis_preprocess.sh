@@ -40,7 +40,7 @@ CORENUM=40
 #          "Mock_0p5h_2" "Mock_0h_3" "Mock_0p5h_1"
 #          "Mock_0h_1" "Mock_0p5h_3" "Mock_0h_2"
 #          "WCS417_0p5h_3" "flg22417_0p5h_1" "WCS417_6h_2"
-#          "WS417_6h_3" "Mock_6h_3" "WCS417_6h_1"
+#          "WCS417_6h_3" "Mock_6h_3" "WCS417_6h_1"
 #          "flg22417_6h_3" "flg22Pa_6h_1" "Mock_1h_1"
 #          "Mock_1h_2" "chitin_0p5h_2" "chitin_0p5h_3"
 #          "flg22Pa_0p5h_3" "chitin_0p5h_1" "flg22Pa_0p5h_1"
