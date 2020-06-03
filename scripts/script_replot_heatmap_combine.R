@@ -186,6 +186,41 @@ PauloHKSig <- read_csv('Paulo_RNASeq_hklive_noflg22.csv') %>%
   dplyr::select(Gene, logFC)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+##~~~~~~~~~~~~~~~~~~~~~~~~~~Stringlis flg22~~~~~~~~~~~~~~~~~~~~~~~~~~~
+StringlisDEGs <- basepath %>%
+  file.path('MPIPZ_KaWai_RNASeq/flg22_crossref/Stringlis_2018/results/eachGroup_DEGs_Stringlis.csv') %>%
+  read_csv
+
+fcsigStringlis <- StringlisDEGs %>%
+  dplyr::select(ends_with('FoldChange')) %>%
+  transmute_all(list(~ case_when(. > log2(1.5) ~ 1,
+                                 . < -log2(1.5) ~ -1,
+                                 TRUE ~ 0)))
+
+padjsigStringlis <- StringlisDEGs %>%
+  dplyr::select(ends_with('padj')) %>%
+  `<`(0.05) %>%
+  as_tibble %>%
+  transmute_all(list(~ if_else(is.na(.), FALSE, .)))
+
+sigMatStringlis <- (padjsigStringlis * fcsigStringlis) %>%
+  as_tibble %>%
+  setNames(names(.) %>% substr(., start = 1, stop = nchar(.) - 5)) %>% {
+    flg22 <- transmute_at(., .var = vars(starts_with('flg22')),
+                       list(~ case_when(. == -1 ~ 'down',
+                                        . == 0 ~'no',
+                                        . == 1 ~ 'up')))
+
+    bac <- transmute_at(., .var = vars(starts_with('WCS417')),
+                     list(~ case_when(. == -1 ~ 'bacdown',
+                                      . == 0 ~'bacno',
+                                      . == 1 ~ 'bacup')))
+
+    return(bind_cols(flg22, bac))
+  } %>%
+mutate(ID = StringlisDEGs$ID)
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~combine heatmap~~~~~~~~~~~~~~~~~~~~~~~~~~~
 sigCol0 <- read_csv('kmeans10_1stadd_sig.csv') %>%
   dplyr::select(ID) %>%
@@ -254,6 +289,17 @@ PauloCol0Sig <- sigCol0 %>%
   dplyr::select(-Cluster, -logFC) %>%
   inner_join(scaleCCol0sig %>% dplyr::select(ID), .)
 
+
+StringlisFlg22Sig <- sigCol0 %>%
+  left_join(sigMatStringlis) %>%
+  dplyr::select(ID, Gene, starts_with('flg22')) %>%
+  inner_join(scaleCCol0sig %>% dplyr::select(ID), .)
+
+StringlisHKSig <- sigCol0 %>%
+  left_join(sigMatStringlis) %>%
+  dplyr::select(ID, Gene, starts_with('WCS417')) %>%
+  inner_join(scaleCCol0sig %>% dplyr::select(ID), .)
+
 c(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
   sum(scaleCCol0sig$ID == flg22Col0Sig$ID),
   sum(scaleCCol0sig$ID == hkCol0Sig$ID),
@@ -263,11 +309,13 @@ c(sum(scaleCCol0sig$ID == scaleCWERSig$ID),
   sum(scaleCCol0sig$ID == CastrilloCol0Sig$ID),
   sum(scaleCCol0sig$ID == VolzCol0Sig$ID),
   sum(scaleCCol0sig$ID == PauloCol0Sig$ID),
+  sum(scaleCCol0sig$ID == StringlisFlg22Sig$ID),
+  sum(scaleCCol0sig$ID == StringlisHKSig$ID),
   nrow(scaleCCol0sig))
 
 ht_list <- Heatmap(matrix = scaleCCol0sig %>% dplyr::select(contains('_')),
         name = 'Scaled Counts',
-        ## row_order = order(scaleCCol0sig$cl) %>% rev,
+        row_order = order(scaleCCol0sig$cl) %>% rev,
         row_split = scaleCCol0sig$cl,
         row_gap = unit(2, "mm"),
         column_order = 1 : 40,
@@ -294,6 +342,12 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% dplyr::select(contains('_')),
           col = c('down' = 'blue', 'no' = 'white', 'up' = 'red'),
           column_names_gp = gpar(fontsize = 5),
           heatmap_legend_param = list(title = 'Paulo'),
+          cluster_columns = FALSE,
+          use_raster = FALSE) +
+  Heatmap(StringlisFlg22Sig %>% dplyr::select(-ID, -Gene),
+          col = c('down' = 'blue', 'no' = 'white', 'up' = 'red'),
+          column_names_gp = gpar(fontsize = 5),
+          heatmap_legend_param = list(title = 'Stringlis'),
           cluster_columns = FALSE,
           use_raster = FALSE) +
   Heatmap(CastrilloCol0Sig %>% dplyr::select(-ID, -Gene),
@@ -337,7 +391,13 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% dplyr::select(contains('_')),
           column_names_gp = gpar(fontsize = 5),
           heatmap_legend_param = list(title = 'IronBac'),
           cluster_columns = FALSE,
-          use_raster = FALSE)
+          use_raster = FALSE) +
+Heatmap(StringlisHKSig %>% dplyr::select(-ID, -Gene),
+        col = c('bacup' = 'red', 'bacno' = 'white', 'bacdown' = 'blue'),
+        column_names_gp = gpar(fontsize = 5),
+        heatmap_legend_param = list(title = 'IronBac'),
+        cluster_columns = FALSE,
+        use_raster = FALSE)
   ## Heatmap(ironCol0Sig %>% select(ironresp),
   ##         col = c('respup' = 'purple', 'respno' = 'white', 'respdown' = 'green3'),
   ##         column_names_gp = gpar(fontsize = 5),
@@ -348,7 +408,7 @@ ht_list <- Heatmap(matrix = scaleCCol0sig %>% dplyr::select(contains('_')),
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02'
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02_Iron2'
 ## filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22'
-filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22_IronDay152'
+filePrefix <- 'kmeans10_heatmap_WER_Col02_flg22_IronDay15'
 
 pdf(paste0(filePrefix, '.pdf'))
 draw(ht_list)
