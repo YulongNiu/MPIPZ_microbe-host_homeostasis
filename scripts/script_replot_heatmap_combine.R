@@ -451,24 +451,24 @@ hkCol0SigVenn <- (padjsig * fcsig) %>%
 
 ironHKLiveVennDay8 <- sigMatIronDay8 %>%
   dplyr::select(-1:-4, -6:-8, -ID) %>%
+  ## dplyr::select(-1:-4, -ID) %>%
   transmute(IronDay8 = apply(., 1, function(x) {str_detect(x, 'bacdown|bacup') %>% any})) %>%
   mutate(ID = sigMatIronDay8$ID)
 
 ironHKLiveVennDay15 <- sigMatIronDay15 %>%
-  dplyr::select(-1:-4, -6:-8, -ID) %>%
+  ## dplyr::select(-1:-4, -6:-8, -ID) %>%
+  dplyr::select(-1:-4, -ID) %>%
   transmute(IronDay15 = apply(., 1, function(x) {str_detect(x, 'bacdown|bacup') %>% any})) %>%
   mutate(ID = sigMatIronDay15$ID)
-
-mergeVenn <- hkCol0SigVenn %>%
-  full_join(ironHKLiveVennDay8) %>%
-  full_join(ironHKLiveVennDay15) %>%
-  mutate(Gene = ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[[', 1))
 
 PauloHKLiveVenn <- PauloHKSig %>%
   dplyr::mutate(Paulo = TRUE) %>%
   dplyr::select(-logFC)
 
-mergeVenn %<>%
+mergeHKVenn <- hkCol0SigVenn %>%
+  full_join(ironHKLiveVennDay8) %>%
+  full_join(ironHKLiveVennDay15) %>%
+  mutate(Gene = ID %>% strsplit(split = '.', fixed = TRUE) %>% sapply('[[', 1)) %>%
   full_join(PauloHKLiveVenn) %>%
   dplyr::filter(!is.na(cl)) %>%
   mutate_all(~ifelse(is.na(.), FALSE, .))
@@ -476,9 +476,9 @@ mergeVenn %<>%
 ## output venn
 allVenn <- foreach (i = 1:10, .combine = inner_join) %do% {
 
-  eachVenn <- mergeVenn %>%
+  eachVenn <- mergeHKVenn %>%
     filter(cl == i) %>%
-    dplyr::select(IronDay8, Nonsupp, Supp, Paulo) %>%
+    dplyr::select(IronDay15, Nonsupp, Supp, Paulo) %>%
     euler %>%
     .$original.values %>%
     as.data.frame %>%
@@ -493,23 +493,23 @@ write_csv(allVenn, 'hk_living_veen.csv')
 ## plot
 foreach (i = 1:10) %do% {
 
-  pdf(paste0('iron_venn/cluster', i, '.pdf'))
+  pdf(paste0('iron_onlysuf_day8_venn/cluster', i, '.pdf'))
 
-  ## mergeVenn %>%
+  ## mergeHKVenn %>%
   ##   filter(cl == i) %>%
   ##   dplyr::select(Iron, Nonsupp, Supp, Paulo) %>%
   ##   venneuler %>%
   ##   plot
 
-  mergeVenn %>%
-    filter(cl == i) %>%
+  mergeHKVenn %>%
+    ## filter(cl == i) %>%
     dplyr::select(IronDay8, Nonsupp, Supp, Paulo) %>%
     euler(shape = 'ellipse') %>%
     plot(quantities = TRUE,
          labels = list(font = 4),
          fill = c('#ffff33', '#F1696D', '#21BDC3', '#7CAE00'))
 
-  ## mergeVenn %>%
+  ## mergeHKVenn %>%
   ##   filter(cl == i) %>%
   ##   dplyr::select(IronDay15, Nonsupp, Supp, Paulo) %>% {
   ##     vennList <- list(IronDay15 = which(.$IronDay15),
@@ -533,37 +533,37 @@ foreach (i = 1:10) %do% {
 }
 
 ## common GO
-comVeen <- list(
-  Nonsupp = mergeVenn %>%
+comHKVeen <- list(
+  Nonsupp = mergeHKVenn %>%
     dplyr::filter(Nonsupp) %>%
     .$Gene,
-  Supp = mergeVenn %>%
+  Supp = mergeHKVenn %>%
     dplyr::filter(Supp) %>%
     .$Gene,
-  Paulo = mergeVenn %>%
+  Paulo = mergeHKVenn %>%
     dplyr::filter(Paulo) %>%
     .$Gene,
-  ## IronDay8 = mergeVenn %>%
-  ##   dplyr::filter(IronDay8) %>%
-  ##   .$Gene,
-  IronDay15 = mergeVenn %>%
-    dplyr::filter(IronDay15) %>%
+  IronDay8 = mergeHKVenn %>%
+    dplyr::filter(IronDay8) %>%
     .$Gene,
-  Nonsupp_Supp = mergeVenn %>%
+  ## IronDay15 = mergeHKVenn %>%
+  ##   dplyr::filter(IronDay15) %>%
+  ##   .$Gene,
+  Nonsupp_Supp = mergeHKVenn %>%
     dplyr::filter(Nonsupp, Supp) %>%
     .$Gene,
-  Nonsupp_Supp_Paulo = mergeVenn %>%
+  Nonsupp_Supp_Paulo = mergeHKVenn %>%
     dplyr::filter(Nonsupp, Supp, Paulo) %>%
     .$Gene,
-  ## Nonsupp_Supp_Paulo_IronDay8_IronDay15 = mergeVenn %>%
+  ## Nonsupp_Supp_Paulo_IronDay8_IronDay15 = mergeHKVenn %>%
   ##   dplyr::filter(Nonsupp, Supp, Paulo, IronDay8, IronDay15) %>%
   ##   .$Gene
-  Nonsupp_Supp_Paulo_IronDay15 = mergeVenn %>%
-    dplyr::filter(Nonsupp, Supp, Paulo, IronDay15) %>%
-    .$Gene
-  ## Nonsupp_Supp_Paulo_IronDay8 = mergeVenn %>%
-  ##   dplyr::filter(Nonsupp, Supp, Paulo, IronDay8) %>%
+  ## Nonsupp_Supp_Paulo_IronDay15 = mergeHKVenn %>%
+  ##   dplyr::filter(Nonsupp, Supp, Paulo, IronDay15) %>%
   ##   .$Gene
+  Nonsupp_Supp_Paulo_IronDay8 = mergeHKVenn %>%
+    dplyr::filter(Nonsupp, Supp, Paulo, IronDay8) %>%
+    .$Gene
 ) %>%
   compareCluster(geneCluster = .,
                  fun = 'enrichGO',
@@ -575,16 +575,17 @@ comVeen <- list(
                  pvalueCutoff=0.05,
                  qvalueCutoff=0.1)
 
-dotplot(comVeen, showCategory = 30, font.size = 8)
+dotplot(comHKVeen, showCategory = 30, font.size = 8)
 ggsave('common_HKvsLiving.pdf', height = 20)
-write_csv(as.data.frame(comVeen), 'common_HKvsLiving.csv')
+write_csv(as.data.frame(comHKVeen), 'common_HKvsLiving.csv')
 
 ## select general response plot
-comVeenSelect <- comVeen
+comVeenSelect <- comHKVeen
 comVeenSelect@compareClusterResult <-
   c('GO:0010054', 'GO:0010015', 'GO:0098754',
     'GO:0001666', 'GO:0015698', 'GO:0071453',
-    'GO:0010200', 'GO:0050832', 'GO:0009862') %>%
+    'GO:0010200', 'GO:0050832', 'GO:0009862',
+    'GO:0009991') %>%
   {comVeenSelect@compareClusterResult$ID %in% .} %>%
   which %>%
   comVeenSelect@compareClusterResult[., ]
@@ -751,7 +752,7 @@ foreach (i = 1:10) %do% {
 }
 
 ## common GO
-comVeen <- list(
+comflg22Veen <- list(
   Mock_HK = mergeflg22Venn %>%
     dplyr::filter(Mock_HK) %>%
     .$Gene,
