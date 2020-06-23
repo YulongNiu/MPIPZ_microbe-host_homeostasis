@@ -548,7 +548,8 @@ for (i in seq_along(interesGO)) {
 
   interesMat <- scaleC %>%
     dplyr::filter(GeneID %in% interesGene) %>%
-    dplyr::filter(!(cl %in% c(6)))
+    dplyr::filter(!(cl %in% c(6)))  %>%
+    inner_join(anno)
 
   matcol <- colorRamp2(seq(min(scaleC %>% select(contains('_'))), max(scaleC %>% select(contains('_'))), length = 100), colorRampPalette(rev(brewer.pal(n = 10, name = 'Spectral'))[c(-3, -4, -6, -7)])(100))
 
