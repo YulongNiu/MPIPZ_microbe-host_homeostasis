@@ -572,11 +572,8 @@ comHKVeen <- list(
                  ont = 'BP',
                  universe = keys(org.At.tair.db),
                  pAdjustMethod = 'BH',
-                 pvalueCutoff = 0.05,
-                 qvalueCutoff = 1
-                 ## pvalueCutoff=0.05,
-                 ## qvalueCutoff=0.1
-                 )
+                 pvalueCutoff=0.05,
+                 qvalueCutoff=0.1)
 
 dotplot(comHKVeen, showCategory = 30, font.size = 8)
 ggsave('common_HKvsLiving.pdf', height = 20)
