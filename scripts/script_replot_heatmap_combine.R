@@ -421,7 +421,8 @@ system(paste0('convert -density 1200 ', paste0(filePrefix, '.pdf'), ' ', paste0(
 library('eulerr')
 library('VennDiagram')
 
-kmeansRes <- read_csv('kmeans10_1stadd.csv')
+kmeansRes <- read_csv('kmeans10_1stadd.csv') %>%
+  transmute_all(list(~ if_else(is.na(.), FALSE, .)))
 
 fcsig <- kmeansRes %>%
   dplyr::select(ends_with('FoldChange')) %>%
@@ -432,8 +433,7 @@ fcsig <- kmeansRes %>%
 padjsig <- kmeansRes %>%
   dplyr::select(ends_with('padj')) %>%
   `<`(0.05) %>%
-  as_tibble %>%
-  transmute_all(list(~ if_else(is.na(.), FALSE, .)))
+  as_tibble
 
 hkCol0SigVenn <- (padjsig * fcsig) %>%
   as_tibble %>%
@@ -450,8 +450,8 @@ hkCol0SigVenn <- (padjsig * fcsig) %>%
                 cl = kmeansRes$cl)
 
 ironHKLiveVennDay8 <- sigMatIronDay8 %>%
-  dplyr::select(-1:-4, -6:-8, -ID) %>%
-  ## dplyr::select(-1:-4, -ID) %>%
+  ## dplyr::select(-1:-4, -6:-8, -ID) %>%
+  dplyr::select(-1:-4, -ID) %>%
   transmute(IronDay8 = apply(., 1, function(x) {str_detect(x, 'bacdown|bacup') %>% any})) %>%
   mutate(ID = sigMatIronDay8$ID)
 
@@ -572,12 +572,74 @@ comHKVeen <- list(
                  ont = 'BP',
                  universe = keys(org.At.tair.db),
                  pAdjustMethod = 'BH',
-                 pvalueCutoff=0.05,
-                 qvalueCutoff=0.1)
+                 pvalueCutoff = 0.05,
+                 qvalueCutoff = 1
+                 ## pvalueCutoff=0.05,
+                 ## qvalueCutoff=0.1
+                 )
 
 dotplot(comHKVeen, showCategory = 30, font.size = 8)
 ggsave('common_HKvsLiving.pdf', height = 20)
 write_csv(as.data.frame(comHKVeen), 'common_HKvsLiving.csv')
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~core response genes~~~~~~~~~~~~~~~~~~~~~~~
+library('GO.db')
+
+coreHKLive <- mergeHKVenn %>%
+  dplyr::filter(Nonsupp, Supp, Paulo, IronDay8) %>%
+  .$Gene
+
+xx <- as.list(org.At.tairGO[coreHKLive])
+
+CollpaseEachGO <- function(eachGOList, geneID) {
+
+  require('foreach')
+  require('tidyverse')
+
+  res <- foreach(i = seq_along(eachGOList), .combine = rbind) %do% {
+    return(unlist(eachGOList[[i]]))
+  } %>%
+    as_tibble %>%
+  mutate(GeneID = geneID)
+
+  return(res)
+}
+
+allGOAnno <- Term(GOTERM) %>%
+  unlist %>%
+  as.data.frame %>%
+  rownames_to_column('GOID') %>%
+  set_colnames(c('GOID', 'Term')) %>%
+  as_tibble
+
+coreHKLiveMat <- foreach(i = seq_along(xx), .combine = bind_rows) %do% {
+  res <- CollpaseEachGO(xx[[i]], names(xx)[i])
+} %>%
+  dplyr::filter(Ontology %in% c('BP')) %>%
+  dplyr::select(-value, -Evidence, -Ontology) %>%
+  dplyr::distinct(GOID, GeneID) %>%
+  dplyr::inner_join(allGOAnno) %>%
+  dplyr::group_by(GeneID) %>%
+  dplyr::summarize_all(~paste(., collapse = ';'))
+
+read_csv('kmeans10_1stadd_sig.csv') %>%
+  mutate_all(~ifelse(is.na(.), '', .)) %>%
+  dplyr::select(ID, Gene, Description, cl) %>%
+  dplyr::mutate(GeneID = ID %>% strsplit('.', fixed = TRUE) %>% sapply('[[', 1)) %>%
+  dplyr::inner_join(coreHKLiveMat) %>%
+  write_csv('hk_living_core.csv')
+
+## compare geneID
+comHKVeen %>%
+  as.data.frame %>%
+  as_tibble %>%
+  dplyr::filter(Cluster %in% c('Nonsupp_Supp_Paulo_IronDay8')) %>%
+  .$geneID %>%
+  strsplit(split = '/', fixed = TRUE) %>%
+  unlist %>%
+  unique %>%
+  length
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ## select general response plot
 comVeenSelect <- comHKVeen
@@ -661,7 +723,8 @@ dev.off()
 library('eulerr')
 library('magrittr')
 
-kmeansRes <- read_csv('kmeans10_1stadd.csv')
+kmeansRes <- read_csv('kmeans10_1stadd.csv') %>%
+  mutate_all(~ifelse(is.na(.), '', .))
 
 fcsig <- kmeansRes %>%
   dplyr::select(ends_with('FoldChange')) %>%
