@@ -338,6 +338,41 @@ kallKEGG <- compareCluster(geneCluster = kall,
                            organism = 'ath',
                            pvalueCutoff = 0.05)
 dotplot(kallKEGG)
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~defense related genes~~~~~~~~~~~~~~~~~~~~
+dfGenes <- read_tsv('../../selected_defense_related_GO_term_byKaWai.txt')
+
+dfGenesMat <- kallGOBP %>%
+  as.data.frame %>%
+  as_tibble %>%
+  dplyr::filter(ID %in% dfGenes$DefenseGO)
+
+## all defense related genes
+dfGenesMat %>%
+  .$geneID %>%
+  strsplit(split = '/', fixed = TRUE) %>%
+  unlist %>%
+  unique %>%
+  length
+
+## except cluster3
+dfGenesMat %>%
+  filter(!(Cluster %in% c('cluster3'))) %>%
+  .$geneID %>%
+  strsplit(split = '/', fixed = TRUE) %>%
+  unlist %>%
+  unique %>%
+  length
+
+## cluster3
+dfGenesMat %>%
+  filter(Cluster %in% c('cluster3')) %>%
+  .$geneID %>%
+  strsplit(split = '/', fixed = TRUE) %>%
+  unlist %>%
+  unique %>%
+  length
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #######################################################################
 
 ###############################metacape################################

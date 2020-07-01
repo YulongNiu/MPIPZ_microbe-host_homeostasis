@@ -421,8 +421,7 @@ system(paste0('convert -density 1200 ', paste0(filePrefix, '.pdf'), ' ', paste0(
 library('eulerr')
 library('VennDiagram')
 
-kmeansRes <- read_csv('kmeans10_1stadd.csv') %>%
-  transmute_all(list(~ if_else(is.na(.), FALSE, .)))
+kmeansRes <- read_csv('kmeans10_1stadd.csv')
 
 fcsig <- kmeansRes %>%
   dplyr::select(ends_with('FoldChange')) %>%
@@ -579,7 +578,7 @@ dotplot(comHKVeen, showCategory = 30, font.size = 8)
 ggsave('common_HKvsLiving.pdf', height = 20)
 write_csv(as.data.frame(comHKVeen), 'common_HKvsLiving.csv')
 
-##~~~~~~~~~~~~~~~~~~~~~~~~~~core response genes~~~~~~~~~~~~~~~~~~~~~~~
+##~~~~~~~~~~~~~~~~~~~~~~~~~~core SynCom response genes~~~~~~~~~~~~~~~~
 library('GO.db')
 
 coreHKLive <- mergeHKVenn %>%
@@ -623,7 +622,8 @@ read_csv('kmeans10_1stadd_sig.csv') %>%
   mutate_all(~ifelse(is.na(.), '', .)) %>%
   dplyr::select(ID, Gene, Description, cl) %>%
   dplyr::mutate(GeneID = ID %>% strsplit('.', fixed = TRUE) %>% sapply('[[', 1)) %>%
-  dplyr::inner_join(coreHKLiveMat) %>%
+  dplyr::filter(GeneID %in% coreHKLive) %>%
+  dplyr::left_join(coreHKLiveMat) %>%
   write_csv('hk_living_core.csv')
 
 ## compare geneID
