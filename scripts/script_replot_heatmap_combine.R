@@ -592,10 +592,10 @@ CollpaseEachGO <- function(eachGOList, geneID) {
   require('foreach')
   require('tidyverse')
 
-  res <- foreach(i = seq_along(eachGOList), .combine = rbind) %do% {
+  res <- foreach(i = seq_along(eachGOList), .combine = bind_rows) %do% {
     return(unlist(eachGOList[[i]]))
   } %>%
-    as_tibble %>%
+    bind_rows %>%
   mutate(GeneID = geneID)
 
   return(res)
@@ -612,7 +612,7 @@ coreHKLiveMat <- foreach(i = seq_along(xx), .combine = bind_rows) %do% {
   res <- CollpaseEachGO(xx[[i]], names(xx)[i])
 } %>%
   dplyr::filter(Ontology %in% c('BP')) %>%
-  dplyr::select(-value, -Evidence, -Ontology) %>%
+  dplyr::select(-Evidence, -Ontology) %>%
   dplyr::distinct(GOID, GeneID) %>%
   dplyr::inner_join(allGOAnno) %>%
   dplyr::group_by(GeneID) %>%
@@ -624,6 +624,7 @@ read_csv('kmeans10_1stadd_sig.csv') %>%
   dplyr::mutate(GeneID = ID %>% strsplit('.', fixed = TRUE) %>% sapply('[[', 1)) %>%
   dplyr::filter(GeneID %in% coreHKLive) %>%
   dplyr::left_join(coreHKLiveMat) %>%
+  mutate_all(~ifelse(is.na(.), '', .)) %>%
   write_csv('hk_living_core.csv')
 
 ## compare geneID

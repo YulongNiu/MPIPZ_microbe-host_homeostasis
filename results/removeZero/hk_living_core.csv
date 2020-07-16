@@ -1,192 +1,192 @@
 ID,Gene,Description,cl,GeneID,GOID,Term
-AT1G14550.1,PER5,Peroxidase 5 [Source:UniProtKB/Swiss-Prot;Acc:Q9M9Q9],3,AT1G14550,GO:0071456,cellular response to hypoxia
-AT5G38940.1,,RmlC-like cupins superfamily protein [Source:TAIR;Acc:AT5G38940],1,AT5G38940,GO:0009651,response to salt stress
-AT5G39580.1,PER62,Peroxidase 62 [Source:UniProtKB/Swiss-Prot;Acc:Q9FKA4],1,AT5G39580,GO:0006865;GO:0050832,amino acid transport;defense response to fungus
-AT4G18940.1,,RNA ligase/cyclic nucleotide phosphodiesterase family protein [Source:UniProtKB/TrEMBL;Acc:O49408],1,AT4G18940,NA,NA
-AT4G28850.1,XTH26,Probable xyloglucan endotransglucosylase/hydrolase protein 26 [Source:UniProtKB/Swiss-Prot;Acc:Q9SVV2],1,AT4G28850,NA,NA
-AT2G18350.1,ZHD6,Zinc-finger homeodomain protein 6 [Source:UniProtKB/Swiss-Prot;Acc:Q9ZPW7],1,AT2G18350,NA,NA
+AT1G14550.1,PER5,Peroxidase 5 [Source:UniProtKB/Swiss-Prot;Acc:Q9M9Q9],3,AT1G14550,GO:0006979;GO:0042744;GO:0071456,response to oxidative stress;hydrogen peroxide catabolic process;cellular response to hypoxia
+AT5G38940.1,,RmlC-like cupins superfamily protein [Source:TAIR;Acc:AT5G38940],1,AT5G38940,GO:0006950,response to stress
+AT5G39580.1,PER62,Peroxidase 62 [Source:UniProtKB/Swiss-Prot;Acc:Q9FKA4],1,AT5G39580,GO:0006950;GO:0006979;GO:0050832,response to stress;response to oxidative stress;defense response to fungus
+AT4G18940.1,,RNA ligase/cyclic nucleotide phosphodiesterase family protein [Source:UniProtKB/TrEMBL;Acc:O49408],1,AT4G18940,GO:0009187,cyclic nucleotide metabolic process
+AT4G28850.1,XTH26,Probable xyloglucan endotransglucosylase/hydrolase protein 26 [Source:UniProtKB/Swiss-Prot;Acc:Q9SVV2],1,AT4G28850,GO:0010411;GO:0042546,xyloglucan metabolic process;cell wall biogenesis
+AT2G18350.1,ZHD6,Zinc-finger homeodomain protein 6 [Source:UniProtKB/Swiss-Prot;Acc:Q9ZPW7],1,AT2G18350,,
 AT1G13480.1,,At1g13480 [Source:UniProtKB/TrEMBL;Acc:Q56Y29],1,AT1G13480,GO:0008150,biological_process
-AT3G27950.1,,GDSL-like Lipase/Acylhydrolase superfamily protein [Source:TAIR;Acc:AT3G27950],1,AT3G27950,NA,NA
-AT1G01680.1,PUB54,U-box domain-containing protein 54 [Source:UniProtKB/Swiss-Prot;Acc:Q9LQ92],4,AT1G01680,NA,NA
-AT1G17180.1,GSTU25,Glutathione S-transferase U25 [Source:UniProtKB/Swiss-Prot;Acc:Q9SHH7],8,AT1G17180,GO:0009407;GO:0010583,toxin catabolic process;response to cyclopentenone
-AT3G02240.1,RGF7,Root meristem growth factor 7 [Source:UniProtKB/Swiss-Prot;Acc:Q6NNL3],1,AT3G02240,GO:0008150;GO:0008284;GO:0030154;GO:0048765;GO:0048767,biological_process;positive regulation of cell proliferation;cell differentiation;root hair cell differentiation;root hair elongation
-AT4G13390.2,,Extensin-like protein [Source:UniProtKB/TrEMBL;Acc:Q9T0L0],1,AT4G13390,NA,NA
-AT4G25220.1,RHS15,Putative glycerol-3-phosphate transporter 2 [Source:UniProtKB/Swiss-Prot;Acc:Q9SB41],1,AT4G25220,GO:0006810;GO:0010054;GO:0055062,transport;trichoblast differentiation;phosphate ion homeostasis
-AT1G62510.1,,Bifunctional inhibitor/lipid-transfer protein/seed storage 2S albumin superfamily protein [Source:UniProtKB/TrEMBL;Acc:Q9SXE6],6,AT1G62510,GO:0006869,lipid transport
-AT5G24140.1,SQP2,squalene monooxygenase 2 [Source:TAIR;Acc:AT5G24140],1,AT5G24140,GO:0016126;GO:0019745,sterol biosynthetic process;pentacyclic triterpenoid biosynthetic process
-AT4G22080.1,RHS14,Probable pectate lyase 16 [Source:UniProtKB/Swiss-Prot;Acc:O65456],1,AT4G22080,NA,NA
-AT4G13390.1,,Extensin-like protein [Source:UniProtKB/TrEMBL;Acc:Q9T0L0],1,AT4G13390,NA,NA
-AT4G07960.2,CSLC12,CSLC12 [Source:UniProtKB/TrEMBL;Acc:A0A384KRZ4],1,AT4G07960,NA,NA
-AT5G22410.1,PER60,Peroxidase 60 [Source:UniProtKB/Swiss-Prot;Acc:Q9FMR0],1,AT5G22410,GO:0010054;GO:0048765,trichoblast differentiation;root hair cell differentiation
-AT5G06630.1,,Proline-rich extensin-like family protein [Source:UniProtKB/TrEMBL;Acc:F4K3X4],1,AT5G06630,NA,NA
-AT4G08620.1,SULTR1;1,Sulfate transporter 1.1 [Source:UniProtKB/Swiss-Prot;Acc:Q9SAY1],1,AT4G08620,GO:0008272;GO:0080160,sulfate transport;selenate transport
-AT3G62680.1,PRP3,Proline-rich protein 3 [Source:UniProtKB/Swiss-Prot;Acc:Q9LZJ7],1,AT3G62680,GO:0009653;GO:0010054;GO:0048364;GO:0048527;GO:0048589;GO:0048765;GO:0048767;GO:0048869;GO:0071365;GO:0071369;GO:0072732,anatomical structure morphogenesis;trichoblast differentiation;root development;lateral root development;developmental growth;root hair cell differentiation;root hair elongation;cellular developmental process;cellular response to auxin stimulus;cellular response to ethylene stimulus;cellular response to calcium ion starvation
-AT5G06640.1,,Proline-rich extensin-like family protein [Source:UniProtKB/TrEMBL;Acc:Q9FG06],1,AT5G06640,GO:0010054,trichoblast differentiation
-AT5G04960.1,PME46,Pectinesterase [Source:UniProtKB/TrEMBL;Acc:A0A178UR22],1,AT5G04960,GO:0010054,trichoblast differentiation
-AT2G41100.1,CML12,Calmodulin-like protein 12 [Source:UniProtKB/Swiss-Prot;Acc:P25071],1,AT2G41100,GO:0006612;GO:0009266;GO:0009611;GO:0009612;GO:0009646;GO:0009652;GO:0010200;GO:0010363;GO:0019722;GO:0043069,protein targeting to membrane;response to temperature stimulus;response to wounding;response to mechanical stimulus;response to absence of light;thigmotropism;response to chitin;regulation of plant-type hypersensitive response;calcium-mediated signaling;negative regulation of programmed cell death
-AT5G57540.1,XTH13,Putative xyloglucan endotransglucosylase/hydrolase protein 13 [Source:UniProtKB/Swiss-Prot;Acc:Q9FKL8],1,AT5G57540,GO:0010054;GO:0010411;GO:0048765,trichoblast differentiation;xyloglucan metabolic process;root hair cell differentiation
-AT5G24313.1,,At5g24313 [Source:UniProtKB/TrEMBL;Acc:Q8L8Z4],1,AT5G24313,GO:0008150;GO:0010054;GO:0048765,biological_process;trichoblast differentiation;root hair cell differentiation
-AT2G24980.3,,Proline-rich extensin-like family protein [Source:TAIR;Acc:AT2G24980],1,AT2G24980,NA,NA
-AT1G54970.1,PRP1,Proline-rich protein 1 [Source:UniProtKB/Swiss-Prot;Acc:Q9FZ35],1,AT1G54970,GO:0010054,trichoblast differentiation
-AT2G20520.1,FLA6,Fasciclin-like arabinogalactan protein 6 [Source:UniProtKB/Swiss-Prot;Acc:Q9SIL7],1,AT2G20520,GO:0010054;GO:0016132,trichoblast differentiation;brassinosteroid biosynthetic process
-AT4G40090.1,AGP3,AGP3 [Source:UniProtKB/TrEMBL;Acc:A0A178USX4],1,AT4G40090,GO:0007275;GO:0010054;GO:0048765,multicellular organism development;trichoblast differentiation;root hair cell differentiation
-AT5G67400.1,PER73,Peroxidase [Source:UniProtKB/TrEMBL;Acc:A3KPG1],1,AT5G67400,GO:0010054,trichoblast differentiation
-AT5G26080.1,,Proline-rich family protein [Source:UniProtKB/TrEMBL;Acc:Q3E939],1,AT5G26080,NA,NA
-AT1G02430.1,ATARFD1B,ADP-ribosylation factor D1B [Source:UniProtKB/TrEMBL;Acc:F4HXI4],1,AT1G02430,GO:0006499,N-terminal protein myristoylation
+AT3G27950.1,,GDSL-like Lipase/Acylhydrolase superfamily protein [Source:TAIR;Acc:AT3G27950],1,AT3G27950,,
+AT1G01680.1,PUB54,U-box domain-containing protein 54 [Source:UniProtKB/Swiss-Prot;Acc:Q9LQ92],4,AT1G01680,GO:0016567,protein ubiquitination
+AT1G17180.1,GSTU25,Glutathione S-transferase U25 [Source:UniProtKB/Swiss-Prot;Acc:Q9SHH7],8,AT1G17180,GO:0006749;GO:0009407;GO:0046256,"glutathione metabolic process;toxin catabolic process;2,4,6-trinitrotoluene catabolic process"
+AT3G02240.1,RGF7,Root meristem growth factor 7 [Source:UniProtKB/Swiss-Prot;Acc:Q6NNL3],1,AT3G02240,GO:0008284;GO:0030154,positive regulation of cell population proliferation;cell differentiation
+AT4G13390.2,,Extensin-like protein [Source:UniProtKB/TrEMBL;Acc:Q9T0L0],1,AT4G13390,GO:0009664,plant-type cell wall organization
+AT4G25220.1,RHS15,Putative glycerol-3-phosphate transporter 2 [Source:UniProtKB/Swiss-Prot;Acc:Q9SB41],1,AT4G25220,GO:0055062,phosphate ion homeostasis
+AT1G62510.1,,Bifunctional inhibitor/lipid-transfer protein/seed storage 2S albumin superfamily protein [Source:UniProtKB/TrEMBL;Acc:Q9SXE6],6,AT1G62510,GO:0008150,biological_process
+AT5G24140.1,SQP2,squalene monooxygenase 2 [Source:TAIR;Acc:AT5G24140],1,AT5G24140,GO:0016126,sterol biosynthetic process
+AT4G22080.1,RHS14,Probable pectate lyase 16 [Source:UniProtKB/Swiss-Prot;Acc:O65456],1,AT4G22080,GO:0045490,pectin catabolic process
+AT4G13390.1,,Extensin-like protein [Source:UniProtKB/TrEMBL;Acc:Q9T0L0],1,AT4G13390,GO:0009664,plant-type cell wall organization
+AT4G07960.2,CSLC12,CSLC12 [Source:UniProtKB/TrEMBL;Acc:A0A384KRZ4],1,AT4G07960,,
+AT5G22410.1,PER60,Peroxidase 60 [Source:UniProtKB/Swiss-Prot;Acc:Q9FMR0],1,AT5G22410,GO:0006950;GO:0006979,response to stress;response to oxidative stress
+AT5G06630.1,,Proline-rich extensin-like family protein [Source:UniProtKB/TrEMBL;Acc:F4K3X4],1,AT5G06630,GO:0008150,biological_process
+AT4G08620.1,SULTR1;1,Sulfate transporter 1.1 [Source:UniProtKB/Swiss-Prot;Acc:Q9SAY1],1,AT4G08620,GO:0008272;GO:0080160;GO:1902358,sulfate transport;selenate transport;sulfate transmembrane transport
+AT3G62680.1,PRP3,Proline-rich protein 3 [Source:UniProtKB/Swiss-Prot;Acc:Q9LZJ7],1,AT3G62680,GO:0010054;GO:0071365;GO:0071369;GO:0072732,trichoblast differentiation;cellular response to auxin stimulus;cellular response to ethylene stimulus;cellular response to calcium ion starvation
+AT5G06640.1,,Proline-rich extensin-like family protein [Source:UniProtKB/TrEMBL;Acc:Q9FG06],1,AT5G06640,GO:0009664,plant-type cell wall organization
+AT5G04960.1,PME46,Pectinesterase [Source:UniProtKB/TrEMBL;Acc:A0A178UR22],1,AT5G04960,GO:0042545;GO:0045490;GO:1902066,cell wall modification;pectin catabolic process;regulation of cell wall pectin metabolic process
+AT2G41100.1,CML12,Calmodulin-like protein 12 [Source:UniProtKB/Swiss-Prot;Acc:P25071],1,AT2G41100,GO:0009266;GO:0009612;GO:0009646;GO:0009652;GO:0071456,response to temperature stimulus;response to mechanical stimulus;response to absence of light;thigmotropism;cellular response to hypoxia
+AT5G57540.1,XTH13,Putative xyloglucan endotransglucosylase/hydrolase protein 13 [Source:UniProtKB/Swiss-Prot;Acc:Q9FKL8],1,AT5G57540,GO:0010411;GO:0042546,xyloglucan metabolic process;cell wall biogenesis
+AT5G24313.1,,At5g24313 [Source:UniProtKB/TrEMBL;Acc:Q8L8Z4],1,AT5G24313,GO:0008150,biological_process
+AT2G24980.3,,Proline-rich extensin-like family protein [Source:TAIR;Acc:AT2G24980],1,AT2G24980,GO:0009664,plant-type cell wall organization
+AT1G54970.1,PRP1,Proline-rich protein 1 [Source:UniProtKB/Swiss-Prot;Acc:Q9FZ35],1,AT1G54970,,
+AT2G20520.1,FLA6,Fasciclin-like arabinogalactan protein 6 [Source:UniProtKB/Swiss-Prot;Acc:Q9SIL7],1,AT2G20520,GO:0009834,plant-type secondary cell wall biogenesis
+AT4G40090.1,AGP3,AGP3 [Source:UniProtKB/TrEMBL;Acc:A0A178USX4],1,AT4G40090,GO:0007275,multicellular organism development
+AT5G67400.1,PER73,Peroxidase [Source:UniProtKB/TrEMBL;Acc:A3KPG1],1,AT5G67400,GO:0006979,response to oxidative stress
+AT5G26080.1,,Proline-rich family protein [Source:UniProtKB/TrEMBL;Acc:Q3E939],1,AT5G26080,GO:0008150,biological_process
+AT1G02430.1,ATARFD1B,ADP-ribosylation factor D1B [Source:UniProtKB/TrEMBL;Acc:F4HXI4],1,AT1G02430,GO:0006499;GO:0006886;GO:0016192,N-terminal protein myristoylation;intracellular protein transport;vesicle-mediated transport
 AT1G79860.1,ROPGEF12,Rop guanine nucleotide exchange factor 12 [Source:UniProtKB/Swiss-Prot;Acc:Q9CA89],1,AT1G79860,GO:0009793;GO:0009860;GO:0080092,embryo development ending in seed dormancy;pollen tube growth;regulation of pollen tube growth
-AT4G02270.1,RHS13,At4g02270 [Source:UniProtKB/TrEMBL;Acc:O81417],1,AT4G02270,GO:0006826;GO:0008150;GO:0010054;GO:0010106;GO:0010167;GO:0015706,iron ion transport;biological_process;trichoblast differentiation;cellular response to iron ion starvation;response to nitrate;nitrate transport
-AT3G44310.3,NIT1,NITI [Source:UniProtKB/TrEMBL;Acc:A0A384KJ08],8,AT3G44310,GO:0009684,indoleacetic acid biosynthetic process
-AT4G25820.1,XTH14,Xyloglucan endotransglucosylase/hydrolase [Source:UniProtKB/TrEMBL;Acc:A0A178UTG4],1,AT4G25820,GO:0010054,trichoblast differentiation
-AT4G25790.1,,At4g25790 [Source:UniProtKB/TrEMBL;Acc:Q9SW04],1,AT4G25790,GO:0008150;GO:0010054,biological_process;trichoblast differentiation
-AT1G34510.1,PER8,Peroxidase [Source:UniProtKB/TrEMBL;Acc:Q0WRX6],1,AT1G34510,GO:0010054,trichoblast differentiation
+AT4G02270.1,RHS13,At4g02270 [Source:UniProtKB/TrEMBL;Acc:O81417],1,AT4G02270,GO:0009832,plant-type cell wall biogenesis
+AT3G44310.3,NIT1,NITI [Source:UniProtKB/TrEMBL;Acc:A0A384KJ08],8,AT3G44310,GO:0009684;GO:0051410,indoleacetic acid biosynthetic process;detoxification of nitrogen compound
+AT4G25820.1,XTH14,Xyloglucan endotransglucosylase/hydrolase [Source:UniProtKB/TrEMBL;Acc:A0A178UTG4],1,AT4G25820,GO:0010411;GO:0042546,xyloglucan metabolic process;cell wall biogenesis
+AT4G25790.1,,At4g25790 [Source:UniProtKB/TrEMBL;Acc:Q9SW04],1,AT4G25790,GO:0008150,biological_process
+AT1G34510.1,PER8,Peroxidase [Source:UniProtKB/TrEMBL;Acc:Q0WRX6],1,AT1G34510,GO:0006950;GO:0006979,response to stress;response to oxidative stress
 AT4G33720.1,,AT4g33720/T16L1_210 [Source:UniProtKB/TrEMBL;Acc:O81888],4,AT4G33720,GO:0008150,biological_process
-AT3G10710.1,PME24,Putative pectinesterase/pectinesterase inhibitor 24 [Source:UniProtKB/Swiss-Prot;Acc:Q9SG77],1,AT3G10710,GO:0010054,trichoblast differentiation
-AT5G05500.1,,At5g05500 [Source:UniProtKB/TrEMBL;Acc:Q9FFG5],1,AT5G05500,GO:0010054;GO:0048767,trichoblast differentiation;root hair elongation
-AT2G16380.1,SFH7,Phosphatidylinositol/phosphatidylcholine transfer protein SFH7 [Source:UniProtKB/Swiss-Prot;Acc:Q9SIW3],1,AT2G16380,GO:0006810,transport
-AT5G59680.1,,Probable LRR receptor-like serine/threonine-protein kinase At5g59680 [Source:UniProtKB/Swiss-Prot;Acc:Q9FN93],5,AT5G59680,NA,NA
+AT3G10710.1,PME24,Putative pectinesterase/pectinesterase inhibitor 24 [Source:UniProtKB/Swiss-Prot;Acc:Q9SG77],1,AT3G10710,GO:0042545;GO:0045490,cell wall modification;pectin catabolic process
+AT5G05500.1,,At5g05500 [Source:UniProtKB/TrEMBL;Acc:Q9FFG5],1,AT5G05500,GO:0009826;GO:0048767,unidimensional cell growth;root hair elongation
+AT2G16380.1,SFH7,Phosphatidylinositol/phosphatidylcholine transfer protein SFH7 [Source:UniProtKB/Swiss-Prot;Acc:Q9SIW3],1,AT2G16380,,
+AT5G59680.1,,Probable LRR receptor-like serine/threonine-protein kinase At5g59680 [Source:UniProtKB/Swiss-Prot;Acc:Q9FN93],5,AT5G59680,GO:0006468;GO:0016310,protein phosphorylation;phosphorylation
 AT4G34135.2,UGT73B2,UDP-glucosyl transferase 73B2 [Source:UniProtKB/Swiss-Prot;Acc:Q94C57],6,AT4G34135,GO:0051555;GO:0051707,flavonol biosynthetic process;response to other organism
-AT1G62980.1,EXPA18,Expansin-A18 [Source:UniProtKB/Swiss-Prot;Acc:Q9LQ07],1,AT1G62980,GO:0009826;GO:0009828;GO:0009831;GO:0010054;GO:0048765;GO:0048767,unidimensional cell growth;plant-type cell wall loosening;plant-type cell wall modification involved in multidimensional cell growth;trichoblast differentiation;root hair cell differentiation;root hair elongation
-AT1G51870.2,,protein kinase family protein [Source:TAIR;Acc:AT1G51870],1,AT1G51870,NA,NA
+AT1G62980.1,EXPA18,Expansin-A18 [Source:UniProtKB/Swiss-Prot;Acc:Q9LQ07],1,AT1G62980,GO:0009664;GO:0009826;GO:0009828,plant-type cell wall organization;unidimensional cell growth;plant-type cell wall loosening
+AT1G51870.2,,protein kinase family protein [Source:TAIR;Acc:AT1G51870],1,AT1G51870,GO:0016310,phosphorylation
 AT5G57625.1,,At5g57625 [Source:UniProtKB/TrEMBL;Acc:Q9FKL1],1,AT5G57625,GO:0008150,biological_process
-AT1G64900.1,CYP89A2,Cytochrome P450 89A2 [Source:UniProtKB/Swiss-Prot;Acc:Q42602],6,AT1G64900,NA,NA
-AT2G36690.1,,2-oxoglutarate (2OG) and Fe(II)-dependent oxygenase superfamily protein [Source:UniProtKB/TrEMBL;Acc:F4INZ9],4,AT2G36690,GO:0009058,biosynthetic process
-AT5G16170.1,,At5g16170 [Source:UniProtKB/TrEMBL;Acc:Q4V3A2],1,AT5G16170,NA,NA
+AT1G64900.1,CYP89A2,Cytochrome P450 89A2 [Source:UniProtKB/Swiss-Prot;Acc:Q42602],6,AT1G64900,,
+AT2G36690.1,,2-oxoglutarate (2OG) and Fe(II)-dependent oxygenase superfamily protein [Source:UniProtKB/TrEMBL;Acc:F4INZ9],4,AT2G36690,GO:0009685;GO:0009686;GO:0009737;GO:0055114,gibberellin metabolic process;gibberellin biosynthetic process;response to abscisic acid;oxidation-reduction process
+AT5G16170.1,,At5g16170 [Source:UniProtKB/TrEMBL;Acc:Q4V3A2],1,AT5G16170,,
 AT2G39980.1,,At2g39980/T28M21.14 [Source:UniProtKB/TrEMBL;Acc:O04201],1,AT2G39980,GO:0080167,response to karrikin
-AT5G49770.1,,Probable leucine-rich repeat receptor-like protein kinase At5g49770 [Source:UniProtKB/Swiss-Prot;Acc:Q9LT96],1,AT5G49770,GO:0006468;GO:0007169,protein phosphorylation;transmembrane receptor protein tyrosine kinase signaling pathway
-AT5G58750.2,,At5g58750 [Source:UniProtKB/TrEMBL;Acc:Q9LUY6],1,AT5G58750,NA,NA
-AT1G33890.2,IAN3,Immune-associated nucleotide-binding protein 3 [Source:UniProtKB/Swiss-Prot;Acc:Q9C8U6],1,AT1G33890,GO:0006897;GO:0009617,endocytosis;response to bacterium
-AT5G13320.1,PBS3,Auxin-responsive GH3 family protein [Source:TAIR;Acc:AT5G13320],4,AT5G13320,NA,NA
-AT1G33870.1,,AIG1-like protein; 48352-49494 [Source:UniProtKB/TrEMBL;Acc:Q9C8U4],1,AT1G33870,GO:0009617;GO:0045036,response to bacterium;protein targeting to chloroplast
-AT1G75160.1,,Protein of unknown function (DUF620) [Source:TAIR;Acc:AT1G75160],1,AT1G75160,GO:0008150;GO:0048868,biological_process;pollen tube development
-AT5G16970.1,AER,NADPH-dependent oxidoreductase 2-alkenal reductase [Source:UniProtKB/Swiss-Prot;Acc:Q39172],8,AT5G16970,GO:0006865;GO:0006979;GO:0009407;GO:0010583;GO:0015824;GO:0046686,amino acid transport;response to oxidative stress;toxin catabolic process;response to cyclopentenone;proline transport;response to cadmium ion
-AT1G53940.1,GLIP2,GDSL esterase/lipase 2 [Source:UniProtKB/Swiss-Prot;Acc:Q9SYF0],4,AT1G53940,GO:0009723;GO:0009751;GO:0009753;GO:0042742,response to ethylene;response to salicylic acid;response to jasmonic acid;defense response to bacterium
-AT1G64400.1,LACS3,Long chain acyl-CoA synthetase 3 [Source:UniProtKB/Swiss-Prot;Acc:Q9C7W4],1,AT1G64400,GO:0001676;GO:0002213;GO:0006631;GO:0006633,long-chain fatty acid metabolic process;defense response to insect;fatty acid metabolic process;fatty acid biosynthetic process
-AT2G17500.2,PILS5,Protein PIN-LIKES 5 [Source:UniProtKB/Swiss-Prot;Acc:Q9SHL8],8,AT2G17500,GO:0009926;GO:0046482,auxin polar transport;para-aminobenzoic acid metabolic process
+AT5G49770.1,,Probable leucine-rich repeat receptor-like protein kinase At5g49770 [Source:UniProtKB/Swiss-Prot;Acc:Q9LT96],1,AT5G49770,GO:0006468,protein phosphorylation
+AT5G58750.2,,At5g58750 [Source:UniProtKB/TrEMBL;Acc:Q9LUY6],1,AT5G58750,,
+AT1G33890.2,IAN3,Immune-associated nucleotide-binding protein 3 [Source:UniProtKB/Swiss-Prot;Acc:Q9C8U6],1,AT1G33890,,
+AT5G13320.1,PBS3,Auxin-responsive GH3 family protein [Source:TAIR;Acc:AT5G13320],4,AT5G13320,GO:0010112;GO:0034052;GO:0044419,regulation of systemic acquired resistance;positive regulation of plant-type hypersensitive response;interspecies interaction between organisms
+AT1G33870.1,,AIG1-like protein; 48352-49494 [Source:UniProtKB/TrEMBL;Acc:Q9C8U4],1,AT1G33870,,
+AT1G75160.1,,Protein of unknown function (DUF620) [Source:TAIR;Acc:AT1G75160],1,AT1G75160,GO:0008150,biological_process
+AT5G16970.1,AER,NADPH-dependent oxidoreductase 2-alkenal reductase [Source:UniProtKB/Swiss-Prot;Acc:Q39172],8,AT5G16970,GO:0006979;GO:0046686,response to oxidative stress;response to cadmium ion
+AT1G53940.1,GLIP2,GDSL esterase/lipase 2 [Source:UniProtKB/Swiss-Prot;Acc:Q9SYF0],4,AT1G53940,GO:0006629;GO:0009723;GO:0009751;GO:0009753;GO:0009814;GO:0010930;GO:0042742,"lipid metabolic process;response to ethylene;response to salicylic acid;response to jasmonic acid;defense response, incompatible interaction;negative regulation of auxin mediated signaling pathway;defense response to bacterium"
+AT1G64400.1,LACS3,Long chain acyl-CoA synthetase 3 [Source:UniProtKB/Swiss-Prot;Acc:Q9C7W4],1,AT1G64400,GO:0006631;GO:0006633,fatty acid metabolic process;fatty acid biosynthetic process
+AT2G17500.2,PILS5,Protein PIN-LIKES 5 [Source:UniProtKB/Swiss-Prot;Acc:Q9SHL8],8,AT2G17500,GO:0009733;GO:0010252;GO:0010311;GO:0040009;GO:0055085,response to auxin;auxin homeostasis;lateral root formation;regulation of growth rate;transmembrane transport
 AT4G34380.1,,At4g34380 [Source:UniProtKB/TrEMBL;Acc:Q9SZ03],1,AT4G34380,GO:0008150,biological_process
-AT1G64940.1,CYP89A6,"Cytochrome P450, family 87, subfamily A, polypeptide 6 [Source:UniProtKB/TrEMBL;Acc:Q9XIQ2]",8,AT1G64940,NA,NA
-AT3G03670.1,PER28,Peroxidase 28 [Source:UniProtKB/Swiss-Prot;Acc:Q9SS67],5,AT3G03670,GO:0071456,cellular response to hypoxia
-AT4G21250.1,,Sulfite exporter TauE/SafE family protein 5 [Source:UniProtKB/Swiss-Prot;Acc:F4JIP9],1,AT4G21250,GO:0008150,biological_process
-AT5G06640.2,,Proline-rich extensin-like family protein [Source:UniProtKB/TrEMBL;Acc:Q9FG06],1,AT5G06640,GO:0010054,trichoblast differentiation
-AT4G30320.1,,"CAP (Cysteine-rich secretory proteins, Antigen 5, and Pathogenesis-related 1 protein) superfamily protein [Source:UniProtKB/TrEMBL;Acc:Q9M0C8]",1,AT4G30320,GO:0008150;GO:0010054;GO:0048765,biological_process;trichoblast differentiation;root hair cell differentiation
-AT2G37760.1,AKR4C8,Aldo-keto reductase family 4 member C8 [Source:UniProtKB/Swiss-Prot;Acc:O80944],8,AT2G37760,GO:0009409;GO:0009414;GO:0009651;GO:0046482;GO:0046686;GO:0055114,response to cold;response to water deprivation;response to salt stress;para-aminobenzoic acid metabolic process;response to cadmium ion;oxidation-reduction process
-AT1G74010.1,,At1g74010 [Source:UniProtKB/TrEMBL;Acc:Q9C9C2],8,AT1G74010,GO:0006865,amino acid transport
-AT5G19890.1,PER59,Peroxidase 59 [Source:UniProtKB/Swiss-Prot;Acc:Q39034],4,AT5G19890,NA,NA
+AT1G64940.1,CYP89A6,"Cytochrome P450, family 87, subfamily A, polypeptide 6 [Source:UniProtKB/TrEMBL;Acc:Q9XIQ2]",8,AT1G64940,,
+AT3G03670.1,PER28,Peroxidase 28 [Source:UniProtKB/Swiss-Prot;Acc:Q9SS67],5,AT3G03670,GO:0006950;GO:0006979;GO:0071456,response to stress;response to oxidative stress;cellular response to hypoxia
+AT4G21250.1,,Sulfite exporter TauE/SafE family protein 5 [Source:UniProtKB/Swiss-Prot;Acc:F4JIP9],1,AT4G21250,GO:0016567,protein ubiquitination
+AT5G06640.2,,Proline-rich extensin-like family protein [Source:UniProtKB/TrEMBL;Acc:Q9FG06],1,AT5G06640,GO:0009664,plant-type cell wall organization
+AT4G30320.1,,"CAP (Cysteine-rich secretory proteins, Antigen 5, and Pathogenesis-related 1 protein) superfamily protein [Source:UniProtKB/TrEMBL;Acc:Q9M0C8]",1,AT4G30320,GO:0008150,biological_process
+AT2G37760.1,AKR4C8,Aldo-keto reductase family 4 member C8 [Source:UniProtKB/Swiss-Prot;Acc:O80944],8,AT2G37760,GO:0009409;GO:0009414;GO:0009651;GO:0046686;GO:0055114,response to cold;response to water deprivation;response to salt stress;response to cadmium ion;oxidation-reduction process
+AT1G74010.1,,At1g74010 [Source:UniProtKB/TrEMBL;Acc:Q9C9C2],8,AT1G74010,GO:0009058,biosynthetic process
+AT5G19890.1,PER59,Peroxidase 59 [Source:UniProtKB/Swiss-Prot;Acc:Q39034],4,AT5G19890,GO:0006979,response to oxidative stress
 AT4G38340.2,NLP3,Protein NLP3 [Source:UniProtKB/Swiss-Prot;Acc:Q9SVF1],1,AT4G38340,GO:0006355,"regulation of transcription, DNA-templated"
-AT5G63790.1,ANAC102,NAC domain containing protein 102 [Source:TAIR;Acc:AT5G63790],8,AT5G63790,GO:0001666;GO:0007275;GO:0030968,response to hypoxia;multicellular organism development;endoplasmic reticulum unfolded protein response
-AT1G28470.1,NAC010,NAC domain-containing protein 10 [Source:UniProtKB/Swiss-Prot;Acc:F4HY61],8,AT1G28470,GO:0007275;GO:0010228;GO:0016926;GO:0045893;GO:0050665;GO:2000652,"multicellular organism development;vegetative to reproductive phase transition of meristem;protein desumoylation;positive regulation of transcription, DNA-templated;hydrogen peroxide biosynthetic process;regulation of secondary cell wall biogenesis"
-AT3G51340.2,,Eukaryotic aspartyl protease family protein [Source:UniProtKB/TrEMBL;Acc:F4J3B9],1,AT3G51340,NA,NA
-AT3G20380.1,,TRAF-like family protein [Source:UniProtKB/TrEMBL;Acc:Q9LTQ4],1,AT3G20380,NA,NA
-AT4G29450.1,,Leucine-rich repeat protein kinase family protein [Source:UniProtKB/TrEMBL;Acc:Q9M0D8],1,AT4G29450,NA,NA
-AT2G34810.1,,Berberine bridge enzyme-like 16 [Source:UniProtKB/Swiss-Prot;Acc:O64745],4,AT2G34810,GO:0009611;GO:0009620;GO:0009695;GO:0009753;GO:0009867,response to wounding;response to fungus;jasmonic acid biosynthetic process;response to jasmonic acid;jasmonic acid mediated signaling pathway
-AT2G25410.1,ATL22,RING-H2 finger protein ATL22 [Source:UniProtKB/Swiss-Prot;Acc:Q9SKK8],1,AT2G25410,NA,NA
-AT2G47710.1,,Adenine nucleotide alpha hydrolases-like superfamily protein [Source:UniProtKB/TrEMBL;Acc:O82240],8,AT2G47710,GO:0002238,response to molecule of fungal origin
+AT5G63790.1,ANAC102,NAC domain containing protein 102 [Source:TAIR;Acc:AT5G63790],8,AT5G63790,GO:0001666;GO:0006355;GO:0019760;GO:0071456,"response to hypoxia;regulation of transcription, DNA-templated;glucosinolate metabolic process;cellular response to hypoxia"
+AT1G28470.1,NAC010,NAC domain-containing protein 10 [Source:UniProtKB/Swiss-Prot;Acc:F4HY61],8,AT1G28470,GO:0006355;GO:0045893;GO:2000652,"regulation of transcription, DNA-templated;positive regulation of transcription, DNA-templated;regulation of secondary cell wall biogenesis"
+AT3G51340.2,,Eukaryotic aspartyl protease family protein [Source:UniProtKB/TrEMBL;Acc:F4J3B9],1,AT3G51340,GO:0006508;GO:0030163,proteolysis;protein catabolic process
+AT3G20380.1,,TRAF-like family protein [Source:UniProtKB/TrEMBL;Acc:Q9LTQ4],1,AT3G20380,,
+AT4G29450.1,,Leucine-rich repeat protein kinase family protein [Source:UniProtKB/TrEMBL;Acc:Q9M0D8],1,AT4G29450,GO:0006468;GO:0016310,protein phosphorylation;phosphorylation
+AT2G34810.1,,Berberine bridge enzyme-like 16 [Source:UniProtKB/Swiss-Prot;Acc:O64745],4,AT2G34810,GO:0009611;GO:0009753,response to wounding;response to jasmonic acid
+AT2G25410.1,ATL22,RING-H2 finger protein ATL22 [Source:UniProtKB/Swiss-Prot;Acc:Q9SKK8],1,AT2G25410,GO:0016567,protein ubiquitination
+AT2G47710.1,,Adenine nucleotide alpha hydrolases-like superfamily protein [Source:UniProtKB/TrEMBL;Acc:O82240],8,AT2G47710,,
 AT5G04730.1,,Ankyrin-repeat containing protein [Source:UniProtKB/TrEMBL;Acc:F4JXP4],4,AT5G04730,GO:0008150,biological_process
 AT1G78230.1,,Outer arm dynein light chain 1 protein [Source:UniProtKB/TrEMBL;Acc:F4IA60],6,AT1G78230,GO:0008150,biological_process
-AT2G38490.1,CIPK22,CBL-interacting serine/threonine-protein kinase 22 [Source:UniProtKB/Swiss-Prot;Acc:O80902],1,AT2G38490,NA,NA
-AT2G17500.4,PILS5,Protein PIN-LIKES 5 [Source:UniProtKB/Swiss-Prot;Acc:Q9SHL8],8,AT2G17500,GO:0009926;GO:0046482,auxin polar transport;para-aminobenzoic acid metabolic process
-AT2G22500.1,PUMP5,Mitochondrial uncoupling protein 5 [Source:UniProtKB/Swiss-Prot;Acc:Q9SJY5],1,AT2G22500,GO:0006810;GO:0006839;GO:0010200,transport;mitochondrial transport;response to chitin
-AT5G26320.1,,TRAF-like family protein [Source:UniProtKB/TrEMBL;Acc:F4JZS7],1,AT5G26320,NA,NA
-AT5G18350.1,,Disease resistance protein (TIR-NBS-LRR class) family [Source:UniProtKB/TrEMBL;Acc:F4JWL7],1,AT5G18350,GO:0006952,defense response
-AT1G73805.1,SARD1,Protein SAR DEFICIENT 1 [Source:UniProtKB/Swiss-Prot;Acc:Q9C9T2],1,AT1G73805,GO:0000165;GO:0001666;GO:0002237;GO:0006355;GO:0006612;GO:0009581;GO:0009595;GO:0009617;GO:0009627;GO:0009697;GO:0009814;GO:0009862;GO:0009863;GO:0009867;GO:0010112;GO:0010200;GO:0010310;GO:0010363;GO:0031347;GO:0031348;GO:0035304;GO:0042742;GO:0043900;GO:0045087;GO:0045088;GO:0050832;GO:0080142,"MAPK cascade;response to hypoxia;response to molecule of bacterial origin;regulation of transcription, DNA-templated;protein targeting to membrane;detection of external stimulus;detection of biotic stimulus;response to bacterium;systemic acquired resistance;salicylic acid biosynthetic process;defense response, incompatible interaction;systemic acquired resistance, salicylic acid mediated signaling pathway;salicylic acid mediated signaling pathway;jasmonic acid mediated signaling pathway;regulation of systemic acquired resistance;response to chitin;regulation of hydrogen peroxide metabolic process;regulation of plant-type hypersensitive response;regulation of defense response;negative regulation of defense response;regulation of protein dephosphorylation;defense response to bacterium;regulation of multi-organism process;innate immune response;regulation of innate immune response;defense response to fungus;regulation of salicylic acid biosynthetic process"
-AT5G26280.1,,TRAF-like family protein [Source:TAIR;Acc:AT5G26280],4,AT5G26280,GO:0000041,transition metal ion transport
-AT5G16980.3,,Zinc-binding dehydrogenase family protein [Source:UniProtKB/TrEMBL;Acc:F4KFK3],8,AT5G16980,GO:0006979;GO:0009407;GO:0010583,response to oxidative stress;toxin catabolic process;response to cyclopentenone
-AT1G19250.1,FMO1,Probable flavin-containing monooxygenase 1 [Source:UniProtKB/Swiss-Prot;Acc:Q9LMA1],5,AT1G19250,GO:0009626;GO:0009627;GO:0009870;GO:0010204;GO:0042742;GO:0050832;GO:0051707;GO:0071456,"plant-type hypersensitive response;systemic acquired resistance;defense response signaling pathway, resistance gene-dependent;defense response signaling pathway, resistance gene-independent;defense response to bacterium;defense response to fungus;response to other organism;cellular response to hypoxia"
-AT1G21210.1,WAK4,Wall-associated receptor kinase 4 [Source:UniProtKB/Swiss-Prot;Acc:Q9LMN6],4,AT1G21210,GO:0006468;GO:0009826;GO:0048527;GO:0048589;GO:0048765,protein phosphorylation;unidimensional cell growth;lateral root development;developmental growth;root hair cell differentiation
+AT2G38490.1,CIPK22,CBL-interacting serine/threonine-protein kinase 22 [Source:UniProtKB/Swiss-Prot;Acc:O80902],1,AT2G38490,GO:0006468;GO:0007165,protein phosphorylation;signal transduction
+AT2G17500.4,PILS5,Protein PIN-LIKES 5 [Source:UniProtKB/Swiss-Prot;Acc:Q9SHL8],8,AT2G17500,GO:0009733;GO:0010252;GO:0010311;GO:0040009;GO:0055085,response to auxin;auxin homeostasis;lateral root formation;regulation of growth rate;transmembrane transport
+AT2G22500.1,PUMP5,Mitochondrial uncoupling protein 5 [Source:UniProtKB/Swiss-Prot;Acc:Q9SJY5],1,AT2G22500,GO:0006839;GO:0008272;GO:0015709;GO:0015729;GO:0035435;GO:0071422;GO:0071423;GO:0071456;GO:1902600,mitochondrial transport;sulfate transport;thiosulfate transport;oxaloacetate transport;phosphate ion transmembrane transport;succinate transmembrane transport;malate transmembrane transport;cellular response to hypoxia;proton transmembrane transport
+AT5G26320.1,,TRAF-like family protein [Source:UniProtKB/TrEMBL;Acc:F4JZS7],1,AT5G26320,GO:0008150,biological_process
+AT5G18350.1,,Disease resistance protein (TIR-NBS-LRR class) family [Source:UniProtKB/TrEMBL;Acc:F4JWL7],1,AT5G18350,,
+AT1G73805.1,SARD1,Protein SAR DEFICIENT 1 [Source:UniProtKB/Swiss-Prot;Acc:Q9C9T2],1,AT1G73805,GO:0002229;GO:0006355;GO:0009617;GO:0010112;GO:0010224;GO:0042742;GO:0071219;GO:0080142;GO:1900426,"defense response to oomycetes;regulation of transcription, DNA-templated;response to bacterium;regulation of systemic acquired resistance;response to UV-B;defense response to bacterium;cellular response to molecule of bacterial origin;regulation of salicylic acid biosynthetic process;positive regulation of defense response to bacterium"
+AT5G26280.1,,TRAF-like family protein [Source:TAIR;Acc:AT5G26280],4,AT5G26280,,
+AT5G16980.3,,Zinc-binding dehydrogenase family protein [Source:UniProtKB/TrEMBL;Acc:F4KFK3],8,AT5G16980,GO:0006979;GO:0055114,response to oxidative stress;oxidation-reduction process
+AT1G19250.1,FMO1,Probable flavin-containing monooxygenase 1 [Source:UniProtKB/Swiss-Prot;Acc:Q9LMA1],5,AT1G19250,GO:0009626;GO:0009627;GO:0009870;GO:0042742;GO:0050832;GO:0051707;GO:0062034;GO:0071456,"plant-type hypersensitive response;systemic acquired resistance;defense response signaling pathway, resistance gene-dependent;defense response to bacterium;defense response to fungus;response to other organism;L-pipecolic acid biosynthetic process;cellular response to hypoxia"
+AT1G21210.1,WAK4,Wall-associated receptor kinase 4 [Source:UniProtKB/Swiss-Prot;Acc:Q9LMN6],4,AT1G21210,GO:0006468;GO:0007166;GO:0009826;GO:0048527,protein phosphorylation;cell surface receptor signaling pathway;unidimensional cell growth;lateral root development
 AT3G53820.1,,C2H2 and C2HC zinc fingers superfamily protein [Source:UniProtKB/TrEMBL;Acc:Q9M344],4,AT3G53820,GO:0006355,"regulation of transcription, DNA-templated"
-AT3G53230.1,CDC48D,Cell division control protein 48 homolog D [Source:UniProtKB/Swiss-Prot;Acc:Q9SCN8],8,AT3G53230,GO:0045732;GO:0046686,positive regulation of protein catabolic process;response to cadmium ion
-AT2G20560.1,,At2g20560/T13C7.15 [Source:UniProtKB/TrEMBL;Acc:Q9SIL3],6,AT2G20560,GO:0006457;GO:0009408;GO:0009644;GO:0034976;GO:0042542,protein folding;response to heat;response to high light intensity;response to endoplasmic reticulum stress;response to hydrogen peroxide
-AT1G53940.2,GLIP2,GDSL esterase/lipase 2 [Source:UniProtKB/Swiss-Prot;Acc:Q9SYF0],4,AT1G53940,GO:0009723;GO:0009751;GO:0009753;GO:0042742,response to ethylene;response to salicylic acid;response to jasmonic acid;defense response to bacterium
-AT5G39050.1,PMAT1,Phenolic glucoside malonyltransferase 1 [Source:UniProtKB/Swiss-Prot;Acc:Q940Z5],8,AT5G39050,NA,NA
-AT3G49580.1,LSU1,LSU1 [Source:UniProtKB/TrEMBL;Acc:A0A178VF66],8,AT3G49580,GO:0008150,biological_process
+AT3G53230.1,CDC48D,Cell division control protein 48 homolog D [Source:UniProtKB/Swiss-Prot;Acc:Q9SCN8],8,AT3G53230,GO:0016236;GO:0030433;GO:0030970;GO:0045732;GO:0046686;GO:0051228;GO:0071712;GO:0097352,"macroautophagy;ubiquitin-dependent ERAD pathway;retrograde protein transport, ER to cytosol;positive regulation of protein catabolic process;response to cadmium ion;mitotic spindle disassembly;ER-associated misfolded protein catabolic process;autophagosome maturation"
+AT2G20560.1,,At2g20560/T13C7.15 [Source:UniProtKB/TrEMBL;Acc:Q9SIL3],6,AT2G20560,GO:0051085,chaperone cofactor-dependent protein refolding
+AT1G53940.2,GLIP2,GDSL esterase/lipase 2 [Source:UniProtKB/Swiss-Prot;Acc:Q9SYF0],4,AT1G53940,GO:0006629;GO:0009723;GO:0009751;GO:0009753;GO:0009814;GO:0010930;GO:0042742,"lipid metabolic process;response to ethylene;response to salicylic acid;response to jasmonic acid;defense response, incompatible interaction;negative regulation of auxin mediated signaling pathway;defense response to bacterium"
+AT5G39050.1,PMAT1,Phenolic glucoside malonyltransferase 1 [Source:UniProtKB/Swiss-Prot;Acc:Q940Z5],8,AT5G39050,,
+AT3G49580.1,LSU1,LSU1 [Source:UniProtKB/TrEMBL;Acc:A0A178VF66],8,AT3G49580,GO:0009651;GO:0010438;GO:0098869,response to salt stress;cellular response to sulfur starvation;cellular oxidant detoxification
 AT5G44585.1,,unknown protein; FUNCTIONS IN: molecular_function unknown; INVOLVED IN: biological_process unknown; LOCATED IN: endomembrane system; Has 30201 Blast hits to 17322 proteins in 780 species: Archae - 12; Bacteria - 1396; Metazoa - 17338; Fungi - 3422;  /.../ - 5037; Viruses - 0; Other Eukaryotes - 2996 (source: NCBI BLink). [Source:TAIR;Acc:AT5G44585],1,AT5G44585,GO:0008150,biological_process
-AT5G05410.1,DREB2A,Dehydration-responsive element-binding protein 2A [Source:UniProtKB/Swiss-Prot;Acc:O82132],6,AT5G05410,GO:0006355;GO:0006457;GO:0009408;GO:0009414;GO:0009644;GO:0010200;GO:0010224;GO:0010286;GO:0042542,"regulation of transcription, DNA-templated;protein folding;response to heat;response to water deprivation;response to high light intensity;response to chitin;response to UV-B;heat acclimation;response to hydrogen peroxide"
-AT1G26250.1,,Proline-rich extensin-like family protein [Source:UniProtKB/TrEMBL;Acc:Q9C669],1,AT1G26250,NA,NA
+AT5G05410.1,DREB2A,Dehydration-responsive element-binding protein 2A [Source:UniProtKB/Swiss-Prot;Acc:O82132],6,AT5G05410,GO:0006355;GO:0006950;GO:0009408;GO:0009414;GO:0010224;GO:0010286;GO:0042542;GO:0045893;GO:0071456,"regulation of transcription, DNA-templated;response to stress;response to heat;response to water deprivation;response to UV-B;heat acclimation;response to hydrogen peroxide;positive regulation of transcription, DNA-templated;cellular response to hypoxia"
+AT1G26250.1,,Proline-rich extensin-like family protein [Source:UniProtKB/TrEMBL;Acc:Q9C669],1,AT1G26250,GO:0009664,plant-type cell wall organization
 AT5G56795.1,MT1B,MT1B [Source:UniProtKB/TrEMBL;Acc:A0A178UJC4],4,AT5G56795,GO:0010038,response to metal ion
-AT1G05680.1,UGT74E2,Glycosyltransferase (Fragment) [Source:UniProtKB/TrEMBL;Acc:A0A0K1SBE8],8,AT1G05680,GO:0009407;GO:0010016;GO:0010583;GO:0042631;GO:0070301;GO:0071215;GO:0071475;GO:0080024;GO:0080167,toxin catabolic process;shoot system morphogenesis;response to cyclopentenone;cellular response to water deprivation;cellular response to hydrogen peroxide;cellular response to abscisic acid stimulus;cellular hyperosmotic salinity response;indolebutyric acid metabolic process;response to karrikin
-AT2G38400.1,AGT3,Alanine:glyoxylate aminotransferase 3 [Source:UniProtKB/TrEMBL;Acc:F4ISY3],4,AT2G38400,NA,NA
-AT2G38400.2,AGT3,Alanine:glyoxylate aminotransferase 3 [Source:UniProtKB/TrEMBL;Acc:F4ISY3],4,AT2G38400,NA,NA
-AT3G53590.1,,Leucine-rich repeat protein kinase family protein [Source:TAIR;Acc:AT3G53590],1,AT3G53590,GO:0006468;GO:0007169,protein phosphorylation;transmembrane receptor protein tyrosine kinase signaling pathway
+AT1G05680.1,UGT74E2,Glycosyltransferase (Fragment) [Source:UniProtKB/TrEMBL;Acc:A0A0K1SBE8],8,AT1G05680,GO:0010016;GO:0042631;GO:0070301;GO:0071215;GO:0071475;GO:0080024;GO:0080167,shoot system morphogenesis;cellular response to water deprivation;cellular response to hydrogen peroxide;cellular response to abscisic acid stimulus;cellular hyperosmotic salinity response;indolebutyric acid metabolic process;response to karrikin
+AT2G38400.1,AGT3,Alanine:glyoxylate aminotransferase 3 [Source:UniProtKB/TrEMBL;Acc:F4ISY3],4,AT2G38400,,
+AT2G38400.2,AGT3,Alanine:glyoxylate aminotransferase 3 [Source:UniProtKB/TrEMBL;Acc:F4ISY3],4,AT2G38400,,
+AT3G53590.1,,Leucine-rich repeat protein kinase family protein [Source:TAIR;Acc:AT3G53590],1,AT3G53590,,
 AT2G03260.2,PHO1-H2,Phosphate transporter PHO1 homolog 2 [Source:UniProtKB/Swiss-Prot;Acc:Q6R8G8],4,AT2G03260,GO:0006817;GO:0016036,phosphate ion transport;cellular response to phosphate starvation
 AT2G03260.1,PHO1-H2,Phosphate transporter PHO1 homolog 2 [Source:UniProtKB/Swiss-Prot;Acc:Q6R8G8],1,AT2G03260,GO:0006817;GO:0016036,phosphate ion transport;cellular response to phosphate starvation
 AT1G63590.1,CRRSP5,Putative cysteine-rich repeat secretory protein 5 [Source:UniProtKB/Swiss-Prot;Acc:Q9SH43],1,AT1G63590,GO:0008150,biological_process
-AT3G16370.1,APG,GDSL esterase/lipase APG [Source:UniProtKB/Swiss-Prot;Acc:Q9LU14],1,AT3G16370,GO:0000038;GO:0000271;GO:0007389;GO:0008361;GO:0009664;GO:0009825;GO:0009832;GO:0009926;GO:0009932;GO:0010015;GO:0010817;GO:0040007;GO:0042335;GO:0043481;GO:0048767;GO:0071555,very long-chain fatty acid metabolic process;polysaccharide biosynthetic process;pattern specification process;regulation of cell size;plant-type cell wall organization;multidimensional cell growth;plant-type cell wall biogenesis;auxin polar transport;cell tip growth;root morphogenesis;regulation of hormone levels;growth;cuticle development;anthocyanin accumulation in tissues in response to UV light;root hair elongation;cell wall organization
-AT5G65380.1,DTX27,Protein DETOXIFICATION 27 [Source:UniProtKB/Swiss-Prot;Acc:Q9FKQ1],8,AT5G65380,GO:0009835,fruit ripening
-AT4G07820.1,,At4g07820 [Source:UniProtKB/TrEMBL;Acc:Q9ZPG2],1,AT4G07820,NA,NA
-AT1G11920.1,,Putative pectate lyase 2 [Source:UniProtKB/Swiss-Prot;Acc:O65388],1,AT1G11920,NA,NA
-AT4G15740.1,,Calcium-dependent lipid-binding (CaLB domain) family protein [Source:UniProtKB/TrEMBL;Acc:O23425],4,AT4G15740,NA,NA
-AT1G01660.2,,RING/U-box superfamily protein [Source:TAIR;Acc:AT1G01660],1,AT1G01660,NA,NA
+AT3G16370.1,APG,GDSL esterase/lipase APG [Source:UniProtKB/Swiss-Prot;Acc:Q9LU14],1,AT3G16370,,
+AT5G65380.1,DTX27,Protein DETOXIFICATION 27 [Source:UniProtKB/Swiss-Prot;Acc:Q9FKQ1],8,AT5G65380,GO:0055085,transmembrane transport
+AT4G07820.1,,At4g07820 [Source:UniProtKB/TrEMBL;Acc:Q9ZPG2],1,AT4G07820,,
+AT1G11920.1,,Putative pectate lyase 2 [Source:UniProtKB/Swiss-Prot;Acc:O65388],1,AT1G11920,GO:0045490,pectin catabolic process
+AT4G15740.1,,Calcium-dependent lipid-binding (CaLB domain) family protein [Source:UniProtKB/TrEMBL;Acc:O23425],4,AT4G15740,GO:0008150,biological_process
+AT1G01660.2,,RING/U-box superfamily protein [Source:TAIR;Acc:AT1G01660],1,AT1G01660,GO:0016567,protein ubiquitination
 AT2G25680.1,MOT1,Molybdate transporter 1 [Source:UniProtKB/Swiss-Prot;Acc:Q9SL95],4,AT2G25680,GO:0015689,molybdate ion transport
-AT4G16370.1,ATOPT3,oligopeptide transporter [Source:TAIR;Acc:AT4G16370],8,AT4G16370,GO:0000271;GO:0006857;GO:0006875;GO:0009825;GO:0009932;GO:0010817;GO:0043481;GO:0048767;GO:0071555,polysaccharide biosynthetic process;oligopeptide transport;cellular metal ion homeostasis;multidimensional cell growth;cell tip growth;regulation of hormone levels;anthocyanin accumulation in tissues in response to UV light;root hair elongation;cell wall organization
+AT4G16370.1,ATOPT3,oligopeptide transporter [Source:TAIR;Acc:AT4G16370],8,AT4G16370,GO:0006875;GO:0055072;GO:0055085;GO:1990388,cellular metal ion homeostasis;iron ion homeostasis;transmembrane transport;xylem-to-phloem iron transport
 AT4G39675.1,,At4g39675 [Source:UniProtKB/TrEMBL;Acc:Q8LEP7],4,AT4G39675,GO:0008150,biological_process
-AT2G37760.6,AKR4C8,Aldo-keto reductase family 4 member C8 [Source:UniProtKB/Swiss-Prot;Acc:O80944],6,AT2G37760,GO:0009409;GO:0009414;GO:0009651;GO:0046482;GO:0046686;GO:0055114,response to cold;response to water deprivation;response to salt stress;para-aminobenzoic acid metabolic process;response to cadmium ion;oxidation-reduction process
-AT2G37760.2,AKR4C8,Aldo-keto reductase family 4 member C8 [Source:UniProtKB/Swiss-Prot;Acc:O80944],8,AT2G37760,GO:0009409;GO:0009414;GO:0009651;GO:0046482;GO:0046686;GO:0055114,response to cold;response to water deprivation;response to salt stress;para-aminobenzoic acid metabolic process;response to cadmium ion;oxidation-reduction process
-AT1G49860.1,GSTF14,Glutathione S-transferase F14 [Source:UniProtKB/Swiss-Prot;Acc:Q9C6C8],1,AT1G49860,GO:0001666;GO:0009407;GO:0009862;GO:0010310;GO:0010583;GO:0015698;GO:0048527;GO:0048589;GO:0048765,"response to hypoxia;toxin catabolic process;systemic acquired resistance, salicylic acid mediated signaling pathway;regulation of hydrogen peroxide metabolic process;response to cyclopentenone;inorganic anion transport;lateral root development;developmental growth;root hair cell differentiation"
-AT1G63550.1,CRRSP9,Cysteine-rich repeat secretory protein 9 [Source:UniProtKB/Swiss-Prot;Acc:Q5Q0E2],1,AT1G63550,GO:0006863,purine nucleobase transport
-AT1G49100.1,,Leucine-rich repeat protein kinase family protein [Source:UniProtKB/TrEMBL;Acc:F4I065],4,AT1G49100,NA,NA
-AT4G08770.1,PER37,Peroxidase 37 [Source:UniProtKB/Swiss-Prot;Acc:Q9LDN9],4,AT4G08770,GO:0009684;GO:0042742;GO:0045926,indoleacetic acid biosynthetic process;defense response to bacterium;negative regulation of growth
-AT3G47480.1,CML47,Probable calcium-binding protein CML47 [Source:UniProtKB/Swiss-Prot;Acc:Q9SN89],5,AT3G47480,GO:0000165;GO:0002237;GO:0002679;GO:0006612;GO:0008150;GO:0009581;GO:0009595;GO:0009627;GO:0009697;GO:0009814;GO:0009862;GO:0009867;GO:0010200;GO:0010310;GO:0010363;GO:0031348;GO:0034976;GO:0042742;GO:0043069;GO:0045088;GO:0050832,"MAPK cascade;response to molecule of bacterial origin;respiratory burst involved in defense response;protein targeting to membrane;biological_process;detection of external stimulus;detection of biotic stimulus;systemic acquired resistance;salicylic acid biosynthetic process;defense response, incompatible interaction;systemic acquired resistance, salicylic acid mediated signaling pathway;jasmonic acid mediated signaling pathway;response to chitin;regulation of hydrogen peroxide metabolic process;regulation of plant-type hypersensitive response;negative regulation of defense response;response to endoplasmic reticulum stress;defense response to bacterium;negative regulation of programmed cell death;regulation of innate immune response;defense response to fungus"
-AT2G24980.2,,Proline-rich extensin-like family protein [Source:TAIR;Acc:AT2G24980],1,AT2G24980,NA,NA
-AT1G13420.1,SOT8,Cytosolic sulfotransferase 8 [Source:UniProtKB/Swiss-Prot;Acc:Q9FX56],4,AT1G13420,GO:0009735;GO:0009736,response to cytokinin;cytokinin-activated signaling pathway
-AT3G44310.1,NIT1,NITI [Source:UniProtKB/TrEMBL;Acc:A0A384KJ08],8,AT3G44310,GO:0009684,indoleacetic acid biosynthetic process
+AT2G37760.6,AKR4C8,Aldo-keto reductase family 4 member C8 [Source:UniProtKB/Swiss-Prot;Acc:O80944],6,AT2G37760,GO:0009409;GO:0009414;GO:0009651;GO:0046686;GO:0055114,response to cold;response to water deprivation;response to salt stress;response to cadmium ion;oxidation-reduction process
+AT2G37760.2,AKR4C8,Aldo-keto reductase family 4 member C8 [Source:UniProtKB/Swiss-Prot;Acc:O80944],8,AT2G37760,GO:0009409;GO:0009414;GO:0009651;GO:0046686;GO:0055114,response to cold;response to water deprivation;response to salt stress;response to cadmium ion;oxidation-reduction process
+AT1G49860.1,GSTF14,Glutathione S-transferase F14 [Source:UniProtKB/Swiss-Prot;Acc:Q9C6C8],1,AT1G49860,GO:0006749;GO:0009407,glutathione metabolic process;toxin catabolic process
+AT1G63550.1,CRRSP9,Cysteine-rich repeat secretory protein 9 [Source:UniProtKB/Swiss-Prot;Acc:Q5Q0E2],1,AT1G63550,,
+AT1G49100.1,,Leucine-rich repeat protein kinase family protein [Source:UniProtKB/TrEMBL;Acc:F4I065],4,AT1G49100,GO:0016310,phosphorylation
+AT4G08770.1,PER37,Peroxidase 37 [Source:UniProtKB/Swiss-Prot;Acc:Q9LDN9],4,AT4G08770,GO:0006979;GO:0045926,response to oxidative stress;negative regulation of growth
+AT3G47480.1,CML47,Probable calcium-binding protein CML47 [Source:UniProtKB/Swiss-Prot;Acc:Q9SN89],5,AT3G47480,GO:0008150,biological_process
+AT2G24980.2,,Proline-rich extensin-like family protein [Source:TAIR;Acc:AT2G24980],1,AT2G24980,GO:0009664,plant-type cell wall organization
+AT1G13420.1,SOT8,Cytosolic sulfotransferase 8 [Source:UniProtKB/Swiss-Prot;Acc:Q9FX56],4,AT1G13420,GO:0009735,response to cytokinin
+AT3G44310.1,NIT1,NITI [Source:UniProtKB/TrEMBL;Acc:A0A384KJ08],8,AT3G44310,GO:0009684;GO:0051410,indoleacetic acid biosynthetic process;detoxification of nitrogen compound
 AT5G22560.1,,Emb [Source:UniProtKB/TrEMBL;Acc:Q9FK83],1,AT5G22560,GO:0008150,biological_process
-AT3G24420.1,,Alpha/beta-Hydrolases superfamily protein [Source:UniProtKB/TrEMBL;Acc:Q9LK01],8,AT3G24420,GO:0008150,biological_process
-AT1G02850.5,BGLU11,Beta-glucosidase 11 [Source:UniProtKB/Swiss-Prot;Acc:B3H5Q1],6,AT1G02850,NA,NA
-AT1G02850.1,BGLU11,Beta-glucosidase 11 [Source:UniProtKB/Swiss-Prot;Acc:B3H5Q1],6,AT1G02850,NA,NA
-AT1G02850.3,BGLU11,Beta-glucosidase 11 [Source:UniProtKB/Swiss-Prot;Acc:B3H5Q1],8,AT1G02850,NA,NA
-AT4G03330.1,SYP123,At4g03330 [Source:UniProtKB/TrEMBL;Acc:Q0WPM4],4,AT4G03330,GO:0006886,intracellular protein transport
-AT3G28740.1,CYP81D11,Cytochrome P450 81D11 [Source:UniProtKB/Swiss-Prot;Acc:Q9LHA1],8,AT3G28740,GO:0002213;GO:0009407;GO:0010583,defense response to insect;toxin catabolic process;response to cyclopentenone
-AT3G01290.1,HIR3,HIR2 [Source:UniProtKB/TrEMBL;Acc:A0A178V7M0],1,AT3G01290,GO:0006612;GO:0010167;GO:0010363;GO:0015706;GO:0030003;GO:0030968;GO:0043069;GO:0050832;GO:0070838,protein targeting to membrane;response to nitrate;regulation of plant-type hypersensitive response;nitrate transport;cellular cation homeostasis;endoplasmic reticulum unfolded protein response;negative regulation of programmed cell death;defense response to fungus;divalent metal ion transport
-AT2G44340.1,VQ18,VQ motif-containing protein 18 [Source:UniProtKB/Swiss-Prot;Acc:O64868],1,AT2G44340,GO:0008150,biological_process
-AT1G51620.2,,Protein kinase superfamily protein [Source:UniProtKB/TrEMBL;Acc:Q9C8H4],1,AT1G51620,GO:0002679;GO:0010200;GO:0015824,respiratory burst involved in defense response;response to chitin;proline transport
-AT1G29290.1,CEP14,Precursor of CEP14 [Source:UniProtKB/Swiss-Prot;Acc:Q52K95],1,AT1G29290,GO:0008150,biological_process
-AT5G13080.1,WRKY75,WRKY75 [Source:UniProtKB/TrEMBL;Acc:A0A178UJF4],8,AT5G13080,GO:0006355;GO:0009723;GO:0016036;GO:0019375;GO:0032107;GO:0042631;GO:0043620;GO:0048527,"regulation of transcription, DNA-templated;response to ethylene;cellular response to phosphate starvation;galactolipid biosynthetic process;regulation of response to nutrient levels;cellular response to water deprivation;regulation of DNA-templated transcription in response to stress;lateral root development"
-AT5G39000.1,,Putative receptor-like protein kinase At5g39000 [Source:UniProtKB/Swiss-Prot;Acc:Q9FID8],1,AT5G39000,NA,NA
-AT5G01050.1,LAC9,Laccase [Source:UniProtKB/TrEMBL;Acc:A0A178U9W8],1,AT5G01050,NA,NA
+AT3G24420.1,,Alpha/beta-Hydrolases superfamily protein [Source:UniProtKB/TrEMBL;Acc:Q9LK01],8,AT3G24420,,
+AT1G02850.5,BGLU11,Beta-glucosidase 11 [Source:UniProtKB/Swiss-Prot;Acc:B3H5Q1],6,AT1G02850,GO:0005975,carbohydrate metabolic process
+AT1G02850.1,BGLU11,Beta-glucosidase 11 [Source:UniProtKB/Swiss-Prot;Acc:B3H5Q1],6,AT1G02850,GO:0005975,carbohydrate metabolic process
+AT1G02850.3,BGLU11,Beta-glucosidase 11 [Source:UniProtKB/Swiss-Prot;Acc:B3H5Q1],8,AT1G02850,GO:0005975,carbohydrate metabolic process
+AT4G03330.1,SYP123,At4g03330 [Source:UniProtKB/TrEMBL;Acc:Q0WPM4],4,AT4G03330,GO:0006886;GO:0006887;GO:0006906;GO:0048278;GO:0061025,intracellular protein transport;exocytosis;vesicle fusion;vesicle docking;membrane fusion
+AT3G28740.1,CYP81D11,Cytochrome P450 81D11 [Source:UniProtKB/Swiss-Prot;Acc:Q9LHA1],8,AT3G28740,GO:0002213,defense response to insect
+AT3G01290.1,HIR3,HIR2 [Source:UniProtKB/TrEMBL;Acc:A0A178V7M0],1,AT3G01290,GO:0002239,response to oomycetes
+AT2G44340.1,VQ18,VQ motif-containing protein 18 [Source:UniProtKB/Swiss-Prot;Acc:O64868],1,AT2G44340,GO:0007165;GO:0071215;GO:0090351,signal transduction;cellular response to abscisic acid stimulus;seedling development
+AT1G51620.2,,Protein kinase superfamily protein [Source:UniProtKB/TrEMBL;Acc:Q9C8H4],1,AT1G51620,GO:0006468;GO:0016310,protein phosphorylation;phosphorylation
+AT1G29290.1,CEP14,Precursor of CEP14 [Source:UniProtKB/Swiss-Prot;Acc:Q52K95],1,AT1G29290,GO:0006970;GO:0006995;GO:0010037,response to osmotic stress;cellular response to nitrogen starvation;response to carbon dioxide
+AT5G13080.1,WRKY75,WRKY75 [Source:UniProtKB/TrEMBL;Acc:A0A178UJF4],8,AT5G13080,GO:0000122;GO:0010055;GO:0032107;GO:0043620;GO:0048527,negative regulation of transcription by RNA polymerase II;atrichoblast differentiation;regulation of response to nutrient levels;regulation of DNA-templated transcription in response to stress;lateral root development
+AT5G39000.1,,Putative receptor-like protein kinase At5g39000 [Source:UniProtKB/Swiss-Prot;Acc:Q9FID8],1,AT5G39000,GO:0010038;GO:0016310;GO:0046777,response to metal ion;phosphorylation;protein autophosphorylation
+AT5G01050.1,LAC9,Laccase [Source:UniProtKB/TrEMBL;Acc:A0A178U9W8],1,AT5G01050,GO:0006826;GO:0055072,iron ion transport;iron ion homeostasis
 AT5G10230.1,ANNAT7,Annexin D7 [Source:UniProtKB/Swiss-Prot;Acc:Q9LX07],8,AT5G10230,GO:0009408;GO:0009409;GO:0009414;GO:0009651,response to heat;response to cold;response to water deprivation;response to salt stress
 AT2G28570.1,,At2g28570 [Source:UniProtKB/TrEMBL;Acc:Q9SK01],4,AT2G28570,GO:0008150,biological_process
 AT4G37390.1,YDK1,Auxin-responsive GH3 family protein [Source:TAIR;Acc:AT4G37390],4,AT4G37390,GO:0009733;GO:0010252,response to auxin;auxin homeostasis
-AT4G21990.1,APR3,"5'-adenylylsulfate reductase 3, chloroplastic [Source:UniProtKB/Swiss-Prot;Acc:P92980]",6,AT4G21990,GO:0000103,sulfate assimilation
-AT2G25150.1,SCT,Spermidine coumaroyl-CoA acyltransferase [Source:UniProtKB/Swiss-Prot;Acc:Q8GYW8],1,AT2G25150,NA,NA
-AT4G02380.3,SAG21,senescence-associated gene 21 [Source:TAIR;Acc:AT4G02380],4,AT4G02380,GO:0000165;GO:0000302;GO:0006612;GO:0006979;GO:0007154;GO:0009409;GO:0009611;GO:0009738;GO:0009862;GO:0009867;GO:0010363;GO:0016036;GO:0019375;GO:0030968;GO:0031348;GO:0042631;GO:0043069;GO:0050832,"MAPK cascade;response to reactive oxygen species;protein targeting to membrane;response to oxidative stress;cell communication;response to cold;response to wounding;abscisic acid-activated signaling pathway;systemic acquired resistance, salicylic acid mediated signaling pathway;jasmonic acid mediated signaling pathway;regulation of plant-type hypersensitive response;cellular response to phosphate starvation;galactolipid biosynthetic process;endoplasmic reticulum unfolded protein response;negative regulation of defense response;cellular response to water deprivation;negative regulation of programmed cell death;defense response to fungus"
-AT4G02380.2,SAG21,senescence-associated gene 21 [Source:TAIR;Acc:AT4G02380],4,AT4G02380,GO:0000165;GO:0000302;GO:0006612;GO:0006979;GO:0007154;GO:0009409;GO:0009611;GO:0009738;GO:0009862;GO:0009867;GO:0010363;GO:0016036;GO:0019375;GO:0030968;GO:0031348;GO:0042631;GO:0043069;GO:0050832,"MAPK cascade;response to reactive oxygen species;protein targeting to membrane;response to oxidative stress;cell communication;response to cold;response to wounding;abscisic acid-activated signaling pathway;systemic acquired resistance, salicylic acid mediated signaling pathway;jasmonic acid mediated signaling pathway;regulation of plant-type hypersensitive response;cellular response to phosphate starvation;galactolipid biosynthetic process;endoplasmic reticulum unfolded protein response;negative regulation of defense response;cellular response to water deprivation;negative regulation of programmed cell death;defense response to fungus"
-AT5G64510.1,TIN1,Tunicamycin induced protein [Source:UniProtKB/TrEMBL;Acc:Q84JN2],8,AT5G64510,GO:0006457;GO:0006984;GO:0009408;GO:0009555;GO:0009644;GO:0034976;GO:0042542,protein folding;ER-nucleus signaling pathway;response to heat;pollen development;response to high light intensity;response to endoplasmic reticulum stress;response to hydrogen peroxide
+AT4G21990.1,APR3,"5'-adenylylsulfate reductase 3, chloroplastic [Source:UniProtKB/Swiss-Prot;Acc:P92980]",6,AT4G21990,GO:0000103;GO:0019419;GO:0045454;GO:0055114,sulfate assimilation;sulfate reduction;cell redox homeostasis;oxidation-reduction process
+AT2G25150.1,SCT,Spermidine coumaroyl-CoA acyltransferase [Source:UniProtKB/Swiss-Prot;Acc:Q8GYW8],1,AT2G25150,GO:0008216,spermidine metabolic process
+AT4G02380.3,SAG21,senescence-associated gene 21 [Source:TAIR;Acc:AT4G02380],4,AT4G02380,GO:0000302;GO:0006950;GO:0006979;GO:0009409;GO:0009414;GO:0009416;GO:0009625;GO:0009646;GO:0009723;GO:0009737;GO:0010150;GO:0042631,response to reactive oxygen species;response to stress;response to oxidative stress;response to cold;response to water deprivation;response to light stimulus;response to insect;response to absence of light;response to ethylene;response to abscisic acid;leaf senescence;cellular response to water deprivation
+AT4G02380.2,SAG21,senescence-associated gene 21 [Source:TAIR;Acc:AT4G02380],4,AT4G02380,GO:0000302;GO:0006950;GO:0006979;GO:0009409;GO:0009414;GO:0009416;GO:0009625;GO:0009646;GO:0009723;GO:0009737;GO:0010150;GO:0042631,response to reactive oxygen species;response to stress;response to oxidative stress;response to cold;response to water deprivation;response to light stimulus;response to insect;response to absence of light;response to ethylene;response to abscisic acid;leaf senescence;cellular response to water deprivation
+AT5G64510.1,TIN1,Tunicamycin induced protein [Source:UniProtKB/TrEMBL;Acc:Q84JN2],8,AT5G64510,GO:0009555,pollen development
 AT1G33840.1,,Protein of unknown function (DUF567) [Source:TAIR;Acc:AT1G33840],1,AT1G33840,GO:0008150,biological_process
-AT4G11170.1,,Putative disease resistance protein At4g11170 [Source:UniProtKB/Swiss-Prot;Acc:O82500],5,AT4G11170,GO:0006952;GO:0010193,defense response;response to ozone
-AT2G19310.1,HSP18.5,18.5 kDa class IV heat shock protein [Source:UniProtKB/Swiss-Prot;Acc:O64564],6,AT2G19310,GO:0006979;GO:0009408;GO:0009644;GO:0042542,response to oxidative stress;response to heat;response to high light intensity;response to hydrogen peroxide
-AT2G18193.1,,AAA-ATPase At2g18193 [Source:UniProtKB/Swiss-Prot;Acc:Q8GW96],8,AT2G18193,NA,NA
-AT1G05560.1,UGT1,UDP-glucosyltransferase 75B1 [Source:TAIR;Acc:AT1G05560],8,AT1G05560,GO:0009407;GO:0009751;GO:0009920;GO:0010583;GO:0046482,toxin catabolic process;response to salicylic acid;cell plate formation involved in plant-type cell wall biogenesis;response to cyclopentenone;para-aminobenzoic acid metabolic process
+AT4G11170.1,,Putative disease resistance protein At4g11170 [Source:UniProtKB/Swiss-Prot;Acc:O82500],5,AT4G11170,GO:0007165;GO:0010193,signal transduction;response to ozone
+AT2G19310.1,HSP18.5,18.5 kDa class IV heat shock protein [Source:UniProtKB/Swiss-Prot;Acc:O64564],6,AT2G19310,GO:0000302;GO:0006457;GO:0006979;GO:0009408;GO:0009651;GO:0042542;GO:0051259,response to reactive oxygen species;protein folding;response to oxidative stress;response to heat;response to salt stress;response to hydrogen peroxide;protein complex oligomerization
+AT2G18193.1,,AAA-ATPase At2g18193 [Source:UniProtKB/Swiss-Prot;Acc:Q8GW96],8,AT2G18193,,
+AT1G05560.1,UGT1,UDP-glucosyltransferase 75B1 [Source:TAIR;Acc:AT1G05560],8,AT1G05560,GO:0009751;GO:0046482,response to salicylic acid;para-aminobenzoic acid metabolic process
 AT5G44582.1,,unknown protein; FUNCTIONS IN: molecular_function unknown; INVOLVED IN: biological_process unknown; LOCATED IN: endomembrane system; BEST Arabidopsis thaliana protein match is: unknown protein (TAIR:AT5G44580.1); Has 24 Blast hits to 24 proteins in  /.../ies: Archae - 0; Bacteria - 0; Metazoa - 0; Fungi - 0; Plants - 24; Viruses - 0; Other Eukaryotes - 0 (source: NCBI BLink). [Source:TAIR;Acc:AT5G44582],1,AT5G44582,GO:0008150,biological_process
-AT5G52710.2,,Copper transport protein family [Source:UniProtKB/TrEMBL;Acc:Q9LTE6],4,AT5G52710,NA,NA
-AT2G34500.1,CYP710A1,CYP710A1 [Source:UniProtKB/TrEMBL;Acc:A0A178VRK5],8,AT2G34500,GO:0009407;GO:0010583;GO:0016036;GO:0016126;GO:0019375;GO:0019745;GO:0042631,toxin catabolic process;response to cyclopentenone;cellular response to phosphate starvation;sterol biosynthetic process;galactolipid biosynthetic process;pentacyclic triterpenoid biosynthetic process;cellular response to water deprivation
-AT1G75270.1,DHAR2,Glutathione S-transferase DHAR2 [Source:UniProtKB/Swiss-Prot;Acc:Q9FRL8],6,AT1G75270,GO:0009407;GO:0010583;GO:0010731,toxin catabolic process;response to cyclopentenone;protein glutathionylation
-AT2G01890.1,PAP8,Purple acid phosphatase 8 [Source:UniProtKB/Swiss-Prot;Acc:Q8VYZ2],8,AT2G01890,GO:0010167;GO:0015706;GO:0016311,response to nitrate;nitrate transport;dephosphorylation
-AT3G26450.1,,"Major latex protein, putative [Source:UniProtKB/TrEMBL;Acc:Q9LIN0]",8,AT3G26450,GO:0006833;GO:0009651;GO:0009735;GO:0009750;GO:0019344,water transport;response to salt stress;response to cytokinin;response to fructose;cysteine biosynthetic process
-AT1G68880.1,BZIP8,Basic leucine zipper 8 [Source:UniProtKB/Swiss-Prot;Acc:Q9CA46],4,AT1G68880,GO:0006355;GO:0006826;GO:0010106;GO:0010167;GO:0015706,"regulation of transcription, DNA-templated;iron ion transport;cellular response to iron ion starvation;response to nitrate;nitrate transport"
-AT2G45550.1,CYP76C4,Cytochrome P450 76C4 [Source:UniProtKB/Swiss-Prot;Acc:O64635],5,AT2G45550,NA,NA
-AT5G61820.2,,Stress up-regulated Nod 19 protein [Source:UniProtKB/TrEMBL;Acc:Q8VZ21],8,AT5G61820,GO:0008150;GO:0009610;GO:0009738;GO:0046482,biological_process;response to symbiotic fungus;abscisic acid-activated signaling pathway;para-aminobenzoic acid metabolic process
-AT5G61820.1,,Stress up-regulated Nod 19 protein [Source:UniProtKB/TrEMBL;Acc:Q8VZ21],8,AT5G61820,GO:0008150;GO:0009610;GO:0009738;GO:0046482,biological_process;response to symbiotic fungus;abscisic acid-activated signaling pathway;para-aminobenzoic acid metabolic process
+AT5G52710.2,,Copper transport protein family [Source:UniProtKB/TrEMBL;Acc:Q9LTE6],4,AT5G52710,,
+AT2G34500.1,CYP710A1,CYP710A1 [Source:UniProtKB/TrEMBL;Acc:A0A178VRK5],8,AT2G34500,GO:0016125;GO:0016126;GO:0055114,sterol metabolic process;sterol biosynthetic process;oxidation-reduction process
+AT1G75270.1,DHAR2,Glutathione S-transferase DHAR2 [Source:UniProtKB/Swiss-Prot;Acc:Q9FRL8],6,AT1G75270,GO:0010731;GO:0070301;GO:0080151,protein glutathionylation;cellular response to hydrogen peroxide;positive regulation of salicylic acid mediated signaling pathway
+AT2G01890.1,PAP8,Purple acid phosphatase 8 [Source:UniProtKB/Swiss-Prot;Acc:Q8VYZ2],8,AT2G01890,GO:0016311,dephosphorylation
+AT3G26450.1,,"Major latex protein, putative [Source:UniProtKB/TrEMBL;Acc:Q9LIN0]",8,AT3G26450,GO:0006952,defense response
+AT1G68880.1,BZIP8,Basic leucine zipper 8 [Source:UniProtKB/Swiss-Prot;Acc:Q9CA46],4,AT1G68880,GO:0006355,"regulation of transcription, DNA-templated"
+AT2G45550.1,CYP76C4,Cytochrome P450 76C4 [Source:UniProtKB/Swiss-Prot;Acc:O64635],5,AT2G45550,,
+AT5G61820.2,,Stress up-regulated Nod 19 protein [Source:UniProtKB/TrEMBL;Acc:Q8VZ21],8,AT5G61820,GO:0008150,biological_process
+AT5G61820.1,,Stress up-regulated Nod 19 protein [Source:UniProtKB/TrEMBL;Acc:Q8VZ21],8,AT5G61820,GO:0008150,biological_process
 AT2G45360.1,,Ankyrin repeat/KH domain protein (DUF1442) [Source:UniProtKB/TrEMBL;Acc:O22136],4,AT2G45360,GO:0008150,biological_process
-AT5G59260.1,LECRK21,Probable L-type lectin-domain containing receptor kinase II.1 [Source:UniProtKB/Swiss-Prot;Acc:Q9FIF1],4,AT5G59260,NA,NA
+AT5G59260.1,LECRK21,Probable L-type lectin-domain containing receptor kinase II.1 [Source:UniProtKB/Swiss-Prot;Acc:Q9FIF1],4,AT5G59260,GO:0002229;GO:0006468;GO:0006952;GO:0042742,defense response to oomycetes;protein phosphorylation;defense response;defense response to bacterium
 AT5G41300.1,CRRSP59,Cysteine-rich repeat secretory protein 59 [Source:UniProtKB/Swiss-Prot;Acc:Q9FHD3],4,AT5G41300,GO:0008150,biological_process
-AT1G76680.1,OPR1,12-oxophytodienoate reductase 1 [Source:UniProtKB/TrEMBL;Acc:F4I403],8,AT1G76680,GO:0006629;GO:0009611;GO:0009751;GO:0010150;GO:0031407;GO:0046686,lipid metabolic process;response to wounding;response to salicylic acid;leaf senescence;oxylipin metabolic process;response to cadmium ion
-AT1G76680.2,OPR1,12-oxophytodienoate reductase 1 [Source:UniProtKB/TrEMBL;Acc:F4I403],8,AT1G76680,GO:0006629;GO:0009611;GO:0009751;GO:0010150;GO:0031407;GO:0046686,lipid metabolic process;response to wounding;response to salicylic acid;leaf senescence;oxylipin metabolic process;response to cadmium ion
-AT2G44390.1,,Cysteine/Histidine-rich C1 domain family protein [Source:UniProtKB/TrEMBL;Acc:O64873],1,AT2G44390,NA,NA
+AT1G76680.1,OPR1,12-oxophytodienoate reductase 1 [Source:UniProtKB/TrEMBL;Acc:F4I403],8,AT1G76680,GO:0006629;GO:0009611;GO:0009751;GO:0010150;GO:0031407;GO:0031408;GO:0046686;GO:0071456,lipid metabolic process;response to wounding;response to salicylic acid;leaf senescence;oxylipin metabolic process;oxylipin biosynthetic process;response to cadmium ion;cellular response to hypoxia
+AT1G76680.2,OPR1,12-oxophytodienoate reductase 1 [Source:UniProtKB/TrEMBL;Acc:F4I403],8,AT1G76680,GO:0006629;GO:0009611;GO:0009751;GO:0010150;GO:0031407;GO:0031408;GO:0046686;GO:0071456,lipid metabolic process;response to wounding;response to salicylic acid;leaf senescence;oxylipin metabolic process;oxylipin biosynthetic process;response to cadmium ion;cellular response to hypoxia
+AT2G44390.1,,Cysteine/Histidine-rich C1 domain family protein [Source:UniProtKB/TrEMBL;Acc:O64873],1,AT2G44390,,
 AT4G34135.1,UGT73B2,UDP-glucosyl transferase 73B2 [Source:UniProtKB/Swiss-Prot;Acc:Q94C57],8,AT4G34135,GO:0051555;GO:0051707,flavonol biosynthetic process;response to other organism
 AT1G09932.1,,Phosphoglycerate mutase family protein [Source:UniProtKB/TrEMBL;Acc:Q8GWG7],1,AT1G09932,GO:0008150,biological_process
 AT5G51310.1,,Gibberellin 20-oxidase-like protein [Source:UniProtKB/Swiss-Prot;Acc:F4KBY0],1,AT5G51310,GO:0009686;GO:0048767,gibberellin biosynthetic process;root hair elongation
-AT5G06730.1,PER54,Peroxidase 54 [Source:UniProtKB/Swiss-Prot;Acc:Q9FG34],1,AT5G06730,NA,NA
+AT5G06730.1,PER54,Peroxidase 54 [Source:UniProtKB/Swiss-Prot;Acc:Q9FG34],1,AT5G06730,GO:0006979,response to oxidative stress
 AT5G05250.1,,AT5g05250/K18I23_5 [Source:UniProtKB/TrEMBL;Acc:Q9FLC9],8,AT5G05250,GO:0008150,biological_process
-AT3G50460.1,HR2,RPW8-like protein 2 [Source:UniProtKB/Swiss-Prot;Acc:Q9SCS8],4,AT3G50460,GO:0051707,response to other organism
+AT3G50460.1,HR2,RPW8-like protein 2 [Source:UniProtKB/Swiss-Prot;Acc:Q9SCS8],4,AT3G50460,GO:0009620;GO:0050832,response to fungus;defense response to fungus
 AT4G01970.1,AtSTS,stachyose synthase [Source:TAIR;Acc:AT4G01970],1,AT4G01970,GO:0006979;GO:0080167,response to oxidative stress;response to karrikin
-AT5G65980.1,PILS7,Protein PIN-LIKES 7 [Source:UniProtKB/Swiss-Prot;Acc:Q9FKY4],1,AT5G65980,GO:0009926,auxin polar transport
+AT5G65980.1,PILS7,Protein PIN-LIKES 7 [Source:UniProtKB/Swiss-Prot;Acc:Q9FKY4],1,AT5G65980,GO:0009733;GO:0055085,response to auxin;transmembrane transport
 AT4G38060.3,,AT4G38060 protein [Source:UniProtKB/TrEMBL;Acc:Q93VQ7],8,AT4G38060,GO:0008150,biological_process
 AT4G38060.1,,AT4G38060 protein [Source:UniProtKB/TrEMBL;Acc:Q93VQ7],8,AT4G38060,GO:0008150,biological_process
 AT4G38060.2,,AT4G38060 protein [Source:UniProtKB/TrEMBL;Acc:Q93VQ7],8,AT4G38060,GO:0008150,biological_process
-AT5G26920.1,CBP60G,Calmodulin-binding protein 60 G [Source:UniProtKB/Swiss-Prot;Acc:F4K2R6],5,AT5G26920,GO:0000165;GO:0002237;GO:0006612;GO:0009409;GO:0009595;GO:0009617;GO:0009627;GO:0009697;GO:0009814;GO:0009816;GO:0009862;GO:0009863;GO:0009867;GO:0010112;GO:0010200;GO:0010310;GO:0010363;GO:0019684;GO:0031348;GO:0042742;GO:0043069;GO:0043900;GO:0045087;GO:0045088;GO:0050832;GO:0071456;GO:0080142,"MAPK cascade;response to molecule of bacterial origin;protein targeting to membrane;response to cold;detection of biotic stimulus;response to bacterium;systemic acquired resistance;salicylic acid biosynthetic process;defense response, incompatible interaction;defense response to bacterium, incompatible interaction;systemic acquired resistance, salicylic acid mediated signaling pathway;salicylic acid mediated signaling pathway;jasmonic acid mediated signaling pathway;regulation of systemic acquired resistance;response to chitin;regulation of hydrogen peroxide metabolic process;regulation of plant-type hypersensitive response;photosynthesis, light reaction;negative regulation of defense response;defense response to bacterium;negative regulation of programmed cell death;regulation of multi-organism process;innate immune response;regulation of innate immune response;defense response to fungus;cellular response to hypoxia;regulation of salicylic acid biosynthetic process"
-AT5G48430.1,,At5g48430 [Source:UniProtKB/TrEMBL;Acc:Q9LV70],1,AT5G48430,GO:0006857;GO:0006865,oligopeptide transport;amino acid transport
-AT5G58750.1,,At5g58750 [Source:UniProtKB/TrEMBL;Acc:Q9LUY6],1,AT5G58750,NA,NA
-AT4G25310.1,,2-oxoglutarate (2OG) and Fe(II)-dependent oxygenase superfamily protein [Source:UniProtKB/TrEMBL;Acc:Q9SB32],1,AT4G25310,GO:0009813,flavonoid biosynthetic process
-AT2G47730.1,GSTF8,"Glutathione S-transferase F8, chloroplastic [Source:UniProtKB/Swiss-Prot;Acc:Q96266]",8,AT2G47730,GO:0006952;GO:0009407;GO:0009409;GO:0009651;GO:0042742;GO:0080167,defense response;toxin catabolic process;response to cold;response to salt stress;defense response to bacterium;response to karrikin
-AT4G26560.1,CBL7,Calcineurin B-like protein 7 [Source:UniProtKB/Swiss-Prot;Acc:Q9SUA6],5,AT4G26560,GO:0005513;GO:0019722,detection of calcium ion;calcium-mediated signaling
+AT5G26920.1,CBP60G,Calmodulin-binding protein 60 G [Source:UniProtKB/Swiss-Prot;Acc:F4K2R6],5,AT5G26920,GO:0002237;GO:0009617;GO:0009697;GO:0009816;GO:0010112;GO:0071456;GO:0080142,"response to molecule of bacterial origin;response to bacterium;salicylic acid biosynthetic process;defense response to bacterium, incompatible interaction;regulation of systemic acquired resistance;cellular response to hypoxia;regulation of salicylic acid biosynthetic process"
+AT5G48430.1,,At5g48430 [Source:UniProtKB/TrEMBL;Acc:Q9LV70],1,AT5G48430,GO:0006508;GO:0030163,proteolysis;protein catabolic process
+AT5G58750.1,,At5g58750 [Source:UniProtKB/TrEMBL;Acc:Q9LUY6],1,AT5G58750,,
+AT4G25310.1,,2-oxoglutarate (2OG) and Fe(II)-dependent oxygenase superfamily protein [Source:UniProtKB/TrEMBL;Acc:Q9SB32],1,AT4G25310,,
+AT2G47730.1,GSTF8,"Glutathione S-transferase F8, chloroplastic [Source:UniProtKB/Swiss-Prot;Acc:Q96266]",8,AT2G47730,GO:0006749;GO:0006952;GO:0009407;GO:0009409;GO:0042742;GO:0071456;GO:0080167,glutathione metabolic process;defense response;toxin catabolic process;response to cold;defense response to bacterium;cellular response to hypoxia;response to karrikin
+AT4G26560.1,CBL7,Calcineurin B-like protein 7 [Source:UniProtKB/Swiss-Prot;Acc:Q9SUA6],5,AT4G26560,GO:0005513;GO:0010446;GO:0032780,detection of calcium ion;response to alkaline pH;negative regulation of ATPase activity
 AT5G20470.1,,Myosin [Source:UniProtKB/TrEMBL;Acc:F4K5I9],4,AT5G20470,GO:0008150,biological_process
-AT1G64950.1,CYP89A5,"Cytochrome P450, family 89, subfamily A, polypeptide 5 [Source:UniProtKB/TrEMBL;Acc:Q9XIQ1]",8,AT1G64950,NA,NA
+AT1G64950.1,CYP89A5,"Cytochrome P450, family 89, subfamily A, polypeptide 5 [Source:UniProtKB/TrEMBL;Acc:Q9XIQ1]",8,AT1G64950,,
