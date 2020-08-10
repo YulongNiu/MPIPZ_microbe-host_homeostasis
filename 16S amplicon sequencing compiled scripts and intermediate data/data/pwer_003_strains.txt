@@ -1,0 +1,11 @@
+strain	syncom	Kingdom	Phylum	Class	Order	Family	Genus	Species
+Root1293	NS	Bacteria	Actinobacteria	Actinobacteria	Actinomycetales	Microbacteriaceae		
+Root482	NS	Bacteria	Proteobacteria	Alphaproteobacteria	Rhizobiales	Rhizobiaceae	Rhizobium	
+Root50	NS	Bacteria	Proteobacteria	Alphaproteobacteria	Sphingomonadales	Sphingomonadaceae	Sphingomonas	
+Root568	NS	Bacteria	Proteobacteria	Betaproteobacteria	Burkholderiales	Comamonadaceae		
+Root71	NS	Bacteria	Proteobacteria	Gammaproteobacteria	Pseudomonadales	Pseudomonadaceae	Pseudomonas	
+Root227	S	Bacteria	Actinobacteria	Actinobacteria	Actinomycetales	Microbacteriaceae		
+Root268	S	Bacteria	Proteobacteria	Alphaproteobacteria	Rhizobiales	Rhizobiaceae	Rhizobium	
+Root241	S	Bacteria	Proteobacteria	Alphaproteobacteria	Sphingomonadales	Sphingomonadaceae	Sphingomonas	
+Root267	S	Bacteria	Proteobacteria	Betaproteobacteria	Burkholderiales	Comamonadaceae	Acidovorax	
+Root329	S	Bacteria	Proteobacteria	Gammaproteobacteria	Pseudomonadales	Pseudomonadaceae	Pseudomonas	
