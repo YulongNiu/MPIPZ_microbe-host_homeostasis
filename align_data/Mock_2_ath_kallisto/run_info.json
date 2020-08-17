@@ -1,0 +1,13 @@
+{
+	"n_targets": 48359,
+	"n_bootstraps": 0,
+	"n_processed": 18723047,
+	"n_pseudoaligned": 18089733,
+	"n_unique": 9609128,
+	"p_pseudoaligned": 96.6,
+	"p_unique": 51.3,
+	"kallisto_version": "0.45.1",
+	"index_version": 10,
+	"start_time": "Mon Apr 15 14:47:54 2019",
+	"call": "/home/yniu/Biotools/kallisto_v0.45.1/kallisto quant --genomebam --gtf /netscratch/dep_psl/grp_rgo/yniu/ref/Arabidopsis_thaliana.TAIR10.42.gtf.gz --chromosomes /netscratch/dep_psl/grp_rgo/yniu/ref/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.fai -t 45 -i /netscratch/dep_psl/grp_rgo/yniu/ref/ath.kindex -o /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/align_data/Mock_2_ath_kallisto --single -l 200 -s 20 /netscratch/dep_psl/grp_rgo/yniu/KaWaiFlg22/clean_data/Mock_2.fq.gz"
+}
