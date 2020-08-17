@@ -8,11 +8,7 @@
 *.DS_Store
 *.bam
 *.bam.bai
-align_data_1stadd/
-align_data_1stadd_virus1/
-scripts/.history
-results/.history
-.history
+*.history
 results/animation_merge/
 refs/
 align_data_soil/
