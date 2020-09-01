@@ -50,9 +50,11 @@ scripts:
 
 Results:
 
-*  *pWER::FLS2-GFP* 
+* DEGs tables are [eachGroup_vs_Mock_k.csv](results/removeZero/eachGroup_vs_Mock_k.csv) for *pWER::FLS2-GFP* [eachGroup_vs_Mock_k_1stadd.csv](results/removeZero/eachGroup_vs_Mock_k_1stadd.csv) for Col-0.
 
-* for Col-0.
+* Scales counts are [degres_condi_Mock.RData](results/removeZero/degres_condi_Mock.RData) for *pWER::FLS2-GFP* and [degres_condi_Mock_1stadd.RData](results/removeZero/degres_condi_Mock_1stadd.RData) for Col-0.
+
+* PCA plots are [PCA_sva.jpg](results/removeZero/PCA_sva.jpg) for *pWER::FLS2-GFP* and [PCA_1stadd_sva.jpg](results/removeZero/PCA_1stadd_sva.jpg) for Col-0.
 
 ## 2. Amplicon sequencing analysis
 
