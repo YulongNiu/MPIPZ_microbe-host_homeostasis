@@ -342,6 +342,23 @@ dotplot(kallKEGG)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~defense related genes~~~~~~~~~~~~~~~~~~~~
 dfGenes <- read_tsv('../../selected_defense_related_GO_term_byKaWai.txt')
 
+## tmp1 <- read_csv('../../tmp1.csv') %>%
+##   dplyr::select(ID, kmeans_cluster) %>%
+##   mutate(GeneID = strsplit(ID, split = '.', fixed = TRUE) %>% sapply('[[', 1))
+
+## tmp2 <- dfGenesMat %>%
+##   .$geneID %>%
+##   strsplit(split = '/', fixed = TRUE) %>%
+##   unlist %>%
+##   unique %>%
+##   bind_cols %>%
+##   set_colnames('GeneID') %>%
+##   mutate(AdditionAnno = 'defense_GO_annotated')
+
+## left_join(tmp1, tmp2) %>%
+##   mutate_at(c('AdditionAnno'), .funs = list(~if_else(is.na(.), '', .))) %>%
+##   write_csv('tmp2.csv')
+
 dfGenesMat <- kallGOBP %>%
   as.data.frame %>%
   as_tibble %>%
