@@ -90,7 +90,7 @@ Scripts:
 
 * [script_path.R](RNA-Seq_scripts/script_path.R) for *pWER::FLS2-GFP* GO enrichment.
 
-* [script_path_1stadd.R](RNA-Seq_scripts/script_path_1stadd.R) for Col-0 *k*-means clustering.
+* [script_path_1stadd.R](RNA-Seq_scripts/script_path_1stadd.R) for Col-0 GO enrichment.
 
 Results:
 
