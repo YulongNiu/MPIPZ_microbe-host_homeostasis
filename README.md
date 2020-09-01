@@ -68,17 +68,17 @@ The z-scores were used to conduct *k*-means clustering for all transcripts. The 
 
 Scripts:
 
-[script_cluster.R](RNA-Seq_scripts/script_cluster.R) for *pWER::FLS2-GFP* *k*-means clustering.
+* [script_cluster.R](RNA-Seq_scripts/script_cluster.R) for *pWER::FLS2-GFP* *k*-means clustering.
 
-[script_cluster_1stadd.R](RNA-Seq_scripts/script_cluster_1stadd.R) for Col-0 *k*-means clustering.
+* [script_cluster_1stadd.R](RNA-Seq_scripts/script_cluster_1stadd.R) for Col-0 *k*-means clustering.
 
-[script_replot_heatmap.R](RNA-Seq_scripts/script_replot_heatmap.R) for *pWER::FLS2-GFP* heatmap plot.
+* [script_replot_heatmap.R](RNA-Seq_scripts/script_replot_heatmap.R) for *pWER::FLS2-GFP* heatmap plot.
 
-[script_replot_heatmap_1stadd.R](RNA-Seq_scripts/script_replot_heatmap_1stadd.R) for Col-0 heatmap plot.
+* [script_replot_heatmap_1stadd.R](RNA-Seq_scripts/script_replot_heatmap_1stadd.R) for Col-0 heatmap plot.
 
 Results:
 
-Heatmaps are [kmeans10_heatmap_sig_DEG2.pdf](results/removeZero/kmeans10_heatmap_sig_DEG2.pdf) for *pWER::FLS2-GFP* and [kmeans10_heatmap_1stadd_sig_DEG2.pdf](results/removeZero/kmeans10_heatmap_1stadd_sig_DEG2.pdf) for Col-0.
+* Heatmaps are [kmeans10_heatmap_sig_DEG2.pdf](results/removeZero/kmeans10_heatmap_sig_DEG2.pdf) for *pWER::FLS2-GFP* and [kmeans10_heatmap_1stadd_sig_DEG2.pdf](results/removeZero/kmeans10_heatmap_1stadd_sig_DEG2.pdf) for Col-0.
 
 ### 1.6 GO enrichment
 
@@ -86,13 +86,13 @@ Gene ontology (GO) enrichment for each cluster using the whole Arabidopsis trans
 
 Scripts:
 
-[script_path.R](RNA-Seq_scripts/script_path.R) for *pWER::FLS2-GFP* GO enrichment.
+* [script_path.R](RNA-Seq_scripts/script_path.R) for *pWER::FLS2-GFP* GO enrichment.
 
-[script_path_1stadd.R](RNA-Seq_scripts/script_path_1stadd.R) for Col-0 *k*-means clustering.
+* [script_path_1stadd.R](RNA-Seq_scripts/script_path_1stadd.R) for Col-0 *k*-means clustering.
 
 Results:
 
-[kmeans10_cp_BP_dotplot_10.pdf](results/removeZero/geneset/clusterbc/kmeans10_cp_BP_dotplot_10.pdf) for *pWER::FLS2-GFP* and [kmeans10_1stadd_cp_BP_dotplot_10.pdf](results/removeZero/geneset_1stadd/clusterbc/kmeans10_1stadd_cp_BP_dotplot_10.pdf) GO dot plots.
+* [kmeans10_cp_BP_dotplot_10.pdf](results/removeZero/geneset/clusterbc/kmeans10_cp_BP_dotplot_10.pdf) for *pWER::FLS2-GFP* and [kmeans10_1stadd_cp_BP_dotplot_10.pdf](results/removeZero/geneset_1stadd/clusterbc/kmeans10_1stadd_cp_BP_dotplot_10.pdf) GO dot plots.
 
 ## 2. Amplicon sequencing analysis
 
