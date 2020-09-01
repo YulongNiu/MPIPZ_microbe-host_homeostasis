@@ -18,48 +18,48 @@ SPECIES='ath'
 
 cd ${REF_PATH}
 
-# ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~raw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# fq=($(ls ${CLEAN_PATH} | grep .fq.gz))
-# fqnames=($(echo "${fq[@]%%.*}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~raw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fq=($(ls ${CLEAN_PATH} | grep .fq.gz))
+fqnames=($(echo "${fq[@]%%.*}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
 
-# for i in ${fqnames[@]}; do
+for i in ${fqnames[@]}; do
 
-#     echo "===================================="
-#     echo "Kallisto using ${SPECIES} cDNA for ${i}."
-#     ${KALLISTO_PATH}/kallisto quant \
-#                     --genomebam \
-#                     --gtf ${REF_PATH}/Arabidopsis_thaliana.TAIR10.42.gtf.gz \
-#                     --chromosomes ${REF_PATH}/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.fai \
-#                     -t ${CORENUM} \
-#                     -i ${REF_PATH}/ath.kindex \
-#                     -o ${ALIGN_PATH}/${i}_${SPECIES}_kallisto \
-#                     --single -l 200 -s 20\
-#                     ${CLEAN_PATH}/${i}.fq.gz
+    echo "===================================="
+    echo "Kallisto using ${SPECIES} cDNA for ${i}."
+    ${KALLISTO_PATH}/kallisto quant \
+                    --genomebam \
+                    --gtf ${REF_PATH}/Arabidopsis_thaliana.TAIR10.42.gtf.gz \
+                    --chromosomes ${REF_PATH}/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.fai \
+                    -t ${CORENUM} \
+                    -i ${REF_PATH}/ath.kindex \
+                    -o ${ALIGN_PATH}/${i}_${SPECIES}_kallisto \
+                    --single -l 200 -s 20\
+                    ${CLEAN_PATH}/${i}.fq.gz
 
-#     ${MOVE_PATH} ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/pseudoalignments.bam \
-#                  ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/${i}_${SPECIES}_pseudoalignments.bam
+    ${MOVE_PATH} ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/pseudoalignments.bam \
+                 ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/${i}_${SPECIES}_pseudoalignments.bam
 
-#     ${MOVE_PATH} ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/pseudoalignments.bam.bai \
-#                  ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/${i}_${SPECIES}_pseudoalignments.bam.bai
+    ${MOVE_PATH} ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/pseudoalignments.bam.bai \
+                 ${ALIGN_PATH}/${i}_${SPECIES}_kallisto/${i}_${SPECIES}_pseudoalignments.bam.bai
 
-#     echo "HISAT2 using ${SPECIES} genome for ${i}."
-#     ${HISAT2_PATH}/hisat2 -p ${CORENUM} \
-#                   -x ${REF_PATH}/athht2index/genome \
-#                   -U ${CLEAN_PATH}/${i}.fq.gz \
-#                   -S ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.sam
+    echo "HISAT2 using ${SPECIES} genome for ${i}."
+    ${HISAT2_PATH}/hisat2 -p ${CORENUM} \
+                  -x ${REF_PATH}/athht2index/genome \
+                  -U ${CLEAN_PATH}/${i}.fq.gz \
+                  -S ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.sam
 
-#     ${SAMTOOL_PATH}/samtools sort \
-#                    -@ ${CORENUM} \
-#                    -o ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.bam \
-#                    ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.sam
+    ${SAMTOOL_PATH}/samtools sort \
+                   -@ ${CORENUM} \
+                   -o ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.bam \
+                   ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.sam
 
-#     ${SAMTOOL_PATH}/samtools index ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.bam
+    ${SAMTOOL_PATH}/samtools index ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.bam
 
-#     ${RM_PATH} ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.sam
-#     echo "====================================="
+    ${RM_PATH} ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.sam
+    echo "====================================="
 
-# done
-# ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+done
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~1stadd~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 fq=($(ls ${CLEAN_PATH} | grep .fq.gz))

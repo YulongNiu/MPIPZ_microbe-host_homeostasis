@@ -24,8 +24,13 @@ Raw Illumina RNA-Seq reads were pre-processed using fastp (v0.19.10) [1] with de
 
 Scripts include [script_trim.sh](RNA-Seq_scripts/script_trim.sh).
 
-### 1.3 
+### 1.3 Pseudo-alignment
 
+High quality reads were pseudo-aligned to TAIR 10 *Arabidopsis thaliana* transcriptome reference (Ensembl)[2] using kallisto (v0.46.1)[3]. 
+
+Scripts include [script_alignment.sh](RNA-Seq_scripts/script_alignment.sh).
+
+Results include [align_data](align_data) for *pWER::FLS2-GFP* and [align_data_1stadd](align_data_1stadd) for Col-0.
 
 ## 2. Amplicon sequencing analysis
 
@@ -33,6 +38,8 @@ Scripts include [script_trim.sh](RNA-Seq_scripts/script_trim.sh).
 
 1. Chen, S., Zhou, Y., Chen, Y. & Gu, J. fastp: an ultra-fast all-in-one FASTQ preprocessor. Bioinformatics 34, i884-i890, doi:10.1093/bioinformatics/bty560 (2018).
 
-2. 
+2. Yates, A. D. et al. Ensembl 2020. Nucleic Acids Res 48, D682-D688, doi:10.1093/nar/gkz966 (2020). 
+
+3. Bray, N. L., Pimentel, H., Melsted, P. & Pachter, L. Near-optimal probabilistic RNA-seq quantification. Nat Biotechnol 34, 525-527, doi:10.1038/nbt.3519 (2016).
 
 
