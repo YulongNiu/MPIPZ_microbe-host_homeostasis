@@ -9,11 +9,11 @@
     - [1.4 DEGs analysis](#14-degs-analysis)
     - [1.5 Clustering](#15-clustering)
     - [1.6 GO enrichment](#16-go-enrichment)
-- [2. 16S amplicon sequencing data]
-    - [2.1 General description]
-    - [2.2 Pre-procession]
-    - [2.3 alpha and beta diversities ]
-    - [2.4 Relative abundance (RA)]
+- [2. 16S amplicon sequencing data] (#2-16s-amplicon-sequencing-data)
+    - [2.1 General description](#21-general-description)
+    - [2.2 Pre-processing](#22-pre-processing)
+    - [2.3 alpha and beta diversities ](#23-alpha-and-beta-diversities)
+    - [2.4 Relative abundance (RA)](#24-relative-abundance-(RA))
 - [References](#references)
 <!-- content end -->
 
