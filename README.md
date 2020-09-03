@@ -101,7 +101,7 @@ Results:
 
 ### 2.1 General description
 
-*Arabidopsis thaliana* WT Col-0 and *pWER::FLS2-GFP* plants were germinated with the 5-member of 10-member SynCom in the presence or absence of 1 µM flg22 and incubated for 14 days before harvesting. Plants were inoculated with SynCom NS1 and S1 for experiment 1 (corresponding to **Fig 2a,d** and **Extended Data Fig. 5a,d**); SynCom NS3 and S3 for experiment 2 (corresponding to **Fig 2b,e** and **Extended Data Fig. 5b,e**); and SynCom NS4 and S2 for experiment 3 (corresponding to **Fig 2c,f and Extended Data Fig. 5c,f**). Detailed compositon of the SynCom can be found in supplementary Table S1.
+*Arabidopsis thaliana* WT Col-0 and *pWER::FLS2-GFP* plants were germinated with the 5-member or 10-member SynCom in the presence or absence of 1 µM flg22 and incubated for 14 days before harvesting. Plants were inoculated with SynCom NS1 and S1 for experiment 1 (corresponding to **Fig 2a,d** and **Extended Data Fig. 5a,d**); SynCom NS3 and S3 for experiment 2 (corresponding to **Fig 2b,e** and **Extended Data Fig. 5b,e**); and SynCom NS4 and S2 for experiment 3 (corresponding to **Fig 2c,f and Extended Data Fig. 5c,f**). Detailed compositon of the SynCom can be found in supplementary Table S1.
 
 ### 2.2 Pre-procession
 
