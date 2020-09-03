@@ -113,10 +113,13 @@ You will also find a file named as **library_ID_ref_seqs.fasta**, which contains
 
 Join forward and reverse barcode files by running the following command on the terminal. Change the name of the files involved accordingly. e.g.
 
-*$ python /YOURPATH/merge_fastaq_pipe.py
-*pwer_001_forward_barcodes.fastq.gz
-*pwer_001_reverse_barcodes.fastq.gz --out
-*pwer_001_barcodes.fastq.gz
+$ python /YOURPATH/merge_fastaq_pipe.py
+
+pwer_001_forward_barcodes.fastq.gz
+
+pwer_001_reverse_barcodes.fastq.gz --out
+
+pwer_001_barcodes.fastq.gz
 
 Scripts:
 
