@@ -107,7 +107,7 @@ Results:
 
 For each sequencing data set, you will find four different files named as 1) **library_ID_forward_reads.fastq.gz** ; 2) **library_ID_reverse_reads.fastq.gz** ; 3) **library_ID_forward_barcodes.fastq.gz** ; and 4)  
 **library_ID_reverse_barcodes.fastq.gz**. 
-e.g. **pwer001_forward_reads.fastz.gz**. 
+e.g. **pwer001_forward_reads.fastq.gz**. 
 
 You will also find a file named as **library_ID_ref_seqs.fasta**, which contains the reference 16S sequences (V5V7) of the individual strain used for each SynCom; and a mapping file named as **library_ID_mapping.txt**, which contains information of the barcode used for each sample. 
 
@@ -125,7 +125,7 @@ Scripts:
 
 * [merge_fastaq_pipe.py](16S_scripts_results/scripts/).
 
-After merging the barcode file, prepare your own config file named as library_ID_config.sh. e.g. **pwer_001_config.sh**
+After merging the barcode files, prepare your own config file named as library_ID_config.sh. e.g. **pwer_001_config.sh**
 
 Run the following scripts in the terminal. Change the name of the file accordingly.
 
