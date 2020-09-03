@@ -123,7 +123,7 @@ pwer_001_barcodes.fastq.gz
 
 Scripts:
 
-[merge_fastaq_pipe.py](16S_scripts_results/scripts/script_trim.sh).
+* [merge_fastaq_pipe.py](16S_scripts_results/scripts/script_trim.sh).
 
 After merging the barcode file, prepare your own config file named as library_ID_config.sh. e.g. **pwer_001_config.sh**
 
@@ -133,7 +133,7 @@ $ /YOURPATH/syncom.sh pwer_001_config.sh
 
 Scripts:
 
-[syncom.sh](16S_scripts_results/scripts/syncom.sh).
+* [syncom.sh](16S_scripts_results/scripts/syncom.sh).
 
 
 By running the above scripts, forward and reverse sequencing reads will be denoised and demultiplexed separately according to the barcode sequence using QIIME [13]. After quality-filtering, merging of paired-end reads, amplicon tags were then aligned to a reference set of sequences obtained from the whole-genome assemblies of every strain included in each experiment by using USEARCH (*uparse_ref* command) [14]
