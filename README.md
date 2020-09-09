@@ -95,7 +95,7 @@ Scripts:
 
 Results:
 
-* [kmeans10_cp_BP_dotplot_10.pdf](results/removeZero/geneset/clusterbc/kmeans10_cp_BP_dotplot_10.pdf) for *pWER::FLS2-GFP* and [kmeans10_1stadd_cp_BP_dotplot_10.pdf](results/removeZero/geneset_1stadd/clusterbc/kmeans10_1stadd_cp_BP_dotplot_10.pdf) GO dot plots.
+* [kmeans10_cp_BP_dotplot_10.pdf](results/removeZero/geneset/clusterbc/kmeans10_cp_BP_dotplot_10.pdf) for *pWER::FLS2-GFP* and [kmeans10_1stadd_cp_BP_dotplot_10.pdf](results/removeZero/geneset_1stadd/clusterbc/kmeans10_1stadd_cp_BP_dotplot_10.pdf) for Col-0 GO dot plots.
 
 ## 2. 16*S* amplicon sequencing data
 
