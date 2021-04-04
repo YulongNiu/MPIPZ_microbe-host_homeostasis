@@ -109,7 +109,7 @@ For each sequencing data set, you will find four different files named as 1) **l
 **library_ID_reverse_barcodes.fastq.gz**. 
 e.g. **pwer001_forward_reads.fastq.gz**. 
 
-You will also find a file named as **library_ID_ref_seqs.fasta**, which contains the reference 16S sequences (V5V7) of the individual strain used for each SynCom; and a mapping file named as **library_ID_mapping.txt**, which contains information of the barcode used for each sample. 
+You will also find a file named as **library_ID_ref_seqs.fasta**, which contains the reference 16S sequences (V5V7) of the individual strain used for each SynCom; and a mapping file named as **library_ID_mapping.txt**, which contains information of the barcode used for each sample. You can also find a fasta file containing the V5V7 region sequences of ATSPHERE in the script folder.
 
 Join forward and reverse barcode files by running the following command on the terminal. Change the name of the files involved accordingly. e.g.
 
