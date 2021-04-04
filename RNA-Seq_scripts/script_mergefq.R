@@ -71,7 +71,7 @@ stopImplicitCluster()
 
 ##~~~~~~~~~~~~~~~~~~~~~raw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## change to sample names
-fqraws <- dir(resFolder)
+fqraws <- dir(resFolder, pattern = 'fq.gz')
 fqnews <- c('Mock', 'Flg22', 'Flg22_SynCom33', 'Flg22_SynCom35') %>%
   rep(3) %>%
   paste0('_', rep(1:3, each = 4), '.fq.gz')

@@ -8,6 +8,7 @@ library('ComplexHeatmap')
 library('limma')
 library('DESeq2')
 library('RColorBrewer')
+library('magrittr')
 
 setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero')
 
@@ -234,9 +235,10 @@ for (i in 1:10) {
            )) %>%
     mutate(Conditions = Conditions %>% factor(levels = sampleN)) %>%
     mutate(Group = Group %>% factor(levels = c('Mock', 'Nonsupp', 'Supp'))) %>%
-    ggplot(aes(x = Group, y = ScaleCounts, fill = Conditions)) +
-    geom_boxplot(position = position_dodge2(preserve = 'single')) +
-    ## scale_fill_manual(values = c(rep(NA, 6), rep('#377eb8', 2), rep('#e41a1c', 2))) +
+    ggplot(aes(x = Conditions, y = ScaleCounts, fill = Conditions)) +
+    ## geom_boxplot(position = position_dodge2(preserve = 'single')) +
+    geom_boxplot(width = 0.45) +
+    geom_jitter(width=0.2, alpha=0.1, size = 1) +
     scale_fill_manual(values = c(rep(NA, 6), rep('#f16d6d', 2), rep('#21bdc3', 2))) +
     ylim(-2, 2) +
     ylab('Scaled counts') +
@@ -250,8 +252,8 @@ for (i in 1:10) {
           legend.title = element_text(size = 14),
           legend.position = 'none')
 
-  ggsave(paste0('boxplot_1stadd/kmeans10_1stadd_boxplot', i, '.pdf'), width = 20, height = 12)
-  ggsave(paste0('boxplot_1stadd/kmeans10_1stadd_boxplot', i, '.jpeg'), width = 20, height = 12)
+  ggsave(paste0('boxplot_1stadd/kmeans10_1stadd_boxplot', i, '.pdf'), width = 7, height = 7)
+  ggsave(paste0('boxplot_1stadd/kmeans10_1stadd_boxplot', i, '.jpeg'), width = 7, height = 7)
 }
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #######################################################################

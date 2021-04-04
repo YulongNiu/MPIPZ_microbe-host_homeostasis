@@ -3,7 +3,7 @@
 ## yulong.niu@hotmail.com
 
 ######################hierarchical clustering####################
-setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/')
+setwd('/extDisk1/RESEARCH/MPIPZ_KaWai_RNASeq/results/removeZero/')
 
 library('readr')
 library('magrittr')
